@@ -7,3 +7,4 @@ __pycache__
 *.bak
 *.csv
 !area_titles.csv
+.idea/
