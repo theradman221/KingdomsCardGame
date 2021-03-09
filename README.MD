@@ -1,3 +1,3 @@
 # KingomsCardGame
 This is the testing software for the Kingdom's card game.
-Derrick Homer
+Derrick Homer Derrick Homer
