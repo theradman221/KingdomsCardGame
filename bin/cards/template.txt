@@ -7,13 +7,14 @@
 "Unit" : UNIT TYPE,
 "Color" : COLOR from below,
 "Unit-Label" : NAME ON BOTTOM OF CARD,
-"Effects" : {
-"LevelUp" : { "selfHealthBuff" : 2, "selfAttackBuff" : 2, "SelfEffectApply" : "Urgency" },
-"Fringe" : {"option1" : {"selfHealthBuff" : 1, "TargetHealthBuff" : 1}, "Relationship" : "Or" ,  "Option2" : {"selfHealthBuff" : 1, "selfAttackBuffEndPhase" : 3}}
+"Effects" : { - If there are no effects remove this and the },
+EFFECT-TEMPLATE
 },
-"Attack" : 0,
-"Health" : 2
+"Attack" : INT,
+"Health" : INT
 }}
+
+If the card doesn't have attack or health just delete those.
 
 
 Color - use these so we have less chance of typos.
@@ -46,7 +47,7 @@ Effect-Names
 "Defense"
 "Defense"
 "Experienced"
-"Trigger"
+"Trigger" - If a card has this don't put it in yet, need to figure out exactly how one's gonna work.
 "Sneak"
 "Siege"
 "Poison"
@@ -57,6 +58,8 @@ Effect-Names
 
 
 Effect-Affect - these should just be copy pasted with any all caps replaced with real values
+
+
 Self
 "SelfHealthBuff" : INT - used if there is no end of turn or other condition on the effect, ones that end at the end of a turn will have EndTurn in the name
 "SelfAttackBuff" : INT 
@@ -80,6 +83,10 @@ End Phase Target
 "TargetAttackBuffEndPhase" : INT 
 "TargetEffectApplyEndPhase" : EFFECT-NAME
 "TargetEffectRemoveEndPhase" : EFFECT-NAME
+
+Special Effect-Affects - basically these are for effects that have affects with special requirements that just don't translate nicely to text
+EFFECT-NAME : "ExhaustTillNextRestPhase" - mainly for Argon the Telekentic
+"SiegeDamage" : INT - used with the siege effect
 
 ""
 
