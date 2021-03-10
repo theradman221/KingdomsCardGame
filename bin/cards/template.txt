@@ -29,13 +29,13 @@ If the card doesn't have attack or health just delete those.
 "Effects" :{
 	"EFFECT-NAME" : {EFFECT-AFFECT},
 	"EFFECT-NAME" : {EFFECT-AFFECT, EFFECT-AFFECT},
-	"EFFECT-NAME" : {"Option1" : {EFFECT-AFFECT}, "Relationship" : "Or", "Option2" : {EFFECT-AFFECT, EFFECT-AFFECT}}
+	"EFFECT-NAME" : {"Option1" : {EFFECT-AFFECT}, "Option2" : {EFFECT-AFFECT, EFFECT-AFFECT}}
 },
 
 Template for differing number / complexity of effects. Seperate each effect with ,'s. No comma if only 1 effect. This is to understand each line in the template above.
 EFFECT-NAME : {EFFECT-AFFECT} - single effect
 EFFECT-NAME : {EFFECT-AFFECT, EFFECT-AFFECT} - multiple effect-affects in one effect
-EFFECT-NAME : {"Option1" : {EFFECT-AFFECT}, "Relationship" : "Or", "Option2" : {EFFECT-AFFECT, EFFECT-AFFECT}} - Multiple possiblities for EffectAffects such as this or that, for each option start with "OptionNUMBER" :{EFFECT-AFFECT}
+EFFECT-NAME : {"Option1" : {EFFECT-AFFECT}, "Option2" : {EFFECT-AFFECT, EFFECT-AFFECT}} - Multiple possiblities for EffectAffects such as this or that, for each option start with "OptionNUMBER" :{EFFECT-AFFECT}
 
 
 Effect-Names - if a card has Restless with no effects except restless just do EFFECT-NAME : EFFECT-NAME
