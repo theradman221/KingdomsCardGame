@@ -14,21 +14,24 @@ from bin.pyfiles.cardclasses.Trice import Trice
 
 # Path to card's should bring up all folder's containing the different card types
 path_to_cards = "\..\..\cards"
-excluded_files = ["template.txt"]
+excluded_files = ["template.txt", "potato.txt"]
 print("Starting")
-# Go through every card's txt file and construct it into a real card object.
-for folder in os.listdir(os.getcwd() +path_to_cards):
-    if not excluded_files.__contains__(folder):
-        print(folder)
-        for file in os.listdir(os.getcwd() + path_to_cards + "\\"+ folder):
-            print(file)
-            # These are now the specific files each card lives in
+def load_all_cards():
+    # Go through every card's txt file and construct it into a real card object.
+    for folder in os.listdir(os.getcwd() +path_to_cards):
+        if not excluded_files.__contains__(folder):
+            print(folder)
+            for file in os.listdir(os.getcwd() + path_to_cards + "\\"+ folder):
+                print(file)
+                if not excluded_files.__contains__(file):
+                    convert_file_to_card(folder + "\\" + file)
+                # These are now the specific files each card lives in
 
 
    #with open(os.path.join(os.getcwd(), filename), 'r') as f: # open in readonly mode
 
       # do your stuff
-print("Done")
+    print("Done")
 
 # Takes in a file that contains a card and opens it and constructs a card object and returns it.
 def convert_file_to_card(file):
@@ -37,11 +40,21 @@ def convert_file_to_card(file):
     # These are the checks where we start making different types of cards
     if (dict["Unit"] == "Lord"):
         print("This card is a lord")
-        card = Lord()
-        card.set_name(dict["Name"])
+        card = create_lord(dict)
         print(card.get_name())
 
     print(dict)
     return
 
+def create_lord(dictionary):
+    # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
+    card = Lord()
+    dict_keys = dictionary.keys()
+    print(dict_keys)
+    if "Name" in dict_keys:
+        card.set_name(dictionary["Name"])
+    return card
+
+
+load_all_cards()
 convert_file_to_card("lord\AresLordOfBattle.txt")
