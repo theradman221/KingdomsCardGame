@@ -4,8 +4,10 @@ class Card:
         self.__name = ""
         self.__file_path = ""
         self.__cost = None
-        self.__rarity = None
+        self.__rarity = ""
         self.__is_exhausted = False
+        self.__template = ""
+        self.__image = ""
 
     def set_name(self, name):
         self.__name = name
@@ -36,5 +38,17 @@ class Card:
 
     def set_is_exhausted(self, exhausted):
         self.__is_exhausted = exhausted
+
+    def get_template(self):
+        return self.__template
+
+    def set_template(self, template):
+        self.__template = template
+
+    def get_image(self):
+        return self.__image
+
+    def set_image(self, image):
+        self.__image = image
 
 
