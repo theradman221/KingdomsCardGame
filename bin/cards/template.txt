@@ -9,7 +9,6 @@
 "Unit-Label" : NAME ON BOTTOM OF CARD,
 "Effects" : { - If there are no effects remove this and the },
 EFFECT-TEMPLATE
-
 },
 "Attack" : INT,
 "Health" : INT
@@ -39,7 +38,7 @@ EFFECT-NAME : {EFFECT-AFFECT, EFFECT-AFFECT} - multiple effect-affects in one ef
 EFFECT-NAME : {"Option1" : {EFFECT-AFFECT}, "Relationship" : "Or", "Option2" : {EFFECT-AFFECT, EFFECT-AFFECT}} - Multiple possiblities for EffectAffects such as this or that, for each option start with "OptionNUMBER" :{EFFECT-AFFECT}
 
 
-Effect-Names
+Effect-Names - if a card has Restless with no effects except restless just do EFFECT-NAME : EFFECT-NAME
 	"LevelUp"
 	"Fringe"
 	"Urgency"
@@ -57,6 +56,9 @@ Effect-Names
 	"Exhausted"
 	"LastStand"
 	"Restless"
+	"Trice" - only use for Trice cards
+	"Supply" - only use for Supply cards
+	"Scroll" - only use for Scrolls cards
 	"Speed2" - This one is used when an effect on a non trice / scroll card doesn't have another effect to activate it
 
 
