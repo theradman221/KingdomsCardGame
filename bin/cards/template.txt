@@ -1,11 +1,12 @@
 {"All" : {
 "Name" : "NAME",
-"Template" : "unitorange.jpg",
-"Img" : "imgpath.jpg",
-"Rarity" : "Super.png",
-"Cost" : 3,
-"Unit" : "Lord",
-"Unit - Label" : "Lord - Dwarf Warrior",
+"Template" : TEMPLATE from below,
+"Img" : "", - Leave this blank, when we get the images from Cameron we'll make them a directory and fill this in
+"Rarity" : TEMPLATE from below,
+"Cost" : INTEGER NUMBER, - Delete if not applicable
+"Unit" : UNIT TYPE,
+"Color" : COLOR from below,
+"Unit-Label" : NAME ON BOTTOM OF CARD,
 "Effects" : {
 "LevelUp" : { "selfHealthBuff" : 2, "selfAttackBuff" : 2, "SelfEffectApply" : "Urgency" },
 "Fringe" : {"option1" : {"selfHealthBuff" : 1, "TargetHealthBuff" : 1}, "Relationship" : "Or" ,  "Option2" : {"selfHealthBuff" : 1, "selfAttackBuffEndPhase" : 3}}
@@ -13,6 +14,75 @@
 "Attack" : 0,
 "Health" : 2
 }}
+
+
+Color - use these so we have less chance of typos.
+"Red"
+"Blue"
+"Yellow"
+"Colorless"
+
+
+Effect Template - effects is the name no matter how many there are
+"Effects" :{
+
+ 
+},
+
+Template for differing number / complexity of effects. Seperate each effect with ,'s - no comma if only 1 effect
+EFFECT-NAME : {EFFECT-AFFECT} - single effect
+EFFECT-NAME : {EFFECT-AFFECT, EFFECT-AFFECT} - multiple effect-affects in one effect
+EFFECT-NAME : {"Option1" : {EFFECT-AFFECT}, "Relationship" : "Or", "Option2" : {EFFECT-AFFECT,EFFECT-AFFECT}} - Multiple possiblities for EffectAffects such as this or that, for each option start with "OptionNUMBER" :{EFFECT-AFFECT}
+
+
+Effect-Names
+"LevelUp"
+"Fringe"
+"Urgency"
+"Ranged"
+"Reckless"
+"Guard"
+"Reflex"
+"Defense"
+"Defense"
+"Experienced"
+"Trigger"
+"Sneak"
+"Siege"
+"Poison"
+"Exhausted"
+"LastStand"
+"Restless"
+"Speed2" - This one is used when an effect on a non trice / scroll card doesn't have another effect to activate it
+
+
+Effect-Affect - these should just be copy pasted with any all caps replaced with real values
+Self
+"SelfHealthBuff" : INT - used if there is no end of turn or other condition on the effect, ones that end at the end of a turn will have EndTurn in the name
+"SelfAttackBuff" : INT 
+"SelfEffectApply" : EFFECT-NAME
+"SelfEffectRemove" : EFFECT-NAME
+
+Target
+"TargetHealthBuff" : INT - Used if there is a target mentioned, for debuffs just put -1 or whatever the number is
+"TargetAttackBuff" : INT 
+"TargetEffectApply" : EFFECT-NAME
+"TargetEffectRemove" : EFFECT-NAME
+
+End Phase Self
+"SelfHealthBuffEndPhase" : INT - used if there is no end of turn or other condition on the effect, ones that end at the end of a turn will have EndTurn in the name
+"SelfAttackBuffEndPhase" : INT 
+"SelfEffectApplyEndPhase" : EFFECT-NAME
+"SelfEffectRemoveEndPhase" : EFFECT-NAME
+
+End Phase Target
+"TargetHealthBuffEndPhase" : INT - Used if there is a target mentioned, for debuffs just put -1 or whatever the number is
+"TargetAttackBuffEndPhase" : INT 
+"TargetEffectApplyEndPhase" : EFFECT-NAME
+"TargetEffectRemoveEndPhase" : EFFECT-NAME
+
+""
+
 
 Template's please use these so that all files are uniform!
 Make sure any strings have "" around them
