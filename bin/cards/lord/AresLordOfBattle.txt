@@ -4,6 +4,7 @@
 "Img" : "imgpath.jpg",
 "Rarity" : "Super.png",
 "Cost" : 3,
+"Color" : "Yellow",
 "Unit" : "Lord",
 "Unit - Label" : "Lord - Dwarf Warrior",
 "Effects" : {
