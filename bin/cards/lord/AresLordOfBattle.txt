@@ -1,0 +1,15 @@
+{"All" : {
+"Name" : "Aires Lord of Battle",
+"Template" : "unitorange.jpg",
+"Img" : "imgpath.jpg",
+"Rarity" : "Super.png",
+"Cost" : 3,
+"Unit" : "Lord",
+"Unit - Label" : "Lord - Dwarf Warrior",
+"Effects" : {
+"LevelUp" : { "selfHealthBuff" : 2, "selfAttackBuff" : 2, "SelfEffectApply" : "Urgency" },
+"Fringe" : {"option1" : {"selfHealthBuff" : 1, "TargetHealthBuff" : 1}, "Relationship" : "Or" ,  "Option2" : {"selfHealthBuff" : 1, "selfAttackBuffEndPhase" : 3}}
+},
+"Attack" : 0,
+"Health" : 2
+}}
