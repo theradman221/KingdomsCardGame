@@ -38,14 +38,11 @@ from bin.pyfiles.cardclasses.NonAttackCard import NonAttackCard
 import bin.pyfiles.cardclasses.CardConstructor as cc
 print(os.getcwd())
 cc.load_all_cards(os.getcwd() + "\cards")
-for i in range(100):
-    print(i)
 
 deck = Deck("Testing")
 card = Card()
 deck.add_card(card)
 deck.save_deck()
-input("What is the name of mexico?")
 
 # Testing the nonAttackCards
 non_attack = NonAttackCard()

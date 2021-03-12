@@ -59,8 +59,34 @@ def create_lord(dictionary, file_path):
     card = Lord()
     # This file path will be useful since the Deck can use it to directly load card's
     card.set_file_path(file_path)
+    card.set_unit("Lord")
     dict_keys = dictionary.keys()
     print(dict_keys)
+    # Common things that all cards should have
     if "Name" in dict_keys:
         card.set_name(dictionary["Name"])
+    if "Template" in dict_keys:
+        card.set_template(dictionary["Template"])
+    if "Img" in dict_keys:
+        card.set_image(dictionary["Img"])
+    if "Rarity" in dict_keys:
+        card.set_rarity(dictionary["Rarity"])
+    if "Cost" in dict_keys:
+        card.set_cost(dictionary["Cost"])
+    if "Color" in dict_keys:
+        card.set_color(dictionary["Color"])
+    if "Unit-Label" in dict_keys:
+        card.set_label(dictionary["Unit-Label"])
+
+    # Effects, not all cards will have these
+
+
+    # Health and attack, only some cards will have these
+    if "Health" in dict_keys:
+        card.set_default_health(dictionary["Health"])
+    if "Attack" in dict_keys:
+        card.set_default_attack(dictionary["Attack"])
+    else:
+        card.set_default_attack(0)
+
     return card

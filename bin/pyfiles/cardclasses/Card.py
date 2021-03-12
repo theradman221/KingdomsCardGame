@@ -8,6 +8,9 @@ class Card:
         self.__is_exhausted = False
         self.__template = ""
         self.__image = ""
+        self.__label = ""
+        self.__unit = ""
+        self.__color = ""
 
     def set_name(self, name):
         self.__name = name
@@ -51,4 +54,21 @@ class Card:
     def set_image(self, image):
         self.__image = image
 
+    def get_label(self):
+        return self.__label
+
+    def set_label(self, label):
+        self.__label = label
+
+    def get_unit(self):
+        return self.__unit
+
+    def set_unit(self, unit):
+        self.__unit = unit
+
+    def get_color(self):
+        return self.__color
+
+    def set_color(self, color):
+        self.__color = color
 
