@@ -1,5 +1,6 @@
 import os
 import json as js
+from bin.pyfiles.Deck import Deck
 from bin.pyfiles.cardclasses.Lord import Lord
 from bin.pyfiles.cardclasses.Bastion import Bastion
 from bin.pyfiles.cardclasses.Hero import Hero
@@ -15,7 +16,7 @@ from bin.pyfiles.cardclasses.Trice import Trice
 # Path to card's should bring up all folder's containing the different card types
 
 excluded_files = ["template.txt", "potato.txt"]
-print("Starting")
+
 def load_all_cards(path):
     if path != "":
         print(path + " This is a path that is not blank")
@@ -23,6 +24,7 @@ def load_all_cards(path):
     else:
         path_to_cards = "\..\..\cards"
     # Go through every card's txt file and construct it into a real card object.
+    deck = Deck("Master")
     for folder in os.listdir(path_to_cards):
         if not excluded_files.__contains__(folder):
             print(folder)
@@ -30,28 +32,19 @@ def load_all_cards(path):
                 file_path = path_to_cards + "\\"+ folder + "\\" + file
                 print(file)
                 if not excluded_files.__contains__(file):
-                    convert_file_to_card(file_path)
-                # These are now the specific files each card lives in
-
-
-   #with open(os.path.join(os.getcwd(), filename), 'r') as f: # open in readonly mode
-
-      # do your stuff
-    print("Done")
+                    convert_file_to_card(file_path, deck)
+    return deck
 
 # Takes in a file that contains a card and opens it and constructs a card object and returns it.
-def convert_file_to_card(file):
+def convert_file_to_card(file, deck):
     file_path = file
     dict = js.load(open(file_path))
     dict = dict["All"]
     # These are the checks where we start making different types of cards
     if dict["Unit"] == "Lord":
-        print("This card is a lord")
         card = create_lord(dict, file_path)
-        print(card.get_name())
-        print(card.get_file_path())
+        deck.add_card(card)
 
-    print(dict)
     return
 
 def create_lord(dictionary, file_path):
@@ -79,6 +72,11 @@ def create_lord(dictionary, file_path):
         card.set_label(dictionary["Unit-Label"])
 
     # Effects, not all cards will have these
+    if "Effects" in dict_keys:
+        effect_dict = dictionary["Effects"]
+        for key in effect_dict:
+            card.add_effect(key) # NEED TO ADD EFFECT
+
 
 
     # Health and attack, only some cards will have these

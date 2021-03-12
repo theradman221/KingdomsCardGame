@@ -8,6 +8,12 @@ class Deck:
         self.__name = name
         self.__deck = []
 
+    def __str__(self):
+        msg = ""
+        for card in self.__deck:
+            msg += str(card)
+        return msg
+
     def add_card(self, card):
         self.__deck.append(card)
 

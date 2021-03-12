@@ -37,8 +37,8 @@ from bin.pyfiles.cardclasses.Card import Card
 from bin.pyfiles.cardclasses.NonAttackCard import NonAttackCard
 import bin.pyfiles.cardclasses.CardConstructor as cc
 print(os.getcwd())
-cc.load_all_cards(os.getcwd() + "\cards")
-
+master_deck = cc.load_all_cards(os.getcwd() + "\cards")
+print(master_deck)
 deck = Deck("Testing")
 card = Card()
 deck.add_card(card)
