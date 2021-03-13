@@ -8,10 +8,10 @@
 "Unit" : UNIT TYPE,
 "Color" : COLOR from below,
 "Unit-Label" : NAME ON BOTTOM OF CARD,
-"Activated-Effect" : {
+"Activated-Effect" : { - If there are no activated effects make Activated-Effect empty
 	EFFECT-NAME : {"Condition" : TRIGGER}
 },
-"Effects" : { - If there are no effects remove this and the },
+"Effects" : { - If there are no effects make Effects empty
 	EFFECT-NAME : {EFFECT-AFFECT}
 },
 "Attack" : INT,
