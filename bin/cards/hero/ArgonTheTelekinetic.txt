@@ -1,0 +1,25 @@
+{"All" : {
+"Name" : "Argon the Telekinetic",
+"Template" : "blueUnitTemplate.jpg",
+"Description" : "Entrance: Target unit becomes exhausted and does not become rested during it's\n
+		controllers next rest phase\n
+		Guard (While this card is rested you may redirect attacks to this card. While this card\n
+		is in your kingdom it cannot \"Guard\" units on the battlefield)\n
+		Reflex (Deals damage first in battle against units without reflex)"
+"Img" : "",
+"Rarity" : "Ultra.jpg",
+"Cost" : 3,
+"Unit" : "Hero",
+"Color" : "Blue",
+"Unit-Label" : "Hero - Elf Magi",
+"Activated-Effect" : {
+},
+"Effects" : {
+	"Entrance" : {"SelfEffectApply" : "ExhaustTillNextRestPhase"},
+	"Guard" : "Guard",
+	"Reflex" : "Reflex"
+},
+"Attack" : 2,
+"Health" : 3
+}
+}
