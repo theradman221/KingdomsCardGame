@@ -9,10 +9,10 @@
 "Color" : COLOR from below,
 "Unit-Label" : NAME ON BOTTOM OF CARD,
 "Activated-Effect" : {
-EFFECT-NAME : {"Condition" : TRIGGER}
+	EFFECT-NAME : {"Condition" : TRIGGER}
 },
 "Effects" : { - If there are no effects remove this and the },
-EFFECT-TEMPLATE
+	EFFECT-NAME : {EFFECT-AFFECT}
 },
 "Attack" : INT,
 "Health" : INT
@@ -20,12 +20,46 @@ EFFECT-TEMPLATE
 
 If the card doesn't have attack or health just delete those.
 
+**Template Templates**
+Template's please use these so that all files are uniform! Make sure any strings have "" around them.
+Bastion's
+	"bluebastiontemplate.jpg"
+	"redbastiontemplate.jpg"
+	"yellowbastiontemplate.jpg"
+
+Non-Units IE non attack card's
+	"bluenon-unittemplate.jpg"
+	"colorlessnon-unittemplate.jpg"
+	"rednon-unittemplate.jpg"
+	"yellownon-unittemplate.jpg"
+
+Terra a Terra-Land Mark = unique terra, basic is basic
+	"colorlessbasicterratemplate.jpg"
+	"colorlessuniqueterratemplate.jpg"
+	"reduniqueterratemplate.jpg"
+	"yellowuniqueterratemplate.jpg"
+	"blueuniqueterratemplate.jpg"
+
+Units - IE attack Cards
+	"blueUnitTemplate.jpg"
+	"colorlessUnitTemplate.jpg"
+	"redUnitTemplate.jpg"
+	"yellowUnitTemplate.jpg"
+
+
+**Rarity Templates**
+	"yellownon-unittemplate.jpg" - dark blue
+	"Rare.jpg" - light blue
+	"Super.jpg" - greenish
+	"Ultra.jpg" - Yellow
+	"Uncommon.jpg" - Red
+
 
 **Color Templates** - use these so we have less chance of typos.
-"Red"
-"Blue"
-"Yellow"
-"Colorless"
+	"Red"
+	"Blue"
+	"Yellow"
+	"Colorless"
 
 
 **Effect Templates** - effects is the name no matter how many there are
@@ -37,9 +71,9 @@ If the card doesn't have attack or health just delete those.
 },
 
 Template for differing number / complexity of effects. Seperate each effect with ,'s. No comma if only 1 effect. This is to understand each line in the template above.
-EFFECT-NAME : {EFFECT-AFFECT} - single effect
-EFFECT-NAME : {EFFECT-AFFECT, EFFECT-AFFECT} - multiple effect-affects in one effect
-EFFECT-NAME : {"Option1" : {EFFECT-AFFECT}, "Option2" : {EFFECT-AFFECT, EFFECT-AFFECT}} - Multiple possiblities for EffectAffects such as this or that, for each option start with "OptionNUMBER" :{EFFECT-AFFECT}
+	EFFECT-NAME : {EFFECT-AFFECT} - single effect
+	EFFECT-NAME : {EFFECT-AFFECT, EFFECT-AFFECT} - multiple effect-affects in one effect
+	EFFECT-NAME : {"Option1" : {EFFECT-AFFECT}, "Option2" : {EFFECT-AFFECT, EFFECT-AFFECT}} - Multiple possiblities for EffectAffects such as this or that, for each option start with "OptionNUMBER" :{EFFECT-AFFECT}
 
 
 Effect-Names - if a card has Restless with no effects except restless just do EFFECT-NAME : EFFECT-NAME
@@ -101,39 +135,3 @@ Effect-Affect - these should just be copy pasted with any all caps replaced with
 Special Effect-Affects - basically these are for effects that have affects with special requirements that just don't translate nicely to text
 	EFFECT-NAME : "ExhaustTillNextRestPhase" - mainly for Argon the Telekentic
 	"SiegeDamage" : INT - used with the siege effect
-
-
-**Template Templates**
-Template's please use these so that all files are uniform!
-Make sure any strings have "" around them
-Bastion's
-"bluebastiontemplate.jpg"
-"redbastiontemplate.jpg"
-"yellowbastiontemplate.jpg"
-
-Non-Units IE non attack card's
-"bluenon-unittemplate.jpg"
-"colorlessnon-unittemplate.jpg"
-"rednon-unittemplate.jpg"
-"yellownon-unittemplate.jpg"
-
-Terra a Terra-Land Mark = unique terra, basic is basic
-"colorlessbasicterratemplate.jpg"
-".jpg"
-"colorlessuniqueterratemplate.jpg"
-"reduniqueterratemplate.jpg"
-"yellowuniqueterratemplate.jpg"
-
-Units - IE attack Cards
-"blueUnitTemplate.jpg"
-"colorlessUnitTemplate.jpg"
-"redUnitTemplate.jpg"
-"yellowUnitTemplate.jpg"
-
-
-**Rarity Templates**
-"yellownon-unittemplate.jpg" - dark blue
-"Rare.jpg" - light blue
-"Super.jpg" - greenish
-"Ultra.jpg" - Yellow
-"Uncommon.jpg" - Red
