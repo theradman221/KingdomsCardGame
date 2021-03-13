@@ -1,6 +1,7 @@
 {"All" : {
 "Name" : "Ambush Archer",
 "Template" : "redUnitTemplate.jpg",
+"Description" : "Ranged(Can declare attacks while in the Kingdom. If this card declares an attack while it is in the kingdom it takes no battle damage, except when this cards attack target also has \"Ranged\"",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 4,
@@ -8,7 +9,7 @@
 "Color" : "Red",
 "Unit-Label" : "Pawn - Human Thief Archer",
 "Effects" : {
-	"Ranged" : {*If it attack while in kingdom it takes no damage, except if attacked by a ranged enemy*}
+	"Ranged" : {"Ranged"}
 },
 "Attack" : 5,
 "Health" : 3
