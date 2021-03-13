@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "And Another Axe!",
+"Template" : "yellownon-unittemplate.jpg",
+"Description" : "The unit supplied with this card gains Reckless (After this card attacks a unit, it can attack again immediately)"
+"Img" : "",
+"Rarity" : "Rare.jpg",
+"Cost" : 3,
+"Unit" : "Supply",
+"Color" : "Yellow",
+"Unit-Label" : "Supply"
+"Activated-Effect" : {
+},
+"Effects" : {
+	"Reckless" : "Reckless"
+}
+}
+}
