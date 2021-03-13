@@ -87,6 +87,11 @@ Effect-Affect - these should just be copy pasted with any all caps replaced with
 	"TargetEffectApplyEndPhase" : EFFECT-NAME
 	"TargetEffectRemoveEndPhase" : EFFECT-NAME
 
+	Destroy, these destroy either a target or potentially the card itself (self destroying is going to be sacrifice unless there is a differentiation later)
+	"TargetDestroy" : "Target"
+	"MultiDestroy" : "MultiTarget"
+	"Sacrifice" : "Self"
+
 
 Special Effect-Affects - basically these are for effects that have affects with special requirements that just don't translate nicely to text
 	EFFECT-NAME : "ExhaustTillNextRestPhase" - mainly for Argon the Telekentic
