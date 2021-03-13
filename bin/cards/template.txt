@@ -8,6 +8,9 @@
 "Unit" : UNIT TYPE,
 "Color" : COLOR from below,
 "Unit-Label" : NAME ON BOTTOM OF CARD,
+"Activated-Effect" : {
+EFFECT-NAME : {"Condition" : TRIGGER}
+},
 "Effects" : { - If there are no effects remove this and the },
 EFFECT-TEMPLATE
 },
