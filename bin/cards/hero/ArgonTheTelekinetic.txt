@@ -23,3 +23,6 @@
 "Health" : 3
 }
 }
+
+*Should 'Entrance' be an EffectName?*
+*For the entrance effect on this card, should "Entrance" and {} be removed?*
