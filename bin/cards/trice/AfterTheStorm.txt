@@ -1,0 +1,15 @@
+{"All" : {
+"Name" : "After the Storm",
+"Template" : "yellownon-unittemplate.jpg",
+"Img" : "",
+"Rarity" : "Rare.jpg",
+"Cost" : 1
+"Unit" : "Trice",
+"Color" : "Yellow",
+"Unit-Label" : "Trice",
+"Effects" : {"Trice" : {"TargetEffectApply" : "Destroy"}
+  }
+ }
+}
+
+*Nothing currently designed to handle this card*
