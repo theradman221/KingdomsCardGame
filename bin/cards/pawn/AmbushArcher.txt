@@ -1,0 +1,15 @@
+{"All" : {
+"Name" : "Ambush Archer",
+"Template" : "redUnitTemplate.jpg",
+"Img" : "",
+"Rarity" : "Uncommon.jpg",
+"Cost" : 4,
+"Unit" : "Pawn",
+"Color" : "Red",
+"Unit-Label" : "Pawn - Human Thief Archer",
+"Effects" : {
+	"Ranged" : {*If it attack while in kingdom it takes no damage, except if attacked by a ranged enemy*}
+},
+"Attack" : 5,
+"Health" : 3
+}}
