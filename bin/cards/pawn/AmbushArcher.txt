@@ -9,7 +9,7 @@
 "Color" : "Red",
 "Unit-Label" : "Pawn - Human Thief Archer",
 "Effects" : {
-	"Ranged" : {"Ranged"}
+	"Ranged" : "Ranged"
 },
 "Attack" : 5,
 "Health" : 3
