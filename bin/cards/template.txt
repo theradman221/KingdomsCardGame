@@ -1,6 +1,7 @@
 {"All" : {
 "Name" : "NAME",
 "Template" : TEMPLATE from below,
+"Description" : "PUT THE CARD'S DESCRIPTION IN HERE"
 "Img" : "", - Leave this blank, when we get the images from Cameron we'll make them a directory and fill this in
 "Rarity" : TEMPLATE from below,
 "Cost" : INTEGER NUMBER, - Delete if not applicable
