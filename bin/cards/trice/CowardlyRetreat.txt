@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "Cowardly Retreat",
+"Template" : "bluenon-unittemplate.jpg",
+"Description" : "Target one Lord or Hero, send it to their owners hand.",
+"Img" : "",
+"Rarity" : "Rare.jpg",
+"Cost" : 2,
+"Unit" : "Trice",
+"Color" : "Blue",
+"Unit-Label" : "Trice",
+"Effects" : {
+	"Trice" : {EFFECT-AFFECT}
+}
+}
+}
+
+*Not sure how to target a specific unit type*
