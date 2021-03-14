@@ -104,6 +104,10 @@ Effect-Names - if a card has Restless with no effects except restless just do EF
 
 
 Effect-Affect - these should just be copy pasted with any all caps replaced with real values
+	If you need to deal damage equal to something like the attack of a unit you control use 
+	"TargetDealDamageAttackEqToSelf" : "Self"
+	"TargetDealDamageAttackEqToTarget" : "Target"
+	
 	Self - used if there is no end of turn or other condition on the effect, ones that end at the end of a turn will have EndTurn in the name
 	"SelfHealthBuff" : INT
 	"SelfAttackBuff" : INT 
