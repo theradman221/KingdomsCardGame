@@ -7,9 +7,7 @@
 "Cost" : 3,
 "Unit" : "Supply",
 "Color" : "Yellow",
-"Unit-Label" : "Supply"
-"Activated-Effect" : {
-},
+"Unit-Label" : "Supply",
 "Effects" : {
 	"Reckless" : "Reckless"
 }

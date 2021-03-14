@@ -12,7 +12,7 @@
 "Color" : "Blue",
 "Unit-Label" : "Hero - Human Magi Warrior",
 "Activated-Effect" : {
-	"TriggeredEffect" : {"Condition" : {"DrawCardFromEffect" : "DrawCardFromEffect"}, "Effects" : {"Trigger" : {"SelfHealthBuff" : 1, "SelfAttackBuff" : 1}}
+	"TriggeredEffect" : {"Condition" : {"DrawCardFromEffect" : "DrawCardFromEffect"}, "Effects" : {"SelfHealthBuff" : 1, "SelfAttackBuff" : 1}}
 },
 "Effects" : {
 	"LevelUp" : {"SelfHealthBuff" : 2, "SelfAttackBuff" : 2}
@@ -21,4 +21,3 @@
 "Health" : 1
 }
 }
-

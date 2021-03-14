@@ -8,9 +8,10 @@
 "Unit" : "Lord",
 "Unit - Label" : "Lord - Dwarf Warrior",
 "Effects" : {
-"LevelUp" : { "selfHealthBuff" : 2, "selfAttackBuff" : 2, "SelfEffectApply" : "Urgency" },
-"Fringe" : {"option1" : {"selfHealthBuff" : 1, "TargetHealthBuff" : 1}, "Option2" : {"selfHealthBuff" : 1, "selfAttackBuffEndPhase" : 3}}
+	"LevelUp" : { "selfHealthBuff" : 2, "selfAttackBuff" : 2, "SelfEffectApply" : "Urgency" },
+	"Fringe" : {"option1" : {"selfHealthBuff" : 1, "TargetHealthBuff" : 1}, "Option2" : {"selfHealthBuff" : 1, "selfAttackBuffEndPhase" : 3}}
 },
 "Attack" : 0,
 "Health" : 2
-}}
+}
+}

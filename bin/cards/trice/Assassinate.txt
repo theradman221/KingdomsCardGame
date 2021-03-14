@@ -7,9 +7,7 @@
 "Cost" : 5,
 "Unit" : "Trice",
 "Color" : "Red",
-"Unit-Label" : "Trice"
-"Activated-Effect" : {
-},
+"Unit-Label" : "Trice",
 "Effects" : {
 	"Trice" : {"TargetDestroy" : "Target"}
 }

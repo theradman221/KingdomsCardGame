@@ -10,7 +10,7 @@
 "Color" : "Red",
 "Unit-Label" : "Terra - Land Mark",
 "Activated-Effect" : {
-	"TriggeredEffect" : {"Condition" : {"PayCost" : 1, "ExhaustTrigger" : "ExhaustTrigger"}, "Effects" : {"Sneak" : "TargetEffectApplyEndPhase"}}
+	"TriggeredEffect" : {"Condition" : {"PayCost" : 1, "ExhaustTrigger" : "ExhaustTrigger"}, "Effects" : {"TargetEffectApplyEndPhase" : "Sneak"}}
 }
 }
 }
