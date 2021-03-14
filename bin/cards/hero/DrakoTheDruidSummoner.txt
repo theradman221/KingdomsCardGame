@@ -1,0 +1,25 @@
+{"All" : {
+"Name" : "Drako the Druid Summoner",
+"Template" : "yellowUnitTemplate.jpg",
+"Description" : "Restless (This card does not become exhausted from attacking. Can\n
+		still only attack once)\n
+		Fringe, Cost 2: Pawn Kin 3 (Search your deck for a \"Pawn\" with a\n
+		cost of 3 or less and add it to your hand)",
+"Img" : "",
+"Rarity" : "Super.jpg",
+"Cost" : 2,
+"Unit" : "Hero",
+"Color" : "Yellow",
+"Unit-Label" : "Hero - Dwarf Druid Warrior",
+"Activated-Effect" : { - If there are no activated effects delete Activate Effects
+	"TriggeredEffect" : {"Condition" : {"Fringe" : {"PayCost" : 2}}, "Effects" : {*search deck for pawn with cost of 3 or less, add it to hand*}}
+},
+"Effects" : {
+	"Restless" : "Restless"
+},
+"Attack" : 2,
+"Health" : 2
+}
+}
+
+*Nothing implemented to handle cards Fringe effect*
