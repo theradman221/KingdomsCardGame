@@ -16,7 +16,8 @@
 },
 "Attack" : INT,
 "Health" : INT
-}}
+}
+}
 
 If the card doesn't have attack or health just delete those.
 
@@ -28,8 +29,8 @@ Bastion's
 	"yellowbastiontemplate.jpg"
 
 Non-Units IE non attack card's
-	"bluenon-unittemplate.jpg"
 	"colorlessnon-unittemplate.jpg"
+	"bluenon-unittemplate.jpg"
 	"rednon-unittemplate.jpg"
 	"yellownon-unittemplate.jpg"
 
@@ -41,14 +42,14 @@ Terra a Terra-Land Mark = unique terra, basic is basic
 	"blueuniqueterratemplate.jpg"
 
 Units - IE attack Cards
-	"blueUnitTemplate.jpg"
 	"colorlessUnitTemplate.jpg"
+	"blueUnitTemplate.jpg"
 	"redUnitTemplate.jpg"
 	"yellowUnitTemplate.jpg"
 
 
 **Rarity Templates**
-	"yellownon-unittemplate.jpg" - dark blue
+	"Common.jpg" - dark blue
 	"Rare.jpg" - light blue
 	"Super.jpg" - greenish
 	"Ultra.jpg" - Yellow
