@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "Red Riding Hood",
+"Template" : "redUnitTemplate.jpg",
+"Description" : "Urgency (This card doesn\'t require breifing)",
+"Img" : "",
+"Rarity" : "Rare.jpg",
+"Cost" : 3,
+"Unit" : "Hero",
+"Color" : "Red",
+"Unit-Label" : "Hero - Human Rogue",
+"Effects" : {
+	"Urgency" : "Urgency"
+},
+"Attack" : 4,
+"Health" : 3
+}
+}

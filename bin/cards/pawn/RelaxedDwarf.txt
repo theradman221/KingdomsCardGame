@@ -1,0 +1,18 @@
+{"All" : {
+"Name" : "Relaxed Dwarf",
+"Template" : "yellowUnitTemplate.jpg",
+"Description" : "\"Killer Instinct\" ",
+"Img" : "", 
+"Rarity" : "Common.jpg",
+"Cost" : 1,
+"Unit" : "Pawn",
+"Color" : "Yellow",
+"Unit-Label" : "Pawn - Dwarf Warrior",
+"Activated-Effect" : {
+},
+"Effects" : {
+},
+"Attack" : 0,
+"Health" : 3
+}
+}

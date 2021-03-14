@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "Pirate for Hire",
+"Template" : "colorlessUnitTemplate.jpg",
+"Description" : "Urgency (This card doesn't require briefing)",
+"Img" : "", 
+"Rarity" : "Rare.jpg",
+"Cost" : 3,
+"Unit" : "Pawn",
+"Color" : "Colorless",
+"Unit-Label" : "Pawn - Human Pirate",
+"Effects" : {
+	"Urgency" : "Urgency"
+},
+"Attack" : 3,
+"Health" : 2
+}
+}

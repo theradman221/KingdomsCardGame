@@ -1,0 +1,14 @@
+{"All" : {
+"Name" : "Goblinoid",
+"Template" : "redUnitTemplate.jpg",
+"Description" : "Resident outcasts of the forest",
+"Img" : "", 
+"Rarity" : "Common.jpg",
+"Cost" : 1,
+"Unit" : "Pawn",
+"Color" : "Red",
+"Unit-Label" : "Pawn - Rogue Goblin",
+"Attack" : 2,
+"Health" : 1
+}
+}

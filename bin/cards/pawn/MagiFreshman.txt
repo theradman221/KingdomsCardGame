@@ -1,0 +1,13 @@
+{"All" : {
+"Name" : "Magi Freshman",
+"Template" : "blueUnitTemplate.jpg",
+"Description" : "When you're on spring break and you get drafted... What? Not relatable?",
+"Img" : "", 
+"Rarity" : "Rare.jpg",
+"Cost" : 1,
+"Unit" : "Pawn",
+"Color" : "Blue",
+"Unit-Label" : "Pawn - Human Magi",
+"Attack" : 1,
+"Health" : 2
+}}
