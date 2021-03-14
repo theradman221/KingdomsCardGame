@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "Pyro Magi Warrior",
+"Template" : "blueUnitTemplate.jpg",
+"Description" : "Reflex (This card deals damage first in combat against units \n without reflex)",
+"Img" : "",
+"Rarity" : "Rare.jpg",
+"Cost" : 2,
+"Unit" : "Pawn",
+"Color" : "Blue",
+"Unit-Label" : "Pawn - Human Magi Warrior" ,
+"Effects" : { 
+"Reflex" : Reflex
+},
+
+"Attack" : 2,
+"Health" : 2
+}}
