@@ -11,8 +11,6 @@
 "Unit" : "Hero",
 "Color" : "Red",
 "Unit-Label" : "Hero - Human Rogue Archer",
-"Activated-Effect" : {
-},
 "Effects" : {
 	"Urgency" : "Urgency",
 	"Ranged" : "Ranged"
