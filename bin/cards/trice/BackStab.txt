@@ -9,12 +9,8 @@
 "Unit" : "Trice",
 "Color" : "Red",
 "Unit-Label" : "Trice",
-"Activated-Effect" : {
-},
 "Effects" : {
-	"Trice" : {"TargetTakeDamage" : 0 + attack of chosen target unit you control}
+	"Trice" : {"TargetDealDamageAttackEqToTarget" : "Target"}
 }
 }
 }
-
-*Nothing implemented to handle this card*
