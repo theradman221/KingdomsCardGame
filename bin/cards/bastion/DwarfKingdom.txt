@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "Dwarf Kingdom",
+"Template" : "yellowbastiontemplate.jpg",
+"Description" : "While you control both your royals on the battlefield, units you\n
+		control on the battlefield gain +1/+1",
+"Img" : "",
+"Rarity" : "Ultra.jpg",
+"Unit" : "Bastion",
+"Color" : "Yellow",
+"Unit-Label" : "Bastion",
+"Effects" : {
+	EFFECT-NAME : {EFFECT-AFFECT}
+},
+"Health" : 20
+}
+}
+#Not sure how to make the target health buff and target attack buff apply to all units under control.
