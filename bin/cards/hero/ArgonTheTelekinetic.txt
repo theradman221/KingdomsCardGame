@@ -12,8 +12,6 @@
 "Unit" : "Hero",
 "Color" : "Blue",
 "Unit-Label" : "Hero - Elf Magi",
-"Activated-Effect" : {
-},
 "Effects" : {
 	"Entrance" : {"SelfEffectApply" : "ExhaustTillNextRestPhase"},
 	"Guard" : "Guard",
@@ -23,6 +21,3 @@
 "Health" : 3
 }
 }
-
-*Should 'Entrance' be an EffectName?*
-*For the entrance effect on this card, should "Entrance" and {} be removed?*
