@@ -10,10 +10,10 @@
 "Color" : "Red",
 "Unit-Label" : "Terra - Land Mark",
 "Activated-Effect" : {
+	EFFECT-NAME : {"Condition" : {"PayCost"}, "Effects" : {"PayCost" : 1}},
+	EFFECT-NAME : {"Condition" : {"ExhaustTrigger"}, "Effect" : {"ExhaustTrigger"}}
 },
 "Effects" : {
-	"Cost" : 1,
-	"Exhausted" : "Exhausted",
 	"Sneak" : {"TargetEffectApplyEndPhase" : "Sneak"}
 }
 }
