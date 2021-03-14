@@ -9,7 +9,7 @@
 "Color" : COLOR from below,
 "Unit-Label" : NAME ON BOTTOM OF CARD,
 "Activated-Effect" : { - If there are no activated effects make Activated-Effect empty
-	EFFECT-NAME : {"Condition" : TRIGGER}
+	EFFECT-NAME : {"Condition" : {TRIGGER'S}, "Effects" : {"EFFECT-NAME" : EFFECT-AFFECT}}
 },
 "Effects" : { - If there are no effects make Effects empty
 	EFFECT-NAME : {EFFECT-AFFECT}
@@ -94,6 +94,7 @@ Effect-Names - if a card has Restless with no effects except restless just do EF
 	"Exhausted"
 	"LastStand"
 	"Restless"
+	"Entrance"
 	"Trice" - only use for Trice cards
 	"Supply" - only use for Supply cards
 	"Scroll" - only use for Scrolls cards
@@ -103,6 +104,10 @@ Effect-Names - if a card has Restless with no effects except restless just do EF
 
 
 Effect-Affect - these should just be copy pasted with any all caps replaced with real values
+	If you need to deal damage equal to something like the attack of a unit you control use 
+	"TargetDealDamageAttackEqToSelf" : "Self"
+	"TargetDealDamageAttackEqToTarget" : "Target"
+	
 	Self - used if there is no end of turn or other condition on the effect, ones that end at the end of a turn will have EndTurn in the name
 	"SelfHealthBuff" : INT
 	"SelfAttackBuff" : INT 
@@ -110,6 +115,8 @@ Effect-Affect - these should just be copy pasted with any all caps replaced with
 	"SelfEffectRemove" : EFFECT-NAME
 	
 	Target - Used if there is a target mentioned, for debuffs just put -1 or whatever the number is
+	"TargetHealthDamage" : INT - decreases the target's health by INT
+	"TargetAttackDamage" : INT - decreases the target's attack by INT
 	"TargetHealthBuff" : INT
 	"TargetAttackBuff" : INT 
 	"TargetEffectApply" : EFFECT-NAME
@@ -136,3 +143,10 @@ Effect-Affect - these should just be copy pasted with any all caps replaced with
 Special Effect-Affects - basically these are for effects that have affects with special requirements that just don't translate nicely to text
 	EFFECT-NAME : "ExhaustTillNextRestPhase" - mainly for Argon the Telekentic
 	"SiegeDamage" : INT - used with the siege effect
+
+
+Trigger's These are actions that must happen to the game, or the player as a whole before an effect can be activated
+	"OwnUnitDestroyed" : "OwnUnitDestroyed"
+	"DrawCardFromEffect" : "DrawCardFromEffect"
+	"PayCost" : INT - specify the cost to activate it
+	"ExhaustTrigger" : "ExhaustTrigger" - this trigger requires the card to be exhaustable.
