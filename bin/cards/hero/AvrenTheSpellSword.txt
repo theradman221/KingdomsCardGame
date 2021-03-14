@@ -12,7 +12,7 @@
 "Color" : "Blue",
 "Unit-Label" : "Hero - Human Magi Warrior",
 "Activated-Effect" : {
-	"Trigger" : {"Draw a card due to a card effect" : {"LevelUp" : {"SelfHealthBuff" : 1, "SelfAttackBuff" : 1}}}
+	"TriggeredEffect" : {"Condition" : {"DrawCardFromEffect" : "DrawCardFromEffect"}, "Effects" : {"Trigger" : {"SelfHealthBuff" : 1, "SelfAttackBuff" : 1}}
 },
 "Effects" : {
 	"LevelUp" : {"SelfHealthBuff" : 2, "SelfAttackBuff" : 2}
@@ -22,5 +22,3 @@
 }
 }
 
-*Check the validity of the Activated-Effect Trigger*
-*Suggested Trigger wording: When you draw due to a card effect, this card gains +1/+1*
