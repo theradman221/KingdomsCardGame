@@ -1,0 +1,23 @@
+{"All" : {
+"Name" : "Ashen The Red Cowl",
+"Template" : "redUnitTemplate.jpg",
+"Description" : "Urgency (This card doesn\'t require briefing)\n
+		Ranged (Can declare attacks while in the Kingdom. If this card declares an\n
+		attack while it is in the kingdom it takes no battle damage, except when this\n
+		cards attack target also has \"Ranged\")"
+"Img" : "",
+"Rarity" : "Ultra.jpg",
+"Cost" : 3,
+"Unit" : "Hero",
+"Color" : "Red",
+"Unit-Label" : "Hero - Human Rogue Archer",
+"Activated-Effect" : {
+},
+"Effects" : {
+	"Urgency" : "Urgency",
+	"Ranged" : "Ranged"
+},
+"Attack" : 3,
+"Health" : 2
+}
+}
