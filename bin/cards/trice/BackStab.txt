@@ -1,0 +1,20 @@
+{"All" : {
+"Name" : "BackStab",
+"Template" : "rednon-unittemplate.jpg",
+"Description" : "Deal damage to one target unit equal to the\n
+		Attack of one target unit you control"
+"Img" : "",
+"Rarity" : "Rare.jpg",
+"Cost" : 3,
+"Unit" : "Trice",
+"Color" : "Red",
+"Unit-Label" : "Trice",
+"Activated-Effect" : {
+},
+"Effects" : {
+	"Trice" : {"TargetTakeDamage" : 0 + attack of chosen target unit you control}
+}
+}
+}
+
+*Nothing implemented to handle this card*
