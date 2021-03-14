@@ -11,7 +11,7 @@
 "Color" : "Yellow",
 "Unit-Label" : "Pawn - Dwarf Warrior Squad",
 "Effects" : {
-	"SiegeDamage" : 2
+	"Siege" : {"SiegeDamage" : 2}
 },
 "Attack" : 1,
 "Health" : 2
