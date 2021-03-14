@@ -9,9 +9,8 @@
 "Unit" : "Trice",
 "Color" : "Yellow",
 "Unit-Label" : "Trice",
-"Effects" : {"Trice" : {"TargetDestroy" : "Target"}
-  }
- }
+"Activated-Effect" : {
+	"TriggeredEffect" : {"Condition" : {"OwnUnitDestroyed" : "OwnUnitDestroyed"}, "Effects" : {"TargetDestroy" : "Target"}}
 }
-
-*Nothing currently designed to handle this card*
+}
+}
