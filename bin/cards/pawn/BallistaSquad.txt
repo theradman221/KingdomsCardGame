@@ -1,0 +1,19 @@
+{"All" : {
+"Name" : "Ballista Squad",
+"Template" : "yellowUnitTemplate.jpg",
+"Description" : "Siege 2 (This card can declare a \"Siege\" attack instead of a normal attack.\n
+		\"Siege\" attacks deal damage equal to a cards \"Siege\" value, can be declared on\n
+		any target, and the \"Siege\" attacker takes no battle damage)",
+"Img" : "",
+"Rarity" : "Common.jpg",
+"Cost" : 2,
+"Unit" : "Pawn",
+"Color" : "Yellow",
+"Unit-Label" : "Pawn - Dwarf Warrior Squad",
+"Effects" : {
+	"SiegeDamage" : 2
+},
+"Attack" : 1,
+"Health" : 2
+}
+}
