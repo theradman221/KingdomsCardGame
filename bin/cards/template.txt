@@ -144,3 +144,5 @@ Special Effect-Affects - basically these are for effects that have affects with 
 Trigger's These are actions that must happen to the game, or the player as a whole before an effect can be activated
 "OwnUnitDestroyed" : "OwnUnitDestroyed"
 "DrawCardFromEffect" : "DrawCardFromEffect"
+"PayCost" : INT - specify the cost to activate it
+"ExhaustTrigger" : "ExhaustTrigger" - this trigger requires the card to be exhaustable.
