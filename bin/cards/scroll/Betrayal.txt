@@ -1,0 +1,22 @@
+{"All" : {
+"Name" : "Betrayal!",
+"Template" : "rednon-unittemplate.jpg",
+"Description" : "Target two enemy units, they become rested, move\n
+		to the battlefield and battle (units do not become \n
+		 exhausted from battling)"
+"Img" : "", 
+"Rarity" : "Rare.jpg",
+"Cost" : 3,
+"Unit" : "Scroll",
+"Color" : "Red",
+"Unit-Label" : "Scroll",
+
+"Effects" : { - If there are no effects make Effects empty
+	"Scroll" : {"TargetEffectApply" : "Rested", "TargetEffectApply" : "Rested"}
+},
+"Attack" : INT,
+"Health" : INT
+}
+}
+
+# No way to move cards to battlefield yet
