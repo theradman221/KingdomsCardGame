@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "Assassinate",
+"Template" : "rednon-unittemplate.jpg",
+"Description" : "Destroy target unit"
+"Img" : "",
+"Rarity" : "Super.jpg",
+"Cost" : 5,
+"Unit" : "Trice",
+"Color" : "Red",
+"Unit-Label" : "Trice"
+"Activated-Effect" : {
+},
+"Effects" : {
+	"Trice" : {"TargetDestroy" : "Target"}
+}
+}
+}
