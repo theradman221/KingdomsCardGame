@@ -1,0 +1,26 @@
+{"All" : {
+"Name" : "Avren the SpellSword",
+"Template" : "blueUnitTemplate.jpg",
+"Description" : "Level up: (When this card enters play and a copy of this card has\n
+		entered play under your control before it) Gains +2/+2\n
+		Trigger: When you draw from a card effect, this card\n
+		gains +1/+1"
+"Img" : "",
+"Rarity" : "Super.jpg",
+"Cost" : 2,
+"Unit" : "Hero",
+"Color" : "Blue",
+"Unit-Label" : "Hero - Human Magi Warrior",
+"Activated-Effect" : {
+	"Trigger" : {"Draw a card due to a card effect" : {"LevelUp" : {"SelfHealthBuff" : 1, "SelfAttackBuff" : 1}}}
+},
+"Effects" : {
+	"LevelUp" : {"SelfHealthBuff" : 2, "SelfAttackBuff" : 2}
+},
+"Attack" : 1,
+"Health" : 1
+}
+}
+
+*Check the validity of the Activated-Effect Trigger*
+*Suggested Trigger wording: When you draw due to a card effect, this card gains +1/+1*
