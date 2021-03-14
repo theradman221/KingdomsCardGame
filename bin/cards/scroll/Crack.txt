@@ -1,0 +1,19 @@
+{"All" : {
+"Name" : "Crack",
+"Template" : "bluenon-unittemplate.jpg",
+"Description" : "Each player sacrifices a unit",
+"Img" : "",
+"Rarity" : "Common.jpg",
+"Cost" : 3,
+"Unit" : "Scroll",
+"Color" : "Blue",
+"Unit-Label" : "Scroll",
+
+"Effects" : {
+	"Scroll" : {"Sacrifice" : "Self", "MultiDestroy" : "MultiTarget"}
+}
+
+}
+}
+
+#May need to add a way to force another player to choose which card to sacrifice.
