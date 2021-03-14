@@ -1,15 +1,15 @@
 {"All" : {
 "Name" : "NAME",
 "Template" : TEMPLATE from below,
-"Description" : "PUT THE CARD'S DESCRIPTION IN HERE"
+"Description" : "PUT THE CARD'S DESCRIPTION IN HERE",
 "Img" : "", - Leave this blank, when we get the images from Cameron we'll make them a directory and fill this in
 "Rarity" : TEMPLATE from below,
 "Cost" : INTEGER NUMBER, - Delete if not applicable
 "Unit" : UNIT TYPE,
 "Color" : COLOR from below,
 "Unit-Label" : NAME ON BOTTOM OF CARD,
-"Activated-Effect" : { - If there are no activated effects make Activated-Effect empty
-	EFFECT-NAME : {"Condition" : {TRIGGER'S}, "Effects" : {"EFFECT-NAME" : EFFECT-AFFECT}}
+"Activated-Effect" : { - If there are no activated effects delete Activate Effects
+	"TriggeredEffect" : {"Condition" : {TRIGGER'S}, "Effects" : {"EFFECT-NAME" : EFFECT-AFFECT}}
 },
 "Effects" : { - If there are no effects make Effects empty
 	EFFECT-NAME : {EFFECT-AFFECT}
@@ -87,7 +87,6 @@ Effect-Names - if a card has Restless with no effects except restless just do EF
 	"Reflex"
 	"Defense"
 	"Experienced"
-	"Trigger"
 	"Sneak"
 	"Siege"
 	"Poison"
