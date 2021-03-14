@@ -10,13 +10,9 @@
 "Color" : "Red",
 "Unit-Label" : "Terra - Land Mark",
 "Activated-Effect" : {
-	EFFECT-NAME : {"Condition" : {"PayCost"}, "Effects" : {"PayCost" : 1}},
-	EFFECT-NAME : {"Condition" : {"ExhaustTrigger"}, "Effect" : {"ExhaustTrigger"}}
-},
-"Effects" : {
-	"Sneak" : {"TargetEffectApplyEndPhase" : "Sneak"}
+	"TriggeredEffect" : {"Condition" : {"PayCost" : 1, "ExhaustTrigger" : "ExhaustTrigger"}, "Effects" : {"TargetEffectApplyEndPhase" : "Sneak"}}
 }
 }
 }
 
-*Nothing currently designed to handle the Cost effect*
+
