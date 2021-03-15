@@ -1,0 +1,22 @@
+{"All" : {
+"Name" : "Magi Apprentice",
+"Template" : "blueUnitTemplate.jpg",
+"Description" : "Ranged (Can declare attacks while in the Kingdom. If this card declares an \n attack while it is in the kingdom it takes not battle damage except when this \n cards attack target also has \"Ranged\"",
+"Img" : "",
+"Rarity" : "Uncommon.jpg",
+"Cost" : 2,
+"Unit" : "Pawn",
+"Color" : "Blue",
+"Unit-Label" : "Pawn - Human Magi",
+"Activated-Effect" : { - If there are no activated effects delete Activate Effects
+	"TriggeredEffect" : {"Condition" : {TRIGGER'S}, "Effects" : {"EFFECT-NAME" : EFFECT-AFFECT}}
+},
+"Effects" : { - If there are no effects make Effects empty
+	"Ranged" : "Ranged"
+	"Entrance" : {"DrawCardFromEffect" : "DrawCarFromEffect"}
+},
+"Attack" : INT,
+"Health" : INT
+}
+}
+#may need logan or wyatt to look at they way I did the effects on this one
