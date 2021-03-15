@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Dwarven Scholar",
 "Template" : "yellowUnitTemplate.jpg",
-"Description" : "Exhause: +1 Power",
+"Description" : "Exhaust: +1 Power",
 "Img" : "",
 "Rarity" : "Common.jpg",
 "Cost" : 2,

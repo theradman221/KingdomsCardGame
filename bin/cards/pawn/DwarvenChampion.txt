@@ -1,9 +1,7 @@
 {"All" : {
 "Name" : "Dwarven Champion",
 "Template" : "yellowUnitTemplate.jpg",
-"Description" : "Restless (This card does not become exhauseted from\n 
-		attacking. Can still only attack once)\n 
-		\"It looks this good to be this good\"",
+"Description" : "Restless (This card does not become exhauseted from\n attacking. Can still only attack once)\n \"It looks this good to be this good\"",
 "Img" : "", 
 "Rarity" : "Uncommon.jpg",
 "Cost" : 4,

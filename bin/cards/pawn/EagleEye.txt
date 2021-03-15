@@ -1,10 +1,7 @@
 {"All" : {
 "Name" : "Eagle Eye",
 "Template" : "blueUnitTemplate.jpg",
-"Description" : "Reflex (Deals damage first in battle against units without reflex)\n
-		Hard Trigger, Cost 1: After a player studies (View the top card of\n
-		either of their decks and place it on the top or on the bottom of that deck)\n
-		play this card and draw 1",
+"Description" : "Reflex (Deals damage first in battle against units without reflex)\n Hard Trigger, Cost 1: After a player studies (View the top card of\n either of their decks and place it on the top or on the bottom of that deck)\n play this card and draw 1",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 2,
