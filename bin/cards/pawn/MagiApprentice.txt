@@ -12,7 +12,7 @@
 	"TriggeredEffect" : {"Condition" : {TRIGGER'S}, "Effects" : {"EFFECT-NAME" : EFFECT-AFFECT}}
 },
 "Effects" : { - If there are no effects make Effects empty
-	"Ranged" : "Ranged"
+	"Ranged" : "Ranged",
 	"Entrance" : {"DrawCardFromEffect" : "DrawCarFromEffect"}
 },
 "Attack" : INT,

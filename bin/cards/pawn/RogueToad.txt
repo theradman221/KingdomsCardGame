@@ -1,0 +1,18 @@
+{"All" : {
+"Name" : "Rogue Toad",
+"Template" : "redUnitTemplate.jpg",
+"Description" : "Poison (Any amount of damage this card deals to a unit is enough to \n destroy it. After this card deals damage for the first time it loses poison)",
+"Img" : "",
+"Rarity" : "Uncommon.jpg",
+"Cost" : 1,
+"Unit" : "Pawn",
+"Color" : "Red",
+"Unit-Label" : "Pawn - Rogue Beast",
+
+"Effects" : {
+	"Poison" : "Poison"
+},
+"Attack" : 1,
+"Health" : 1
+}
+}

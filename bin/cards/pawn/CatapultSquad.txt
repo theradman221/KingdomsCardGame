@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "Catapult Squad",
+"Template" : "yellowUnitTemplate.jpg",
+"Description" : "Siege 4 (This card can declare a \"siege\" attack instead of a normal attack.\n \"Siege\" attacks deal damage equal to a cards \"Siege\" Value, can be declared\n on any target, and the \"Siege\" attacker takes no battle damage)",
+"Img" : "", 
+"Rarity" : "Rare.jpg",
+"Cost" : 4,
+"Unit" : "Pawn"
+"Color" : "Yellow",
+"Unit-Label" : "Pawn - Dwarf Warrior Squad",
+"Effects" : { 
+	"Siege" : {"SiegeDamage" : 4}
+},
+"Attack" : 2,
+"Health" : 4
+}
+}
