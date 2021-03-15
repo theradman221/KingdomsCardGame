@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "Forged Exile Documents",
+"Template" : "rednon-unittemplate.jpg",
+"Description" : "Target one non royal unit and exile it",
+"Img" : "",
+"Rarity" : "Super.jpg",
+"Cost" : 4,
+"Unit" : "Scroll",
+"Color" : "Red",
+"Unit-Label" : "Scroll",
+"Effects" : {
+	"Scroll" : {"TargetDestroy" : "Target"}
+}
+}
+}
+
+*Is exile the same as destory?*
