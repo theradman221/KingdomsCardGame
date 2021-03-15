@@ -1,0 +1,21 @@
+{"All" : {
+"Name" : "Elder Cleric",
+"Template" : "blueUnitTemplate.jpg",
+"Description" : "Guard (While this cad is rested you may redirect attacks to this \n
+			card. While this card is in the kingdom it cannot \"Guard\" units on \n
+			the battlefield \n
+			\" to be healthy and look this good for 120? Not bad\" ",
+"Img" : "",
+"Rarity" : "Uncommon.jpg",
+"Cost" : 5,
+"Unit" : "Pawn",
+"Color" : "Blue",
+"Unit-Label" : "Pawn - Human Magi",
+
+"Effects" : {
+	"Guard" : "Guard"
+},
+"Attack" : 4,
+"Health" : 6
+}
+}
