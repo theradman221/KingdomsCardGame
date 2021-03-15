@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Elder Cleric",
 "Template" : "blueUnitTemplate.jpg",
-"Description" : "Guard (While this cad is rested you may redirect attacks to this \ncard. While this card is in the kingdom it cannot \"Guard\" units on \nthe battlefield \n\" to be healthy and look this good for 120? Not bad\" ",
+"Description" : "Guard (While this card is rested you may redirect attacks to this \ncard. While this card is in the kingdom it cannot \"Guard\" units on \nthe battlefield \n\"To be healthy and look this good for 120? Not bad\" ",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 5,
