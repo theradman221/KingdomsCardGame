@@ -22,7 +22,7 @@ class Deck:
 
     def draw_card(self):
         # By default draws off of the top, or 0 position of the deck
-        if (len(self.__deck) > 0):
+        if len(self.__deck) > 0:
             return self.__deck.pop(0)
         else:
             return None

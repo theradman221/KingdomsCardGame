@@ -20,6 +20,7 @@
 }
 
 If the card doesn't have attack or health just delete those.
+For the terra landmark unit type put "TerraLandmark"
 
 **Template Templates**
 Template's please use these so that all files are uniform! Make sure any strings have "" around them.

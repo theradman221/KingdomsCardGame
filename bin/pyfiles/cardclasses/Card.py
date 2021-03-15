@@ -12,6 +12,7 @@ class Card:
         self.__unit = ""
         self.__color = ""
         self.__effects = []
+        self.__activated_effects = []
 
     def __str__(self):
         return self.__name
@@ -76,7 +77,16 @@ class Card:
     def set_color(self, color):
         self.__color = color
 
+    def get_effects(self):
+        return self.__effects
+
     def add_effect(self, effect):
         self.__effects.append(effect)
+
+    def get_activated_effects(self):
+        return self.__activated_effects
+
+    def add_activated_effect(self, effect):
+        self.__activated_effects.append(effect)
 
 

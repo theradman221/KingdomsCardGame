@@ -1,12 +1,10 @@
 {"All" : {
 "Name" : "Back Alleys",
 "Template" : "reduniqueterratemplate.jpg",
-"Description" : "Cost 1 and Exhaust: Target one unit. That target gains\n
-		Sneak (If this card declares an attack it takes no battle damage until\n
-		the end of the attack phase) until the end phase"
+"Description" : "Cost 1 and Exhaust: Target one unit. That target gains\nSneak (If this card declares an attack it takes no battle damage until\nthe end of the attack phase) until the end phase",
 "Img" : "",
 "Rarity" : "Super.jpg",
-"Unit" : "Terra",
+"Unit" : "TerraLandmark",
 "Color" : "Red",
 "Unit-Label" : "Terra - Land Mark",
 "Activated-Effect" : {
