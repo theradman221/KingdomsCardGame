@@ -142,7 +142,7 @@ class Bastion(NonAttackCard):
     def add_activated_effect(self, effect):
         self.__activated_effects.append(effect)
 
-    
+
     def get_description(self):
         return self.__description
 
