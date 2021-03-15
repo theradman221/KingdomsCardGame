@@ -1,0 +1,26 @@
+{"All" : {
+"Name" : "Eagle Eye",
+"Template" : "blueUnitTemplate.jpg",
+"Description" : "Reflex (Deals damage first in battle against units without reflex)\n
+		Hard Trigger, Cost 1: After a player studies (View the top card of\n
+		either of their decks and place it on the top or on the bottom of that deck)\n
+		play this card and draw 1",
+"Img" : "",
+"Rarity" : "Uncommon.jpg",
+"Cost" : 2,
+"Unit" : "Pawn",
+"Color" : "Blue",
+"Unit-Label" : "Pawn - Bird",
+"Activated-Effect" : {
+	"TriggeredEffect" : {"Condition" : {"PayCost" : 1}, "Effects" : {"EFFECT-NAME" : EFFECT-AFFECT}}
+},
+"Effects" : {
+	"Reflex" : "Reflex"
+},
+"Attack" : 2,
+"Health" : 1
+}
+}
+
+*Nothing implemented to have player study or draw cards*
+*Nothing implemented for Firm, Hard, or Strict triggers*
