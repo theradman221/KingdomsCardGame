@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "Little Thief",
+"Template" : "redUnitTemplate.jpg",
+"Description" : "Sneak (If this card declares an attack it takes no battle damage \n until the end of the attack phase)",
+"Img" : "", 
+"Rarity" : "Common.jpg",
+"Cost" : 2,
+"Unit" : "Pawn",
+"Color" : "Red",
+"Unit-Label" : "Pawn - Human Thief",
+"Effects" : {
+	"Sneak" : "Sneak"
+},
+"Attack" : 2,
+"Health" : 2
+}
+}
