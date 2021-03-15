@@ -1,9 +1,7 @@
 {"All" : {
 "Name" : "Ambush Archer",
 "Template" : "redUnitTemplate.jpg",
-"Description" : "Ranged(Can declare attacks while in the Kingdom. If this card declares\n
-		an attack while it is in the kingdom it takes no battle damage, except\n
-		when this cards attack target also has \"Ranged\")",
+"Description" : "Ranged(Can declare attacks while in the Kingdom. If this card declares\n an attack while it is in the kingdom it takes no battle damage, except\n when this cards attack target also has \"Ranged\")",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 4,
