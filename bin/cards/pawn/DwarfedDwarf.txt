@@ -1,0 +1,21 @@
+{"All" : {
+"Name" : "Dwarfed Dwarf",
+"Template" : "yellowUnitTemplate.jpg",
+"Description" : "Entrance: This card gains +1/+0 (Max 3) for each\n
+		other unit you control that shares a unit type with\n
+		it",
+"Img" : "",
+"Rarity" : "Uncommon.jpg",
+"Cost" : 2,
+"Unit" : "Pawn",
+"Color" : "Yellow",
+"Unit-Label" : "Pawn - Dwarf Warrior",
+"Effects" : {
+	"Entrance" : {"SelfHealthBuff" : 1 - for each pawn unit in players control, up to 3}
+},
+"Attack" : 1,
+"Health" : 2
+}
+}
+
+*Not sure how to apply it's effect completely*
