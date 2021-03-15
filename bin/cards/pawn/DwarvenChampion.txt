@@ -5,11 +5,9 @@
 "Img" : "", 
 "Rarity" : "Uncommon.jpg",
 "Cost" : 4,
-"Unit" : "Pawn,
+"Unit" : "Pawn",
 "Color" : "Yellow",
 "Unit-Label" : "Pawn - Dwarf Warrior",
-
-},
 "Effects" : {
 	"Restless" : "Restless"
 },

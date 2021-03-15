@@ -23,6 +23,7 @@ class Lord(AttackCard):
         self.__default_attack = None
         self.__current_health = None
         self.__current_attack = None
+        # ADD IN THE ROYAL
 
     def __str__(self):
         return self.__name

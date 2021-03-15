@@ -8,15 +8,11 @@
 "Unit" : "Pawn",
 "Color" : "Blue",
 "Unit-Label" : "Pawn - Human Magi",
-"Activated-Effect" : { - If there are no activated effects delete Activate Effects
-	"TriggeredEffect" : {"Condition" : {TRIGGER'S}, "Effects" : {"EFFECT-NAME" : EFFECT-AFFECT}}
-},
-"Effects" : { - If there are no effects make Effects empty
+"Effects" : {
 	"Ranged" : "Ranged",
-	"Entrance" : {"DrawCardFromEffect" : "DrawCarFromEffect"}
+	"Entrance" : {"SelfDrawCard" : 1}
 },
-"Attack" : INT,
-"Health" : INT
+"Attack" : 1,
+"Health" : 2
 }
 }
-#may need logan or wyatt to look at they way I did the effects on this one

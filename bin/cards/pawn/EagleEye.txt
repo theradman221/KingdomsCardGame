@@ -9,7 +9,7 @@
 "Color" : "Blue",
 "Unit-Label" : "Pawn - Bird",
 "Activated-Effect" : {
-	"TriggeredEffect" : {"Condition" : {"PayCost" : 1}, "Effects" : {"EFFECT-NAME" : EFFECT-AFFECT}}
+	"TriggeredEffectHard" : {"Condition" : {"PayCost" : 1, "PlayerHasStudied" : "PlayerHasStudied"}, "Effects" : {"SelfMoveTo" : "Targeter", "SelfDrawCard" : 1}}
 },
 "Effects" : {
 	"Reflex" : "Reflex"
@@ -18,6 +18,3 @@
 "Health" : 1
 }
 }
-
-*Nothing implemented to have player study or draw cards*
-*Nothing implemented for Firm, Hard, or Strict triggers*

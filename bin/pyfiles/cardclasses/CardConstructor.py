@@ -15,23 +15,20 @@ from bin.pyfiles.cardclasses.Trice import Trice
 
 # Path to card's should bring up all folder's containing the different card types
 
-excluded_files = ["template.txt", "potato.txt", "effects.txt", "bastion", "hero", "pawn", "relic", "scroll", "supply", "token", "trice"]
+excluded_files = ["template.txt", "potato.txt", "effects.txt", "bastion", "hero", "scroll", "supply", "token", "trice"]
 
 def load_all_cards(path):
     if path != "":
-        print(path + " This is a path that is not blank")
         path_to_cards = path
     else:
         path_to_cards = "\..\..\cards"
     # Go through every card's txt file and construct it into a real card object.
     deck = Deck("Master")
     for folder in os.listdir(path_to_cards):
-        print(folder)
         if not excluded_files.__contains__(folder):
-            print(folder)
             for file in os.listdir(path_to_cards + "\\"+ folder):
-                file_path = path_to_cards + "\\"+ folder + "\\" + file
                 print(file)
+                file_path = path_to_cards + "\\"+ folder + "\\" + file
                 if not excluded_files.__contains__(file):
                     convert_file_to_card(file_path, deck)
     return deck
@@ -84,7 +81,6 @@ def create_bastion(dictionary, file_path):
     card.set_file_path(file_path)
     dict_keys = dictionary.keys()
     add_universal_attributes(dictionary,dict_keys,card)
-    add_attack_card_attributes(dictionary,dict_keys,card)
     return card
 
 def create_hero(dictionary, file_path):
@@ -106,7 +102,6 @@ def create_relic(dictionary, file_path):
     card.set_file_path(file_path)
     dict_keys = dictionary.keys()
     add_universal_attributes(dictionary,dict_keys,card)
-    add_attack_card_attributes(dictionary,dict_keys,card)
     return card
 
 def create_scroll(dictionary, file_path):
@@ -117,7 +112,6 @@ def create_scroll(dictionary, file_path):
     card.set_file_path(file_path)
     dict_keys = dictionary.keys()
     add_universal_attributes(dictionary,dict_keys,card)
-    add_attack_card_attributes(dictionary,dict_keys,card)
     return card
 
 def create_supply(dictionary, file_path):
@@ -128,7 +122,6 @@ def create_supply(dictionary, file_path):
     card.set_file_path(file_path)
     dict_keys = dictionary.keys()
     add_universal_attributes(dictionary,dict_keys,card)
-    add_attack_card_attributes(dictionary,dict_keys,card)
     return card
 
 def create_token(dictionary, file_path):
@@ -150,7 +143,6 @@ def create_trice(dictionary, file_path):
     card.set_file_path(file_path)
     dict_keys = dictionary.keys()
     add_universal_attributes(dictionary,dict_keys,card)
-    add_attack_card_attributes(dictionary,dict_keys,card)
     return card
 
 def create_lord(dictionary, file_path):
@@ -224,13 +216,9 @@ def add_universal_attributes(dictionary, dict_keys, card):
         card.set_label(dictionary["Unit-Label"])
     if "Effects" in dict_keys:
         effect_dict = dictionary["Effects"]
-        print("These are all the effects of the card " + str(effect_dict))
-        for key in effect_dict:
-            print(effect_dict[key])
         card.add_effect(effect_dict)
 
     if "Activated-Effect" in dict_keys:
         activated_dict = dictionary["Activated-Effect"]
-        print(activated_dict)
         card.add_activated_effect(activated_dict)
     return card

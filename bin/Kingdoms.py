@@ -38,7 +38,6 @@ from bin.pyfiles.cardclasses.NonAttackCard import NonAttackCard
 import bin.pyfiles.cardclasses.CardConstructor as cc
 print(os.getcwd())
 master_deck = cc.load_all_cards(os.getcwd() + "\cards")
-print(master_deck)
 card2 = master_deck.draw_card()
 while card2 != None:
     print("Details about " + str(card2))

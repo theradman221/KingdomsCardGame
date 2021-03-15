@@ -1,16 +1,15 @@
 {"All" : {
 "Name" : "Defile",
 "Template" : "colorlessnon-unittemplate.jpg",
-"Description" : "Exhaust and sacrifice: Targe a relic. Destroy that\n
-		target and negate its effects",
+"Description" : "Exhaust and sacrifice: Targe a relic. Destroy that\ntarget and negate its effects",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 2,
 "Unit" : "Relic",
 "Color" : "Colorless",
 "Unit-Label" : "Relic",
-"Activated-Effect" : { - If there are no activated effects delete Activate Effects
-	"TriggeredEffect" : {"Condition" : {"ExhaustTrigger" : "ExhaustTrigger", "Sacrifice" : "Self"}, "Effects" : {"TargetDestroy" : "Target"}}
+"Activated-Effect" : {
+	"TriggeredEffect" : {"Condition" : {"ExhaustTrigger" : "ExhaustTrigger", "Sacrifice" : "Self"}, "Effects" : {"TargetDestroy" : "Target", "NegateCurrentEffectsTarget" : "NegateCurrentEffectsTarget"}}
 }
 }
 }

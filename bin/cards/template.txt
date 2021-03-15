@@ -143,12 +143,38 @@ Effect-Affect - these should just be copy pasted with any all caps replaced with
 Special Effect-Affects - basically these are for effects that have affects with special requirements that just don't translate nicely to text
 	EFFECT-NAME : "ExhaustTillNextRestPhase" - mainly for Argon the Telekentic
 	"SiegeDamage" : INT - used with the siege effect
+	EFFECT-NAME : {"Condition" : "ForEachUnitControlledSharesType", "SelfAttackBuff" : 1, "LimitMax" : 3} - for dwarfed dwarf
 
 
 Trigger's These are actions that must happen to the game, or the player as a whole before an effect can be activated
+	IF an activated effect has a modifier like Hard, Strict, or Firm you use
+	"TriggeredEffectHard" or "TriggeredEffectStrict" or "TriggeredEffectFirm"
 	"OwnUnitDestroyed" : "OwnUnitDestroyed"
 	"DrawCardFromEffect" : "DrawCardFromEffect"
 	"PayCost" : INT - specify the cost to activate it
 	"ExhaustTrigger" : "ExhaustTrigger" - this trigger requires the card to be exhaustable.
 	"TricePlayed" : "TricePlayed"
 	"ScrollPlayed" : "ScrollPlayed"
+	"AddPower" : INT
+	"PlayerHasStudied" : "PlayerHasStudied" - condition where the player must have studied
+	"SelfMoveTo" : TARGETZONE - effect where a card is moved to a zone
+	"TargetMoveTo" : TARGETZONE - moves a selected target to a zone
+	"MoveAllFriendly" : TARGETZONE - moves all friendly units to a zone
+	"MoveAllEnemy" : TARGETZONE - moves all enemy units to a zone
+	"SelfDrawCard" : INT - the player draws INT many cards
+	"SelfStudyTargetDeck" : INT - Allows the player to attempt to study a deck
+	"NegateCurrentEffectsTarget" : "NegateCurrentEffectsTarget" - negates the effects of a target card
+
+TargetZones - zones that cards can be sent to
+	"Targeter" - checks conditions for if a unit could go to multiple zones
+	"BattleField"
+	"Kingdom" - this is the whole kindgom, under normal circumstances don't send things here
+	"UnitZone"
+	"RelicZone"
+	"TerraZone"
+	"MainDeck"
+	"TerraDeck"
+	"Graveyard"
+	"Exile"
+	"PlayerHandSelf"
+	"PlayHandTarget"

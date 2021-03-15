@@ -6,9 +6,8 @@
 "Rarity" : "Uncommon.jpg",
 "Cost" : 4,
 "Unit" : "Pawn",
-"Color" : Colorless",
-"Unit-Label" : "Merc - Human Warrior,
-
+"Color" : "Colorless",
+"Unit-Label" : "Merc - Human Warrior",
 "Effects" : {
 	"Reckless" : "Reckless"
 },

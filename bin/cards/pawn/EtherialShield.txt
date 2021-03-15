@@ -9,11 +9,10 @@
 "Color" : "Blue",
 "Unit-Label" : "Pawn - Spirit Relic",
 "Effects" : {
-	"Guard" : "Guard", "Entrance" : {"Study" : 1}
+	"Guard" : "Guard", 
+	"Entrance" : {"SelfStudyTargetDeck" : 1}
 },
 "Attack" : 0,
 "Health" : 2
 }
 }
-
-*Nothing implemented for Studying*

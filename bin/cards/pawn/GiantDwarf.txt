@@ -7,9 +7,7 @@
 "Cost" : 5,
 "Unit" : "Pawn",
 "Color" : "Yellow",
-"Unit-Label" : "Pawn - Dwarf Giant Warrior,
-
-},
+"Unit-Label" : "Pawn - Dwarf Giant Warrior",
 "Effects" : { 
 	"Reckless" : "Reckless"
 },

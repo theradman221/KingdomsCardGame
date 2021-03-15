@@ -8,12 +8,10 @@
 "Unit" : "Pawn",
 "Color" : "Yellow",
 "Unit-Label" : "Pawn - Dwarf Magi",
-"Activated-Effect" : { - If there are no activated effects delete Activate Effects
-	"TriggeredEffect" : {"Condition" : {"ExhaustTrigger" : "ExhaustTrigger"}, "Effects" : {"PowerAdd" : 1}}
+"Activated-Effect" : {
+	"TriggeredEffect" : {"Condition" : {"ExhaustTrigger" : "ExhaustTrigger"}, "Effects" : {"AddPower" : 1}}
 },
 "Attack" : 1,
 "Health" : 3
 }
 }
-
-*Nothing implemented to add/substract power*

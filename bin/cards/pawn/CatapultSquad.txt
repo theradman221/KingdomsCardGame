@@ -5,7 +5,7 @@
 "Img" : "", 
 "Rarity" : "Rare.jpg",
 "Cost" : 4,
-"Unit" : "Pawn"
+"Unit" : "Pawn",
 "Color" : "Yellow",
 "Unit-Label" : "Pawn - Dwarf Warrior Squad",
 "Effects" : { 

@@ -1,14 +1,13 @@
 {"All" : {
 "Name" : "Swift Assassin",
 "Template" : "redUnitTemplate.jpg",
-"Description" : "Urgency (This card doesn\'t require briefing)\n Poison (Any amount of damage this card deals to a unit is enough to\n destroy it. After this card deals damage for the first time it loses poison)",
+"Description" : "Urgency (This card doesn't require briefing)\n Poison (Any amount of damage this card deals to a unit is enough to\n destroy it. After this card deals damage for the first time it loses poison)",
 "Img" : "",
 "Rarity" : "Rare.jpg",
 "Cost" : 3,
 "Unit" : "Pawn",
 "Color" : "Red",
 "Unit-Label" : "Pawn - Human Assassin",
-
 "Effects" : {
 	"Urgency" : "Urgency",
 	"Poison": "Poison"

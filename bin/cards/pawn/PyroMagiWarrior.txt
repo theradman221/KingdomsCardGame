@@ -9,7 +9,7 @@
 "Color" : "Blue",
 "Unit-Label" : "Pawn - Human Magi Warrior" ,
 "Effects" : { 
-"Reflex" : Reflex
+"Reflex" : "Reflex"
 },
 
 "Attack" : 2,

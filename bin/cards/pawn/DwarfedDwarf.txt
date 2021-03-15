@@ -9,11 +9,9 @@
 "Color" : "Yellow",
 "Unit-Label" : "Pawn - Dwarf Warrior",
 "Effects" : {
-	"Entrance" : {"SelfHealthBuff" : 1 - for each pawn unit in players control, up to 3}
+	"Entrance" : {"Condition" : "ForEachUnitControlledSharesType", "SelfAttackBuff" : 1, "LimitMax" : 3}
 },
 "Attack" : 1,
 "Health" : 2
 }
 }
-
-*Not sure how to apply it's effect completely*

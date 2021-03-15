@@ -1,16 +1,15 @@
 {"All" : {
 "Name" : "Plague Rogue",
 "Template" : "redUnitTemplate.jpg",
-"Description" : "Poison (Any amount of damage this card deals to a unit is enough to destroy it.\n After this card deals damage for the first time it loses poison)\n \"I\'m more of the cautious type\"",
+"Description" : "Poison (Any amount of damage this card deals to a unit is enough to destroy it.\n After this card deals damage for the first time it loses poison)\n \"I'm more of the cautious type\"",
 "Img" : "",
 "Rarity" : "Common.jpg",
 "Cost" : 2,
 "Unit" : "Pawn",
 "Color" : "Red",
 "Unit-Label" : "Pawn - Human Rogue",
-
 "Effects" : {
-	"Sneak" : "Sneak"
+	"Poison" : "Poison"
 },
 "Attack" : 1,
 "Health" : 3
