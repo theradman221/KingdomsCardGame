@@ -15,6 +15,7 @@ class Lord(AttackCard):
         self.__color = ""
         self.__effects = []
         self.__activated_effects = []
+        self.__description = ""
 
         # Attack card specific
         self.__is_briefed = False
@@ -38,6 +39,7 @@ class Lord(AttackCard):
         msg += "Label " + self.__label + "\n"
         msg += "Unit " + self.__unit + "\n"
         msg += "Color " + self.__color + "\n"
+        msg += "Description " + self.__description + "\n"
         if len(self.__effects) > 0:
             msg += "Effects "
             for key in self.__effects:
@@ -168,3 +170,9 @@ class Lord(AttackCard):
 
     def heal_for(self, hitpoints):
         self.__current_health += hitpoints
+
+    def get_description(self):
+        return self.__description
+
+    def set_description(self, description):
+        self.__description = description

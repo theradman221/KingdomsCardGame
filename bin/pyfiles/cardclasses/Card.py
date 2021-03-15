@@ -13,6 +13,7 @@ class Card:
         self.__color = ""
         self.__effects = []
         self.__activated_effects = []
+        self.__description = ""
 
     def __str__(self):
         return self.__name
@@ -89,4 +90,9 @@ class Card:
     def add_activated_effect(self, effect):
         self.__activated_effects.append(effect)
 
+    def get_description(self):
+        return self.__description
+
+    def set_description(self, description):
+        self.__description = description
 

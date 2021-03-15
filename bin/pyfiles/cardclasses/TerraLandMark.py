@@ -14,6 +14,7 @@ class TerraLandMark(NonAttackCard):
         self.__color = ""
         self.__effects = []
         self.__activated_effects = []
+        self.__description = ""
 
     def print_all_details(self):
         msg = ""
@@ -27,6 +28,7 @@ class TerraLandMark(NonAttackCard):
         msg += "Label " + self.__label + "\n"
         msg += "Unit " + self.__unit + "\n"
         msg += "Color " + self.__color + "\n"
+        msg += "Description " + self.__description + "\n"
         if len(self.__effects) > 0:
             msg += "Effects "
             for key in self.__effects:
@@ -111,3 +113,9 @@ class TerraLandMark(NonAttackCard):
 
     def add_activated_effect(self, effect):
         self.__activated_effects.append(effect)
+
+    def get_description(self):
+        return self.__description
+
+    def set_description(self, description):
+        self.__description = description

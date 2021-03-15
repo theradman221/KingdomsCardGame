@@ -51,6 +51,9 @@ def convert_file_to_card(file, deck):
     if dict["Unit"] == "TerraLandmark":
         card = create_terra_landmark(dict, file_path)
         deck.add_card(card)
+    if dict["Unit"] == "Pawn":
+        card = create_pawn(dict, file_path)
+        deck.add_card(card)
 
     return
 
@@ -60,6 +63,17 @@ def create_lord(dictionary, file_path):
     # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
     card = Lord()
     card.set_unit("Lord")
+    # This file path will be useful since the Deck can use it to directly load card's
+    card.set_file_path(file_path)
+    dict_keys = dictionary.keys()
+    add_universal_attributes(dictionary,dict_keys,card)
+    add_attack_card_attributes(dictionary,dict_keys,card)
+    return card
+
+def create_pawn(dictionary, file_path):
+    # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
+    card = Pawn()
+    card.set_unit("Pawn")
     # This file path will be useful since the Deck can use it to directly load card's
     card.set_file_path(file_path)
     dict_keys = dictionary.keys()
@@ -100,6 +114,8 @@ def add_universal_attributes(dictionary, dict_keys, card):
     # Common things that all cards should have
     if "Name" in dict_keys:
         card.set_name(dictionary["Name"])
+    if "Description" in dict_keys:
+        card.set_description(dictionary["Description"])
     if "Template" in dict_keys:
         card.set_template(dictionary["Template"])
     if "Img" in dict_keys:
