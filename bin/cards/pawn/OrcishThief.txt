@@ -1,0 +1,18 @@
+{"All" : {
+"Name" : "Orcish Thief",
+"Template" : "redUnitTemplate.jpg",
+"Description" : "Sneak (If this card declares an attack it takes no \n battle damage until the end of the atack phase \n \"Nowhere to go now!\"",
+"Img" : "", 
+"Rarity" : "Uncommon.jpg",
+"Cost" : 5,
+"Unit" : "Pawn",
+"Color" : "Red",
+"Unit-Label" : "Pawn - Orc Thief",
+
+"Effects" : {
+		"Sneak" : "Sneak"
+},
+"Attack" : 5,
+"Health" : 4
+}
+}
