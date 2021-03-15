@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "Backup Bomb",
+"Template" : "rednon-unittemplate.jpg",
+"Description" : "Deal 2 damage to any target",
+"Img" : "",
+"Rarity" : "Common.jpg",
+"Cost" : 1,
+"Unit" : "Trice",
+"Color" : "Red",
+"Unit-Label" : "Trice",
+
+"Effects" : {
+	"Trice" : {"TargetHealthDamage" : 2}
+},
+
+}
+}
