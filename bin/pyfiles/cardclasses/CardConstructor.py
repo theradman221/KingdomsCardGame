@@ -15,7 +15,7 @@ from bin.pyfiles.cardclasses.Trice import Trice
 
 # Path to card's should bring up all folder's containing the different card types
 
-excluded_files = ["template.txt", "potato.txt", "effects.txt"]
+excluded_files = ["template.txt", "potato.txt", "effects.txt", "bastion", "hero", "pawn", "relic", "scroll", "supply", "token", "trice"]
 
 def load_all_cards(path):
     if path != "":
@@ -26,6 +26,7 @@ def load_all_cards(path):
     # Go through every card's txt file and construct it into a real card object.
     deck = Deck("Master")
     for folder in os.listdir(path_to_cards):
+        print(folder)
         if not excluded_files.__contains__(folder):
             print(folder)
             for file in os.listdir(path_to_cards + "\\"+ folder):
@@ -44,17 +45,58 @@ def convert_file_to_card(file, deck):
     if dict["Unit"] == "Lord":
         card = create_lord(dict, file_path)
         deck.add_card(card)
+    if dict["Unit"] == "Terra":
+        card = create_terra(dict, file_path)
+        deck.add_card(card)
+    if dict["Unit"] == "TerraLandmark":
+        card = create_terra_landmark(dict, file_path)
+        deck.add_card(card)
 
     return
+
+
 
 def create_lord(dictionary, file_path):
     # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
     card = Lord()
+    card.set_unit("Lord")
     # This file path will be useful since the Deck can use it to directly load card's
     card.set_file_path(file_path)
-    card.set_unit("Lord")
     dict_keys = dictionary.keys()
-    print(dict_keys)
+    add_universal_attributes(dictionary,dict_keys,card)
+    add_attack_card_attributes(dictionary,dict_keys,card)
+    return card
+
+def create_terra(dictionary, file_path):
+    # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
+    card = Terra()
+    card.set_unit("Terra")
+    # This file path will be useful since the Deck can use it to directly load card's
+    card.set_file_path(file_path)
+    dict_keys = dictionary.keys()
+    add_universal_attributes(dictionary,dict_keys,card)
+    return card
+
+def create_terra_landmark(dictionary, file_path):
+    # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
+    card = TerraLandMark()
+    card.set_unit("TerraLandmark")
+    # This file path will be useful since the Deck can use it to directly load card's
+    card.set_file_path(file_path)
+    dict_keys = dictionary.keys()
+    add_universal_attributes(dictionary,dict_keys,card)
+    return card
+
+def add_attack_card_attributes(dictionary, dict_keys, card):
+    if "Health" in dict_keys:
+        card.set_default_health(dictionary["Health"])
+    if "Attack" in dict_keys:
+        card.set_default_attack(dictionary["Attack"])
+    else:
+        card.set_default_attack(0)
+    return card
+
+def add_universal_attributes(dictionary, dict_keys, card):
     # Common things that all cards should have
     if "Name" in dict_keys:
         card.set_name(dictionary["Name"])
@@ -70,21 +112,15 @@ def create_lord(dictionary, file_path):
         card.set_color(dictionary["Color"])
     if "Unit-Label" in dict_keys:
         card.set_label(dictionary["Unit-Label"])
-
-    # Effects, not all cards will have these
     if "Effects" in dict_keys:
         effect_dict = dictionary["Effects"]
+        print("These are all the effects of the card " + str(effect_dict))
         for key in effect_dict:
-            card.add_effect(key) # NEED TO ADD EFFECT
+            print(effect_dict[key])
+        card.add_effect(effect_dict)
 
-
-
-    # Health and attack, only some cards will have these
-    if "Health" in dict_keys:
-        card.set_default_health(dictionary["Health"])
-    if "Attack" in dict_keys:
-        card.set_default_attack(dictionary["Attack"])
-    else:
-        card.set_default_attack(0)
-
+    if "Activated-Effect" in dict_keys:
+        activated_dict = dictionary["Activated-Effect"]
+        print(activated_dict)
+        card.add_activated_effect(activated_dict)
     return card

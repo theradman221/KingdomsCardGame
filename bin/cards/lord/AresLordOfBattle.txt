@@ -6,7 +6,7 @@
 "Cost" : 3,
 "Color" : "Yellow",
 "Unit" : "Lord",
-"Unit - Label" : "Lord - Dwarf Warrior",
+"Unit-Label" : "Lord - Dwarf Warrior",
 "Effects" : {
 	"LevelUp" : { "selfHealthBuff" : 2, "selfAttackBuff" : 2, "SelfEffectApply" : "Urgency" },
 	"Fringe" : {"option1" : {"selfHealthBuff" : 1, "TargetHealthBuff" : 1}, "Option2" : {"selfHealthBuff" : 1, "selfAttackBuffEndPhase" : 3}}

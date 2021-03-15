@@ -17,9 +17,9 @@ import os
 
 
 # Testing creating a pygame window and putting a few boxes on it, (500,500) is the size
-window = pygame.display.set_mode((500,500))
+#window = pygame.display.set_mode((500,500))
 # The caption Display is  what it says at the top so to say Kingdoms would just use this command with Kingdoms
-pygame.display.set_caption("First Game")
+#pygame.display.set_caption("First Game")
 # Anything below here is probably going to be in a loop
 # time delay so that main loop doesn't run literally as fast as possible, in ms
 # pygame.time.delay(100)
@@ -39,14 +39,14 @@ import bin.pyfiles.cardclasses.CardConstructor as cc
 print(os.getcwd())
 master_deck = cc.load_all_cards(os.getcwd() + "\cards")
 print(master_deck)
+card2 = master_deck.draw_card()
+while card2 != None:
+    print("Details about " + str(card2))
+    card2.print_all_details()
+    card2 = master_deck.draw_card()
 deck = Deck("Testing")
 card = Card()
 deck.add_card(card)
 deck.save_deck()
-
-# Testing the nonAttackCards
-non_attack = NonAttackCard()
-non_attack.set_name("Mark")
-print(non_attack.get_name())
 
 pygame.quit()
