@@ -1,0 +1,19 @@
+{"All" : {
+"Name" : "Dwarven Scholar",
+"Template" : "yellowUnitTemplate.jpg",
+"Description" : "Exhause: +1 Power",
+"Img" : "",
+"Rarity" : "Common.jpg",
+"Cost" : 2,
+"Unit" : "Pawn",
+"Color" : "Yellow",
+"Unit-Label" : "Pawn - Dwarf Magi",
+"Activated-Effect" : { - If there are no activated effects delete Activate Effects
+	"TriggeredEffect" : {"Condition" : {"ExhaustTrigger" : "ExhaustTrigger"}, "Effects" : {"PowerAdd" : 1}}
+},
+"Attack" : 1,
+"Health" : 3
+}
+}
+
+*Nothing implemented to add/substract power*
