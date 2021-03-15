@@ -1,0 +1,20 @@
+{"All" : {
+"Name" : "Heath the Prideful",
+"Template" : "yellowUnitTemplate.jpg",
+"Description" : "Restless (This card does not become exhausted from attacking. Can\n
+		still only declare one attack)\n
+		Level Up (When this card enters play and a copy of this card has\n
+		entered play under your control before it) Gains +2/+2",
+"Img" : "",
+"Rarity" : "Ultra.jpg",
+"Cost" : 4,
+"Unit" : "Hero",
+"Color" : "Yellow",
+"Unit-Label" : "Hero - Human Dwarf Warrior",
+"Effects" : {
+	"Restless" : "Restless", "LevelUp" : {"SelfHealthBuff" : 2, "SelfAttackBuff" : 2}
+},
+"Attack" : 4,
+"Health" : 5
+}
+}
