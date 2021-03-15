@@ -54,10 +54,104 @@ def convert_file_to_card(file, deck):
     if dict["Unit"] == "Pawn":
         card = create_pawn(dict, file_path)
         deck.add_card(card)
+    if dict["Unit"] == "Bastion":
+        card = create_bastion(dict, file_path)
+        deck.add_card(card)
+    if dict["Unit"] == "Hero":
+        card = create_hero(dict, file_path)
+        deck.add_card(card)
+    if dict["Unit"] == "Relic":
+        card = create_relic(dict, file_path)
+        deck.add_card(card)
+    if dict["Unit"] == "Scroll":
+        card = create_scroll(dict, file_path)
+        deck.add_card(card)
+    if dict["Unit"] == "Supply":
+        card = create_supply(dict, file_path)
+        deck.add_card(card)
+    if dict["Unit"] == "Token":
+        card = create_token(dict, file_path)
+        deck.add_card(card)
+    if dict["Unit"] == "Trice":
+        card = create_trice(dict, file_path)
+        deck.add_card(card)
 
-    return
+def create_bastion(dictionary, file_path):
+    # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
+    card = Bastion()
+    card.set_unit("Bastion")
+    # This file path will be useful since the Deck can use it to directly load card's
+    card.set_file_path(file_path)
+    dict_keys = dictionary.keys()
+    add_universal_attributes(dictionary,dict_keys,card)
+    add_attack_card_attributes(dictionary,dict_keys,card)
+    return card
 
+def create_hero(dictionary, file_path):
+    # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
+    card = Hero()
+    card.set_unit("Hero")
+    # This file path will be useful since the Deck can use it to directly load card's
+    card.set_file_path(file_path)
+    dict_keys = dictionary.keys()
+    add_universal_attributes(dictionary,dict_keys,card)
+    add_attack_card_attributes(dictionary,dict_keys,card)
+    return card
 
+def create_relic(dictionary, file_path):
+    # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
+    card = Relic()
+    card.set_unit("Relic")
+    # This file path will be useful since the Deck can use it to directly load card's
+    card.set_file_path(file_path)
+    dict_keys = dictionary.keys()
+    add_universal_attributes(dictionary,dict_keys,card)
+    add_attack_card_attributes(dictionary,dict_keys,card)
+    return card
+
+def create_scroll(dictionary, file_path):
+    # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
+    card = Scroll()
+    card.set_unit("Scroll")
+    # This file path will be useful since the Deck can use it to directly load card's
+    card.set_file_path(file_path)
+    dict_keys = dictionary.keys()
+    add_universal_attributes(dictionary,dict_keys,card)
+    add_attack_card_attributes(dictionary,dict_keys,card)
+    return card
+
+def create_supply(dictionary, file_path):
+    # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
+    card = Supply()
+    card.set_unit("Supply")
+    # This file path will be useful since the Deck can use it to directly load card's
+    card.set_file_path(file_path)
+    dict_keys = dictionary.keys()
+    add_universal_attributes(dictionary,dict_keys,card)
+    add_attack_card_attributes(dictionary,dict_keys,card)
+    return card
+
+def create_token(dictionary, file_path):
+    # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
+    card = Token()
+    card.set_unit("Token")
+    # This file path will be useful since the Deck can use it to directly load card's
+    card.set_file_path(file_path)
+    dict_keys = dictionary.keys()
+    add_universal_attributes(dictionary,dict_keys,card)
+    add_attack_card_attributes(dictionary,dict_keys,card)
+    return card
+
+def create_trice(dictionary, file_path):
+    # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
+    card = Trice()
+    card.set_unit("Trice")
+    # This file path will be useful since the Deck can use it to directly load card's
+    card.set_file_path(file_path)
+    dict_keys = dictionary.keys()
+    add_universal_attributes(dictionary,dict_keys,card)
+    add_attack_card_attributes(dictionary,dict_keys,card)
+    return card
 
 def create_lord(dictionary, file_path):
     # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
