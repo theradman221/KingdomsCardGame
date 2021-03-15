@@ -1,0 +1,19 @@
+{"All" : {
+"Name" : "Jack Wolfman, The Tame",
+"Template" : "redUnitTemplate.jpg",
+"Description" : "Sneak (if this card declares an attack, it take no battle damage until the end\n of the attack phase\n Poison (any amount of damage this card deals to a unit is enough to destroy it\n After this card deals damage for the first time it looses poison)",
+"Img" : "", 
+"Rarity" : "Super.jpg",
+"Cost" : 4,
+"Unit" : "Hero",
+"Color" : "Red",
+"Unit-Label" : "Hero - Rogue Wolf Human",
+
+"Effects" : { 
+		"Sneak" : "Sneak",
+		"Poison" : "Poison"
+},
+"Attack" : 4,
+"Health" : 5
+}
+}
