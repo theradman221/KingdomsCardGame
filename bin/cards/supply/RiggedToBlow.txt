@@ -1,0 +1,15 @@
+{"All" : {
+"Name" : "Rigged to Blow",
+"Template" : "rednon-unittemplate.jpg",
+"Description" : "The unit supplied with this card gains\nLast Stand: deal 3 damage to any target",
+"Img" : "",
+"Rarity" : "Uncommon.jpg",
+"Cost" : 3,
+"Unit" : "Supply",
+"Color" : "Red",
+"Unit-Label" : "Supply",
+"Effects" : {
+	"Supply" : {"TargetEffectApply" : {"LastStand" : {"TargetHealthDamage" : 3}}}
+}
+}
+}
