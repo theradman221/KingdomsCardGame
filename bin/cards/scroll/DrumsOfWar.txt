@@ -9,7 +9,7 @@
 "Color" : "Yellow",
 "Unit-Label" : "Scroll",
 "Effects" : {
-	"Scroll" : {"TargetHealthBuff" : 3, "TargetAttackBuff" : 3, "TargetEffectApply" : "Restless"}
+	"Scroll" : {"TargetAllFriendly" : "AllFriendly", "TargetHealthBuff" : 3, "TargetAttackBuff" : 3, "TargetEffectApply" : "Restless"}
 }
 }
 }
