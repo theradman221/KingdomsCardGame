@@ -1,8 +1,7 @@
 {"All" : {
 "Name" : "Counter",
-"Template" : "bluenon-unittemplate.jpg"
-"Description" : "You may activate this card when a trice or scroll card \n
-		is played. Negate the effect of the trice or scroll card",
+"Template" : "bluenon-unittemplate.jpg",
+"Description" : "You may activate this card when a trice or scroll card\nis played. Negate the effect of the trice or scroll card",
 "Img" : "", 
 "Rarity" : "Rare.jpg",
 "Cost" : 2,
@@ -10,9 +9,7 @@
 "Color" : "Blue",
 "Unit-Label" : "Trice",
 "Activated-Effect" : {
-	"TriggeredEffect" : {"Condition" : {"Option1": {"ScrollPlayed" : "ScrollPlayed"},"Option2" : {"TricePlayed" : "TricePlayed" }}, "Effects" : {"Option1" : {"TargetEffectRemove" : "Scroll"},"Option2":{ "TargetEffectRemove" : "Trice"}}}
-}
-
+	"TriggeredEffect" : {"Condition" : {"Option1": {"ScrollPlayed" : "ScrollPlayed"}, "Option2" : {"TricePlayed" : "TricePlayed" }}, "Effects" : {"NegateCurrentEffectsTarget" : "NegateCurrentEffectsTarget"}}
 }
 }
-#May need to take a look at this one later
+}
