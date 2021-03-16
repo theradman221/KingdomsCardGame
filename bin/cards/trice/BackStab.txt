@@ -1,8 +1,7 @@
 {"All" : {
 "Name" : "BackStab",
 "Template" : "rednon-unittemplate.jpg",
-"Description" : "Deal damage to one target unit equal to the\n
-		Attack of one target unit you control"
+"Description" : "Deal damage to one target unit equal to the\nAttack of one target unit you control",
 "Img" : "",
 "Rarity" : "Rare.jpg",
 "Cost" : 3,
