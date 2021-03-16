@@ -8,10 +8,8 @@
 "Unit" : "Trice",
 "Color" : "Red",
 "Unit-Label" : "Trice",
-
 "Effects" : {
 	"Trice" : {"TargetHealthDamage" : 2}
-},
-
+}
 }
 }
