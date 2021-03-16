@@ -8,11 +8,9 @@
 "Unit" : "Scroll",
 "Color" : "Blue",
 "Unit-Label" : "Scroll",
-
 "Effects" : {
 	"Scroll" : {"Sacrifice" : "Self", "MultiDestroy" : "MultiTarget"}
 }
-
 }
 }
 
