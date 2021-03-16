@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "Dwarven Bannerman",
+"Template" : "yellowUnitTemplate.jpg",
+"Description" : "Dwarven Bannerman",
+"Img" : "",
+"Rarity" : "Uncommon.jpg",
+"Cost" : 2,
+"Unit" : "Pawn",
+"Color" : "Yellow",
+"Unit-Label" : "Pawn - Dwarf Warrior",
+"Effects" : {
+	"Entrance" : {"TargetHealthBuff" : 1, "TargetAttackBuff" : 1}
+},
+"Attack" : 0,
+"Health" : 2
+}
+}
