@@ -1,0 +1,18 @@
+{"All" : {
+"Name" : "Orb of Tsunami",
+"Template" : "colorlessnon-unittemplate.jpg",
+"Description" : "All units you control with 2 or less original attack gain +1/+0\nCost 1, Exhaust: Kill all non-lord units with 2 Attack or less\nand sacrifice this card",
+"Img" : "",
+"Rarity" : "Rare.jpg",
+"Cost" : 2,
+"Unit" : "Relic",
+"Color" : "Colorless",
+"Unit-Label" : "Relic",
+"Activated-Effect" : {
+	"TriggeredEffect" : {"Condition" : {"PayCost" : 1, "ExhaustTrigger" : "ExhaustTrigger"}, "Effects" : {("MultiDestroy" : "MultiTarget" - nonLord units with 2 attack or less), "Sacrifice" : "Self"}}
+},
+"Effects" : {
+	"Relic" : {"TargetAllFriendly" : "AllFriendly", ("TargetHealthBuff" : 1 - if attack is 2 or less)}
+}
+}
+}
