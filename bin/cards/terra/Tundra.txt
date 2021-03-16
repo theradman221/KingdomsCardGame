@@ -1,5 +1,5 @@
 {"All" : {
-"Name" : "Island",
+"Name" : "Tundra",
 "Template" : "colorlessbasicterratemplate.jpg",
 "Img" : "", 
 "Rarity" : "Common.jpg",
@@ -8,3 +8,4 @@
 "Unit-Label" : "Terra - Basic"
 }
 }
+
