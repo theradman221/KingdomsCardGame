@@ -1,0 +1,20 @@
+{"All" : {
+"Name" : "Lotus Shrine",
+"Template" : "colorlessnon-unittemplate.jpg",
+"Description" : "This card enters play exhausted\nHard Exhaust: +1 Power",
+"Img" : "",
+"Rarity" : "Ultra.jpg",
+"Cost" : 1,
+"Unit" : "Relic",
+"Color" : "Colorless",
+"Unit-Label" : "Relic",
+"Activated-Effect" : {
+	"TriggeredEffectHard" : {"Condition" : {"Exhausted" : "Exhausted"}, "Effects" : {"AddPower" : 1}}
+},
+"Effects" : {
+	"Relic" : {"Entrance": {"SelfEffectApply" : "Exhausted"}}
+}
+}
+}
+
+* This card may not work as intended, as it might think the card exhausting itself on entry counts as the hard exhaust, im not sure if that is what the devs are intending*
