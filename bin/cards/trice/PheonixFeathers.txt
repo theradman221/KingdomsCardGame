@@ -1,0 +1,15 @@
+{"All" : {
+"Name" : "Pheonix Feathers",
+"Template" : "yellownon-unittemplate.jpg",
+"Description" : "Target one exhausted unit. That Target becomes\nrested",
+"Img" : "",
+"Rarity" : "Common.jpg",
+"Cost" : 1,
+"Unit" : "Trice",
+"Color" : "Yellow",
+"Unit-Label" : "Trice",
+"Effects" : {
+	"Trice" : {"TargetEffectApply" : "Rested"}
+}
+}
+}
