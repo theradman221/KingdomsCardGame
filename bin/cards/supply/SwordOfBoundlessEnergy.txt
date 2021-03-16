@@ -1,0 +1,16 @@
+{"All" : {
+"Name" : "Sword of Boundless Energy",
+"Template" : "yellownon-unittemplate.jpg",
+"Description" : "The unit supplied with this card gains +2 attack\nand Restless (This card does not become exhausted\nfrom attacking. Can still only attack once)",
+"Img" : "",
+"Rarity" : "Uncommon.jpg,
+"Cost" : 3,
+"Unit" : "Supply",
+"Color" : "Yellow",
+"Unit-Label" : "Supply",
+
+"Effects" : {
+	"Supply" : {"TargetAttackBuff" : 2, "Restless" : "Restless"}
+},
+}
+}
