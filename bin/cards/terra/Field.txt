@@ -1,0 +1,10 @@
+{"All" : {
+"Name" : "Field",
+"Template" : "colorlessbasicterratemplate.jpg",
+"Img" : "",
+"Rarity" : "Common.jpg",
+"Unit" : "Terra",
+"Color" : "Blue",
+"Unit-Label" : "Terra - Basic",
+}
+}
