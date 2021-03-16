@@ -1,0 +1,16 @@
+{"All" : {
+"Name" : "Red Cloak",
+"Template" : "rednon-unittemplate.jpg",
+"Description" : "The unit supplied with this card gains +2/+0",
+"Img" : "",
+"Rarity" : "Common.jpg",
+"Cost" : 2,
+"Unit" : "Supply",
+"Color" : "Red",
+"Unit-Label" : "Supply",
+
+"Effects" : {
+	"Supply" : {"TargetAttackBuff" : 2}
+},
+}
+}
