@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "Hired Spy",
+"Template" : "colorlessUnitTemplate.jpg",
+"Description" : "Entrance:Study 1 (View the top card of any deck and place it\non the top or on the bottom of that deck), card from any\nplayer,then draw 1",
+"Img" : "",
+"Rarity" : "Common.jpg",
+"Cost" : 2,
+"Unit" : "Pawn",
+"Color" : "Colorless",
+"Unit-Label" : "Pawn - Human Spy",
+"Effects" : {
+	"Entrance" : {"SelfStudyTargetDeck" : 1, "SelfDrawCard" : 1}
+},
+"Attack" : 0,
+"Health" : 2
+}
+}
