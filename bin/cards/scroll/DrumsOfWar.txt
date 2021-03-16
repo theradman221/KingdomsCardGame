@@ -1,8 +1,7 @@
 {"All" : {
 "Name" : "Drums of War",
 "Template" : "yellownon-unittemplate.jpg",
-"Description" : "All units you control gain +3/+3 and restless until the end\n
-		phase",
+"Description" : "All units you control gain +3/+3 and restless until the end\nphase",
 "Img" : "",
 "Rarity" : "Super.jpg",
 "Cost" : 5,
@@ -14,5 +13,3 @@
 }
 }
 }
-
-*The Targeted units are ALL units under players control*
