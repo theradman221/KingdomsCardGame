@@ -1,0 +1,15 @@
+{"All" : {
+"Name" : "Toxic Tonix",
+"Template" : TEMPLATE from below,
+"Description" : ""rednon-unittemplate.jpg"",
+"Img" : "",
+"Rarity" : "Common.jpg",
+"Cost" : 2,
+"Unit" : "Supply",
+"Color" : "Red",
+"Unit-Label" : "Supply",
+"Effects" : {
+	"Supply" : {"TargetHealthDamage" : 2, "TargetAttackDamage" : 2}
+},
+}
+}
