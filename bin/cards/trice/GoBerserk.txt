@@ -1,9 +1,7 @@
 {"All" : {
 "Name" : "Go Berserk!",
 "Template" : "yellownon-unittemplate.jpg",
-"Description" : "Target one unit. That unit gains 3 Attack and 3\n
-		Defense (Must be reduced to zero before the units health\n
-		can be damaged) until the end phase",
+"Description" : "Target one unit. That unit gains 3 Attack and 3\nDefense (Must be reduced to zero before the units health\ncan be damaged) until the end phase",
 "Img" : "",
 "Rarity" : "Common.jpg",
 "Cost" : 2,
@@ -15,5 +13,3 @@
 }
 }
 }
-
-*Double check that's how you want the Defense buff*
