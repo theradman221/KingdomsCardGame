@@ -1,0 +1,8 @@
+{"All" : {
+"Name" : "Rainforest",
+"Template" : "colorlessbasicterratemplate.jpg",
+"Img" : "", 
+"Rarity" : "Common.jpg",
+"Unit" : "Terra",
+"Color" : "Colorless",
+"Unit-Label" : "Terra - Basic"
