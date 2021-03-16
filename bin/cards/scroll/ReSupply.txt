@@ -1,0 +1,15 @@
+{"All" : {
+"Name" : "Re-supply",
+"Template" : "yellownon-unittemplate.jpg",
+"Description" : "Target a supply card in your graveyard and add\nthat target to your hand",
+"Img" : "",
+"Rarity" : "Common.jpg",
+"Cost" : 2,
+"Unit" : "Scroll",
+"Color" : "Yellow",
+"Unit-Label" : "Scroll",
+"Effects" : {
+	"Scroll" : {"TargetMoveTo" : "PlayerHandSelf"}
+}
+}
+}
