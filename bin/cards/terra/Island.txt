@@ -1,7 +1,7 @@
 {"All" : {
-"Name" : "Field",
+"Name" : "Island",
 "Template" : "colorlessbasicterratemplate.jpg",
-"Img" : "",
+"Img" : "", 
 "Rarity" : "Common.jpg",
 "Unit" : "Terra",
 "Color" : "Blue",
