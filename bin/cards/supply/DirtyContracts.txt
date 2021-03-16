@@ -1,22 +1,15 @@
 {"All" : {
 "Name" : "Dirty Contracts",
 "Template" : "yellownon-unittemplate.jpg",
-"Description" : "You may only supply a terra card with this card.\n
-		The Terra supplied with this card now exhausts\n
-		for 1 additional Power",
+"Description" : "You may only supply a terra card with this card.\nThe Terra supplied with this card now exhausts\nfor 1 additional Power",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 2,
 "Unit" : "Supply",
 "Color" : "Yellow",
 "Unit-Label" : "Supply",
-"Activated-Effect" : { - If there are no activated effects delete Activate Effects
-	"TriggeredEffect" : {"Condition" : {TRIGGER'S}, "Effects" : {"EFFECT-NAME" : EFFECT-AFFECT}}
-},
-"Effects" : { - If there are no effects make Effects empty
-	EFFECT-NAME : {EFFECT-AFFECT}
+"Effects" : {
+	"Supply" : {"TargetEffectApply" : {"AddPower" : 1}}
 }
 }
 }
-
-*Nothing implemented to handle this card*
