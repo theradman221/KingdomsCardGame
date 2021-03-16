@@ -1,6 +1,8 @@
 import json as js
 import random as rand
 import os
+
+
 save_path = os.getcwd() + "\saves\\"
 # This class's purpose is to contain a deck of cards.
 class Deck:
@@ -33,8 +35,10 @@ class Deck:
         js.dump(self.__convert_deck_to_json(), open(save_path + self.__name + ".json", "w"))
         return
 
-    def load_deck(self, json_input):
-        return
+    def load_deck(self, name):
+        dict = js.load(open(save_path + name + ".json"))
+        return dict
+
 
     def __convert_deck_to_json(self):
         inside_dict = {}
@@ -42,3 +46,6 @@ class Deck:
         for card in self.__deck:
             inside_dict[card.get_name()] = card.get_file_path()
         return save_dict
+
+    def get_name(self):
+        return self.__name

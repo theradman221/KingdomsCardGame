@@ -8,7 +8,7 @@
 "Color" : "Blue",
 "Unit-Label" : "Terra - Land Mark",
 "Activated-Effect" : {
-	"TriggeredEffect" : {"Condition" : {"TriggeredEffectHard" : {"PlayerHasStudied" : "PlayerHasStudied"}}, "Effects" : {"SelfEffectApply" : "Exhausted","TargetHealthBuff" : 1,"TargetAttackBuff" : 1, }}
-},
+	"TriggeredEffect" : {"Condition" : {"TriggeredEffectHard" : {"PlayerHasStudied" : "PlayerHasStudied"}}, "Effects" : {"SelfEffectApply" : "Exhausted", "TargetHealthBuff" : 1, "TargetAttackBuff" : 1 }}
+}
 }
 }

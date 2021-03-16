@@ -36,16 +36,40 @@ from bin.pyfiles.Deck import Deck
 from bin.pyfiles.cardclasses.Card import Card
 from bin.pyfiles.cardclasses.NonAttackCard import NonAttackCard
 import bin.pyfiles.cardclasses.CardConstructor as cc
-print(os.getcwd())
-master_deck = cc.load_all_cards(os.getcwd() + "\cards")
-card2 = master_deck.draw_card()
-while card2 != None:
-    print("Details about " + str(card2))
-    card2.print_all_details()
-    card2 = master_deck.draw_card()
-deck = Deck("Testing")
-card = Card()
-deck.add_card(card)
-deck.save_deck()
 
-pygame.quit()
+def main():
+    print(os.getcwd())
+    master_deck = cc.load_all_cards(os.getcwd() + "\cards")
+    master_deck.save_deck()
+    card2 = master_deck.draw_card()
+    while card2 != None:
+        print("Details about " + str(card2))
+        #card2.print_all_details()
+        card2 = master_deck.draw_card()
+    deck = Deck("Testing")
+    master_copy = master_deck.load_deck("Master")
+    master_copy_deck = load_deck("Master", cc)
+    print_deck(master_copy_deck)
+    card = Card()
+    deck.add_card(card)
+    deck.save_deck()
+
+    pygame.quit()
+
+def load_deck(name2, cc):
+    deck = Deck(name2)
+    dict = deck.load_deck(name2)
+    master_dict = dict[name2]
+    for key in master_dict:
+        new = cc.convert_file_to_card(master_dict[key])
+        deck.add_card(new)
+    return deck
+
+def print_deck(deck):
+    print("These are the cards contained in " + deck.get_name())
+    card = deck.draw_card()
+    while card != None:
+        print(card)
+        card = deck.draw_card()
+
+main()

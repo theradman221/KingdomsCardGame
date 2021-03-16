@@ -15,7 +15,7 @@ from bin.pyfiles.cardclasses.Trice import Trice
 
 # Path to card's should bring up all folder's containing the different card types
 
-excluded_files = ["template.txt", "potato.txt", "effects.txt", "bastion", "hero", "lord", "relic", "scroll", "supply", "terra", "token", "trice"]
+excluded_files = ["template.txt", "potato.txt", "effects.txt", "bastion", "hero", "relic", "scroll", "supply", "trice", "MilitaryOutpost.txt"]
 
 def load_all_cards(path):
     if path != "":
@@ -30,48 +30,49 @@ def load_all_cards(path):
                 print(file)
                 file_path = path_to_cards + "\\"+ folder + "\\" + file
                 if not excluded_files.__contains__(file):
-                    convert_file_to_card(file_path, deck)
+                   deck.add_card(convert_file_to_card(file_path))
     return deck
 
 # Takes in a file that contains a card and opens it and constructs a card object and returns it.
-def convert_file_to_card(file, deck):
+def convert_file_to_card(file):
     file_path = file
     dict = js.load(open(file_path))
     dict = dict["All"]
     # These are the checks where we start making different types of cards
     if dict["Unit"] == "Lord":
         card = create_lord(dict, file_path)
-        deck.add_card(card)
+
     if dict["Unit"] == "Terra":
         card = create_terra(dict, file_path)
-        deck.add_card(card)
+
     if dict["Unit"] == "TerraLandmark":
         card = create_terra_landmark(dict, file_path)
-        deck.add_card(card)
+
     if dict["Unit"] == "Pawn":
         card = create_pawn(dict, file_path)
-        deck.add_card(card)
+
     if dict["Unit"] == "Bastion":
         card = create_bastion(dict, file_path)
-        deck.add_card(card)
+
     if dict["Unit"] == "Hero":
         card = create_hero(dict, file_path)
-        deck.add_card(card)
+
     if dict["Unit"] == "Relic":
         card = create_relic(dict, file_path)
-        deck.add_card(card)
+
     if dict["Unit"] == "Scroll":
         card = create_scroll(dict, file_path)
-        deck.add_card(card)
+
     if dict["Unit"] == "Supply":
         card = create_supply(dict, file_path)
-        deck.add_card(card)
+
     if dict["Unit"] == "Token":
         card = create_token(dict, file_path)
-        deck.add_card(card)
+
     if dict["Unit"] == "Trice":
         card = create_trice(dict, file_path)
-        deck.add_card(card)
+
+    return card
 
 def create_bastion(dictionary, file_path):
     # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
