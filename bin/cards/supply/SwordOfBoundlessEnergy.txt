@@ -10,7 +10,7 @@
 "Unit-Label" : "Supply",
 
 "Effects" : {
-	"Supply" : {"TargetAttackBuff" : 2, "Restless" : "Restless"}
+	"Supply" : {"TargetAttackBuff" : 2, "TargetEffectApply" : "Restless"}
 },
 }
 }
