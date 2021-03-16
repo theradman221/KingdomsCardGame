@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "Royal Squire",
+"Template" : "colorlessUnitTemplate.jpg",
+"Description" : "Entrance: This card gains +1/+1 (Max 2) for each royal\nyou control",
+"Img" : "",
+"Rarity" : "Super.jpg",
+"Cost" : 1,
+"Unit" : "Pawn",
+"Color" : "Colorless",
+"Unit-Label" : "Pawn - Human Squire",
+"Effects" : {
+	"Entrance" : {"SelfHealthBuff" : 1 - for each royal controlled, "SelfAttackBuff" : 1 - for each royal controlled}
+},
+"Attack" : 1,
+"Health" : 1
+}
+}
