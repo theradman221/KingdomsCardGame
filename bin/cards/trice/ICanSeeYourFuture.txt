@@ -1,0 +1,19 @@
+{"All" : {
+"Name" : "I can see your future",
+"Template" : "bluenon-unittemplate.jpg",
+"Description" : "Study 1 (View the top card of either of your decks and place it on the\ntop or on the bottom of that deck) of your opponents cards\nIf you placed the card on top of the deck, you both draw 1\nIf you did not, both your bastions take 2 damage",
+"Img" : "",
+"Rarity" : "Uncommon.jpg",
+"Cost" : 1,
+"Unit" : "Trice",
+"Color" : "Blue",
+"Unit-Label" : "Trice",
+"Activated-Effect" : {
+	"TriggeredEffect" : {"Condition" : {"PlaceCardTop"}, "Effects" : {"SelfDrawCard" : 1, "TargetDrawCard" : 1}},
+	"TriggeredEffect" : {"Condition" : {"PlaceCardBottom"}, "Effects" : {"TargetHealthDamage" : 2, "TargetHealthDamage" : 2}}
+},
+"Effects" : {
+	"Trice" : {"TargetStudyTargetDeck" : 1}
+}
+}
+}
