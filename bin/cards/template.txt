@@ -164,6 +164,8 @@ Trigger's These are actions that must happen to the game, or the player as a who
 	"SelfDrawCard" : INT - the player draws INT many cards
 	"SelfStudyTargetDeck" : INT - Allows the player to attempt to study a deck
 	"NegateCurrentEffectsTarget" : "NegateCurrentEffectsTarget" - negates the effects of a target card
+	"TargetAllFriendly" : "AllFriendly" - targets all friendly units
+	"TargetAllEnemy" : "AllEnemy" - targets all enemy units controlled by a selectable player
 
 TargetZones - zones that cards can be sent to
 	"Targeter" - checks conditions for if a unit could go to multiple zones
