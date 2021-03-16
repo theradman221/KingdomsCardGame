@@ -9,9 +9,7 @@
 "Color" : "Blue",
 "Unit-Label" : "Trice",
 "Effects" : {
-	"Trice" : {EFFECT-AFFECT}
+	"Trice" : {"TargetMoveTo" : "PlayHandTarget"}
 }
 }
 }
-
-*Not sure how to target a specific unit type*
