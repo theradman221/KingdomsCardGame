@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "Pluck",
+"Template" : "bluenon-unittemplate.jpg",
+"Description" : "Target one pawn. Send that target to its owners hand",
+"Img" : "",
+"Rarity" : "Uncommon.jpg",
+"Cost" : 2,
+"Unit" : "Trice",
+"Color" : "Blue",
+"Unit-Label" : "Trice",
+"Effects" : {
+	"Trice" : {"TargetMoveTo" : "PlayHandTarget"}
+},
+}
+}
+
+*Needs a way to only target pawns*
