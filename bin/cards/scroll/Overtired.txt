@@ -1,0 +1,15 @@
+{"All" : {
+"Name" : "Overtired",
+"Template" : "yellownon-unittemplate.jpg",
+"Description" : "Target a unit. If it's exhausted, destroy it.",
+"Img" : "",
+"Rarity" : "Super.jpg",
+"Cost" : 1,
+"Unit" : "Scroll",
+"Color" : "Yellow",
+"Unit-Label" : "Scroll",
+"Effects" : {
+	"Scroll" : {"Exhausted" : {"TargetDestroy" : "Target"}}
+}
+}
+}
