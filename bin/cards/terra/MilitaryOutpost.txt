@@ -1,0 +1,15 @@
+{"All" : {
+"Name" : "Military Outpost",
+"Template" : "colorlessuniqueterratemplate.jpg",
+"Description" : "Exhaust & Sacrifice: Negate an Attack",
+"Img" : "",
+"Rarity" : "Uncommon.jpg",
+"Unit" : "Terra",
+"Color" : "Colorless",
+"Unit-Label" : "Terra - Land Mark",
+"Activated-Effect" : {
+	"TriggeredEffect" : {"Condition" : {"ExhaustTrigger" : "ExhaustTrigger", "Sacrifice" : "Self"}, "Effects" : {"NegateCurrentEffectsTarget" : "NegateCurrentEffectsTarget"}}
+},
+}
+}
+* May need a way to specifically negate an incoming attack*
