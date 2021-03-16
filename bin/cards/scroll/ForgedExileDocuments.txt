@@ -9,9 +9,7 @@
 "Color" : "Red",
 "Unit-Label" : "Scroll",
 "Effects" : {
-	"Scroll" : {"TargetDestroy" : "Target"}
+	"Scroll" : {"TargetMoveTo" : "Exile"}
 }
 }
 }
-
-*Is exile the same as destory?*
