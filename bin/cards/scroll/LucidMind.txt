@@ -1,0 +1,15 @@
+{"All" : {
+"Name" : "Lucid Mind",
+"Template" : "bluenon-unittemplate.jpg",
+"Description" : "Draw 1 card",
+"Img" : "",
+"Rarity" : "Common.jpg",
+"Cost" : 1,
+"Unit" : "Scroll",
+"Color" : "Blue",
+"Unit-Label" : "Scroll",
+"Effects" : {
+	"Scroll" : {"SelfDrawCard" : 1}
+},
+}
+}
