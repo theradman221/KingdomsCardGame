@@ -32,7 +32,7 @@ import os
 
 
 # Testing imports for decks and cards
-from  bin.pyfiles.Deck import Deck
+from bin.pyfiles.Deck import Deck
 from bin.pyfiles.cardclasses.Card import Card
 from bin.pyfiles.cardclasses.NonAttackCard import NonAttackCard
 import bin.pyfiles.cardclasses.CardConstructor as cc
