@@ -1,17 +1,14 @@
 {"All" : {
 "Name" : "Helga the Bog Witch",
 "Template" : "blueUnitTemplate.jpg",
-"Description" : "Hard Trigger: After you study (View the top card of either of your decks\n
-		and place it on the top or on the bottom of that deck) you may draw a card\n
-		Hard Trigger: After you draw from a card effect this card gains\n
-		+2/+0",
+"Description" : "Hard Trigger: After you study (View the top card of either of your decks\nand place it on the top or on the bottom of that deck) you may draw a card\nHard Trigger: After you draw from a card effect this card gains\n2/+0",
 "Img" : "",
 "Rarity" : "Rare.jpg",
 "Cost" : 3,
 "Unit" : "Hero",
 "Color" : "Blue",
 "Unit-Label" : "Hero - Human Magi",
-"Activated-Effect" : { - If there are no activated effects delete Activate Effects
+"Activated-Effect" : {
 	"TriggeredEffect" : {"Condition" : {"Study": 1}, "Effects" : {"DrawCard" : 1}},
 	"TriggeredEffect" : {"Condition" : {"DrawCardFromEffect" : "DrawCardFromEffect"}, "Effects" : {"SelfHealthBuff" : 2}}
 },

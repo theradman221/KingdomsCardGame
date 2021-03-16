@@ -8,7 +8,6 @@
 "Unit" : "Hero",
 "Color" : "Red",
 "Unit-Label" : "Hero - Rogue Wolf Human",
-
 "Effects" : { 
 		"Sneak" : "Sneak",
 		"Poison" : "Poison"
