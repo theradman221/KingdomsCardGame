@@ -1,0 +1,14 @@
+{"All" : {
+"Name" : "Magi College",
+"Template" : "blueuniqueterratemplate.jpg",
+"Description" : "Hard Trigger: When you study (view the top card of a deck and place it on\nthe top or on the bottom of that deck) you may exhaust this card and\n target any unit. That target gains +1/+1",
+"Img" : "",
+"Rarity" : "Rare.jpg",
+"Unit" : "Terra",
+"Color" : "Blue",
+"Unit-Label" : "Terra - Land Mark",
+"Activated-Effect" : {
+	"TriggeredEffect" : {"Condition" : {"TriggeredEffectHard" : {"PlayerHasStudied" : "PlayerHasStudied"}}, "Effects" : {"SelfEffectApply" : "Exhausted","TargetHealthBuff" : 1,"TargetAttackBuff" : 1, }}
+},
+}
+}
