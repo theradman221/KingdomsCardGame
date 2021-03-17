@@ -1,0 +1,15 @@
+{"All" : {
+"Name" : "Two Ton Tonic",
+"Template" : "yellownon-unittemplate.jpg",
+"Description" : "The unit supuplied with this card gains 3 Defense\n(Must be reduced to zero before the units health can\nbe damaged)",
+"Img" : "",
+"Rarity" : "Common.jpg",
+"Cost" : 2,
+"Unit" : "Supply",
+"Color" : "Yellow",
+"Unit-Label" : "Supply",
+"Effects" : {
+	"Supply" : {"Defense" : 3}
+}
+}
+}
