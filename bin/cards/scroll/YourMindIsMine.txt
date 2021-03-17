@@ -1,0 +1,15 @@
+{"All" : {
+"Name" : "Your Mind is Mine",
+"Template" : "bluenon-unittemplate.jpg",
+"Description" : "Target one pawn that costs 3 or less, take control\nof that target and place it on your battlefield.",
+"Img" : "",
+"Rarity" : "Super.jpg",
+"Cost" : 2,
+"Unit" : "Scroll",
+"Color" : "Blue",
+"Unit-Label" : "Scroll",
+"Effects" : {
+	"Scroll" : {"TargetMoveTo" : "BattleField" - takes opponents card and puts into players battlefield}
+}
+}
+}
