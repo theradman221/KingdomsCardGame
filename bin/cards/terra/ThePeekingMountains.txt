@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "The Peeking Mountains",
+"Template" : "yellowuniqueterratemplate.jpg",
+"Description" : "This card enters play exhausted\nCost 1, Hard Exhaust: You may play an additional terra this\nturn",
+"Img" : "",
+"Rarity" : "Rare.jpg",
+"Unit" : "TerraLandmark",
+"Color" : "Yellow",
+"Unit-Label" : "Terra - Land Mark",
+"Activated-Effect" : {
+	"TriggeredEffectHard" : {"Condition" : {"PayCost" : 1, "ExhaustTrigger" : "ExhaustTrigger"}, "Effects" : {*Play an additional terra*}}
+},
+"Effects" : {
+	"Entrance" : {"Exhausted"}
+}
+}
+}
