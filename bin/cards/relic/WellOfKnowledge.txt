@@ -1,0 +1,16 @@
+{"All" : {
+"Name" : "Well of Knowledge",
+"Template" : "bluenon-unittemplate.jpg",
+"Description" : "Hard Cost 1: Study 1 (View the top card of either of your\ndecks and place it on the top or bottom of that deck)\nHard Cost 2: Draw 1",
+"Img" : "",
+"Rarity" : "Super.jpg",
+"Cost" : 1,
+"Unit" : "Relic",
+"Color" : "Blue",
+"Unit-Label" : "Relic",
+"Activated-Effect" : {
+	"TriggeredEffectHard" : {"Condition" : {"PayCost" : 1}, "Effects" : {"SelfStudyTargetDeck" : 1}},
+	"TriggeredEffectHard" : {"Condition" : {"PayCost" : 2}, "Effects" : {"SelfDrawCard" : 1}}
+}
+}
+}
