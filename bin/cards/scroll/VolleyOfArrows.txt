@@ -1,0 +1,15 @@
+{"All" : {
+"Name" : "Volley of Arrows",
+"Template" : "rednon-unittemplate.jpg",
+"Description" : "Deal X (Max 4) damage to each enemy unit on\nthe battlefield. X is equal to the number of\nunits in your kingdom",
+"Img" : "",
+"Rarity" : "Rare.jpg",
+"Cost" : 3,
+"Unit" : "Scroll",
+"Color" : "Red",
+"Unit-Label" : "Scroll",
+"Effects" : {
+	"Scroll" : {"TargetAllEnemy" : "AllEnemy", "TargetHealthDamage" : int({"TargetAllFriendly" : "AllFriendly"})}
+}
+}
+}
