@@ -1,0 +1,15 @@
+{"All" : {
+"Name" : "Watch Your Step",
+"Template" : "rednon-unittemplate.jpg",
+"Description" : "You may only activate this card when a unit\ndeclares an attack. Target the attacking unit and\ndestroy it",
+"Img" : "",
+"Rarity" : "Uncommon.jpg",
+"Cost" : 3,
+"Unit" : "Trice",
+"Color" : "Red",
+"Unit-Label" : "Trice",
+"Effects" : {
+	"Trice" : {"TargetDestroy" : "Target"}
+}
+}
+}
