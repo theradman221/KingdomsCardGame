@@ -1,0 +1,14 @@
+{"All" : {
+"Name" : "The Mines",
+"Template" : "yellowuniqueterratemplate.jpg",
+"Description" : "Exhaust: Discard 1 card and search your deck for a supply\ncard, add it to your hand",
+"Img" : "",
+"Rarity" : "Super.jpg",
+"Unit" : "TerraLandmark",
+"Color" : "Yellow",
+"Unit-Label" : "Terra - Land Mark",
+"Activated-Effect" : {
+	"TriggeredEffect" : {"Condition" : {"ExhaustTrigger" : "ExhaustTrigger"}, "Effects" : {"TargetMoveTo" : "Graveyard", *Search Deck for Supply*, "TargetMoveTo" : "PlayerHandSelf"}}
+}
+}
+}
