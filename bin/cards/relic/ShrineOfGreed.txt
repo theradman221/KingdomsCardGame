@@ -1,0 +1,18 @@
+{"All" : {
+"Name" : "Shrine of Greed",
+"Template" : "colorlessnon-unittemplate.jpg",
+"Description" : "This card enters play exhausted\nHard Exhaust and Sacrifice: Draw 2 cards",
+"Img" : "",
+"Rarity" : "Rare.jpg",
+"Cost" : 1,
+"Unit" : "Relic",
+"Color" : "Colorless",
+"Unit-Label" : "Relic",
+"Activated-Effect" : {
+	"TriggeredEffectHard" : {"Condition" : {"ExhaustTrigger" : "ExhaustTrigger", "Sacrifice" : "Self"}, "Effects" : {"SelfDrawCard" : 2}}
+},
+"Effects" : {
+	"Relic" : {"Entrance" : "Exhausted"}
+}
+}
+}
