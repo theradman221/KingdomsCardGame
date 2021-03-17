@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "Seed of Ancient Tree",
+"Template" : "colorlessnon-unittemplate.jpg",
+"Description" : "Hard Cost 2 and Sacrifice: Search your terra deck for a terra\ncard and add it to your hand",
+"Img" : "",
+"Rarity" : "Rare.jpg",
+"Cost" : 1,
+"Unit" : "Relic",
+"Color" : "Colorless",
+"Unit-Label" : "Relic",
+"Activated-Effect" : { - If there are no activated effects delete Activate Effects
+	"TriggeredEffectHard" : {"Condition" : {"PayCost" : 2, "Sacrifice" : "Self"}, "Effects" : {"Search terra deck for card, add it to hand"}}
+}
+}
+}
+
+*Nothing implemented to handle this card*
