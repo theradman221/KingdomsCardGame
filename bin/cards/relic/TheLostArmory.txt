@@ -1,0 +1,15 @@
+{"All" : {
+"Name" : "The Lost Armory",
+"Template" : "yellownon-unittemplate.jpg",
+"Description" : "Cost 1 and Exhaust: Target unit gains +1/+1",
+"Img" : "",
+"Rarity" : "Rare.jpg",
+"Cost" : 1,
+"Unit" : "Relic",
+"Color" : "Yellow",
+"Unit-Label" : "Relic",
+"Activated-Effect" : { - If there are no activated effects delete Activate Effects
+	"TriggeredEffect" : {"Condition" : {"PayCost" : 1, "ExhaustTrigger" : "ExhaustTrigger"}, "Effects" : {"TargetHealthBuff" : 1, "TargetAttackBuff" : 1}}
+}
+}
+}
