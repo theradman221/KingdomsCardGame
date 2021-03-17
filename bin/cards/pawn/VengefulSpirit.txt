@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "Vengeful Spirit",
+"Template" : "blueUnitTemplate.jpg",
+"Description" : "Entrance: Target one unit and exhaust it. That unit doesn't\nbecome rested during its controllers rest phase as long as\nVengeful Spirit is in play",
+"Img" : "",
+"Rarity" : "Rare.jpg",
+"Cost" : 4,
+"Unit" : "Pawn",
+"Color" : "Blue",
+"Unit-Label" : "Pawn - Spirit",
+"Effects" : {
+	"Entrance" : {"TargetEffectApply" : "Exhausted"}
+},
+"Attack" : 2,
+"Health" : 4
+}
+}
