@@ -1,0 +1,15 @@
+{"All" : {
+"Name" : "Where's That Bravado Now",
+"Template" : "rednon-unittemplate.jpg",
+"Description" : "You may only activate this card after a unit you control\ndestroys a unit in battle and survives. This card deals\ndamage to any target unit, equal to the attack of the\nunit that survived",
+"Img" : "",
+"Rarity" : "Common.jpg",
+"Cost" : 1,
+"Unit" : "Trice",
+"Color" : "Red",
+"Unit-Label" : "Trice",
+"Effects" : {
+	"Trice" : {"TargetDealDamageAttackEqToSelf" : "Self"}
+}
+}
+}
