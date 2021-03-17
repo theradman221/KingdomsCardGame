@@ -1,0 +1,18 @@
+{"All" : {
+"Name" : "Standing Stones",
+"Template" : "blueuniqueterratemplate.jpg",
+"Description" : "This card enters play exhausted\nExhaust and scrifice: +2 Power",
+"Img" : "",
+"Rarity" : "Super.jpg",
+"Unit" : "Terra",
+"Color" : "Blue",
+"Unit-Label" : "Terra - Land Mark",
+"Activated-Effect" : {
+	"TriggeredEffect" : {"Condition" : {"ExhaustTrigger" : "ExhaustTrigger", "Sacrifice" : "Self"}, "Effects" : {"AddPower" : 2}}
+},
+"Effects" : {
+	"Entrance" : {"Exhausted" : "Exhausted"}
+}
+}
+}
+* Might not be the best way to enter as exhausted, but it should work for now*
