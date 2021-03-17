@@ -1,0 +1,15 @@
+{"All" : {
+"Name" : "Speed Scroll",
+"Template" : "yellownon-unittemplate.jpg",
+"Description" : "The next cost you pay this turn is reduced by two",
+"Img" : "",
+"Rarity" : "Ultra.jpg",
+"Cost" : 1,
+"Unit" : "Scroll",
+"Color" : "Yellow",
+"Unit-Label" : "Scroll",
+"Effects" : {
+	"Scroll" : {"Next cost is reduced by 2"}
+}
+}
+}
