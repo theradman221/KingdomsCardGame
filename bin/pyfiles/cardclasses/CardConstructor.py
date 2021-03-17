@@ -15,7 +15,7 @@ from bin.pyfiles.cardclasses.Trice import Trice
 
 # Path to card's should bring up all folder's containing the different card types
 
-excluded_files = ["template.txt", "potato.txt", "effects.txt", "bastion", "hero", "relic", "scroll", "supply", "trice", "MilitaryOutpost.txt"]
+excluded_files = ["template.txt", "potato.txt", "effects.txt", "bastion", "hero", "relic", "scroll", "supply", "trice", "MilitaryOutpost.txt", "RoyalSquire.txt"]
 
 def load_all_cards(path):
     if path != "":
