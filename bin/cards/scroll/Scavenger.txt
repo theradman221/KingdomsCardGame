@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "Scavenger",
+"Template" : "rednon-unittemplate.jpg",
+"Description" : "Search your deck for a relic and add it to your\nhand",
+"Img" : "",
+"Rarity" : "Uncommon.jpg",
+"Cost" : 3,
+"Unit" : "Scroll",
+"Color" : "Red",
+"Unit-Label" : "Scroll",
+"Effects" : {
+	"Scroll" : {"Search deck for relic, add to hand"}
+}
+}
+}
+
+*Nothing implemented to make card work*
