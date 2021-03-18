@@ -78,8 +78,6 @@ def game_loop():
     run = True
     print(os.getcwd() + "\menubackgrounds\\" + 'background.jpg')
     backround = Background(os.getcwd() + "\menubackgrounds\\" + "background.png", [0, 0])
-    mainMenu = MainMenu()
-    mainMenu.draw()
     while run:
         screen.fill([255, 255, 255])
         screen.blit(backround.image, backround.rect)
