@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Magi Apprentice",
 "Template" : "blueUnitTemplate.jpg",
-"Description" : "Ranged (Can declare attacks while in the Kingdom. If this card declares an \n attack while it is in the kingdom it takes not battle damage except when this \n cards attack target also has \"Ranged\"",
+"Description" : "Entrance: Draw 1 Card.\n Ranged (Can declare attacks while in the Kingdom. If this card declares an\n attack while it is in the kingdom it takes no battle damage, except when this\n cards attack target also has \"Ranged\").",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 2,
@@ -9,8 +9,7 @@
 "Color" : "Blue",
 "Unit-Label" : "Pawn - Human Magi",
 "Effects" : {
-	"Ranged" : "Ranged",
-	"Entrance" : {"SelfDrawCard" : 1}
+	"Entrance" : {"SelfDrawCard" : 1}, "Ranged" : "Ranged"
 },
 "Attack" : 1,
 "Health" : 2

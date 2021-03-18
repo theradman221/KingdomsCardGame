@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Forward Stronghold",
 "Template" : "yellowbastiontemplate.jpg",
-"Description" : "When a royal you control is sent to your throne room, choose\nany target to gain 1 defense (Must be reduced to zero before thise\ncards health can be damaged",
+"Description" : "When a royal you control is sent to your throne room, choose\nany target to gain 1 defense (Must be reduced to zero before thise\ncards health can be damaged).",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
 "Unit" : "Bastion",
@@ -9,6 +9,7 @@
 "Unit-Label" : "Bastion",
 "Activated-Effects" : 
 	"TriggeredEffect" : {"Condition" : {"TargetMoveTo" : "ThroneRoom"}, "Effects" : {"Defense" : 1}}
-}
+},
+"Health" : 20
 }
 }

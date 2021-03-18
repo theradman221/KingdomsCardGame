@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Dwarfed Dwarf",
 "Template" : "yellowUnitTemplate.jpg",
-"Description" : "Entrance: This card gains +1/+0 (Max 3) for each\n other unit you control that shares a unit type with\n it",
+"Description" : "Entrance: This card gains +1/+0 (Max 3) for each\n other unit you control that shares a unit type with\n it.",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 2,

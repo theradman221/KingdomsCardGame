@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Vengeful Spirit",
 "Template" : "blueUnitTemplate.jpg",
-"Description" : "Entrance: Target one unit and exhaust it. That unit doesn't\nbecome rested during its controllers rest phase as long as\nVengeful Spirit is in play",
+"Description" : "Entrance: Target one unit and exhaust it. That unit doesn't\nbecome rested during its controllers rest phase as long as\nVengeful Spirit is in play.",
 "Img" : "",
 "Rarity" : "Rare.jpg",
 "Cost" : 4,
@@ -15,3 +15,5 @@
 "Health" : 4
 }
 }
+
+*As long as Vengeful Spirit is in play, target cannot become rested*

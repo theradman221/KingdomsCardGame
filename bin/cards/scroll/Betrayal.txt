@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Betrayal!",
 "Template" : "rednon-unittemplate.jpg",
-"Description" : "Target two enemy units, they become rested, move\nto the battlefield and battle (units do not become\nexhausted from battling)",
+"Description" : "Target two enemy units, they become rested, move\nto the battlefield and battle (units do not become\nexhausted from battling).",
 "Img" : "", 
 "Rarity" : "Rare.jpg",
 "Cost" : 3,

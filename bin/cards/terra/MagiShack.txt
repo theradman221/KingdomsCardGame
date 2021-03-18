@@ -1,14 +1,14 @@
 {"All" : {
 "Name" : "Magi Shack",
 "Template" : "blueuniqueterratemplate.jpg",
-"Description" : "Hard Exhaust: Study 1 (View the top card of either of your\ndecks and place it on the top or on the bottom of that deck)",
+"Description" : "Hard Exhaust: Study 1 (View the top card of either of your\n decks and place it on the top or on the bottom of that deck).",
 "Img" : "",
-"Rarity" : "Rare.jpg",
-"Unit" : "Terra",
+"Rarity" : "Uncommon.jpg",
+"Unit" : "TerraLandmark",
 "Color" : "Blue",
 "Unit-Label" : "Terra - Land Mark",
 "Activated-Effect" : {
-	"TriggeredEffectHard" : {"Condition" : {"Exhaust" : "Exhaust"}, "Effects" : {"SelfStudyTargetDeck" : 1}}
+	"TriggeredEffectHard" : {"Condition" : {"ExhaustTrigger" : "ExhaustTrigger"}, "Effects" : {"SelfStudyTargetDeck" : 1}}
 }
 }
 }

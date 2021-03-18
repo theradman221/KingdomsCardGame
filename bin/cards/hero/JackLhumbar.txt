@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Jack Lhumbar",
 "Template" : "yellowUnitTemplate.jpg",
-"Description" : "Guard (While this card is rested you may redirect attacks to t his card. While \nthis card is in your kingdom it cannot \"Guard\" units on the battlefield)\nRestless (This card does not become exhausted from attacking. Can still \nonly attack once.)",
+"Description" : "Guard (While this card is rested you may redirect attacks to this card. While\n this card is in your kingdom it cannot \"Guard\" units on the battlefield)\n Restless (This card does not become exhausted from attacking. Can still\n only attack once)",
 "Img" : "",
 "Rarity" : "Rare.jpg",
 "Cost" : 4,
@@ -9,8 +9,7 @@
 "Color" : "Yellow",
 "Unit-Label" : "Hero - Dwarf Warrior",
 "Effects" : { 
-	"Guard" : "Guard",
-	"Restless" : "Restless"
+	"Guard" : "Guard", "Restless" : "Restless"
 },
 "Attack" : 4,
 "Health" : 4

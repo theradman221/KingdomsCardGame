@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Massive Trap Hole",
 "Template" : "rednon-unittemplate.jpg",
-"Description" : "You may activate this card when an enemy unit\nenters the battlefield. Destory all units they\ncontrol on the battlefield",
+"Description" : "You may activate this card when an enemy unit\nenters the battlefield. Destory all units they\ncontrol on the battlefield.",
 "Img" : "",
 "Rarity" : "Ultra.jpg",
 "Cost" : 7,
@@ -10,6 +10,8 @@
 "Unit-Label" : "Trice",
 "Effects" : {
 	"Trice" : {"TargetAllEnemy" : "AllEnemy", "TargetDestroy" : "Target"}
+	OR
+	"Trice" : {"TargetAllEnemy" : {"TargetDestroy" : "Target"}}
 }
 }
 }

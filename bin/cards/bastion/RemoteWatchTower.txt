@@ -9,6 +9,7 @@
 "Unit-Label" : "Bastion",
 "Activated-Effect" : {
 	"TriggeredEffect" : {"Condition" : {"TargetMoveTo" : "ThroneRoom"}, "Effects" : {"SelfDrawCard" : 1}}
-}
+},
+"Health" : 20
 }
 }

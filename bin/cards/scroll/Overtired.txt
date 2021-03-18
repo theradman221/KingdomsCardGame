@@ -8,8 +8,8 @@
 "Unit" : "Scroll",
 "Color" : "Yellow",
 "Unit-Label" : "Scroll",
-"Effects" : {
-	"Scroll" : {"Exhausted" : {"TargetDestroy" : "Target"}}
+"Activated-Effect" : {
+	"TriggeredEffect" : {"Condition" : {"TargetExhausted" : "TargetExhausted"}, "Effects" : {"TargetDestroy" : "Target"}}
 }
 }
 }

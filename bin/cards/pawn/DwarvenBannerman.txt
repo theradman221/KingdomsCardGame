@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Dwarven Bannerman",
 "Template" : "yellowUnitTemplate.jpg",
-"Description" : "Dwarven Bannerman",
+"Description" : "Entrance: Target one unit you control. That target\n gains +1/+1.",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 2,

@@ -1,18 +1,17 @@
 {"All" : {
 "Name" : "Tent City",
 "Template" : "reduniqueterratemplate.jpg",
-"Description" : "This card enters play exhausted\nExhaust, and Sacrifice: Search your deck for 1 supply card and one\npawn card. Add those cards to your hand",
+"Description" : "This card enters play exhausted.\nExhaust and Sacrifice: Search your deck for 1 supply card and one\npawn card. Add those cards to your hand.",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
-"Unit" : "Terra",
+"Unit" : "TerraLandmark",
 "Color" : "Red",
 "Unit-Label" : "Terra - Land Mark",
 "Activated-Effect" : {
-	"TriggeredEffect" : {"Condition" : {ExhaustTrigger" : "ExhaustTrigger", "Sacrifice" : "Self"}, "Effects" : {"SelfDrawCard" : 2}}
+	"TriggeredEffect" : {"Condition" : {ExhaustTrigger" : "ExhaustTrigger", "Sacrifice" : "Self"}, "Effects" : {"SelfDrawCard" : 2 - 1 supply and 1 pawn}}
 },
 "Effects" : {
-	"Entrance" : {"Exhausted" : "Exhausted"}
+	"Entrance" : "Exhausted"
 }
 }
 }
-* the 2 cards drawn must be supply / pawn*

@@ -1,14 +1,13 @@
 {"All" : {
 "Name" : "Riptide Elemental",
 "Template" : "blueUnitTemplate.jpg",
-"Description" : "Entrance: Target up to 2 units & exhuast them",
+"Description" : "Entrance: Target up to 2 units & exhaust them.",
 "Img" : "",
 "Rarity" : "Rare.jpg",
 "Cost" : 3,
 "Unit" : "Pawn",
 "Color" : "Blue",
 "Unit-Label" : "Pawn - Elemental",
-
 "Effects" : {
 	"Entrance" : {"TargetEffectApply" : "Exhausted", "TargetEffectApply" : "Exhausted"}
 },

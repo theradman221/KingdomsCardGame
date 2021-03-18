@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Defile",
 "Template" : "colorlessnon-unittemplate.jpg",
-"Description" : "Exhaust and sacrifice: Targe a relic. Destroy that\ntarget and negate its effects",
+"Description" : "Exhaust and Sacrifice: Target a Relic. Destroy that\n target and negate its effects.",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 2,

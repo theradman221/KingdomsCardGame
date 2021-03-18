@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Watch Your Step",
 "Template" : "rednon-unittemplate.jpg",
-"Description" : "You may only activate this card when a unit\ndeclares an attack. Target the attacking unit and\ndestroy it",
+"Description" : "You may only activate this card when a unit\n declares an attack. Target the attacking unit and\n destroy it.",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 3,

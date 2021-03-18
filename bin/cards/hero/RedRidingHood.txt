@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Red Riding Hood",
 "Template" : "redUnitTemplate.jpg",
-"Description" : "Urgency (This card doesn\'t require breifing)",
+"Description" : "Urgency (This card doesn't require briefing).",
 "Img" : "",
 "Rarity" : "Rare.jpg",
 "Cost" : 3,

@@ -1,11 +1,12 @@
 {"All" : {
 "Name" : "Aires Lord of Battle",
 "Template" : "yellowUnitTemplate.jpg",
+"Description" : "Level Up: (When this card enters play and a copy of this card has entered play under your control\nbefore it) Gains +2/+2 and Urgency (This card doesn't require briefing)\nFringe: +1 Health to this card and +1 Health to any target\nOr\n+1 Health to this card and +3 Attack until the end phase",
 "Img" : "",
 "Rarity" : "Super.png",
 "Cost" : 3,
-"Color" : "Yellow",
 "Unit" : "Lord",
+"Color" : "Yellow",
 "Unit-Label" : "Lord - Dwarf Warrior",
 "Effects" : {
 	"LevelUp" : { "selfHealthBuff" : 2, "selfAttackBuff" : 2, "SelfEffectApply" : "Urgency" },

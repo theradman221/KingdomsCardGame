@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "I'm Trying to Study!",
 "Template" : "bluenon-unittemplate.jpg",
-"Description" : "You may only play this card if you have studied this turn (Viewed \nthe top card of a deck and placed it on top or on the bottom of that\ndeck)\nDeal 3 damage to any target unit",
+"Description" : "You may only play this card if you have studied this turn (Viewed\nthe top card of a deck and placed it on top or on the bottom of that\ndeck).\nDeal 3 damage to any target unit.",
 "Img" : "",
 "Rarity" : "Common.jpg",
 "Cost" : 1,

@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Scavenger",
 "Template" : "rednon-unittemplate.jpg",
-"Description" : "Search your deck for a relic and add it to your\nhand",
+"Description" : "Search your deck for a relic and add it to your\nhand.",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 3,

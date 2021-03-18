@@ -10,6 +10,6 @@
 "Unit-Label" : "Scroll",
 "Effects" : {
 	"Scroll" : {"SelfDrawCard" : 1}
-},
+}
 }
 }

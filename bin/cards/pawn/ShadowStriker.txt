@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Shadow Striker",
 "Template" : "redUnitTemplate.jpg",
-"Description" : "Urgency (This card doesn't require briefing)",
+"Description" : "Urgency (This card doesn't require briefing).",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 1,
@@ -9,7 +9,7 @@
 "Color" : "Red",
 "Unit-Label" : "Pawn - Rogue Shadow",
 "Effects" : {
-		"Urgency" : "Urgency"
+	"Urgency" : "Urgency"
 },
 "Attack" : 1,
 "Health" : 1

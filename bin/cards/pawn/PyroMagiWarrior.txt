@@ -1,17 +1,17 @@
 {"All" : {
 "Name" : "Pyro Magi Warrior",
 "Template" : "blueUnitTemplate.jpg",
-"Description" : "Reflex (This card deals damage first in combat against units \n without reflex)",
+"Description" : "Reflex (This card deals damage first in combat against units\n without reflex).\n \"Fireballs and swords are the only friends I need\"",
 "Img" : "",
-"Rarity" : "Rare.jpg",
+"Rarity" : "Common.jpg",
 "Cost" : 2,
 "Unit" : "Pawn",
 "Color" : "Blue",
 "Unit-Label" : "Pawn - Human Magi Warrior" ,
 "Effects" : { 
-"Reflex" : "Reflex"
+	"Reflex" : "Reflex"
 },
-
 "Attack" : 2,
 "Health" : 2
-}}
+}
+}

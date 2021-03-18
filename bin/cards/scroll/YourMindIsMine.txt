@@ -9,7 +9,7 @@
 "Color" : "Blue",
 "Unit-Label" : "Scroll",
 "Effects" : {
-	"Scroll" : {"TargetMoveTo" : "BattleField" - takes opponents card and puts into players battlefield}
+	"Scroll" : {"TargetMoveTo" : "BattleField" - takes opponents Cost 3 Pawn and puts into players battlefield}
 }
 }
 }

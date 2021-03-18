@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Deep Visions",
 "Template" : "bluenon-unittemplate.jpg",
-"Description" : "Study 1, (View the top card of either of your decks and place it on the top or\non the bottom of the deck) then draw 2 unless an opponent pays\n2 power",
+"Description" : "Study 1, (View the top card of either of your decks and place it on the top or\non the bottom of the deck) then draw 2 unless an opponent pays\n2 power.",
 "Img" : "",
 "Rarity" : "Common.jpg",
 "Cost" : 2,

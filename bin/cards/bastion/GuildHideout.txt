@@ -1,14 +1,15 @@
 {"All" : {
 "Name" : "Guild Hideout",
 "Template" : "redbastiontemplate.jpg",
-"Description" : "When a royal you control is sent to your throne\nroom you may deal 1 damage to any target",
+"Description" : "When a royal you control is sent to your throne\nroom you may deal 1 damage to any target.",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
 "Unit" : "Bastion",
 "Color" : "Red",
 "Unit-Label" : "Bastion",
-"Activated-Effect" : { - If there are no activated effects delete Activate Effects
+"Activated-Effect" : {
 	"TriggeredEffect" : {"Condition" : {"TargetMoveTo" : "ThroneRoom"}, "Effects" : {"TargetHealthDamage" : 1}}
-}
+},
+"Health" : 20
 }
 }

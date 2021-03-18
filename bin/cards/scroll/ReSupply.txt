@@ -1,7 +1,7 @@
 {"All" : {
-"Name" : "Re-supply",
+"Name" : "Resupply",
 "Template" : "yellownon-unittemplate.jpg",
-"Description" : "Target a supply card in your graveyard and add\nthat target to your hand",
+"Description" : "Target a supply card in your graveyard and add\nthat target to your hand.",
 "Img" : "",
 "Rarity" : "Common.jpg",
 "Cost" : 2,
@@ -13,3 +13,5 @@
 }
 }
 }
+
+*Need to target a supply card specifically*

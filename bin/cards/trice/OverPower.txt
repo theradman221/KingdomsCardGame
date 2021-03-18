@@ -1,7 +1,7 @@
 {"All" : {
-"Name" : "OverPower",
+"Name" : "Overpower",
 "Template" : "bluenon-unittemplate.jpg",
-"Description" : "Target a non-royal unit as it enters play. Destroy that\ntarget and negate its effects",
+"Description" : "Target a non-royal unit as it enters play. Destroy that\ntarget and negate its effects.",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 3,

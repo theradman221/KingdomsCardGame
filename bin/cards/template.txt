@@ -159,6 +159,7 @@ Trigger's These are actions that must happen to the game, or the player as a who
 	"ScrollPlayed" : "ScrollPlayed"
 	"AddPower" : INT
 	"PlayerHasStudied" : "PlayerHasStudied" - condition where the player must have studied
+	"TargetExhausted" : "TargetExhausted" - condition where the target must be exhausted
 	"SelfMoveTo" : TARGETZONE - effect where a card is moved to a zone
 	"TargetMoveTo" : TARGETZONE - moves a selected target to a zone
 	"MoveAllFriendly" : TARGETZONE - moves all friendly units to a zone

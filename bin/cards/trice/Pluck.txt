@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Pluck",
 "Template" : "bluenon-unittemplate.jpg",
-"Description" : "Target one pawn. Send that target to its owners hand",
+"Description" : "Target one pawn. Send that target to its owners hand.",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 2,
@@ -10,7 +10,7 @@
 "Unit-Label" : "Trice",
 "Effects" : {
 	"Trice" : {"TargetMoveTo" : "PlayHandTarget"}
-},
+}
 }
 }
 

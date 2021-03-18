@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Forged Exile Documents",
 "Template" : "rednon-unittemplate.jpg",
-"Description" : "Target one non royal unit and exile it",
+"Description" : "Target one non-royal unit and exile it.",
 "Img" : "",
 "Rarity" : "Super.jpg",
 "Cost" : 4,

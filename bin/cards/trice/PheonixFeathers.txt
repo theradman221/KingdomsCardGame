@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Pheonix Feathers",
 "Template" : "yellownon-unittemplate.jpg",
-"Description" : "Target one exhausted unit. That Target becomes\nrested",
+"Description" : "Target one exhausted unit. That Target becomes\n rested.",
 "Img" : "",
 "Rarity" : "Common.jpg",
 "Cost" : 1,

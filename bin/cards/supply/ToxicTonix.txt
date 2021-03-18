@@ -1,7 +1,7 @@
 {"All" : {
-"Name" : "Toxic Tonix",
-"Template" : TEMPLATE from below,
-"Description" : ""rednon-unittemplate.jpg"",
+"Name" : "Toxic Tonic",
+"Template" : "rednon-unittemplate.jpg",
+"Description" : "The unit supplied with this card gets -2/-2.",
 "Img" : "",
 "Rarity" : "Common.jpg",
 "Cost" : 2,
@@ -10,6 +10,6 @@
 "Unit-Label" : "Supply",
 "Effects" : {
 	"Supply" : {"TargetHealthDamage" : 2, "TargetAttackDamage" : 2}
-},
+}
 }
 }

@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "And Another Axe!",
 "Template" : "yellownon-unittemplate.jpg",
-"Description" : "The unit supplied with this card gains Reckless\n(After this card attacks a unit, it can attack again\nimmediately)",
+"Description" : "The unit supplied with this card gains Reckless\n (After this card attacks a unit, it can attack again\n immediately).",
 "Img" : "",
 "Rarity" : "Rare.jpg",
 "Cost" : 3,

@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Poisoned Dagger",
 "Template" : "rednon-unittemplate.jpg",
-"Description" : "The unit supplied with this card gains +1/+0 and Poison (Any\namount of damage this card deals to a unit is enough to destroy\nit. After this card deals damage for the first time it loses poison)",
+"Description" : "The unit supplied with this card gains +1/+0 and Poison (Any\n amount of damage this card deals to a unit is enough to destroy\n it. After this card deals damage for the first time it loses poison).",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 2,
@@ -9,7 +9,7 @@
 "Color" : "Red",
 "Unit-Label" : "Supply",
 "Effects" : {
-	"Supply" : {"TargetAttackBuff" : 1, "TargetEffectApply" : "Poison" }
-},
+	"Supply" : {"TargetHealthBuff" : 1, "TargetEffectApply" : "Poison" }
+}
 }
 }

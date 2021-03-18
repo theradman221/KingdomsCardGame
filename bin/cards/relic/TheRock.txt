@@ -1,14 +1,14 @@
 {"All" : {
 "Name" : "The Rock",
 "Template" : "colorlessnon-unittemplate.jpg",
-"Description" : "Hard Exhaust and Sacrifice: +1 Power",
+"Description" : "Hard Exhaust and Sacrifice: +1 Power.",
 "Img" : "",
 "Rarity" : "Super.jpg",
 "Cost" : 0,
 "Unit" : "Relic",
 "Color" : "Colorless",
 "Unit-Label" : "Relic",
-"Activated-Effect" : { - If there are no activated effects delete Activate Effects
+"Activated-Effect" : {
 	"TriggeredEffectHard" : {"Condition" : {"ExhaustTrigger" : "ExhaustTrigger", "Sacrifice" : "Self"}, "Effects" : {"AddPower" : 1}}
 }
 }

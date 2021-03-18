@@ -1,9 +1,9 @@
 {"All" : {
 "Name" : "Ward Magi",
 "Template" : "blueUnitTemplate.jpg",
-"Description" : "Guard (While this card is rested you may redirect attacks to this\ncard. While this card is in the Kingdom it cannot\"Guard\" units on\n the battlefield)\n \"Defense at a moments notice\"",
+"Description" : "Guard (While this card is rested you may redirect attacks to this\n card. While this card is in the Kingdom it cannot \"Guard\" units on\n the battlefield).\n \"Defense at a moments notice\"",
 "Img" : "", 
-"Rarity" : "Rare.jpg",
+"Rarity" : "Common.jpg",
 "Cost" : 3,
 "Unit" : "Pawn",
 "Color" : "Blue",
@@ -11,7 +11,7 @@
 "Effects" : {
 	"Guard": "Guard"
  },
-
 "Attack" : 2,
 "Health" : 4
-}}
+}
+}

@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Little Thief",
 "Template" : "redUnitTemplate.jpg",
-"Description" : "Sneak (If this card declares an attack it takes no battle damage \n until the end of the attack phase)",
+"Description" : "Sneak (If this card declares an attack it takes no battle damage\n until the end of the attack phase)",
 "Img" : "", 
 "Rarity" : "Common.jpg",
 "Cost" : 2,

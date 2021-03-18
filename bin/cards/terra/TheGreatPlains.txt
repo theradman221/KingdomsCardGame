@@ -1,17 +1,19 @@
 {"All" : {
 "Name" : "The Great Plains",
 "Template" : "yellowuniqueterratemplate.jpg",
-"Description" : "This card enters play exhausted\nHard Entrance: All units you control gain +1/+1 until the end of phase\n'A place of many glorious battles'",
+"Description" : "This card enters play exhausted.\nHard Entrance: All units you control gain +1/+1 until the end of phase.\n\"A place of many glorious battles\"",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
-"Unit" : "Terra",
+"Unit" : "TerraLandmark",
 "Color" : "Yellow",
 "Unit-Label" : "Terra - Land Mark",
-"Effects" : {
-	"Entrance" : {"Exhausted" : "Exhausted", ""TargetAllFriendly" : {"TargetHealthBuffEndPhase" : 1,"TargetAttackBuffEndPhase" : 1}}
+"Activated-Effect" : { - If there are no activated effects delete Activate Effects
+	"TriggeredEffectHard" : {"Condition" : {"Entrance"}, "Effects" : {"TargetAllFriendly" : "AllFriendly", "TargetHealthBuffEndPhase" : 1, "TargetAttackBuffEndPhase" : 1}}
+	OR
+	"TriggeredEffectHard" : {"Condition" : {"Entrance"}, "Effects" : {"TargetAllFriendly" : {"TargetHealthBuffEndPhase" : 1, "TargetAttackBuffEndPhase" : 1}}}
 },
-"Attack" : INT,
-"Health" : INT
+"Effects" : {
+	"Entrance" : "Exhausted"
 }
 }
-* May need to look at the way the targeting is setup on this one *
+}

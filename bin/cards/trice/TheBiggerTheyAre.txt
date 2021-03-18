@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "The Bigger They Are",
 "Template" : "bluenon-unittemplate.jpg",
-"Description" : "Target one unit with 4 Attack or more and destroy it",
+"Description" : "Target one unit with 4 Attack or more and destroy it.",
 "Img" : "",
 "Rarity" : "Rare.jpg",
 "Cost" : 3,

@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Speed Scroll",
 "Template" : "yellownon-unittemplate.jpg",
-"Description" : "The next cost you pay this turn is reduced by two",
+"Description" : "The next cost you pay this turn is reduced by two.",
 "Img" : "",
 "Rarity" : "Ultra.jpg",
 "Cost" : 1,
@@ -13,3 +13,5 @@
 }
 }
 }
+
+*Nothing implemented to handle this card*

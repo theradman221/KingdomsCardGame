@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Magi Tower",
 "Template" : "bluebastiontemplate.jpg",
-"Description" : "You may only use this cards Fringe effect while you control\nboth your royals\nFringe: Study 1 (View the top card of either of your decks and place it on\ntop or on the bottom of that deck) and Draw 1",
+"Description" : "You may only use this cards Fringe effect while you control\n both your royals.\n Fringe: Study 1 (View the top card of either of your decks and place it on\n top or on the bottom of that deck) and Draw 1.",
 "Img" : "",
 "Rarity" : "Ultra.jpg",
 "Unit" : "Bastion",

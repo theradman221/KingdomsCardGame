@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "The King of Thieves",
 "Template" : "redUnitTemplate.jpg",
-"Description" : "Fringe: +1 Health to this card and target unit gains +1 Attack \n OR \n-1 Health to this card and deal 1 damage to any target\nOR\n-1 Health to this card and +1 Power",
+"Description" : "Fringe: +1 Health to this card and target unit gains +1 Attack.\n Or\n -1 Health to this card and deal 1 damage to any target.\n Or\n -1 Health to this card and +1 Power.",
 "Img" : "",
 "Rarity" : "Super.jpg",
 "Cost" : 3,
@@ -9,7 +9,7 @@
 "Color" : "Red",
 "Unit-Label" : "Lord - Human Thief",
 "Effects" : {
-	"Fringe" : {"Option1" : {"selfHealthBuff" : 1, "TargetAttackDamage" : 1}, "Option2" : {"selfHealthBuff" : -1, "TargetHealthDamage" : 1}, "Option3" : {"SelfHealthBuff" : -1, "AddPower" : 1}}
+	"Fringe" : {"Option1" : {"selfHealthBuff" : 1, "TargetAttackBuff" : 1}, "Option2" : {"selfHealthBuff" : -1, "TargetHealthDamage" : 1}, "Option3" : {"SelfHealthBuff" : -1, "AddPower" : 1}}
 },
 "Health" : 4
 }

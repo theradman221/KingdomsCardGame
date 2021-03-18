@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Burning Fire Ward",
 "Template" : "bluenon-unittemplate.jpg",
-"Description" : "If the unit supplied with this card is attacked, the attacking unit takes 1\ndamage before entering battle.\nIf the unit supplied with this card attacks, it gains 1 Defense (Must be\nreduced to zero before the units health is damaged) until the end of the\nattack phase",
+"Description" : "If the unit supplied with this card is attacked, the attacking unit takes 1\n damage before entering battle.\n If the unit supplied with this card attacks, it gains 1 Defense (Must be\n reduced to zero before the units health is damaged) until the end of the\n attack phase.",
 "Img" : "",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 2,

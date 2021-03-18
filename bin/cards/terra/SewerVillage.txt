@@ -1,0 +1,14 @@
+{"All" : {
+"Name" : "Sewer Village",
+"Template" : "reduniqueterratemplate.jpg",
+"Description" : "Exhaust: Target one unit you control. Move that target from the\nkingdom to the battlefield or vice-versa.",
+"Img" : "",
+"Rarity" : "Rare.jpg",
+"Unit" : "TerraLandmark",
+"Color" : "Red",
+"Unit-Label" : "Terra - Land Mark",
+"Activated-Effect" : {
+	"TriggeredEffect" : {"Condition" : {"ExhaustTrigger" : "ExhaustTrigger"}, "Effects" : {"TargetMoveTo" : "BattleField", "TargetMoveTo" : "Kingdom"}}
+}
+}
+}

@@ -1,9 +1,9 @@
 {"All" : {
 "Name" : "Pirate for Hire",
 "Template" : "colorlessUnitTemplate.jpg",
-"Description" : "Urgency (This card doesn't require briefing)",
+"Description" : "Urgency (This card doesn't require briefing).",
 "Img" : "", 
-"Rarity" : "Rare.jpg",
+"Rarity" : "Common.jpg",
 "Cost" : 3,
 "Unit" : "Pawn",
 "Color" : "Colorless",

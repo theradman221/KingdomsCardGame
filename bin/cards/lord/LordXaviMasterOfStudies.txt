@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Lord Xavi, Master of Studies",
 "Template" : "blueUnitTemplate.jpg",
-"Description" : "Fringe: +1 Health to this card and Study 1\n(View the top card of either of you decks and place it on the top or on the bottom of that deck)\nOR\n-1 Health to this card and Draw 1",
+"Description" : "Fringe: +1 Health to this card and Study 1\n (View the top card of either of your decks and place it on the\n top or on the bottom of that deck).\n Or\n -1 Health to this card and Draw 1.",
 "Img" : "",
 "Rarity" : "Super.jpg",
 "Cost" : 2,

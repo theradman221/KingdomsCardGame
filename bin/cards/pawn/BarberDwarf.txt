@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Barber Dwarf",
 "Template" : "yellowUnitTemplate.jpg",
-"Description" : "Reckless (After this card attacks a unit, it may attack\nagain immediately)\n\"GHWAAAAAAA\"",
+"Description" : "Reckless (After this card attacks a unit, it may attack\n again immediately)\n \"GHWAAAAAAA\"",
 "Img" : "",
 "Rarity" : "Common.jpg",
 "Cost" : 2,

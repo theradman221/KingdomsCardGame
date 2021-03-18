@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "The Mines",
 "Template" : "yellowuniqueterratemplate.jpg",
-"Description" : "Exhaust: Discard 1 card and search your deck for a supply\ncard, add it to your hand",
+"Description" : "Exhaust: Discard 1 card and search your deck for a supply\ncard, add it to your hand.",
 "Img" : "",
 "Rarity" : "Super.jpg",
 "Unit" : "TerraLandmark",

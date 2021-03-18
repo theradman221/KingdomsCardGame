@@ -1,14 +1,13 @@
 {"All" : {
 "Name" : "Rogue Huntress",
 "Template" : "redUnitTemplate.jpg",
-"Description" : "Ranged (Can declare attacks while in the Kingdom if this card \n declares an attack while it is in the kingdom it take no battle \n damage, except when this cards attack target also has \"Ranged\")",
+"Description" : "Ranged (Can declare attacks while in the Kingdom. If this card\n declares an attack while it is in the kingdom it take no battle\n damage, except when this cards attack target also has \"Ranged\").",
 "Img" : "",
 "Rarity" : "Common.jpg",
 "Cost" : 3,
 "Unit" : "Pawn",
 "Color" : "Red",
 "Unit-Label" : "Pawn - Human Rogue Archer",
-
 "Effects" : { 
 	"Ranged" : "Ranged"
 },

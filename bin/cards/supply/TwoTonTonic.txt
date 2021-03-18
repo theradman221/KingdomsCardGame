@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Two Ton Tonic",
 "Template" : "yellownon-unittemplate.jpg",
-"Description" : "The unit supuplied with this card gains 3 Defense\n(Must be reduced to zero before the units health can\nbe damaged)",
+"Description" : "The unit supuplied with this card gains 3 Defense\n (Must be reduced to zero before the units health can\n be damaged).",
 "Img" : "",
 "Rarity" : "Common.jpg",
 "Cost" : 2,

@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Helga the Bog Witch",
 "Template" : "blueUnitTemplate.jpg",
-"Description" : "Hard Trigger: After you study (View the top card of either of your decks\nand place it on the top or on the bottom of that deck) you may draw a card\nHard Trigger: After you draw from a card effect this card gains\n2/+0",
+"Description" : "Hard Trigger: After you study (View the top card of either of your decks\nand place it on the top or on the bottom of that deck) you may draw a card.\nHard Trigger: After you draw from a card effect this card gains\n2/+0.",
 "Img" : "",
 "Rarity" : "Rare.jpg",
 "Cost" : 3,
@@ -9,13 +9,10 @@
 "Color" : "Blue",
 "Unit-Label" : "Hero - Human Magi",
 "Activated-Effect" : {
-	"TriggeredEffect" : {"Condition" : {"Study": 1}, "Effects" : {"DrawCard" : 1}},
-	"TriggeredEffect" : {"Condition" : {"DrawCardFromEffect" : "DrawCardFromEffect"}, "Effects" : {"SelfHealthBuff" : 2}}
+	"TriggeredEffectHard" : {"Condition" : {"Studied"}, "Effects" : {"SelfDrawCard" : 1}},
+	"TriggeredEffectHard" : {"Condition" : {"DrawCardFromEffect" : "DrawCardFromEffect"}, "Effects" : {"SelfHealthBuff" : 2}}
 },
 "Attack" : 1,
 "Health" : 4
 }
 }
-
-*Nothing implemented for study and drawing Effect*
-*Nothing implemented for Firm, Hard, or Strict triggers*

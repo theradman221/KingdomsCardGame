@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Shank",
 "Template" : "rednon-unittemplate.jpg",
-"Description" : "Deal 4 damage to a target unit",
+"Description" : "Deal 4 damage to a target unit.",
 "Img" : "",
 "Rarity" : "Common.jpg",
 "Cost" : 3,
