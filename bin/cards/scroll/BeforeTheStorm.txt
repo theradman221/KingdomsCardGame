@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "Before the Storm",
+"Template" : "yellownon-unittemplate.jpg",
+"Description" : "Move all units you control to your Kingdom, then all units you\ncontrol gain +1/+1 for each unit moved by this effect, until the\nend phase",
+"Img" : "",
+"Rarity" : "Uncommon.jpg",
+"Cost" : 4,
+"Unit" : "Scroll",
+"Color" : "Yellow",
+"Unit-Label" : "Scroll",
+"Effects" : {
+	"Scroll" : {"MoveAllFriendly" : "Kingdom", "TargetAllFriendly" : "AllFriendly", "TargetHealthBuffEndPhase" : 1, "TargetAttackBuffEndPhase" : 1}
+	OR
+	"Scroll" : {"MoveAllFriendly" : "Kingdom", "TargetAllFriendly" : {"TargetHealthBuffEndPhase" : 1, "TargetAttackBuffEndPhase" : 1}}
+}
+}
+}
