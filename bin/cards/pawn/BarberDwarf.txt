@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "Barber Dwarf",
+"Template" : "yellowUnitTemplate.jpg",
+"Description" : "Reckless (After this card attacks a unit, it may attack\nagain immediately)\n\"GHWAAAAAAA\"",
+"Img" : "",
+"Rarity" : "Common.jpg",
+"Cost" : 2,
+"Unit" : "Pawn",
+"Color" : "Yellow",
+"Unit-Label" : "Pawn - Dwarf Berserker",
+"Effects" : {
+	"Reckless" : "Reckless"
+},
+"Attack" : 2,
+"Health" : 2
+}
+}
