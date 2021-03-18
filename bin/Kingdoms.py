@@ -96,7 +96,7 @@ def test_loop():
     mif = "bg.png"
 
     pygame.init()
-    screen = pygame.display.set_mode((1920, 1080), 0, 32)
+    screen = pygame.display.set_mode((1220, 980), 0, 32)
 
     backround = pygame.image.load(bif).convert()
     mouse_c = pygame.image.load(mif).convert_alpha()

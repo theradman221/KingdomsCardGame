@@ -35,11 +35,12 @@ class Deck:
         js.dump(self.__convert_deck_to_json(), open(save_path + self.__name + ".json", "w"))
         return
 
+    # Retrieves the json for a specified deck from the save location.
     def load_deck(self, name):
         dict = js.load(open(save_path + name + ".json"))
         return dict
 
-
+    # converts the entire deck into a json representation with the name as a key and the file path as the data.
     def __convert_deck_to_json(self):
         inside_dict = {}
         save_dict = {str(self.__name) : inside_dict}
