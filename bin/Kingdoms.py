@@ -11,10 +11,10 @@ from OpenGL.GL import *
 # More advanced ones
 from OpenGL.GLU import *
 
-# SteamworksPy
-from steamworks import *
-steamworks = STEAMWORKS()
-steamworks.initialize()
+# # SteamworksPy
+# from steamworks import *
+# steamworks = STEAMWORKS()
+# steamworks.initialize()
 
 # other imports
 import os
