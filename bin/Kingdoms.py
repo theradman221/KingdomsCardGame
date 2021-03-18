@@ -78,6 +78,8 @@ def game_loop():
     run = True
     print(os.getcwd() + "\menubackgrounds\\" + 'background.jpg')
     backround = Background(os.getcwd() + "\menubackgrounds\\" + "background.png", [0, 0])
+    mainMenu = MainMenu()
+    mainMenu.draw()
     while run:
         screen.fill([255, 255, 255])
         screen.blit(backround.image, backround.rect)
@@ -96,7 +98,7 @@ def test_loop():
     mif = "bg.png"
 
     pygame.init()
-    screen = pygame.display.set_mode((500, 500), 0, 32)
+    screen = pygame.display.set_mode((1920, 1080), 0, 32)
 
     backround = pygame.image.load(bif).convert()
     mouse_c = pygame.image.load(mif).convert_alpha()
@@ -119,4 +121,4 @@ def test_loop():
 
 main()
 #game_loop() # Doesn't work at all for some reason
-#test_loop()
+test_loop()
