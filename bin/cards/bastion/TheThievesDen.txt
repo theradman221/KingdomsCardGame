@@ -1,0 +1,17 @@
+{"All" : {
+"Name" : "The Thieves Den",
+"Template" : "redbastiontemplate.jpg",
+"Description" : "You must send one terra card you control to your hand to\nactivate this cards fring effect. While you control both your\nRoyals, ignore this rule.\nFringe: +1 Power",
+"Img" : "",
+"Rarity" : "Ultra.jpg",
+"Unit" : "Bastion",
+"Color" : "Red",
+"Unit-Label" : "Bastion",
+"Activated-Effect" : { - If there are no activated effects delete Activate Effects
+	"TriggeredEffect" : {"Condition" : {TRIGGER'S}, "Effects" : {"EFFECT-NAME" : EFFECT-AFFECT}}
+},
+"Effects" : { - If there are no effects make Effects empty
+	EFFECT-NAME : {EFFECT-AFFECT}
+}
+}
+}
