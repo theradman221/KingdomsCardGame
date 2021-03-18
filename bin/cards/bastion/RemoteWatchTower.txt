@@ -1,0 +1,14 @@
+{"All" : {
+"Name" : "Remote Watch Tower",
+"Template" : "bluebastiontemplate.jpg",
+"Description" : "When a royal you control is sent to your throne\nroom you may draw 1 card",
+"Img" : "",
+"Rarity" : "Uncommon.jpg",
+"Unit" : "Bastion",
+"Color" : "Blue",
+"Unit-Label" : "Bastion",
+"Activated-Effect" : {
+	"TriggeredEffect" : {"Condition" : {"TargetMoveTo" : "ThroneRoom"}, "Effects" : {"SelfDrawCard" : 1}}
+}
+}
+}
