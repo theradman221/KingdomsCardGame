@@ -6,6 +6,7 @@ import sys
 # This must be run for pygame to function
 pygame.init()
 
+
 # typical OpenGL functions
 from OpenGL.GL import *
 # More advanced ones
@@ -18,8 +19,8 @@ from OpenGL.GLU import *
 
 # other imports
 import os
-from bin.pyfiles.Deck import Deck
-from bin.pyfiles.guielements.Background import Background
+from pyfiles.Deck import Deck
+from pyfiles.guielements.Background import Background
 
 # Testing creating a pygame window and putting a few boxes on it, (500,500) is the size
 screen = pygame.display.set_mode((500,500))
@@ -35,9 +36,9 @@ pygame.display.set_caption("First Game")
 
 # Testing imports for decks and cards
 
-from bin.pyfiles.cardclasses.Card import Card
-from bin.pyfiles.cardclasses.NonAttackCard import NonAttackCard
-import bin.pyfiles.cardclasses.CardConstructor as cc
+from pyfiles.cardclasses.Card import Card
+from pyfiles.cardclasses.NonAttackCard import NonAttackCard
+import pyfiles.cardclasses.CardConstructor as cc
 
 def main():
     print(os.getcwd())

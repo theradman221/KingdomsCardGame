@@ -1,4 +1,4 @@
-from bin.pyfiles.cardclasses.AttackCard import AttackCard
+from pyfiles.cardclasses.AttackCard import AttackCard
 
 
 class Lord(AttackCard):

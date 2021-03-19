@@ -1,4 +1,4 @@
-from bin.pyfiles.cardclasses.Card import Card
+from pyfiles.cardclasses.Card import Card
 
 # This class encompasses all cards that can attack/defend in the game
 class AttackCard(Card):
