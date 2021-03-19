@@ -48,13 +48,9 @@ def main():
         print("Details about " + str(card2))
         #card2.print_all_details()
         card2 = master_deck.draw_card()
-    deck = Deck("Testing")
     master_copy = master_deck.load_deck("Master")
     master_copy_deck = load_deck("Master", cc)
     print_deck(master_copy_deck)
-    card = Card()
-    deck.add_card(card)
-    deck.save_deck()
 
     #pygame.quit()
 
