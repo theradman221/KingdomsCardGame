@@ -6,7 +6,6 @@ from pygame.locals import *
 pygame.init()
 pygame.display.set_caption('Kingdoms_Main_Menu')
 screen = pygame.display.set_mode((500,500), 0,32)
-
 font = pygame.font.SysFont('Corbel', 20)
 
 
@@ -15,7 +14,6 @@ def menu_draw_text(text, font, color, surface, x, y):
     textrect = textobj.get_rect()
     textrect.topleft = (x,y)
     surface.blit(textobj, textrect)
-
 
 
 
@@ -51,7 +49,6 @@ def main_menu():
         
 
         click = False
-
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
