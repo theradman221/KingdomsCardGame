@@ -29,8 +29,8 @@ def main_menu():
         mx, my = pygame.mouse.get_pos()
 
         button_play = pygame.Rect(50, 100, 200, 50)
-        button_deck = pygame.Rect(50, 100, 200, 50)
-        button_quit = pygame.Rect(50, 100, 200, 50)
+        button_deck = pygame.Rect(50, 200, 200, 50)
+        button_quit = pygame.Rect(50, 300, 200, 50)
 
         if button_play.collidepoint((mx,my)):
             if click:
@@ -46,8 +46,8 @@ def main_menu():
         pygame.draw.rect(screen, (255,255,255), button_deck)
         pygame.draw.rect(screen, (255,255,255), button_quit)
 
-
         click = False
+
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
