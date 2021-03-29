@@ -42,9 +42,9 @@ def main_menu():
             if click:
                 pass
 
-        pygame.draw.rect(screen, (255,0,0), button_play)
-        pygame.draw.rect(screen, (100, 100, 100), button_deck)
-        pygame.draw.rect(screen, (100, 100, 100), button_quit)
+        pygame.draw.rect(screen, (255,255,255), button_play)
+        pygame.draw.rect(screen, (255,255,255), button_deck)
+        pygame.draw.rect(screen, (255,255,255), button_quit)
 
 
         click = False
