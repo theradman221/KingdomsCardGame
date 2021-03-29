@@ -23,10 +23,11 @@ def menu_draw_text(text, font, color, surface, x, y):
 def draw_window():
     WIN.fill((100, 100, 100))
     menu_draw_text('Main Menu', pygame.font.SysFont('Corbel', 35), (255, 255, 255), WIN, 170, 20)
-    pygame.display.update()
     pygame.draw.rect(WIN, (255, 255, 255), button_play)
     pygame.draw.rect(WIN, (255, 255, 255), button_deck)
     pygame.draw.rect(WIN, (255, 255, 255), button_quit)
+    pygame.display.update()
+
 
 
 click = False
@@ -36,7 +37,11 @@ def main_menu():
 
     while True:
         draw_window()
+
         mx, my = pygame.mouse.get_pos()
+        pygame.draw.rect(WIN, (255, 255, 255), button_play)
+        pygame.draw.rect(WIN, (255, 255, 255), button_deck)
+        pygame.draw.rect(WIN, (255, 255, 255), button_quit)
 
         if button_play.collidepoint((mx,my)):
             if click:
@@ -62,7 +67,7 @@ def main_menu():
             if event.type == MOUSEBUTTONDOWN:
                 if event.button == 1:
                     click = True
-        pygame.display.update()
+
         mainClock.tick(60)
 
 
