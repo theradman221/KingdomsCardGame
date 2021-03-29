@@ -7,7 +7,7 @@ pygame.init()
 pygame.display.set_caption('Kingdoms_Main_Menu')
 screen = pygame.display.set_mode((500,500), 0,32)
 
-font = pygame.font.SysFont(None, 20)
+font = pygame.font.SysFont('Corbel', 20)
 
 
 def menu_draw_text(text, font, color, surface, x, y):
@@ -17,6 +17,8 @@ def menu_draw_text(text, font, color, surface, x, y):
     surface.blit(textobj, textrect)
 
 
+
+
 click = False
 
 
@@ -24,7 +26,7 @@ def main_menu():
     while True:
 
         screen.fill((100,100,100))
-        menu_draw_text('Main Menu', pygame.font.SysFont('Corbel',35), (255,255,255), screen, 170, 20)
+        menu_draw_text('Main Menu', pygame.font.SysFont('Corbel', 35), (255, 255, 255), screen, 170, 20)
 
         mx, my = pygame.mouse.get_pos()
 
@@ -40,11 +42,13 @@ def main_menu():
                 pass
         if button_quit.collidepoint((mx,my)):
             if click:
-                pass
+                pygame.quit()
+                sys.exit()
 
         pygame.draw.rect(screen, (255,255,255), button_play)
         pygame.draw.rect(screen, (255,255,255), button_deck)
         pygame.draw.rect(screen, (255,255,255), button_quit)
+        
 
         click = False
 
