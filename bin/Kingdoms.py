@@ -1,10 +1,19 @@
 # Required imports, pygame, PyOpenGl (OpenGL is the name of the class in the package), eventually steamworkspy (not yet)
 # Pygame
+import logging
+
 import pygame
 from pygame.locals import *
 import sys
 # This must be run for pygame to function
 pygame.init()
+
+# Setup the logging file
+logging.basicConfig(filename="log\kingdoms_log.log", level=logging.INFO)
+# Different logging types
+logging.info('your text goes here')
+logging.error('your text goes here')
+logging.debug('your text goes here')
 
 
 # typical OpenGL functions
@@ -26,7 +35,7 @@ my_steam_level = steamworks.Users.GetPlayerSteamLevel()
 print(str(steamworks.Users.LoggedOn()) + "The user is Logged in : ")
 steamworks.Friends.ActivateGameOverlay("friends")
 
-
+logging.info(f'Logged on as {my_steam64}, level: {my_steam_level}')
 print(f'Logged on as {my_steam64}, level: {my_steam_level}')
 print('Is subscribed to current app?', steamworks.Apps.IsSubscribed())
 
