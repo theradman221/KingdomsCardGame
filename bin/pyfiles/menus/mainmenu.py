@@ -1,12 +1,16 @@
 import pygame
 import sys
 
-mainClock = pygame.time.Clock()
 from pygame.locals import *
+
+mainClock = pygame.time.Clock()
 pygame.init()
 pygame.display.set_caption('Kingdoms_Main_Menu')
-screen = pygame.display.set_mode((500,500), 0,32)
+WIN = pygame.display.set_mode((500,500), 0,32)
 font = pygame.font.SysFont('Corbel', 20)
+button_play = pygame.Rect(50, 100, 200, 50)
+button_deck = pygame.Rect(50, 200, 200, 50)
+button_quit = pygame.Rect(50, 300, 200, 50)
 
 
 def menu_draw_text(text, font, color, surface, x, y):
@@ -16,21 +20,28 @@ def menu_draw_text(text, font, color, surface, x, y):
     surface.blit(textobj, textrect)
 
 
+def draw_window():
+    WIN.fill((100, 100, 100))
+    menu_draw_text('Main Menu', pygame.font.SysFont('Corbel', 35), (255, 255, 255), WIN, 170, 20)
+    pygame.draw.rect(WIN, (255, 255, 255), button_play)
+    pygame.draw.rect(WIN, (255, 255, 255), button_deck)
+    pygame.draw.rect(WIN, (255, 255, 255), button_quit)
+    pygame.display.update()
+
+
 
 click = False
 
 
 def main_menu():
-    while True:
 
-        screen.fill((100,100,100))
-        menu_draw_text('Main Menu', pygame.font.SysFont('Corbel', 35), (255, 255, 255), screen, 170, 20)
+    while True:
+        draw_window()
 
         mx, my = pygame.mouse.get_pos()
-
-        button_play = pygame.Rect(50, 100, 200, 50)
-        button_deck = pygame.Rect(50, 200, 200, 50)
-        button_quit = pygame.Rect(50, 300, 200, 50)
+        pygame.draw.rect(WIN, (255, 255, 255), button_play)
+        pygame.draw.rect(WIN, (255, 255, 255), button_deck)
+        pygame.draw.rect(WIN, (255, 255, 255), button_quit)
 
         if button_play.collidepoint((mx,my)):
             if click:
@@ -43,12 +54,8 @@ def main_menu():
                 pygame.quit()
                 sys.exit()
 
-        pygame.draw.rect(screen, (255,255,255), button_play)
-        pygame.draw.rect(screen, (255,255,255), button_deck)
-        pygame.draw.rect(screen, (255,255,255), button_quit)
-        
-
         click = False
+
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
@@ -60,7 +67,7 @@ def main_menu():
             if event.type == MOUSEBUTTONDOWN:
                 if event.button == 1:
                     click = True
-        pygame.display.update()
+
         mainClock.tick(60)
 
 
