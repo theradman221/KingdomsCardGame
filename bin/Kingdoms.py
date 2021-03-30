@@ -13,9 +13,19 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 
 # # SteamworksPy
-# from steamworks import *
-# steamworks = STEAMWORKS()
-# steamworks.initialize()
+import os
+os.add_dll_directory(os.getcwd())
+
+from steamworks import STEAMWORKS
+
+steamworks = STEAMWORKS()
+steamworks.initialize()
+
+my_steam64 = steamworks.Users.GetSteamID()
+my_steam_level = steamworks.Users.GetPlayerSteamLevel()
+
+print(f'Logged on as {my_steam64}, level: {my_steam_level}')
+print('Is subscribed to current app?', steamworks.Apps.IsSubscribed())
 
 # other imports
 import os
@@ -23,7 +33,7 @@ from pyfiles.Deck import Deck
 from pyfiles.guielements.Background import Background
 
 # Testing creating a pygame window and putting a few boxes on it, (500,500) is the size
-screen = pygame.display.set_mode((500,500))
+screen = pygame.display.set_mode((500,500), DOUBLEBUF|OPENGL) # Use openGL to do the rendering so that we can have the steam overlay (not implimented yet)
 # The caption Display is  what it says at the top so to say Kingdoms would just use this command with Kingdoms
 pygame.display.set_caption("First Game")
 # Anything below here is probably going to be in a loop
