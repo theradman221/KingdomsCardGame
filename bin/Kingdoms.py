@@ -23,6 +23,9 @@ steamworks.initialize()
 
 my_steam64 = steamworks.Users.GetSteamID()
 my_steam_level = steamworks.Users.GetPlayerSteamLevel()
+print(str(steamworks.Users.LoggedOn()) + "The user is Logged in : ")
+steamworks.Friends.ActivateGameOverlay("friends")
+
 
 print(f'Logged on as {my_steam64}, level: {my_steam_level}')
 print('Is subscribed to current app?', steamworks.Apps.IsSubscribed())
@@ -34,6 +37,7 @@ from pyfiles.guielements.Background import Background
 
 # Testing creating a pygame window and putting a few boxes on it, (500,500) is the size
 screen = pygame.display.set_mode((500,500), DOUBLEBUF|OPENGL) # Use openGL to do the rendering so that we can have the steam overlay (not implimented yet)
+
 # The caption Display is  what it says at the top so to say Kingdoms would just use this command with Kingdoms
 pygame.display.set_caption("First Game")
 # Anything below here is probably going to be in a loop
@@ -108,6 +112,7 @@ def test_loop():
     backround = pygame.image.load(bif).convert()
     mouse_c = pygame.image.load(mif).convert_alpha()
 
+
     while True:
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -115,6 +120,7 @@ def test_loop():
                 sys.exit()
 
         screen.blit(backround, (0, 0))
+
 
         x, y = pygame.mouse.get_pos()
         x -= mouse_c.get_width() / 2
