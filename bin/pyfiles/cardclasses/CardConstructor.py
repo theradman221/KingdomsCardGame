@@ -17,6 +17,7 @@ from pyfiles.cardclasses.Trice import Trice
 
 excluded_files = ["template.txt", "potato.txt", "bastion" ,"effects.txt", "nondemonotworking", "nondemoworking", "Crack.txt", "SpeedScroll.txt", "Pluck.txt"]
 
+
 def load_all_cards(path):
     if path != "":
         path_to_cards = path
@@ -26,12 +27,13 @@ def load_all_cards(path):
     deck = Deck("Master")
     for folder in os.listdir(path_to_cards):
         if not excluded_files.__contains__(folder):
-            for file in os.listdir(path_to_cards + "\\"+ folder):
+            for file in os.listdir(path_to_cards + "\\" + folder):
                 print(folder + "\\" + file)
-                file_path = path_to_cards + "\\"+ folder + "\\" + file
+                file_path = path_to_cards + "\\" + folder + "\\" + file
                 if not excluded_files.__contains__(file):
-                   deck.add_card(convert_file_to_card(file_path))
+                    deck.add_card(convert_file_to_card(file_path))
     return deck
+
 
 # Takes in a file that contains a card and opens it and constructs a card object and returns it.
 def convert_file_to_card(file):
@@ -74,6 +76,7 @@ def convert_file_to_card(file):
 
     return card
 
+
 def create_bastion(dictionary, file_path):
     # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
     card = Bastion()
@@ -83,6 +86,7 @@ def create_bastion(dictionary, file_path):
     dict_keys = dictionary.keys()
     add_universal_attributes(dictionary,dict_keys,card)
     return card
+
 
 def create_hero(dictionary, file_path):
     # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
@@ -95,6 +99,7 @@ def create_hero(dictionary, file_path):
     add_attack_card_attributes(dictionary,dict_keys,card)
     return card
 
+
 def create_relic(dictionary, file_path):
     # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
     card = Relic()
@@ -104,6 +109,7 @@ def create_relic(dictionary, file_path):
     dict_keys = dictionary.keys()
     add_universal_attributes(dictionary,dict_keys,card)
     return card
+
 
 def create_scroll(dictionary, file_path):
     # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
@@ -115,6 +121,7 @@ def create_scroll(dictionary, file_path):
     add_universal_attributes(dictionary,dict_keys,card)
     return card
 
+
 def create_supply(dictionary, file_path):
     # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
     card = Supply()
@@ -124,6 +131,7 @@ def create_supply(dictionary, file_path):
     dict_keys = dictionary.keys()
     add_universal_attributes(dictionary,dict_keys,card)
     return card
+
 
 def create_token(dictionary, file_path):
     # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
@@ -136,6 +144,7 @@ def create_token(dictionary, file_path):
     add_attack_card_attributes(dictionary,dict_keys,card)
     return card
 
+
 def create_trice(dictionary, file_path):
     # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
     card = Trice()
@@ -145,6 +154,7 @@ def create_trice(dictionary, file_path):
     dict_keys = dictionary.keys()
     add_universal_attributes(dictionary,dict_keys,card)
     return card
+
 
 def create_lord(dictionary, file_path):
     # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
@@ -157,6 +167,7 @@ def create_lord(dictionary, file_path):
     add_attack_card_attributes(dictionary,dict_keys,card)
     return card
 
+
 def create_pawn(dictionary, file_path):
     # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
     card = Pawn()
@@ -168,6 +179,7 @@ def create_pawn(dictionary, file_path):
     add_attack_card_attributes(dictionary,dict_keys,card)
     return card
 
+
 def create_terra(dictionary, file_path):
     # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
     card = Terra()
@@ -177,6 +189,7 @@ def create_terra(dictionary, file_path):
     dict_keys = dictionary.keys()
     add_universal_attributes(dictionary,dict_keys,card)
     return card
+
 
 def create_terra_landmark(dictionary, file_path):
     # not all card's will have all attributes so we will get the dict_keys and make sure that we don't try to add an attribute without a key
@@ -188,6 +201,7 @@ def create_terra_landmark(dictionary, file_path):
     add_universal_attributes(dictionary,dict_keys,card)
     return card
 
+
 def add_attack_card_attributes(dictionary, dict_keys, card):
     if "Health" in dict_keys:
         card.set_default_health(dictionary["Health"])
@@ -196,6 +210,7 @@ def add_attack_card_attributes(dictionary, dict_keys, card):
     else:
         card.set_default_attack(0)
     return card
+
 
 def add_universal_attributes(dictionary, dict_keys, card):
     # Common things that all cards should have
