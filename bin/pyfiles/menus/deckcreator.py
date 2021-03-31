@@ -8,8 +8,11 @@ from pygame.locals import *
 def func():
     print("Button is clicked")
 
-def delete():
+def delete1():
     my_listbox.delete(ANCHOR)
+
+
+def delete2():
     my_listbox2.delete(ANCHOR)
 
 def select():
@@ -44,7 +47,7 @@ for i in my_list:
 
 my_listbox.insert(2, "A new thing")
 
-my_button = Button(root, text="Delete", command=delete)
+my_button = Button(root, text="Delete", command=delete1)
 my_button.pack(side=BOTTOM,pady=10)
 
 my_button2 = Button(root, text="Select", command=select)
