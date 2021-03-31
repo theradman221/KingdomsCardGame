@@ -78,8 +78,8 @@ def main(test: bool = False) -> None:
     # -------------------------------------------------------------------------
 
     settings_menu_theme = pygame_menu.themes.THEME_SOLARIZED.copy()
-    settings_menu_theme.title_offset = (5, -2)
-    settings_menu_theme.widget_alignment = pygame_menu.locals.ALIGN_LEFT
+    settings_menu_theme.title_offset = (5, 0)
+    settings_menu_theme.widget_alignment = pygame_menu.locals.ALIGN_CENTER
     settings_menu_theme.widget_font = pygame_menu.font.FONT_8BIT
     settings_menu_theme.title_font = pygame_menu.font.FONT_8BIT
     settings_menu_theme.widget_font_size = 20
@@ -93,12 +93,14 @@ def main(test: bool = False) -> None:
     settings_menu.add.selector('Menu sounds ',
                            [('Off', False), ('On', True)],
                            onchange=update_menu_sound)
+    settings_menu.add.button('back', pygame_menu.events.BACK)
+
     # -------------------------------------------------------------------------
     # Create menus: Deck Creator
     # -------------------------------------------------------------------------
     Deck_Creator_Theme = pygame_menu.themes.THEME_SOLARIZED.copy()
-    Deck_Creator_Theme.title_offset = (5, -2)
-    Deck_Creator_Theme.widget_alignment = pygame_menu.locals.ALIGN_LEFT
+    Deck_Creator_Theme.title_offset = (5, 0)
+    Deck_Creator_Theme.widget_alignment = pygame_menu.locals.ALIGN_CENTER
     Deck_Creator_Theme.widget_font = pygame_menu.font.FONT_8BIT
     Deck_Creator_Theme.title_font = pygame_menu.font.FONT_8BIT
     Deck_Creator_Theme.widget_font_size = 20
@@ -109,7 +111,24 @@ def main(test: bool = False) -> None:
         title='Deck Creator',
         width=WINDOW_SIZE[0] * 1
     )
+    deck_Creator.add.button('back', pygame_menu.events.BACK)
+    # -------------------------------------------------------------------------
+    # Create menus: Deck Creator
+    # -------------------------------------------------------------------------
+    Deck_Selector_Theme = pygame_menu.themes.THEME_SOLARIZED.copy()
+    Deck_Selector_Theme.title_offset = (5, 0)
+    Deck_Selector_Theme.widget_alignment = pygame_menu.locals.ALIGN_CENTER
+    Deck_Selector_Theme.widget_font = pygame_menu.font.FONT_8BIT
+    Deck_Selector_Theme.title_font = pygame_menu.font.FONT_8BIT
+    Deck_Selector_Theme.widget_font_size = 20
 
+    deck_Selector = pygame_menu.Menu(
+        height=WINDOW_SIZE[1] * 1,
+        theme=Deck_Creator_Theme,
+        title='Deck Creator',
+        width=WINDOW_SIZE[0] * 1
+    )
+    deck_Selector.add.button('back', pygame_menu.events.BACK)
     # -------------------------------------------------------------------------
     # Create menus: Main menu
     # -------------------------------------------------------------------------
@@ -128,10 +147,9 @@ def main(test: bool = False) -> None:
 
     main_menu.add.button('Play')
     main_menu.add.button('Deck Creator', deck_Creator)
-    main_menu.add.button('Deck Selector')
+    main_menu.add.button('Deck Selector', deck_Selector)
     main_menu.add.button('Settings', settings_menu)
     main_menu.add.button('Quit', pygame_menu.events.EXIT)
-
 
 
     # -------------------------------------------------------------------------
