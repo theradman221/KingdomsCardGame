@@ -1,75 +1,29 @@
 import pygame
 import sys
-
+from pyfiles.menus.deckcreator import deckBuilder
 from pygame.locals import *
 
+import pygame_menu
+from pygame_menu.examples import create_example_window
 
-mainClock = pygame.time.Clock()
-pygame.init()
-pygame.display.set_caption('Kingdoms_Main_Menu')
-font = pygame.font.SysFont('Corbel', 20)
-button_play = pygame.Rect(50, 100, 200, 50)
-button_deck = pygame.Rect(50, 200, 200, 50)
-button_quit = pygame.Rect(50, 300, 200, 50)
+from typing import Tuple, Any
+
+surface = create_example_window('Example - Simple', (600, 400))
 
 
-def menu_draw_text(text, font, color, surface, x, y):
-    textobj = font.render(text, 1, color)
-    textrect = textobj.get_rect()
-    textrect.topleft = (x,y)
-    surface.blit(textobj, textrect)
+menu = pygame_menu.Menu(
+    height=400,
+    theme=pygame_menu.themes.THEME_BLUE,
+    title='Kingdoms',
+    width=500
+)
 
+menu.add.button('Play')
+menu.add.button('Deck Builder', deckBuilder)
+menu.add.button('Choose Deck')
+menu.add.button('Quit', pygame_menu.events.EXIT)
 
-def draw_window():
-    WIN = pygame.display.set_mode((500, 500), 0, 32)
-    WIN.fill((100, 100, 100))
-    menu_draw_text('Main Menu', pygame.font.SysFont('Corbel', 35), (255, 255, 255), WIN, 170, 20)
-    pygame.draw.rect(WIN, (255, 255, 255), button_play)
-    pygame.draw.rect(WIN, (255, 255, 255), button_deck)
-    pygame.draw.rect(WIN, (255, 255, 255), button_quit)
-    pygame.display.update()
-
-
-
-click = False
-
-
-def main_menu():
-
-    while True:
-        draw_window()
-
-        mx, my = pygame.mouse.get_pos()
-
-        if button_play.collidepoint((mx,my)):
-            if click:
-                pass
-        if button_deck.collidepoint((mx,my)):
-            if click:
-                pass
-        if button_quit.collidepoint((mx,my)):
-            if click:
-                pygame.quit()
-                sys.exit()
-
-        click = False
-
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                pygame.quit()
-                sys.exit()
-            if event.type == KEYDOWN:
-                if event.key == K_ESCAPE:
-                    pygame.quit()
-                    sys.exit()
-            if event.type == MOUSEBUTTONDOWN:
-                if event.button == 1:
-                    click = True
-
-        mainClock.tick(60)
-
-
-main_menu()
-
+if __name__ == '__main__':
+    menu.mainloop(surface)
 
 
