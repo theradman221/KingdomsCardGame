@@ -78,6 +78,7 @@ def main(test: bool = False) -> None:
     # -------------------------------------------------------------------------
 
     settings_menu_theme = pygame_menu.themes.THEME_SOLARIZED.copy()
+    settings_menu_theme.widget_font_color = (75,75,75)
     settings_menu_theme.title_offset = (5, 0)
     settings_menu_theme.widget_alignment = pygame_menu.locals.ALIGN_CENTER
     settings_menu_theme.widget_font = pygame_menu.font.FONT_8BIT
@@ -99,6 +100,7 @@ def main(test: bool = False) -> None:
     # Create menus: Deck Creator
     # -------------------------------------------------------------------------
     Deck_Creator_Theme = pygame_menu.themes.THEME_SOLARIZED.copy()
+    Deck_Creator_Theme.widget_font_color = (75,75,75)
     Deck_Creator_Theme.title_offset = (5, 0)
     Deck_Creator_Theme.widget_alignment = pygame_menu.locals.ALIGN_CENTER
     Deck_Creator_Theme.widget_font = pygame_menu.font.FONT_8BIT
@@ -116,6 +118,7 @@ def main(test: bool = False) -> None:
     # Create menus: Deck Creator
     # -------------------------------------------------------------------------
     Deck_Selector_Theme = pygame_menu.themes.THEME_SOLARIZED.copy()
+    Deck_Selector_Theme.widget_font_color = (75,75,75)
     Deck_Selector_Theme.title_offset = (5, 0)
     Deck_Selector_Theme.widget_alignment = pygame_menu.locals.ALIGN_CENTER
     Deck_Selector_Theme.widget_font = pygame_menu.font.FONT_8BIT
@@ -125,14 +128,43 @@ def main(test: bool = False) -> None:
     deck_Selector = pygame_menu.Menu(
         height=WINDOW_SIZE[1] * 1,
         theme=Deck_Creator_Theme,
-        title='Deck Creator',
+        title='Deck Selector',
         width=WINDOW_SIZE[0] * 1
     )
+
+    # Selectable items
+    items = [('blue', 'FAKE BLUE DECK'),
+             ('red', 'FAKE RED DECK'),
+             ('yellow', 'FAKE YELLOW DECK')]
+
+    deck_Selector.add.dropselect(
+        'Select a Deck',
+        items,
+
+        dropselect_id='deck_drop'
+    )
+    deck_Selector.add.dropselect_multiple(
+        title='Pick 3 colors',
+        items=[('Black', (0, 0, 0)),
+               ('Blue', (0, 0, 255)),
+               ('Cyan', (0, 255, 255)),
+               ('Fuchsia', (255, 0, 255)),
+               ('Green', (0, 255, 0)),
+               ('Red', (255, 0, 0)),
+               ('White', (255, 255, 255)),
+               ('Yellow', (255, 255, 0))],
+        dropselect_multiple_id='pickcolors',
+        max_selected=3,
+        open_middle=True,
+        selection_box_height=6  # How many options show if opened
+    )
+
     deck_Selector.add.button('back', pygame_menu.events.BACK)
     # -------------------------------------------------------------------------
     # Create menus: Main menu
     # -------------------------------------------------------------------------
     main_menu_theme = pygame_menu.themes.THEME_SOLARIZED.copy()
+    main_menu_theme.widget_font_color = (75,75,75)
     main_menu_theme.title_font = pygame_menu.font.FONT_8BIT
     main_menu_theme.widget_font = pygame_menu.font.FONT_8BIT
     main_menu_theme.widget_font_size = 30
