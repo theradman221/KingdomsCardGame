@@ -18,43 +18,43 @@ def delete2():
 def select():
     my_label.config(text=my_listbox.get(ANCHOR))
 
+def deckBuilder():
+
+    root = Tk()
+    root.title('ListTesting')
+    root.geometry("800x800")
+
+    my_listbox = Listbox(root, height=25 )
+    my_listbox.pack(side=LEFT,padx=25)
+
+    my_listbox2 = Listbox(root, height=25)
+    my_listbox2.pack(side=RIGHT,padx=25)
 
 
-root = Tk()
-root.title('ListTesting')
-root.geometry("800x800")
+    for i in range(0,51):
+        my_listbox2.insert(END,"Card "+str( i))
 
-my_listbox = Listbox(root, height=25 )
-my_listbox.pack(side=LEFT,padx=25)
+    #add items to the list box
 
-my_listbox2 = Listbox(root, height=25)
-my_listbox2.pack(side=RIGHT,padx=25)
+    my_listbox.insert(END, "This is an item")
+    my_listbox.insert(END, "This is an item")
+    my_listbox.insert(END, "This is an item")
+    #adding a list of items
+    my_list=["One", "Two", "Three"]
 
+    for i in my_list:
+        my_listbox.insert(END, i)
 
-for i in range(0,51):
-    my_listbox2.insert(END,"Card "+str( i))
+    my_listbox.insert(2, "A new thing")
 
-#add items to the list box
+    my_button = Button(root, text="Delete", command=delete1)
+    my_button.pack(side=BOTTOM,pady=10)
 
-my_listbox.insert(END, "This is an item")
-my_listbox.insert(END, "This is an item")
-my_listbox.insert(END, "This is an item")
-#adding a list of items
-my_list=["One", "Two", "Three"]
+    my_button2 = Button(root, text="Select", command=select)
+    my_button2.pack(side=BOTTOM, pady=10)
 
-for i in my_list:
-    my_listbox.insert(END, i)
-
-my_listbox.insert(2, "A new thing")
-
-my_button = Button(root, text="Delete", command=delete1)
-my_button.pack(side=BOTTOM,pady=10)
-
-my_button2 = Button(root, text="Select", command=select)
-my_button2.pack(side=BOTTOM, pady=10)
-
-my_label = Label(root, text='')
-my_label.pack(side=BOTTOM,pady=5)
+    my_label = Label(root, text='')
+    my_label.pack(side=BOTTOM,pady=5)
 
 
-root.mainloop()
+    root.mainloop()
