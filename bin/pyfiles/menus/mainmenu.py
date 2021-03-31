@@ -78,6 +78,7 @@ def main(test: bool = False) -> None:
     # -------------------------------------------------------------------------
 
     settings_menu_theme = pygame_menu.themes.THEME_SOLARIZED.copy()
+    settings_menu_theme.title_bar_style = pygame_menu.widgets.MENUBAR_STYLE_SIMPLE
     settings_menu_theme.widget_font_color = (75,75,75)
     settings_menu_theme.title_offset = (5, 0)
     settings_menu_theme.widget_alignment = pygame_menu.locals.ALIGN_CENTER
@@ -99,17 +100,18 @@ def main(test: bool = False) -> None:
     # -------------------------------------------------------------------------
     # Create menus: Deck Creator
     # -------------------------------------------------------------------------
-    Deck_Creator_Theme = pygame_menu.themes.THEME_SOLARIZED.copy()
-    Deck_Creator_Theme.widget_font_color = (75,75,75)
-    Deck_Creator_Theme.title_offset = (5, 0)
-    Deck_Creator_Theme.widget_alignment = pygame_menu.locals.ALIGN_CENTER
-    Deck_Creator_Theme.widget_font = pygame_menu.font.FONT_8BIT
-    Deck_Creator_Theme.title_font = pygame_menu.font.FONT_8BIT
-    Deck_Creator_Theme.widget_font_size = 20
+    deck_Creator_Theme = pygame_menu.themes.THEME_SOLARIZED.copy()
+    deck_Creator_Theme.title_bar_style = pygame_menu.widgets.MENUBAR_STYLE_SIMPLE
+    deck_Creator_Theme.widget_font_color = (75,75,75)
+    deck_Creator_Theme.title_offset = (5, 0)
+    deck_Creator_Theme.widget_alignment = pygame_menu.locals.ALIGN_CENTER
+    deck_Creator_Theme.widget_font = pygame_menu.font.FONT_8BIT
+    deck_Creator_Theme.title_font = pygame_menu.font.FONT_8BIT
+    deck_Creator_Theme.widget_font_size = 20
 
     deck_Creator = pygame_menu.Menu(
         height=WINDOW_SIZE[1] * 1,
-        theme=Deck_Creator_Theme,
+        theme=deck_Creator_Theme,
         title='Deck Creator',
         width=WINDOW_SIZE[0] * 1
     )
@@ -118,6 +120,7 @@ def main(test: bool = False) -> None:
     # Create menus: Deck Creator
     # -------------------------------------------------------------------------
     Deck_Selector_Theme = pygame_menu.themes.THEME_SOLARIZED.copy()
+    Deck_Selector_Theme.title_bar_style = pygame_menu.widgets.MENUBAR_STYLE_SIMPLE
     Deck_Selector_Theme.widget_font_color = (75,75,75)
     Deck_Selector_Theme.title_offset = (5, 0)
     Deck_Selector_Theme.widget_alignment = pygame_menu.locals.ALIGN_CENTER
@@ -127,7 +130,7 @@ def main(test: bool = False) -> None:
 
     deck_Selector = pygame_menu.Menu(
         height=WINDOW_SIZE[1] * 1,
-        theme=Deck_Creator_Theme,
+        theme=deck_Creator_Theme,
         title='Deck Selector',
         width=WINDOW_SIZE[0] * 1
     )
@@ -164,6 +167,7 @@ def main(test: bool = False) -> None:
     # Create menus: Main menu
     # -------------------------------------------------------------------------
     main_menu_theme = pygame_menu.themes.THEME_SOLARIZED.copy()
+    main_menu_theme.title_bar_style = pygame_menu.widgets.MENUBAR_STYLE_SIMPLE
     main_menu_theme.widget_font_color = (75,75,75)
     main_menu_theme.title_font = pygame_menu.font.FONT_8BIT
     main_menu_theme.widget_font = pygame_menu.font.FONT_8BIT
