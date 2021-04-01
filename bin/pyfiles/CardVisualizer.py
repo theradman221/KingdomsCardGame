@@ -18,6 +18,8 @@ labelFont = pygame.font.Font("freesansbold.ttf", 16)
 costText = numberFont.render("5", True, WHITE)
 costRect = costText.get_rect()
 
+costRect.center = (costRect.width//2, costRect.height//2)
+
 attackText = numberFont.render("4", True, WHITE)
 attackRect = attackText.get_rect()
 
