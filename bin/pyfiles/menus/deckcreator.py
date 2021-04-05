@@ -58,3 +58,4 @@ def deckBuilder():
 
 
     root.mainloop()
+deckBuilder()
