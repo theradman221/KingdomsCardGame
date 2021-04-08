@@ -15,6 +15,10 @@ class AttackProcessor:
     def __init__(self, card1, card2):
         self.__card1 = card1
         self.__card2 = card2
+        self.__card1_effects = None
+        self.__card2_effects = None
+        self.__card1_activated_effects = None
+        self.__card2_activated_effects = None
         return
 
     # Begin processing an attack between 2 cards
@@ -24,14 +28,48 @@ class AttackProcessor:
         print()
         self.__card2.print_all_details()
         # first we need to convert the activated - effects and effects into something python can actually use.
-        if self.__card1.get_effects() == []:
-            print("card 1 has no effects")
+        if self.__card1.get_effects() != []:
+            self.__card1_effects = self.__card1.get_effects()
 
-        if self.__card2.get_effects() == []:
-            print("Card 2 has no effects")
+        if self.__card2.get_effects() != []:
+            self.__card2_effects = self.__card2.get_effects()
 
-        if self.__card1.get_activated_effects() == []:
-            print("card 1 has no activated effects")
+        if self.__card1.get_activated_effects() != []:
+            self.__card1_activated_effects = self.__card1.get_activated_effects()
 
-        if self.__card2.get_activated_effects() == []:
-            print("Card 2 has no activated effects")
+        if self.__card2.get_activated_effects() != []:
+            self.__card2_activated_effects = self.__card2.get_activated_effects()
+
+        print(self.__card1.get_name(), "\b's effects are:")
+        print(self.__card1_effects)
+        print(self.__card2.get_name(), "\b's activated effects are:")
+        print(self.__card1_activated_effects)
+        print(self.__card2.get_name(), "\b's effects are:")
+        print(self.__card2_effects)
+        print(self.__card2.get_name(), "\b's activated effects are:")
+        print(self.__card2_activated_effects)
+
+        # Process the simplest attack possible
+        if self.__get_card1_activated_effects() is None and self.__get_card2_activated_effects() is None and self.__get_card1_effects() is None and self.__get_card2_effects() is None:
+            if self.__card1.get_attack() != None:
+                self.__card2.hit_for(self.__card1.get_attack())
+            if self.__card2.get_attack() != None:
+                self.__card1.hit_for(self.__card2.get_attack())
+
+        
+
+        self.__card1.print_all_details()
+        self.__card2.print_all_details()
+
+
+    def __get_card1_effects(self):
+        return self.__card1_effects
+
+    def __get_card2_effects(self):
+        return self.__card2_effects
+
+    def __get_card1_activated_effects(self):
+        return self.__card1_activated_effects
+
+    def __get_card2_activated_effects(self):
+        return self.__card1_activated_effects
