@@ -115,6 +115,138 @@ def main(test: bool = False) -> None:
         title='Deck Creator',
         width=WINDOW_SIZE[0] * 1
     )
+# I know this isnt the correct way to do this, just for testing purposes for now.
+    bastionlist = [("Dwarven Kingdom", ""), ("Magi Tower", "")]
+    herolist = [("Argon The Telekinetic", "Blue"), ("Avren The Spellsword", "Blue"), ("Heath The Prideful", "Yellow")]
+    lordlist = [("Ares Lord of Battle", "Red")]
+    pawnlist = [("Big Shield Dwarf", ""),("Catapult Squad", ""), ("Dwarven Champion", ""), ("Dwarven Scholar", ""), ("Elder Magi", ""), ("Etherial Shield", ""), ("Hired Assassin", "")]
+    reliclist = [("Crystal Projector", ""), ("Lotus Shrine", ""), ("Shrine of Greed", ""), ("The Lost Armory", ""), ("The Rock", "")]
+    scrolllist = [("Crack", ""), ("Lucid Mind", ""), ("Speed Scroll", "")]
+    supplylist = [("Dirty Contracts", "")]
+    terralist = [("Island", ""), ("Mountain", "")]
+    tokenlist = [("", "")]
+    tricelist = [("After the Storm", ""), ("Counter", ""), ("Pluck", ""), ("The Bigger They Are", "")]
+
+
+    deck_Creator.add.dropselect(
+        'Bastion',
+        bastionlist,
+
+        dropselect_id='deck_drop',
+        max_selected=1,
+        selection_box_height=6
+    )
+    deck_Creator.add.dropselect(
+        'Hero',
+        herolist,
+
+        dropselect_id='Hero_Drop',
+        selection_box_height=6
+    )
+    deck_Creator.add.dropselect(
+        'Lord',
+        lordlist,
+
+        dropselect_id='lord_Drop',
+        selection_box_height=6
+    )
+    deck_Creator.add.dropselect_multiple(
+        'Pawn',
+        pawnlist,
+
+        dropselect_multiple_id='pawn_Drop',
+        max_selected=3,
+        open_middle=True,
+        selection_box_height=6
+    )
+    deck_Creator.add.dropselect_multiple(
+        'Relic',
+        reliclist,
+
+        dropselect_multiple_id='relic_Drop',
+        max_selected=3,
+        open_middle=True,
+        selection_box_height=6
+    )
+    deck_Creator.add.dropselect_multiple(
+        'Scroll',
+        scrolllist,
+
+        dropselect_multiple_id='scroll_Drop',
+        max_selected=3,
+        open_middle=True,
+        selection_box_height=6
+    )
+    deck_Creator.add.dropselect_multiple(
+        'supply',
+        supplylist,
+
+        dropselect_multiple_id='supply_Drop',
+        max_selected=3,
+        open_middle=True,
+        selection_box_height=6
+    )
+    deck_Creator.add.dropselect_multiple(
+        'terra',
+        terralist,
+
+        dropselect_multiple_id='terra_Drop',
+        max_selected=3,
+        open_middle=True,
+        selection_box_height=6
+    )
+    deck_Creator.add.dropselect_multiple(
+        'Token',
+        tokenlist,
+
+        dropselect_multiple_id='token_Drop',
+        max_selected=3,
+        open_middle=True,
+        selection_box_height=6
+    )
+    deck_Creator.add.dropselect_multiple(
+        'Trice',
+        items=tricelist,
+
+        dropselect_multiple_id='trice_Drop',
+        max_selected=3,
+        open_middle=True,
+        selection_box_height=6
+    )
+    deck_Creator.add.dropselect_multiple(
+        title='Pick 3 colors',
+        items=[('Black', (0, 0, 0)),
+               ('Blue', (0, 0, 255)),
+               ('Cyan', (0, 255, 255)),
+               ('Fuchsia', (255, 0, 255)),
+               ('Green', (0, 255, 0)),
+               ('Red', (255, 0, 0)),
+               ('White', (255, 255, 255)),
+               ('Yellow', (255, 255, 0))],
+        dropselect_multiple_id='pickcolors',
+        max_selected=3,
+        open_middle=True,
+        selection_box_height=6  # How many options show if opened
+    )
+    deck_Creator.add.text_input(
+        'Deck Name: ',
+        maxlength=19,
+        textinput_id='long_text'
+    )
+
+    # This is a placeholder function, it needs to be updated to append cards to the deck somehow, so that multiple of the same cards can be selected
+    def data_fun() -> None:
+        """
+        Print data of the menu.
+        :return: None
+        """
+        print('Deck Data:')
+        data = deck_Creator.get_input_data()
+        for k in data.keys():
+            print(u'\t{0}\t=>\t{1}'.format(k, data[k]))
+
+    deck_Creator.add.button('Append Cards', data_fun)  # Call function
+
     deck_Creator.add.button('back', pygame_menu.events.BACK)
     # -------------------------------------------------------------------------
     # Create menus: Deck Creator
