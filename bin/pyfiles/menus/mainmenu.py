@@ -115,7 +115,7 @@ def main(test: bool = False) -> None:
         title='Deck Creator',
         width=WINDOW_SIZE[0] * 1
     )
-
+# I know this isnt the correct way to do this, just for testing purposes for now.
     bastionlist = [("Dwarven Kingdom", ""), ("Magi Tower", "")]
     herolist = [("Argon The Telekinetic", "Blue"), ("Avren The Spellsword", "Blue"), ("Heath The Prideful", "Yellow")]
     lordlist = [("Ares Lord of Battle", "Red")]
@@ -228,7 +228,24 @@ def main(test: bool = False) -> None:
         open_middle=True,
         selection_box_height=6  # How many options show if opened
     )
+    deck_Creator.add.text_input(
+        'Deck Name: ',
+        maxlength=19,
+        textinput_id='long_text'
+    )
 
+    # This is a placeholder function, it needs to be updated to append cards to the deck somehow, so that multiple of the same cards can be selected
+    def data_fun() -> None:
+        """
+        Print data of the menu.
+        :return: None
+        """
+        print('Deck Data:')
+        data = deck_Creator.get_input_data()
+        for k in data.keys():
+            print(u'\t{0}\t=>\t{1}'.format(k, data[k]))
+
+    deck_Creator.add.button('Append Cards', data_fun)  # Call function
 
     deck_Creator.add.button('back', pygame_menu.events.BACK)
     # -------------------------------------------------------------------------
