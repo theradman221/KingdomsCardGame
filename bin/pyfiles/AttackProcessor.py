@@ -56,7 +56,7 @@ class AttackProcessor:
             if self.__card2.get_attack() != None:
                 self.__card1.hit_for(self.__card2.get_attack())
 
-        
+
 
         self.__card1.print_all_details()
         self.__card2.print_all_details()
