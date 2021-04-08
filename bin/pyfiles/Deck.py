@@ -50,3 +50,6 @@ class Deck:
 
     def get_name(self):
         return self.__name
+
+    def get_copy(self):
+        return self.__deck.copy()

@@ -32,12 +32,14 @@ steamworks.initialize()
 
 my_steam64 = steamworks.Users.GetSteamID()
 my_steam_level = steamworks.Users.GetPlayerSteamLevel()
-print(str(steamworks.Users.LoggedOn()) + "The user is Logged in : ")
+print(str(steamworks.Users.LoggedOn()) + " The user is Logged in : ")
 steamworks.Friends.ActivateGameOverlay("friends")
 
 logging.info(f'Logged on as {my_steam64}, level: {my_steam_level}')
 print(f'Logged on as {my_steam64}, level: {my_steam_level}')
 print('Is subscribed to current app?', steamworks.Apps.IsSubscribed())
+
+
 
 # other imports
 import os
@@ -62,19 +64,16 @@ pygame.display.set_caption("First Game")
 from pyfiles.cardclasses.Card import Card
 from pyfiles.cardclasses.NonAttackCard import NonAttackCard
 import pyfiles.cardclasses.CardConstructor as cc
+from pyfiles.AttackProcessor import AttackProcessor
 
 def main():
     print(os.getcwd())
     master_deck = cc.load_all_cards(os.getcwd() + "\cards")
     master_deck.save_deck()
-    card2 = master_deck.draw_card()
-    while card2 != None:
-        print("Details about " + str(card2))
-        #card2.print_all_details()
-        card2 = master_deck.draw_card()
-    master_copy = master_deck.load_deck("Master")
     master_copy_deck = load_deck("Master", cc)
-    print_deck(master_copy_deck)
+    print_deck_details(master_copy_deck)
+    ap = AttackProcessor(master_deck.draw_card(), master_deck.draw_card())
+    ap.processAttack()
 
     #pygame.quit()
 
@@ -89,11 +88,18 @@ def load_deck(name2, cc):
 
 def print_deck(deck):
     print("These are the cards contained in " + deck.get_name())
-    card = deck.draw_card()
-    while card != None:
+    deck = deck.get_copy()
+    for card in deck:
         print(card)
-        card = deck.draw_card()
 
+def print_deck_details(deck):
+    print("These are the cards contained in " + deck.get_name() + " With details")
+    deck = deck.get_copy()
+    for card in deck:
+        print(card)
+        card.print_all_details()
+
+# Does not work right now, I think it's the background class breaking it
 def game_loop():
     run = True
     print(os.getcwd() + "\menubackgrounds\\" + 'background.jpg')
@@ -141,4 +147,4 @@ def test_loop():
 
 main()
 #game_loop() # Doesn't work at all for some reason
-test_loop()
+#test_loop()
