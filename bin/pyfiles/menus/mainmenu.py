@@ -299,8 +299,20 @@ def main(test: bool = False) -> None:
     )
     #this needs to be changed so that it pulls the description from each card
     cardinfo = "This is where the information for each picked card will be added"
+    yellowdeck = []
+
+    def addcard():
+        add = 1
+        print(i)
+
+
     for i in yellowcardlist:
-        submenu = pygame_menu.Menu(i + ' Info', 750, 750, theme=deck_Creator_Theme,
+        add = 0
+        if add == 1:
+            yellowdeck.append(i)
+            print(i)
+
+        submenu = pygame_menu.Menu(i, 750, 750, theme=deck_Creator_Theme,
                                            mouse_motion_selection=True, center_content=False)
         submenu.add.vertical_margin(75)
         submenu.add.label('Description', align=pygame_menu.locals.ALIGN_LEFT,
@@ -311,11 +323,10 @@ def main(test: bool = False) -> None:
                                   margin=(29, 1), font_size=20,
                                   font_name=pygame_menu.font.FONT_PT_SERIF,
                                   font_color=(0,0,0), padding=0)
-        submenu.add.button("Add "+ i +" to Deck" )
-
+        deck_Creator_Yellow.add.button(i, submenu)
         submenu.add.vertical_margin(40)  # Bottom margin
 
-        deck_Creator_Yellow.add.button(i, submenu)
+        submenu.add.button("Add " + i + " to Deck", addcard)
 
 
 
