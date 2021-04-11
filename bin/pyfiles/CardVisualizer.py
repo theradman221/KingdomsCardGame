@@ -1,4 +1,5 @@
 import pygame
+import os
 
 RED = (255, 0, 0)
 GRAY = (150, 150, 150)
@@ -38,12 +39,15 @@ labelRect = labelText.get_rect()
 # font = pygame.font.SysFont("freesansbold.ttf", 85)
 # numberSurface = pygame.font.Font.render(font, "2", True, WHITE)
 
-cardImg = pygame.image.load("C:/Users/logan/KingdomsDevFiles/KingdomsCardGame/bin/cardtemplates/units/blueUnitTemplate.jpg")
+
+# cardImg = pygame.image.load("C:/Users/derrick/KingdomsDev/KingdomsCardGame/bin/cardtemplates/units/blueUnitTemplate.jpg")
+cardImg = pygame.image.load(os.getcwd() + "/../cardtemplates/units/blueunitTemplate.jpg")
 cardImg = pygame.transform.scale(cardImg.convert(), (430, 600))
 cardRect = cardImg.get_rect()
 cardRect.center = screenWidth // 2, screenHeight // 2
 
-rarityImg = pygame.image.load("C:/Users/logan/KingdomsDevFiles/KingdomsCardGame/bin/cardtemplates/Raritys/Uncommon.png")
+# rarityImg = pygame.image.load("C:/Users/derrick/KingdomsDev/KingdomsCardGame/bin/cardtemplates/Raritys/Uncommon.png")
+rarityImg = pygame.image.load(os.getcwd() + "/../cardtemplates/Raritys/Uncommon.png")
 rarityImg = pygame.transform.scale(rarityImg.convert(), (31, 31))
 rarityRect = rarityImg.get_rect()
 
