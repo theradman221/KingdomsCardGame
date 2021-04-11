@@ -1,11 +1,33 @@
+"""
+-------------------------------------------------------------------------------
+The MIT License (MIT)
+Copyright 2017-2021 Pablo Pizarro R. @ppizarror
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the Software
+is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-------------------------------------------------------------------------------
+"""
 import pygame
 import sys
-from pyfiles.menus.deckcreator import deckBuilder
 from pygame.locals import *
 import pygame_menu
 from pygame_menu.examples import create_example_window
 from typing import Tuple, Optional
+import json
+
 __all__ = ['main']
+
 
 # -----------------------------------------------------------------------------
 # Constants and global variables
@@ -128,6 +150,13 @@ def main(test: bool = False) -> None:
     tricelist = [("After the Storm", ""), ("Counter", ""), ("Pluck", ""), ("The Bigger They Are", "")]
 
 
+# I have hard coded these lists, and will need to be changed for the NON DEMO version.
+    yellowcardlist = ["Aries Lord of Battle", "Heath The Prideful", "Dwarven Kingdom", "Big Shield Dwarf", "Dwarven Scholar", "Relaxed Dwarf", "Catapult Squad", "Dwarven Champion", "Hired Pirate", "Hired Assassin", "Speed Scroll", "Dirty Contracts", "Lost Armory",
+                      "Crystal Projector", "After the Storm", "Lotus Shrine", "The Rock", "Shrine Of Greed"]
+
+    bluecardlist = ["Avren the Spellsword", "Argon The Telekinetic", "Magi Tower", "Ward Magi", "Ethereal Shield", "Pyro Magi Warrior", "Elder Magi", "Magi Freshman", "Island", "Hired Pirate", "Hired Assassin", "Lucid Mind", "Pluck",
+                    "Crack", "The Bigger They Are", "Counter", "Lotus Shrine", "The Rock", "Shrine of Greed"]
+
     deck_Creator.add.dropselect(
         'Bastion',
         bastionlist,
@@ -248,8 +277,72 @@ def main(test: bool = False) -> None:
     deck_Creator.add.button('Append Cards', data_fun)  # Call function
 
     deck_Creator.add.button('back', pygame_menu.events.BACK)
+
     # -------------------------------------------------------------------------
-    # Create menus: Deck Creator
+    # Create menus: Deck Creator Red
+    # -------------------------------------------------------------------------
+    deck_Creator_Yellow_Theme = pygame_menu.themes.THEME_SOLARIZED.copy()
+    deck_Creator_Yellow_Theme.title_bar_style = pygame_menu.widgets.MENUBAR_STYLE_SIMPLE
+    deck_Creator_Yellow_Theme.widget_font_color = (75, 75, 75)
+    deck_Creator_Yellow_Theme.title_offset = (5, 0)
+    deck_Creator_Yellow_Theme.widget_alignment = pygame_menu.locals.ALIGN_CENTER
+    deck_Creator_Yellow_Theme.widget_font = pygame_menu.font.FONT_8BIT
+    deck_Creator_Yellow_Theme.title_font = pygame_menu.font.FONT_8BIT
+    deck_Creator_Yellow_Theme.widget_font_size = 20
+
+
+    deck_Creator_Yellow = pygame_menu.Menu(
+        height=WINDOW_SIZE[1] * 1,
+        theme=deck_Creator_Theme,
+        title='Yellow Deck Creator',
+        width=WINDOW_SIZE[0] * 1
+    )
+    #this needs to be changed so that it pulls the description from each card
+    cardinfo = "This is where the information for each picked card will be added"
+    for i in yellowcardlist:
+        submenu = pygame_menu.Menu(i + ' Info', 750, 750, theme=deck_Creator_Theme,
+                                           mouse_motion_selection=True, center_content=False)
+        submenu.add.vertical_margin(75)
+        submenu.add.label('Description', align=pygame_menu.locals.ALIGN_LEFT,
+                          font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
+                          margin=(5, 10))
+        label = submenu.add.label(cardinfo, max_char=70,
+                                  align=pygame_menu.locals.ALIGN_LEFT,
+                                  margin=(29, 1), font_size=20,
+                                  font_name=pygame_menu.font.FONT_PT_SERIF,
+                                  font_color=(0,0,0), padding=0)
+        submenu.add.button("Add "+ i +" to Deck" )
+
+        submenu.add.vertical_margin(40)  # Bottom margin
+
+        deck_Creator_Yellow.add.button(i, submenu)
+
+
+
+
+    # -------------------------------------------------------------------------
+    # Create menus: Deck Color
+    # -------------------------------------------------------------------------
+    deck_C_Theme = pygame_menu.themes.THEME_SOLARIZED.copy()
+    deck_C_Theme.title_bar_style = pygame_menu.widgets.MENUBAR_STYLE_SIMPLE
+    deck_C_Theme.widget_font_color = (75,75,75)
+    deck_C_Theme.title_offset = (5, 0)
+    deck_C_Theme.widget_alignment = pygame_menu.locals.ALIGN_CENTER
+    deck_C_Theme.widget_font = pygame_menu.font.FONT_8BIT
+    deck_C_Theme.title_font = pygame_menu.font.FONT_8BIT
+    deck_C_Theme.widget_font_size = 20
+
+    deck_C = pygame_menu.Menu(
+        height=WINDOW_SIZE[1] * 1,
+        theme=deck_C_Theme,
+        title='Select the Deck Color',
+        width=WINDOW_SIZE[0] * 1
+    )
+    deck_C.add.button('Blue', deck_Creator)
+    deck_C.add.button('Yellow', deck_Creator_Yellow)
+
+    # -------------------------------------------------------------------------
+    # Create menus: Deck Selector
     # -------------------------------------------------------------------------
     Deck_Selector_Theme = pygame_menu.themes.THEME_SOLARIZED.copy()
     Deck_Selector_Theme.title_bar_style = pygame_menu.widgets.MENUBAR_STYLE_SIMPLE
@@ -298,6 +391,7 @@ def main(test: bool = False) -> None:
     # -------------------------------------------------------------------------
     # Create menus: Main menu
     # -------------------------------------------------------------------------
+
     main_menu_theme = pygame_menu.themes.THEME_SOLARIZED.copy()
     main_menu_theme.title_bar_style = pygame_menu.widgets.MENUBAR_STYLE_SIMPLE
     main_menu_theme.widget_font_color = (75,75,75)
@@ -314,7 +408,7 @@ def main(test: bool = False) -> None:
     )
 
     main_menu.add.button('Play')
-    main_menu.add.button('Deck Creator', deck_Creator)
+    main_menu.add.button('Deck Creator', deck_C)
     main_menu.add.button('Deck Selector', deck_Selector)
     main_menu.add.button('Settings', settings_menu)
     main_menu.add.button('Quit', pygame_menu.events.EXIT)
