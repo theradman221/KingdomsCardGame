@@ -6,6 +6,7 @@ from pygame_menu.examples import create_example_window
 import math
 from typing import Dict, Any, Tuple, Optional
 import os
+from functools import partial
 
 __all__ = ['main']
 
@@ -137,6 +138,7 @@ class MenuSystem(object):
             return
 
 
+
         for i in yellowcardlist:
             button_id = i
             #Creating a Submenu for every card in the Yellow Card List
@@ -155,7 +157,7 @@ class MenuSystem(object):
                                       font_color=(0, 0, 0), padding=0)
             self.deckcreatoryellow_menu.add.button(i, submenu)
             submenu.add.vertical_margin(40)  # Bottom margin
-            submenu.add.button(button_id)
+            submenu.add.button(i)
 
         def showyellowdeck():
             print('yellow deck: ', yellowdeck)
