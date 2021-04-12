@@ -136,16 +136,18 @@ class MenuSystem(object):
             print(i+"Added to deck")
             return
 
-        def showyellowdeck():
-            print(yellowdeck)
-            
+
         for i in yellowcardlist:
+            button_id = i
+            #Creating a Submenu for every card in the Yellow Card List
             submenu = pygame_menu.Menu(i, 750, 750, theme=main_menu_theme,
                                        mouse_motion_selection=True)
             submenu.add.vertical_margin(75)
-            submenu.add.label('Description', align=pygame_menu.locals.ALIGN_LEFT,
+            #adding description Title to submenu
+            submenu.add.label('Description Title', align=pygame_menu.locals.ALIGN_LEFT,
                               font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
                               margin=(5, 10))
+            #addomg s
             submenu.add.label(cardinfo, max_char=70,
                                       align=pygame_menu.locals.ALIGN_LEFT,
                                       margin=(29, 1), font_size=20,
@@ -153,11 +155,13 @@ class MenuSystem(object):
                                       font_color=(0, 0, 0), padding=0)
             self.deckcreatoryellow_menu.add.button(i, submenu)
             submenu.add.vertical_margin(40)  # Bottom margin
+            submenu.add.button(button_id)
 
-            submenu.add.button("Add " + i + " to Deck", yellowdeckappend)
-
+        def showyellowdeck():
+            print('yellow deck: ', yellowdeck)
         self.deckcreatoryellow_menu.add.button("Current Deck", showyellowdeck)
         self.deckcreatoryellow_menu.add.button('back', pygame_menu.events.BACK)
+
         # -------------------------------------------------------------------------
         # Create menus: pick color
         # -------------------------------------------------------------------------
