@@ -1,74 +1,13 @@
+
 import pygame
 import sys
-
-#
-#
-# def func():
-#     print("Button is clicked")
-#
-# def delete1():
-#     my_listbox.delete(ANCHOR)
-#
-#
-# def delete2():
-#     my_listbox2.delete(ANCHOR)
-#
-# def select():
-#     my_label.config(text=my_listbox.get(ANCHOR))
-#
-# def deckBuilder():
-#
-#     root = Tk()
-#     root.title('ListTesting')
-#     root.geometry("800x800")
-#
-#     my_listbox = Listbox(root, height=25 )
-#     my_listbox.pack(side=LEFT,padx=25)
-#
-#     my_listbox2 = Listbox(root, height=25)
-#     my_listbox2.pack(side=RIGHT,padx=25)
-#
-#
-#     for i in range(0,51):
-#         my_listbox2.insert(END,"Card "+str( i))
-#
-#     #add items to the list box
-#
-#     my_listbox.insert(END, "This is an item")
-#     my_listbox.insert(END, "This is an item")
-#     my_listbox.insert(END, "This is an item")
-#     #adding a list of items
-#     my_list=["One", "Two", "Three"]
-#
-#     for i in my_list:
-#         my_listbox.insert(END, i)
-#
-#     my_listbox.insert(2, "A new thing")
-#
-#     my_button = Button(root, text="Delete", command=delete1)
-#     my_button.pack(side=BOTTOM,pady=10)
-#
-#     my_button2 = Button(root, text="Select", command=select)
-#     my_button2.pack(side=BOTTOM, pady=10)
-#
-#     my_label = Label(root, text='')
-#     my_label.pack(side=BOTTOM,pady=5)
-#
-#
-#     root.mainloop()
-# deckBuilder()
-
-
-__all__ = ['main']
-
-import pygame
 import pygame_menu
 from pygame_menu.examples import create_example_window
 import math
-from typing import Dict, Any
+from typing import Dict, Any, Tuple, Optional
 import os
-from pyfiles.menus.mainmenu import update_menu_sound
 
+__all__ = ['main']
 
 class MenuSystem(object):
     """
@@ -104,6 +43,7 @@ class MenuSystem(object):
         # Create window
         # -------------------------------------------------------------------------
 
+        self.FPS = 60
         self.WINDOW_SIZE = (900, 900)
         self.surface = create_example_window('KINGDOMS', (self.WINDOW_SIZE))
         self.clock = pygame.time.Clock()
@@ -133,7 +73,7 @@ class MenuSystem(object):
         #                            onchange=update_menu_sound)
         self.settings_menu.add.button('back', pygame_menu.events.BACK)
         # -------------------------------------------------------------------------
-        # Create menus: Deck Creator Yellow
+        # Create menus: Deck Creator blue
         # -------------------------------------------------------------------------
 
         self.deckcreatorblue_menu = pygame_menu.Menu(
@@ -142,7 +82,7 @@ class MenuSystem(object):
             title='Settings',
             width=self.WINDOW_SIZE[1] * 1
             )
-        # this needs to be changed so that it pulls the description from each card
+        # THESE ARE HARD CODED FOR BUG TEST DAY I NEED HELP FIGURING OUT HOW TO IMPORT THE ALL BLUE CARDS TO THIS LIST
         cardinfo = "This is where the information for each picked card will be added"
         bluecardlist = ["Avren the Spellsword", "Argon The Telekinetic", "Magi Tower", "Ward Magi", "Ethereal Shield",
                         "Pyro Magi Warrior", "Elder Magi", "Magi Freshman", "Island", "Hired Pirate", "Hired Assassin",
@@ -179,7 +119,7 @@ class MenuSystem(object):
             title='Settings',
             width=self.WINDOW_SIZE[1] * 1
             )
-        # this needs to be changed so that it pulls the description from each card
+        # THESE ARE HARD CODED FOR BUG TEST DAY I NEED HELP FIGURING OUT HOW TO IMPORT THE ALL YELLOW CARDS TO THIS LIST
         cardinfo = "This is where the information for each picked card will be added"
         yellowcardlist = ["Aries Lord of Battle", "Heath The Prideful", "Dwarven Kingdom", "Big Shield Dwarf",
                           "Dwarven Scholar", "Relaxed Dwarf", "Catapult Squad", "Dwarven Champion", "Hired Pirate",
@@ -249,7 +189,9 @@ class MenuSystem(object):
         :param test:
         :return:
         """
+        self.clock.tick(self.FPS)
         self.main_menu.mainloop(self.surface, disable_loop=test)
+
 
 
 def main(test: bool = False) -> 'MenuSystem':
