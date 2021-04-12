@@ -7,7 +7,6 @@ import math
 from typing import Dict, Any, Tuple, Optional
 import os
 
-
 __all__ = ['main']
 
 
@@ -36,6 +35,7 @@ class MenuSystem(object):
         """
         Constructor.
         """
+
         # -------------------------------------------------------------------------
         # Create window
         # -------------------------------------------------------------------------
@@ -55,7 +55,7 @@ class MenuSystem(object):
         main_menu_theme.title_offset = (5, 0)
         main_menu_theme.widget_alignment = pygame_menu.locals.ALIGN_CENTER
         main_menu_theme.title_font = pygame_menu.font.FONT_8BIT
-        main_menu_theme.widget_font = pygame_menu.font.FONT_8BIT
+        main_menu_theme.widget_font = pygame_menu.font.FONT_BEBAS
         main_menu_theme.widget_font_size = (30)
         # -------------------------------------------------------------------------
         # Create menus: Settings
@@ -99,7 +99,7 @@ class MenuSystem(object):
             submenu.add.label('Description', align=pygame_menu.locals.ALIGN_LEFT,
                               font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
                               margin=(5, 10))
-            label = submenu.add.label(cardinfo, max_char=70,
+            submenu.add.label(cardinfo, max_char=70,
                                       align=pygame_menu.locals.ALIGN_LEFT,
                                       margin=(29, 1), font_size=20,
                                       font_name=pygame_menu.font.FONT_PT_SERIF,
@@ -124,19 +124,29 @@ class MenuSystem(object):
 
         # THESE ARE HARD CODED FOR BUG TEST DAY I NEED HELP FIGURING OUT HOW TO IMPORT THE ALL YELLOW CARDS TO THIS LIST
         cardinfo = "This is where the information for each picked card will be added"
+        cardimage = "the card image could go here once we figure that all out, and then we just need to draw it in the submenu which is easy enough"
         yellowcardlist = ["Aries Lord of Battle", "Heath The Prideful", "Dwarven Kingdom", "Big Shield Dwarf",
                           "Dwarven Scholar", "Relaxed Dwarf", "Catapult Squad", "Dwarven Champion", "Hired Pirate",
                           "Hired Assassin", "Speed Scroll", "Dirty Contracts", "Lost Armory",
                           "Crystal Projector", "After the Storm", "Lotus Shrine", "The Rock", "Shrine Of Greed"]
+        yellowdeck = []
 
+        def yellowdeckappend():
+            yellowdeck.append(i)
+            print(i+"Added to deck")
+            return
+
+        def showyellowdeck():
+            print(yellowdeck)
+            
         for i in yellowcardlist:
             submenu = pygame_menu.Menu(i, 750, 750, theme=main_menu_theme,
-                                       mouse_motion_selection=True, center_content=False)
+                                       mouse_motion_selection=True)
             submenu.add.vertical_margin(75)
             submenu.add.label('Description', align=pygame_menu.locals.ALIGN_LEFT,
                               font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
                               margin=(5, 10))
-            label = submenu.add.label(cardinfo, max_char=70,
+            submenu.add.label(cardinfo, max_char=70,
                                       align=pygame_menu.locals.ALIGN_LEFT,
                                       margin=(29, 1), font_size=20,
                                       font_name=pygame_menu.font.FONT_PT_SERIF,
@@ -144,7 +154,9 @@ class MenuSystem(object):
             self.deckcreatoryellow_menu.add.button(i, submenu)
             submenu.add.vertical_margin(40)  # Bottom margin
 
-            submenu.add.button("Add " + i + " to Deck")
+            submenu.add.button("Add " + i + " to Deck", yellowdeckappend)
+
+        self.deckcreatoryellow_menu.add.button("Current Deck", showyellowdeck)
         self.deckcreatoryellow_menu.add.button('back', pygame_menu.events.BACK)
         # -------------------------------------------------------------------------
         # Create menus: pick color
@@ -168,7 +180,7 @@ class MenuSystem(object):
             height=self.WINDOW_SIZE[1] * 1,
             onclose=pygame_menu.events.EXIT,  # User press ESC button
             theme=main_menu_theme,
-            title='Main menu',
+            title='Deck Selector',
             width=self.WINDOW_SIZE[1] * 1
         )
         # Selectable items
@@ -185,6 +197,8 @@ class MenuSystem(object):
             selection_box_height=6
 
         )
+
+        self.deckselector_menu.add.button('save selection', self.data_fun)
         self.deckselector_menu.add.button('back', pygame_menu.events.BACK)
         # -------------------------------------------------------------------------
         # MAIN MENU
@@ -203,6 +217,16 @@ class MenuSystem(object):
         self.deckselector_button = self.main_menu.add.button('Deck Selector', self.deckselector_menu)
         self.settings_button = self.main_menu.add.button('Settings', self.settings_menu)
         self.quit_button = self.main_menu.add.button('Quit', pygame_menu.events.EXIT)
+
+    def data_fun(self) -> None:
+        """
+        Print data of the menu.
+        :return: None
+             """
+        print('Deck Data:')
+        data = self.deckselector_menu.get_input_data()
+        for k in data.keys():
+            print(u'\t{0}\t=>\t{1}'.format(k, data[k]))
 
     def update_menu_sound(self,value: Tuple, enabled: bool) -> None:
         """
