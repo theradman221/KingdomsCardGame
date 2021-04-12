@@ -22,7 +22,6 @@ class MenuSystem(object):
     pickcolor_menu: 'pygame_menu.Menu'
     deckcreatoryellow_menu: 'pygame_menu.Menu'
     deckcreatorblue_menu: 'pygame_menu.Menu'
-
     play_button: 'pygame_menu.widgets.Button'
     settings_button: 'pygame_menu.widgets.Button'
     deckselector_button: 'pygame_menu.widgets.Button'
@@ -140,7 +139,7 @@ class MenuSystem(object):
 
 
         for i in yellowcardlist:
-            button_id = i
+
             #Creating a Submenu for every card in the Yellow Card List
             submenu = pygame_menu.Menu(i, 750, 750, theme=main_menu_theme,
                                        mouse_motion_selection=True)
@@ -149,7 +148,7 @@ class MenuSystem(object):
             submenu.add.label('Description Title', align=pygame_menu.locals.ALIGN_LEFT,
                               font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
                               margin=(5, 10))
-            #addomg s
+            #adddescription
             submenu.add.label(cardinfo, max_char=70,
                                       align=pygame_menu.locals.ALIGN_LEFT,
                                       margin=(29, 1), font_size=20,
@@ -157,7 +156,7 @@ class MenuSystem(object):
                                       font_color=(0, 0, 0), padding=0)
             self.deckcreatoryellow_menu.add.button(i, submenu)
             submenu.add.vertical_margin(40)  # Bottom margin
-            submenu.add.button(i)
+            testbuttonsubmenu = submenu.add.button(i, yellowdeckappend)
 
         def showyellowdeck():
             print('yellow deck: ', yellowdeck)
