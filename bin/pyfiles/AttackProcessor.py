@@ -51,7 +51,7 @@ class AttackProcessor:
         print(self.__card2.get_name(), "\b's activated effects are:")
         print(self.__card2_activated_effects)
 
-        
+
 
         # Process the simplest attack possible
         if self.__get_card1_activated_effects() is None and self.__get_card2_activated_effects() is None and self.__get_card1_effects() is None and self.__get_card2_effects() is None:
