@@ -50,7 +50,7 @@ rarityImg = pygame.image.load(os.getcwd() + "/../cardtemplates/Raritys/Uncommon.
 rarityImg = pygame.transform.scale(rarityImg.convert(), (31, 31))
 rarityRect = rarityImg.get_rect()
 
-artworkImg = pygame.image.load(os.getcwd() + "/../cardtemplates/Placeholder/bluepawn.jpg")
+artworkImg = pygame.image.load(os.getcwd() + "/../cardart/bluepawn.jpg")
 artworkImg = pygame.transform.scale(artworkImg.convert(), (312, 366))
 artworkRect = artworkImg.get_rect()
 
