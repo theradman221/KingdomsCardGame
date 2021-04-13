@@ -34,7 +34,7 @@ def load_all_cards(path):
                 file_path = path_to_cards + "\\" + folder + "\\" + file
                 if not excluded_files.__contains__(file):
                     deck.add_card(convert_file_to_card(file_path))
-    time.sleep(60)
+    time.sleep(6)
     return deck
 
 
@@ -263,7 +263,7 @@ def add_universal_attributes(dictionary, dict_keys, card):
         if dictionary["Img"] == "": # Detect a placeholder
             card.set_image(dictionary["Img"])
         else: # Append the appropriate file path
-            print(card.get_name(), "This one is one with a non blank img")
+            print(card.get_name(), "This one is one with a non blank img", card.get_royal())
             card.set_image(path_to_img + dictionary["Img"])
 
     if "Rarity" in dict_keys:

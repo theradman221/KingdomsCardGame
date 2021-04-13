@@ -15,6 +15,28 @@ class Card:
         self.__activated_effects = []
         self.__description = ""
 
+    def print_all_details(self):
+        msg = ""
+        msg += "Name " + self.__name + "\n"
+        msg += "File Path" + self.__file_path + "\n"
+        msg += "Cost " + str(self.__cost) + "\n"
+        msg += "Rarity " + self.__rarity + "\n"
+        msg += "Is Exhausted " + str(self.__is_exhausted) + "\n"
+        msg += "Template " + self.__template + "\n"
+        msg += "Image " + self.__image + "\n"
+        msg += "Label " + self.__label + "\n"
+        msg += "Unit " + self.__unit + "\n"
+        msg += "Color " + self.__color + "\n"
+        msg += "Description " + self.__description + "\n"
+        if len(self.__effects) > 0:
+            msg += "Effects "
+            for key in self.__effects:
+                msg += str(key) + "\n"
+        if len(self.__activated_effects) > 0:
+            msg += "Activated Effects "
+            for key in self.__activated_effects:
+                msg += str(key) + "\n"
+
     def __str__(self):
         return self.__name
 
