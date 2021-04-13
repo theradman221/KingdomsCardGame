@@ -50,6 +50,10 @@ rarityImg = pygame.image.load(os.getcwd() + "/../cardtemplates/Raritys/Uncommon.
 rarityImg = pygame.transform.scale(rarityImg.convert(), (31, 31))
 rarityRect = rarityImg.get_rect()
 
+artworkImg = pygame.image.load(os.getcwd() + "/../cardtemplates/Placeholder/bluepawn.jpg")
+artworkImg = pygame.transform.scale(artworkImg.convert(), (347, 400))
+artworkRect = artworkImg.get_rect()
+
 
 def visualizer():
     running = True
@@ -69,6 +73,7 @@ def visualizer():
 
         # rarityRect.x, rarityRect.y = cardRect.x + 388, cardRect.y + 10
         rarityRect.center = cardRect.x + 403, cardRect.y + 25
+        artworkRect.center = cardRect.centerx + 33, cardRect.y + 208
         nameRect.center = cardRect.centerx, cardRect.centery + 138
         costRect.center = cardRect.x + 37, cardRect.y + 39
         attackRect.center = cardRect.x + 39, cardRect.y + 563
@@ -78,6 +83,7 @@ def visualizer():
 
         screen.fill(GRAY)
         screen.blit(cardImg, cardRect)
+        screen.blit(artworkImg, artworkRect)
         screen.blit(rarityImg, rarityRect)
 
         screen.blit(costText, costRect)
