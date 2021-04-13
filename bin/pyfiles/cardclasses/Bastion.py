@@ -3,6 +3,8 @@ from pyfiles.cardclasses.NonAttackCard import NonAttackCard
 
 class Bastion(NonAttackCard):
     def __init__(self):
+        # The inheritance was not working because someone (Wyatt) forgot how inheritance works in python
+        super().__init__()
         self.__name = ""
         self.__file_path = ""
         self.__cost = None
@@ -72,7 +74,7 @@ class Bastion(NonAttackCard):
 
 
     def get_rarity(self):
-        return self.__cost
+        return self.__rarity
 
 
     def set_rarity(self, rarity):

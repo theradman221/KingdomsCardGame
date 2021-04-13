@@ -70,7 +70,7 @@ class Trice(NonAttackCard):
 
 
     def get_rarity(self):
-        return self.__cost
+        return self.__rarity
 
 
     def set_rarity(self, rarity):

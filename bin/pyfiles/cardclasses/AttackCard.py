@@ -3,11 +3,62 @@ from pyfiles.cardclasses.Card import Card
 # This class encompasses all cards that can attack/defend in the game
 class AttackCard(Card):
     def __init__(self):
+        # The inheritance was not working because someone (Wyatt) forgot how inheritance works in python
+        super().__init__() # Inherits the methods NOT VARIABLES!
+        self.__name = ""
+        self.__file_path = ""
+        self.__cost = None
+        self.__rarity = ""
+        self.__is_exhausted = False
+        self.__template = ""
+        self.__image = ""
+        self.__label = ""
+        self.__unit = ""
+        self.__color = ""
+        self.__effects = []
+        self.__activated_effects = []
+        self.__description = ""
+
+
+        # Attack card specific variables
         self.__is_briefed = False
         self.__default_health = None
         self.__default_attack = None
         self.__current_health = None
         self.__current_attack = None
+        self.__is_royal = False
+
+    def print_all_details(self):
+        msg = ""
+        msg += "Name " + self.__name + "\n"
+        msg += "File Path" + self.__file_path + "\n"
+        msg += "Cost " + str(self.__cost) + "\n"
+        msg += "Rarity " + self.__rarity + "\n"
+        msg += "Is Exhausted " + str(self.__is_exhausted) + "\n"
+        msg += "Template " + self.__template + "\n"
+        msg += "Image " + self.__image + "\n"
+        msg += "Label " + self.__label + "\n"
+        msg += "Unit " + self.__unit + "\n"
+        msg += "Color " + self.__color + "\n"
+        msg += "Description " + self.__description + "\n"
+        if len(self.__effects) > 0:
+            msg += "Effects "
+            for key in self.__effects:
+                msg += str(key) + "\n"
+        if len(self.__activated_effects) > 0:
+            msg += "Activated Effects "
+            for key in self.__activated_effects:
+                msg += str(key) + "\n"
+
+
+        # attack card specific details
+        msg += "Attack Card Stats: \n"
+        msg += "Is Briefed " + str(self.__is_briefed) + "\n"
+        msg += "Current Health " +  str(self.__current_health) + "\n"
+        msg += "Default Health " + str(self.__default_health) + "\n"
+        msg += "Current Attack " + str(self.__current_attack) + "\n"
+        msg += "Default Attack " + str(self.__default_attack) + "\n"
+        print(msg)
 
     def get_briefed(self):
         return self.__is_briefed
@@ -46,4 +97,10 @@ class AttackCard(Card):
 
     def heal_for(self, hitpoints):
         self.__current_health += hitpoints
+
+    def is_royal(self):
+        return self.__is_royal
+
+    def set_royal(self, royal):
+        self.__is_royal = royal
 
