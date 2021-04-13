@@ -30,34 +30,34 @@ class AttackCard(Card):
 
     def print_all_details(self):
         msg = ""
-        msg += "Name " + self.__name + "\n"
-        msg += "File Path" + self.__file_path + "\n"
-        msg += "Cost " + str(self.__cost) + "\n"
-        msg += "Rarity " + self.__rarity + "\n"
-        msg += "Is Exhausted " + str(self.__is_exhausted) + "\n"
-        msg += "Template " + self.__template + "\n"
-        msg += "Image " + self.__image + "\n"
-        msg += "Label " + self.__label + "\n"
-        msg += "Unit " + self.__unit + "\n"
-        msg += "Color " + self.__color + "\n"
-        msg += "Description " + self.__description + "\n"
-        if len(self.__effects) > 0:
+        msg += "Name " + self.get_name() + "\n"
+        msg += "File Path" + self.get_file_path() + "\n"
+        msg += "Cost " + str(self.get_cost()) + "\n"
+        msg += "Rarity " + self.get_rarity() + "\n"
+        msg += "Is Exhausted " + str(self.get_is_exhausted()) + "\n"
+        msg += "Template " + self.get_template() + "\n"
+        msg += "Image " + self.get_image() + "\n"
+        msg += "Label " + self.get_label() + "\n"
+        msg += "Unit " + self.get_unit() + "\n"
+        msg += "Color " + self.get_color() + "\n"
+        msg += "Description " + self.get_description() + "\n"
+        if len(self.get_effects()) > 0:
             msg += "Effects "
-            for key in self.__effects:
+            for key in self.get_effects():
                 msg += str(key) + "\n"
-        if len(self.__activated_effects) > 0:
+        if len(self.get_activated_effects()) > 0:
             msg += "Activated Effects "
-            for key in self.__activated_effects:
+            for key in self.get_activated_effects():
                 msg += str(key) + "\n"
 
 
         # attack card specific details
         msg += "Attack Card Stats: \n"
-        msg += "Is Briefed " + str(self.__is_briefed) + "\n"
-        msg += "Current Health " +  str(self.__current_health) + "\n"
-        msg += "Default Health " + str(self.__default_health) + "\n"
-        msg += "Current Attack " + str(self.__current_attack) + "\n"
-        msg += "Default Attack " + str(self.__default_attack) + "\n"
+        msg += "Is Briefed " + str(self.get_briefed()) + "\n"
+        msg += "Current Health " +  str(self.get_current_health()) + "\n"
+        msg += "Default Health " + str(self.get_default_health()) + "\n"
+        msg += "Current Attack " + str(self.get_current_attack()) + "\n"
+        msg += "Default Attack " + str(self.get_default_attack()) + "\n"
         print(msg)
 
     def get_briefed(self):
@@ -103,4 +103,30 @@ class AttackCard(Card):
 
     def set_royal(self, royal):
         self.__is_royal = royal
+
+    def get_current_health(self):
+        return self.__current_health
+
+    def set_current_health(self, health):
+        self.__current_health = health
+
+    def get_default_health(self):
+        return self.__default_health
+
+    def set_default_health(self, health):
+        self.__default_health = health
+        self.__current_health = health
+
+    def get_current_attack(self):
+        return self.__current_attack
+
+    def set_current_attack(self, attack):
+        self.__current_attack = attack
+
+    def get_default_attack(self):
+        return self.__default_attack
+
+    def set_default_attack(self, attack):
+        self.__default_attack = attack
+        self.__current_attack = attack
 

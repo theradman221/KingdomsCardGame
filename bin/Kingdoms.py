@@ -73,7 +73,7 @@ def main():
     master_copy_deck = load_deck("Master", cc)
     print_deck_details(master_copy_deck)
     ap = AttackProcessor(master_deck.draw_card(), master_deck.draw_card())
-    ap.processAttack()
+    #ap.processAttack()
 
     #pygame.quit()
 

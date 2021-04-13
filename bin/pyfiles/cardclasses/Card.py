@@ -17,25 +17,26 @@ class Card:
 
     def print_all_details(self):
         msg = ""
-        msg += "Name " + self.__name + "\n"
-        msg += "File Path" + self.__file_path + "\n"
-        msg += "Cost " + str(self.__cost) + "\n"
-        msg += "Rarity " + self.__rarity + "\n"
-        msg += "Is Exhausted " + str(self.__is_exhausted) + "\n"
-        msg += "Template " + self.__template + "\n"
-        msg += "Image " + self.__image + "\n"
-        msg += "Label " + self.__label + "\n"
-        msg += "Unit " + self.__unit + "\n"
-        msg += "Color " + self.__color + "\n"
-        msg += "Description " + self.__description + "\n"
-        if len(self.__effects) > 0:
+        msg += "Name " + self.get_name() + "\n"
+        msg += "File Path" + self.get_file_path() + "\n"
+        msg += "Cost " + str(self.get_cost()) + "\n"
+        msg += "Rarity " + self.get_rarity() + "\n"
+        msg += "Is Exhausted " + str(self.get_is_exhausted()) + "\n"
+        msg += "Template " + self.get_template() + "\n"
+        msg += "Image " + self.get_image() + "\n"
+        msg += "Label " + self.get_label() + "\n"
+        msg += "Unit " + self.get_unit() + "\n"
+        msg += "Color " + self.get_color() + "\n"
+        msg += "Description " + self.get_description() + "\n"
+        if len(self.get_effects()) > 0:
             msg += "Effects "
-            for key in self.__effects:
+            for key in self.get_effects():
                 msg += str(key) + "\n"
-        if len(self.__activated_effects) > 0:
+        if len(self.get_activated_effects()) > 0:
             msg += "Activated Effects "
-            for key in self.__activated_effects:
+            for key in self.get_activated_effects():
                 msg += str(key) + "\n"
+
 
     def __str__(self):
         return self.__name

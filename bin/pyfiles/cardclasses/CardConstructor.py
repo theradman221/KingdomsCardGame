@@ -249,7 +249,7 @@ def add_universal_attributes(dictionary, dict_keys, card):
                 card.set_template(path_to_non_unit + dictionary["Template"])
 
             # All unit types that use the terra template
-            elif dictionary["Unit"] == "Terra":
+            elif dictionary["Unit"] == "Terra" or dictionary["Unit"] == "TerraLandMark":
                 card.set_template(path_to_terra + dictionary["Template"])
 
             # If nothing matched just set it to the file name and it'll be handled later
