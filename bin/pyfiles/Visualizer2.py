@@ -1,4 +1,5 @@
 import pygame
+import os
 
 RED = (255,0,0)
 GRAY = (150,150,150)
@@ -15,7 +16,7 @@ nameFont = pygame.font.SysFont("gabriola", 38)
 descriptionFont = pygame.font.SysFont("gabriola", 30)
 labelFont = pygame.font.SysFont("gabriola", 25)
 
-cardImg = pygame.image.load("C:/Users/logan/KingdomsDevFiles/KingdomsCardGame/bin/cardtemplates/units/blueUnitTemplate.jpg")
+cardImg = pygame.image.load(os.getcwd() + "/../cardtemplates/units/blueUnitTemplate.jpg")
 cardImg = pygame.transform.scale(cardImg.convert(), (430, 600))
 cardRect = cardImg.get_rect()
 cardRect.center = screenWidth // 2, screenHeight // 2
