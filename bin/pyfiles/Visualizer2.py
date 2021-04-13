@@ -11,10 +11,10 @@ screenWidth = 1200
 screenHeight = 800
 screen = pygame.display.set_mode((screenWidth, screenHeight))
 
-numberFont = pygame.font.Font("freesansbold.ttf", 58)
-nameFont = pygame.font.Font("freesansbold.ttf", 32)
-descriptionFont = pygame.font.Font("freesansbold.ttf", 24)
-labelFont = pygame.font.Font("freesansbold.ttf", 16)
+numberFont = pygame.font.SysFont("gabriola", 70)
+nameFont = pygame.font.SysFont("gabriola", 38)
+descriptionFont = pygame.font.SysFont("gabriola", 30)
+labelFont = pygame.font.SysFont("gabriola", 25)
 
 costText = numberFont.render("5", True, WHITE)
 costRect = costText.get_rect()
@@ -90,11 +90,11 @@ def visualizer():
         # rarityRect.x, rarityRect.y = cardRect.x + 388, cardRect.y + 10
         rarityRect.center = cardRect.x + 403, cardRect.y + 25
         artworkRect.center = cardRect.centerx + 16, cardRect.y + 226
-        nameRect.center = cardRect.centerx, cardRect.centery + 138
-        costRect.center = cardRect.x + 37, cardRect.y + 39
-        attackRect.center = cardRect.x + 39, cardRect.y + 563
-        healthRect.center = cardRect.x + 394, cardRect.y + 564
-        descriptionRect.center = cardRect.centerx, cardRect.centery + 200
+        nameRect.center = cardRect.centerx, cardRect.centery + 140
+        costRect.center = cardRect.centerx - 178, cardRect.centery - 270
+        attackRect.center = cardRect.centerx - 176, cardRect.centery + 256
+        healthRect.center = cardRect.centerx + 179, cardRect.centery + 267
+        descriptionRect.center = cardRect.centerx, cardRect.centery + 185
         labelRect.center = cardRect.centerx, cardRect.centery + 276
 
         rarityRect2.center = cardRect2.x + 403, cardRect2.y + 25
@@ -125,6 +125,7 @@ def visualizer():
         # screen.blit(healthText, (cardRect.x + 379, cardRect.y + 535))
 
         # pygame.draw.rect(screen, WHITE, labelRect, 1)
+
         pygame.display.update()
 
 
