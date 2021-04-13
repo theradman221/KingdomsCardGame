@@ -7,7 +7,8 @@ import math
 from typing import Dict, Any, Tuple, Optional
 import os
 from functools import partial
-
+from functools import partial
+import tkinter
 __all__ = ['main']
 
 
@@ -132,13 +133,12 @@ class MenuSystem(object):
                           "Hired Assassin", "Speed Scroll", "Dirty Contracts", "Lost Armory",
                           "Crystal Projector", "After the Storm", "Lotus Shrine", "The Rock", "Shrine Of Greed")
         yellowdeck = []
+        yellowtest = []
 
         def yellowdeckappend():
             yellowdeck.append(i)
             print(i+"Added to deck")
             return
-
-
 
         for i in yellowcardlist:
 
@@ -158,7 +158,7 @@ class MenuSystem(object):
                                       font_color=(0, 0, 0), padding=0)
             self.deckcreatoryellow_menu.add.button(i, submenu)
             submenu.add.vertical_margin(40)  # Bottom margin
-            testbuttonsubmenu = submenu.add.button(i, yellowdeckappend)
+            submenu.add.button("Add "+ i +" to deck")
 
         def showyellowdeck():
             print('yellow deck: ', yellowdeck)
