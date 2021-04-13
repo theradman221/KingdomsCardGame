@@ -77,7 +77,7 @@ class Hero(AttackCard):
         self.__cost = cost
 
     def get_rarity(self):
-        return self.__cost
+        return self.__rarity
 
     def set_rarity(self, rarity):
         self.__rarity = rarity

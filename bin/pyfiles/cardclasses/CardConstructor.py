@@ -12,6 +12,8 @@ from pyfiles.cardclasses.Terra import Terra
 from pyfiles.cardclasses.TerraLandMark import TerraLandMark
 from pyfiles.cardclasses.Token import Token
 from pyfiles.cardclasses.Trice import Trice
+# Used for testing to pause output blocks and such
+import time
 
 # Path to card's should bring up all folder's containing the different card types
 
@@ -28,10 +30,11 @@ def load_all_cards(path):
     for folder in os.listdir(path_to_cards):
         if not excluded_files.__contains__(folder):
             for file in os.listdir(path_to_cards + "\\" + folder):
-                print(folder + "\\" + file)
+                #print(folder + "\\" + file) # This print is good for debugging if a file is causing a crash.
                 file_path = path_to_cards + "\\" + folder + "\\" + file
                 if not excluded_files.__contains__(file):
                     deck.add_card(convert_file_to_card(file_path))
+    time.sleep(60)
     return deck
 
 
@@ -213,23 +216,70 @@ def add_attack_card_attributes(dictionary, dict_keys, card):
 
 
 def add_universal_attributes(dictionary, dict_keys, card):
+    # Path from the bin, where kingdoms lives, to the card images, also will need ones for the template, and rarity too
+    path_to_img = os.getcwd() +  "\\cardart\\"
+    path_to_template = os.getcwd() + "\\cardtemplates\\"
+    # To make it easier when actually selecting the type, diving the path to template into, bastion, non-unit, terra, and units
+    path_to_bastion = path_to_template + "bastion\\"
+    path_to_non_unit = path_to_template + "non-unit\\"
+    path_to_terra = path_to_template + "terra\\"
+    path_to_unit = path_to_template + "units\\"
+    path_to_rarity = os.getcwd() + "\\cardtemplates\\raritys\\"
+
     # Common things that all cards should have
     if "Name" in dict_keys:
         card.set_name(dictionary["Name"])
     if "Description" in dict_keys:
         card.set_description(dictionary["Description"])
+
     if "Template" in dict_keys:
-        card.set_template(dictionary["Template"])
+        if dictionary["Template"] == "":
+            card.set_template(dictionary["Template"])
+        else :
+            # All unit types that use the unit template
+            if dictionary["Unit"] == "Hero" or dictionary["Unit"] == "Pawn" or dictionary["Unit"] == "Lord" or dictionary["Unit"] == "Token":
+                card.set_template(path_to_unit + dictionary["Template"])
+
+            # All unit types that use the bastion template
+            elif dictionary["Unit"] == "Bastion":
+                card.set_template(path_to_bastion + dictionary["Template"])
+
+            # All unit types that use the non-unit template
+            elif dictionary["Unit"] == "Relic" or dictionary["Unit"] == "Scroll" or dictionary["Unit"] == "Supply" or dictionary["Unit"] == "Trice":
+                card.set_template(path_to_non_unit + dictionary["Template"])
+
+            # All unit types that use the terra template
+            elif dictionary["Unit"] == "Terra":
+                card.set_template(path_to_terra + dictionary["Template"])
+
+            # If nothing matched just set it to the file name and it'll be handled later
+            else:
+                print(card.get_name(), "was not categorized! It's unit type is", dictionary["Unit"])
+                card.set_template(dictionary["Template"])
+
+            #print(card.get_name(), "is a", card.get_unit() + "! It's file path for the template is", card.get_template())
+
     if "Img" in dict_keys:
-        card.set_image(dictionary["Img"])
+        if dictionary["Img"] == "": # Detect a placeholder
+            card.set_image(dictionary["Img"])
+        else: # Append the appropriate file path
+            print(card.get_name(), "This one is one with a non blank img")
+            card.set_image(path_to_img + dictionary["Img"])
+
     if "Rarity" in dict_keys:
-        card.set_rarity(dictionary["Rarity"])
+        if dictionary["Rarity"] == "":
+            card.set_rarity(dictionary["Rarity"])
+        else:
+            card.set_rarity(path_to_rarity + dictionary["Rarity"])
+            #print(card.get_name(), "is of the", dictionary["Rarity"], "it's template path is", card.get_rarity())
+
     if "Cost" in dict_keys:
         card.set_cost(dictionary["Cost"])
     if "Color" in dict_keys:
         card.set_color(dictionary["Color"])
     if "Unit-Label" in dict_keys:
         card.set_label(dictionary["Unit-Label"])
+
     if "Effects" in dict_keys:
         effect_dict = dictionary["Effects"]
         card.add_effect(effect_dict)
