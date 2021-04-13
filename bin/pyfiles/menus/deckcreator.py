@@ -66,6 +66,7 @@ class MenuSystem(object):
             title='Settings',
             width=self.WINDOW_SIZE[1] * 1
             )
+
         # The update_menu_soundn is breaking everything :( will need to ask the team if they know what is goingn on with that
         # the sounds are nice but not vital to bug hunt day
         self.settings_menu.add.selector('Menu sounds ',
@@ -108,7 +109,7 @@ class MenuSystem(object):
             submenu.add.vertical_margin(40)  # Bottom margin
             # THIS ADDS THE BUTTON
             submenu.add.button("Add " + i + " to Deck"#I NEED TO ADD A FUNCTION HERE THAT ADDS THE SPECIFIC ITERATION TO THE DECK LIST.
-                               )
+                )
 
         self.deckcreatorblue_menu.add.button('back', pygame_menu.events.BACK)
         # -------------------------------------------------------------------------
@@ -118,17 +119,18 @@ class MenuSystem(object):
         self.deckcreatoryellow_menu = pygame_menu.Menu(
             height=self.WINDOW_SIZE[1] * 1,
             theme=main_menu_theme,
-            title='Settings',
+            title='Create Yellow Deck',
             width=self.WINDOW_SIZE[1] * 1
             )
 
         # THESE ARE HARD CODED FOR BUG TEST DAY I NEED HELP FIGURING OUT HOW TO IMPORT THE ALL YELLOW CARDS TO THIS LIST
+        carddescription='Card Description'
         cardinfo = "This is where the information for each picked card will be added"
         cardimage = "the card image could go here once we figure that all out, and then we just need to draw it in the submenu which is easy enough"
-        yellowcardlist = ["Aries Lord of Battle", "Heath The Prideful", "Dwarven Kingdom", "Big Shield Dwarf",
+        yellowcardlist = ("Aries Lord of Battle", "Heath The Prideful", "Dwarven Kingdom", "Big Shield Dwarf",
                           "Dwarven Scholar", "Relaxed Dwarf", "Catapult Squad", "Dwarven Champion", "Hired Pirate",
                           "Hired Assassin", "Speed Scroll", "Dirty Contracts", "Lost Armory",
-                          "Crystal Projector", "After the Storm", "Lotus Shrine", "The Rock", "Shrine Of Greed"]
+                          "Crystal Projector", "After the Storm", "Lotus Shrine", "The Rock", "Shrine Of Greed")
         yellowdeck = []
 
         def yellowdeckappend():
@@ -145,7 +147,7 @@ class MenuSystem(object):
                                        mouse_motion_selection=True)
             submenu.add.vertical_margin(75)
             #adding description Title to submenu
-            submenu.add.label('Description Title', align=pygame_menu.locals.ALIGN_LEFT,
+            submenu.add.label(carddescription, align=pygame_menu.locals.ALIGN_LEFT,
                               font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
                               margin=(5, 10))
             #adddescription
