@@ -147,6 +147,16 @@ Effect-Names - if a card has Restless with no effects except restless just do EF
 
 	IF the card just gives the effect you do EFFECT-NAME : EFFECT-NAME
 
+Bastion effects - these are specialized effects that will ONLY BE USED FOR BASTIONS!
+	"BastionEffect" : {} - ALL of one type of effect should be in here, this tells python to use the bastion processor instead of the regular one
+	"WhileBothRoyalsNotInThroneRoom" : "ApplyBuff" - This represents an effect that will only trigger (and stay triggered) if both royals are not in the throne room
+	"ApplyBuff" - This comes after an effect activation and tells python to look for "Buff"'s and do the command in them
+	"Buff" : BUFF - these are activated when "ApplyBuff" is activated by a while or a one time event
+	
+	BUFFS
+	"AllUnitTempHealth1" - gives the effect of an end of turn health buff with the last digit being an int of the amount to buff by, buff is lost if the ApplyBuff effect is not still true on the next turn.
+	"AllUnitTempAttack1" - gives the effect of an end of turn attack buff with the last digit being an int of the amount to buff by, buff is lost if the ApplyBuff effect is not still true on the next turn.
+	"AllowFringe" - by default a bastion cannot use it's fringe effect, this enables it to use it.
 
 Effect-Affect - these should just be copy pasted with any all caps replaced with real values
 	If you need to deal damage equal to something like the attack of a unit you control use 
@@ -200,6 +210,7 @@ Trigger's These are actions that must happen to the game, or the player as a who
 	"ExhaustTrigger" : "ExhaustTrigger" - this trigger requires the card to be exhaustable.
 	"TricePlayed" : "TricePlayed"
 	"ScrollPlayed" : "ScrollPlayed"
+	"ReduceNextCost" : INT
 	"AddPower" : INT
 	"PlayerHasStudied" : "PlayerHasStudied" - condition where the player must have studied
 	"TargetExhausted" : "TargetExhausted" - condition where the target must be exhausted

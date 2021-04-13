@@ -8,9 +8,7 @@
 "Color" : "Yellow",
 "Unit-Label" : "Bastion",
 "Effects" : {
-	"TargetAllFriendly" : "AllFriendly", "TargetHealthBuff" : 1, "TargetAttackBuff" : 1
-	OR
-	"TargetAllFriendly" : {"TargetHealthBuff" : 1, "TargetAttackBuff" : 1}
+	"BastionEffect" : {"WhileBothRoyalsNotInThroneRoom" : "ApplyBuff", "Buff" : "AllUnitTempHealth1", "Buff" : "AllUnitTempAttack1"}
 },
 "Health" : 20
 }

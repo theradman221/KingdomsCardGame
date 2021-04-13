@@ -8,7 +8,8 @@
 "Color" : "Blue",
 "Unit-Label" : "Bastion",
 "Effects" : {
-	"Fringe" : {"SelfStudyTargetDeck" : 1, "SelfDrawCard" : 1}
+	"Fringe" : {"SelfStudyTargetDeck" : 1, "SelfDrawCard" : 1},
+	"BastionEffect" : {"WhileBothRoyalsNotInThroneRoom" : "AllowFringe"}
 }
 }
 }

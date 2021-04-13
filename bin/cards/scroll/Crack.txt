@@ -9,9 +9,7 @@
 "Color" : "Blue",
 "Unit-Label" : "Scroll",
 "Effects" : {
-	"Scroll" : {"Sacrifice" : "Self", "MultiDestroy" : "MultiTarget"}
+	"Scroll" : {"Sacrifice" : "Self", "AllPlayerDestroy" : "TargetUnit"}
 }
 }
 }
-
-#May need to add a way to force another player to choose which card to sacrifice.

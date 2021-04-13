@@ -9,9 +9,7 @@
 "Color" : "Yellow",
 "Unit-Label" : "Scroll",
 "Effects" : {
-	"Scroll" : {"Next cost is reduced by 2"}
+	"Scroll" : {"ReduceNextCost" : 2}
 }
 }
 }
-
-*Nothing implemented to handle this card*

@@ -9,9 +9,8 @@
 "Color" : "Blue",
 "Unit-Label" : "Trice",
 "Effects" : {
-	"Trice" : {"TargetMoveTo" : "PlayHandTarget"}
+	"Trice" : {"TargetMoveTo" : "PlayerHandTargetPawn"}
 }
 }
 }
 
-*Needs a way to only target pawns*
