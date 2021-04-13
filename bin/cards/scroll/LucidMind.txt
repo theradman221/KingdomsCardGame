@@ -2,7 +2,7 @@
 "Name" : "Lucid Mind",
 "Template" : "bluenon-unittemplate.jpg",
 "Description" : "Draw 1 card",
-"Img" : "",
+"Img" : "bluescroll.jpg",
 "Rarity" : "Common.jpg",
 "Cost" : 1,
 "Unit" : "Scroll",

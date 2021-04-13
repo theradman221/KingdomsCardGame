@@ -2,7 +2,7 @@
 "Name" : "Catapult Squad",
 "Template" : "yellowUnitTemplate.jpg",
 "Description" : "Siege 4 (This card can declare a \"Siege\" attack instead of a normal attack.\n \"Siege\" attacks deal damage equal to a cards \"Siege\" value, can be declared\n on any target, and the \"Siege\" attacker takes no battle damage).",
-"Img" : "", 
+"Img" : "yellowpawn.jpg", 
 "Rarity" : "Rare.jpg",
 "Cost" : 4,
 "Unit" : "Pawn",

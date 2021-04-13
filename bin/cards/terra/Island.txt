@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Island",
 "Template" : "colorlessbasicterratemplate.jpg",
-"Img" : "", 
+"Img" : "mercterra.jpg", 
 "Rarity" : "Common.jpg",
 "Unit" : "Terra",
 "Color" : "Colorless",

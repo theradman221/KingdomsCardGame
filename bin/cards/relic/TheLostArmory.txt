@@ -2,7 +2,7 @@
 "Name" : "The Lost Armory",
 "Template" : "yellownon-unittemplate.jpg",
 "Description" : "Cost 1 and Exhaust: Target unit gains +1/+1.",
-"Img" : "",
+"Img" : "yellowrelic.jpg",
 "Rarity" : "Rare.jpg",
 "Cost" : 1,
 "Unit" : "Relic",

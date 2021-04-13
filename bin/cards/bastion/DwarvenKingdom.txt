@@ -2,7 +2,7 @@
 "Name" : "Dwarven Kingdom",
 "Template" : "yellowbastiontemplate.jpg",
 "Description" : "While you control both your royals on the battlefield, units you\ncontrol on the battlefield gain +1/+1.",
-"Img" : "",
+"Img" : "yellowbastion.jpg",
 "Rarity" : "Ultra.jpg",
 "Unit" : "Bastion",
 "Color" : "Yellow",

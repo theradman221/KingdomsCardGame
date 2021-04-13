@@ -14,6 +14,7 @@ class Card:
         self.__effects = []
         self.__activated_effects = []
         self.__description = ""
+        self.__zone = None
 
     def print_all_details(self):
         msg = ""
@@ -119,3 +120,8 @@ class Card:
     def set_description(self, description):
         self.__description = description
 
+    def get_zone(self):
+        return self.__zone
+
+    def set_zone(self, zone):
+        self.__zone = zone

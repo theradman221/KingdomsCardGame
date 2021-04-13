@@ -2,7 +2,7 @@
 "Name" : "Dwarven Scholar",
 "Template" : "yellowUnitTemplate.jpg",
 "Description" : "Exhaust: +1 Power",
-"Img" : "",
+"Img" : "yellowpawn.jpg",
 "Rarity" : "Common.jpg",
 "Cost" : 2,
 "Unit" : "Pawn",

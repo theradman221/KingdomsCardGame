@@ -2,7 +2,7 @@
 "Name" : "Pluck",
 "Template" : "bluenon-unittemplate.jpg",
 "Description" : "Target one pawn. Send that target to its owners hand.",
-"Img" : "",
+"Img" : "bluetrice.jpg",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 2,
 "Unit" : "Trice",

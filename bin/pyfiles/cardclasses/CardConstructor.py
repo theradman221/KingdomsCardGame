@@ -30,7 +30,7 @@ def load_all_cards(path):
     for folder in os.listdir(path_to_cards):
         if not excluded_files.__contains__(folder):
             for file in os.listdir(path_to_cards + "\\" + folder):
-                print(folder + "\\" + file) # This print is good for debugging if a file is causing a crash.
+                #print(folder + "\\" + file) # This print is good for debugging if a file is causing a crash.
                 file_path = path_to_cards + "\\" + folder + "\\" + file
                 if not excluded_files.__contains__(file):
                     deck.add_card(convert_file_to_card(file_path))
@@ -263,7 +263,7 @@ def add_universal_attributes(dictionary, dict_keys, card):
         if dictionary["Img"] == "": # Detect a placeholder
             card.set_image(dictionary["Img"])
         else: # Append the appropriate file path
-            print(card.get_name(), "This one is one with a non blank image")
+            #print(card.get_name(), "This one is one with a non blank image")
             card.set_image(path_to_img + dictionary["Img"])
 
     if "Rarity" in dict_keys:

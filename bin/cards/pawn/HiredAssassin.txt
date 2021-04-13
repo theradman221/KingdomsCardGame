@@ -2,7 +2,7 @@
 "Name" : "Hired Assassin",
 "Template" : "colorlessUnitTemplate.jpg",
 "Description" : "Exhaust and sacrifice: Destroy target unit.",
-"Img" : "",
+"Img" : "mercpawn.jpg",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 5,
 "Unit" : "Pawn",

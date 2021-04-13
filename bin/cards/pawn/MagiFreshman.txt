@@ -2,7 +2,7 @@
 "Name" : "Magi Freshman",
 "Template" : "blueUnitTemplate.jpg",
 "Description" : "\"When you're on spring break and you get drafted... What? Not relatable?\"",
-"Img" : "", 
+"Img" : "bluepawn.jpg", 
 "Rarity" : "Common.jpg",
 "Cost" : 1,
 "Unit" : "Pawn",

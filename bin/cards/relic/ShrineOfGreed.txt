@@ -2,7 +2,7 @@
 "Name" : "Shrine of Greed",
 "Template" : "colorlessnon-unittemplate.jpg",
 "Description" : "This card enters play exhausted.\n Hard Exhaust and Sacrifice: Draw 2 cards.",
-"Img" : "",
+"Img" : "relic.jpg",
 "Rarity" : "Rare.jpg",
 "Cost" : 1,
 "Unit" : "Relic",

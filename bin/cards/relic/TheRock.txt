@@ -2,7 +2,7 @@
 "Name" : "The Rock",
 "Template" : "colorlessnon-unittemplate.jpg",
 "Description" : "Hard Exhaust and Sacrifice: +1 Power.",
-"Img" : "",
+"Img" : "relic.jpg",
 "Rarity" : "Super.jpg",
 "Cost" : 0,
 "Unit" : "Relic",

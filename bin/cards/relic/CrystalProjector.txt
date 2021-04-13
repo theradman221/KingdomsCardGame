@@ -2,7 +2,7 @@
 "Name" : "Crystal Projector",
 "Template" : "yellownon-unittemplate.jpg",
 "Description" : "This card enters play exhausted.\n Entrance: Target unit gains Urgency.\n Cost 2 and Exhaust: Target unit gains\n Urgency (This card doesn't require briefing).",
-"Img" : "",
+"Img" : "yellowrelic.jpg",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 2,
 "Unit" : "Relic",

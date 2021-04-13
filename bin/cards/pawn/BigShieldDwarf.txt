@@ -2,7 +2,7 @@
 "Name" : "Big Shield Dwarf",
 "Template" : "yellowUnitTemplate.jpg",
 "Description" : "Guard (While this card is rested you may redirect attacks to this\n card. While this card is in the kingdom it cannot \"Guard\" units on\nthe battlefield)\n \"Take Shelter\"",
-"Img" : "",
+"Img" : "yellowpawn.jpg",
 "Rarity" : "Uncommon.jpg",
 "Cost" : 3,
 "Unit" : "Pawn",

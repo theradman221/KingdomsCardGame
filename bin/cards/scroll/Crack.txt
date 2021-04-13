@@ -2,7 +2,7 @@
 "Name" : "Crack",
 "Template" : "bluenon-unittemplate.jpg",
 "Description" : "Each player sacrifices a unit.",
-"Img" : "",
+"Img" : "bluescroll.jpg",
 "Rarity" : "Common.jpg",
 "Cost" : 3,
 "Unit" : "Scroll",

@@ -2,7 +2,7 @@
 "Name" : "Relaxed Dwarf",
 "Template" : "yellowUnitTemplate.jpg",
 "Description" : "\"Killer Instinct\"",
-"Img" : "", 
+"Img" : "yellowpawn.jpg", 
 "Rarity" : "Common.jpg",
 "Cost" : 1,
 "Unit" : "Pawn",
