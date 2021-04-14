@@ -10,9 +10,12 @@ import sys
 pygame.init()
 
 # Erase the previous log
-file = open("log\kingdoms_log.log", "r+")
-file.truncate(0)
-file.close()
+try:
+    file = open("log\kingdoms_log.log", "r+")
+    file.truncate(0)
+    file.close()
+except FileNotFoundError: # If it fails just move on since it would mean that's the first time running
+    pass
 
 # Setup the logging file
 logging.basicConfig(filename="log\kingdoms_log.log", level=logging.INFO)
