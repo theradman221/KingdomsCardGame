@@ -18,456 +18,297 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -------------------------------------------------------------------------------
 """
-import pygame
 import sys
 from pygame.locals import *
 import pygame_menu
+import pygame
 from pygame_menu.examples import create_example_window
-from typing import Tuple, Optional
-import json
+import math
+from typing import Dict, Any, Tuple, Optional
+import os
 
-# __all__ = ['main']
-#
-#
-# # -----------------------------------------------------------------------------
-# # Constants and global variables
-# # -----------------------------------------------------------------------------
-# FPS = 60
-# WINDOW_SIZE = (900, 900)
-#
-# sound: Optional['pygame_menu.sound.Sound'] = None
-# surface: Optional['pygame.Surface'] = None
-# main_menu: Optional['pygame_menu.Menu'] = None
-# # -----------------------------------------------------------------------------
-# # Methods
-# # -----------------------------------------------------------------------------
-# def main_background() -> None:
-#     """
-#     Background color of the main menu, on this function user can plot
-#     images, play sounds, etc.
-#     :return: None
-#     """
-#     surface.fill((40, 40, 40))
-#
-# def update_menu_sound(value: Tuple, enabled: bool) -> None:
-#     """
-#     Update menu sound.
-#     :param value: Value of the selector (Label and index)
-#     :param enabled: Parameter of the selector, (True/False)
-#     :return: None
-#     """
-#     assert isinstance(value, tuple)
-#     if enabled:
-#         main_menu.set_sound(sound, recursive=True)
-#         print('Menu sounds were enabled')
-#     else:
-#         main_menu.set_sound(None, recursive=True)
-#         print('Menu sounds were disabled')
-#
-#
-# def main(test: bool = False) -> None:
-#     """
-#     Main program.
-#     :param test: Indicate function is being tested
-#     :return: None
-#     """
-#
-#     # -------------------------------------------------------------------------
-#     # Globals
-#     # -------------------------------------------------------------------------
-#     global main_menu
-#     global sound
-#     global surface
-#
-#     # -------------------------------------------------------------------------
-#     # Create window
-#     # -------------------------------------------------------------------------
-#     surface = create_example_window('KINGDOMS', WINDOW_SIZE)
-#     clock = pygame.time.Clock()
-#
-#     # -------------------------------------------------------------------------
-#     # Set sounds
-#     # -------------------------------------------------------------------------
-#     sound = pygame_menu.sound.Sound()
-#
-#     # Load example sounds
-#     sound.load_example_sounds()
-#
-#     # Disable a sound
-#     sound.set_sound(pygame_menu.sound.SOUND_TYPE_ERROR, None)
-#     # -------------------------------------------------------------------------
-#     # Create menus: Settings
-#     # -------------------------------------------------------------------------
-#
-#     settings_menu_theme = pygame_menu.themes.THEME_SOLARIZED.copy()
-#     settings_menu_theme.title_bar_style = pygame_menu.widgets.MENUBAR_STYLE_SIMPLE
-#     settings_menu_theme.widget_font_color = (75,75,75)
-#     settings_menu_theme.title_offset = (5, 0)
-#     settings_menu_theme.widget_alignment = pygame_menu.locals.ALIGN_CENTER
-#     settings_menu_theme.widget_font = pygame_menu.font.FONT_8BIT
-#     settings_menu_theme.title_font = pygame_menu.font.FONT_8BIT
-#     settings_menu_theme.widget_font_size = 20
-#
-#     settings_menu = pygame_menu.Menu(
-#         height=WINDOW_SIZE[1] * 1,
-#         theme=settings_menu_theme,
-#         title='Settings',
-#         width=WINDOW_SIZE[0] * 1
-#     )
-#     settings_menu.add.selector('Menu sounds ',
-#                            [('Off', False), ('On', True)],
-#                            onchange=update_menu_sound)
-#     settings_menu.add.button('back', pygame_menu.events.BACK)
-#
-#     # -------------------------------------------------------------------------
-#     # Create menus: Deck Creator
-#     # -------------------------------------------------------------------------
-#     deck_Creator_Theme = pygame_menu.themes.THEME_SOLARIZED.copy()
-#     deck_Creator_Theme.title_bar_style = pygame_menu.widgets.MENUBAR_STYLE_SIMPLE
-#     deck_Creator_Theme.widget_font_color = (75,75,75)
-#     deck_Creator_Theme.title_offset = (5, 0)
-#     deck_Creator_Theme.widget_alignment = pygame_menu.locals.ALIGN_CENTER
-#     deck_Creator_Theme.widget_font = pygame_menu.font.FONT_8BIT
-#     deck_Creator_Theme.title_font = pygame_menu.font.FONT_8BIT
-#     deck_Creator_Theme.widget_font_size = 20
-#
-#     deck_Creator = pygame_menu.Menu(
-#         height=WINDOW_SIZE[1] * 1,
-#         theme=deck_Creator_Theme,
-#         title='Deck Creator',
-#         width=WINDOW_SIZE[0] * 1
-#     )
-# # I know this isnt the correct way to do this, just for testing purposes for now.
-#     bastionlist = [("Dwarven Kingdom", ""), ("Magi Tower", "")]
-#     herolist = [("Argon The Telekinetic", "Blue"), ("Avren The Spellsword", "Blue"), ("Heath The Prideful", "Yellow")]
-#     lordlist = [("Ares Lord of Battle", "Red")]
-#     pawnlist = [("Big Shield Dwarf", ""),("Catapult Squad", ""), ("Dwarven Champion", ""), ("Dwarven Scholar", ""), ("Elder Magi", ""), ("Etherial Shield", ""), ("Hired Assassin", "")]
-#     reliclist = [("Crystal Projector", ""), ("Lotus Shrine", ""), ("Shrine of Greed", ""), ("The Lost Armory", ""), ("The Rock", "")]
-#     scrolllist = [("Crack", ""), ("Lucid Mind", ""), ("Speed Scroll", "")]
-#     supplylist = [("Dirty Contracts", "")]
-#     terralist = [("Island", ""), ("Mountain", "")]
-#     tokenlist = [("", "")]
-#     tricelist = [("After the Storm", ""), ("Counter", ""), ("Pluck", ""), ("The Bigger They Are", "")]
-#
-#
-# # I have hard coded these lists, and will need to be changed for the NON DEMO version.
-#     yellowcardlist = ["Aries Lord of Battle", "Heath The Prideful", "Dwarven Kingdom", "Big Shield Dwarf", "Dwarven Scholar", "Relaxed Dwarf", "Catapult Squad", "Dwarven Champion", "Hired Pirate", "Hired Assassin", "Speed Scroll", "Dirty Contracts", "Lost Armory",
-#                       "Crystal Projector", "After the Storm", "Lotus Shrine", "The Rock", "Shrine Of Greed"]
-#
-#     bluecardlist = ["Avren the Spellsword", "Argon The Telekinetic", "Magi Tower", "Ward Magi", "Ethereal Shield", "Pyro Magi Warrior", "Elder Magi", "Magi Freshman", "Island", "Hired Pirate", "Hired Assassin", "Lucid Mind", "Pluck",
-#                     "Crack", "The Bigger They Are", "Counter", "Lotus Shrine", "The Rock", "Shrine of Greed"]
-#
-#     deck_Creator.add.dropselect(
-#         'Bastion',
-#         bastionlist,
-#
-#         dropselect_id='deck_drop',
-#         max_selected=1,
-#         selection_box_height=6
-#     )
-#     deck_Creator.add.dropselect(
-#         'Hero',
-#         herolist,
-#
-#         dropselect_id='Hero_Drop',
-#         selection_box_height=6
-#     )
-#     deck_Creator.add.dropselect(
-#         'Lord',
-#         lordlist,
-#
-#         dropselect_id='lord_Drop',
-#         selection_box_height=6
-#     )
-#     deck_Creator.add.dropselect_multiple(
-#         'Pawn',
-#         pawnlist,
-#
-#         dropselect_multiple_id='pawn_Drop',
-#         max_selected=3,
-#         open_middle=True,
-#         selection_box_height=6
-#     )
-#     deck_Creator.add.dropselect_multiple(
-#         'Relic',
-#         reliclist,
-#
-#         dropselect_multiple_id='relic_Drop',
-#         max_selected=3,
-#         open_middle=True,
-#         selection_box_height=6
-#     )
-#     deck_Creator.add.dropselect_multiple(
-#         'Scroll',
-#         scrolllist,
-#
-#         dropselect_multiple_id='scroll_Drop',
-#         max_selected=3,
-#         open_middle=True,
-#         selection_box_height=6
-#     )
-#     deck_Creator.add.dropselect_multiple(
-#         'supply',
-#         supplylist,
-#
-#         dropselect_multiple_id='supply_Drop',
-#         max_selected=3,
-#         open_middle=True,
-#         selection_box_height=6
-#     )
-#     deck_Creator.add.dropselect_multiple(
-#         'terra',
-#         terralist,
-#
-#         dropselect_multiple_id='terra_Drop',
-#         max_selected=3,
-#         open_middle=True,
-#         selection_box_height=6
-#     )
-#     deck_Creator.add.dropselect_multiple(
-#         'Token',
-#         tokenlist,
-#
-#         dropselect_multiple_id='token_Drop',
-#         max_selected=3,
-#         open_middle=True,
-#         selection_box_height=6
-#     )
-#     deck_Creator.add.dropselect_multiple(
-#         'Trice',
-#         items=tricelist,
-#
-#         dropselect_multiple_id='trice_Drop',
-#         max_selected=3,
-#         open_middle=True,
-#         selection_box_height=6
-#     )
-#     deck_Creator.add.dropselect_multiple(
-#         title='Pick 3 colors',
-#         items=[('Black', (0, 0, 0)),
-#                ('Blue', (0, 0, 255)),
-#                ('Cyan', (0, 255, 255)),
-#                ('Fuchsia', (255, 0, 255)),
-#                ('Green', (0, 255, 0)),
-#                ('Red', (255, 0, 0)),
-#                ('White', (255, 255, 255)),
-#                ('Yellow', (255, 255, 0))],
-#         dropselect_multiple_id='pickcolors',
-#         max_selected=3,
-#         open_middle=True,
-#         selection_box_height=6  # How many options show if opened
-#     )
-#     deck_Creator.add.text_input(
-#         'Deck Name: ',
-#         maxlength=19,
-#         textinput_id='long_text'
-#     )
-#
-#     # This is a placeholder function, it needs to be updated to append cards to the deck somehow, so that multiple of the same cards can be selected
-#     def data_fun() -> None:
-#         """
-#         Print data of the menu.
-#         :return: None
-#         """
-#         print('Deck Data:')
-#         data = deck_Creator.get_input_data()
-#         for k in data.keys():
-#             print(u'\t{0}\t=>\t{1}'.format(k, data[k]))
-#
-#     deck_Creator.add.button('Append Cards', data_fun)  # Call function
-#
-#     deck_Creator.add.button('back', pygame_menu.events.BACK)
-#
-#     # -------------------------------------------------------------------------
-#     # Create menus: Deck Creator Red
-#     # -------------------------------------------------------------------------
-#     deck_Creator_Yellow_Theme = pygame_menu.themes.THEME_SOLARIZED.copy()
-#     deck_Creator_Yellow_Theme.title_bar_style = pygame_menu.widgets.MENUBAR_STYLE_SIMPLE
-#     deck_Creator_Yellow_Theme.widget_font_color = (75, 75, 75)
-#     deck_Creator_Yellow_Theme.title_offset = (5, 0)
-#     deck_Creator_Yellow_Theme.widget_alignment = pygame_menu.locals.ALIGN_CENTER
-#     deck_Creator_Yellow_Theme.widget_font = pygame_menu.font.FONT_8BIT
-#     deck_Creator_Yellow_Theme.title_font = pygame_menu.font.FONT_8BIT
-#     deck_Creator_Yellow_Theme.widget_font_size = 20
-#
-#
-#     deck_Creator_Yellow = pygame_menu.Menu(
-#         height=WINDOW_SIZE[1] * 1,
-#         theme=deck_Creator_Theme,
-#         title='Yellow Deck Creator',
-#         width=WINDOW_SIZE[0] * 1
-#     )
-#     #this needs to be changed so that it pulls the description from each card
-#     cardinfo = "This is where the information for each picked card will be added"
-#     yellowdeck = []
-#
-#     def addcard():
-#         add = 1
-#         print(i)
-#
-#
-#     for i in yellowcardlist:
-#         add = 0
-#         if add == 1:
-#             yellowdeck.append(i)
-#             print(i)
-#
-#         submenu = pygame_menu.Menu(i, 750, 750, theme=deck_Creator_Theme,
-#                                            mouse_motion_selection=True, center_content=False)
-#         submenu.add.vertical_margin(75)
-#         submenu.add.label('Description', align=pygame_menu.locals.ALIGN_LEFT,
-#                           font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
-#                           margin=(5, 10))
-#         label = submenu.add.label(cardinfo, max_char=70,
-#                                   align=pygame_menu.locals.ALIGN_LEFT,
-#                                   margin=(29, 1), font_size=20,
-#                                   font_name=pygame_menu.font.FONT_PT_SERIF,
-#                                   font_color=(0,0,0), padding=0)
-#         deck_Creator_Yellow.add.button(i, submenu)
-#         submenu.add.vertical_margin(40)  # Bottom margin
-#
-#         submenu.add.button("Add " + i + " to Deck", addcard)
-#
-#
-#
-#
-#     # -------------------------------------------------------------------------
-#     # Create menus: Deck Color
-#     # -------------------------------------------------------------------------
-#     deck_C_Theme = pygame_menu.themes.THEME_SOLARIZED.copy()
-#     deck_C_Theme.title_bar_style = pygame_menu.widgets.MENUBAR_STYLE_SIMPLE
-#     deck_C_Theme.widget_font_color = (75,75,75)
-#     deck_C_Theme.title_offset = (5, 0)
-#     deck_C_Theme.widget_alignment = pygame_menu.locals.ALIGN_CENTER
-#     deck_C_Theme.widget_font = pygame_menu.font.FONT_8BIT
-#     deck_C_Theme.title_font = pygame_menu.font.FONT_8BIT
-#     deck_C_Theme.widget_font_size = 20
-#
-#     deck_C = pygame_menu.Menu(
-#         height=WINDOW_SIZE[1] * 1,
-#         theme=deck_C_Theme,
-#         title='Select the Deck Color',
-#         width=WINDOW_SIZE[0] * 1
-#     )
-#     deck_C.add.button('Blue', deck_Creator)
-#     deck_C.add.button('Yellow', deck_Creator_Yellow)
-#
-#     # -------------------------------------------------------------------------
-#     # Create menus: Deck Selector
-#     # -------------------------------------------------------------------------
-#     Deck_Selector_Theme = pygame_menu.themes.THEME_SOLARIZED.copy()
-#     Deck_Selector_Theme.title_bar_style = pygame_menu.widgets.MENUBAR_STYLE_SIMPLE
-#     Deck_Selector_Theme.widget_font_color = (75,75,75)
-#     Deck_Selector_Theme.title_offset = (5, 0)
-#     Deck_Selector_Theme.widget_alignment = pygame_menu.locals.ALIGN_CENTER
-#     Deck_Selector_Theme.widget_font = pygame_menu.font.FONT_8BIT
-#     Deck_Selector_Theme.title_font = pygame_menu.font.FONT_8BIT
-#     Deck_Selector_Theme.widget_font_size = 20
-#
-#     deck_Selector = pygame_menu.Menu(
-#         height=WINDOW_SIZE[1] * 1,
-#         theme=deck_Creator_Theme,
-#         title='Deck Selector',
-#         width=WINDOW_SIZE[0] * 1
-#     )
-#
-#     # Selectable items
-#     items = [('blue', 'FAKE BLUE DECK'),
-#              ('red', 'FAKE RED DECK'),
-#              ('yellow', 'FAKE YELLOW DECK')]
-#
-#     deck_Selector.add.dropselect(
-#         'Select a Deck',
-#         items,
-#
-#         dropselect_id='deck_drop'
-#     )
-#     deck_Selector.add.dropselect_multiple(
-#         title='Pick 3 colors',
-#         items=[('Black', (0, 0, 0)),
-#                ('Blue', (0, 0, 255)),
-#                ('Cyan', (0, 255, 255)),
-#                ('Fuchsia', (255, 0, 255)),
-#                ('Green', (0, 255, 0)),
-#                ('Red', (255, 0, 0)),
-#                ('White', (255, 255, 255)),
-#                ('Yellow', (255, 255, 0))],
-#         dropselect_multiple_id='pickcolors',
-#         max_selected=3,
-#         open_middle=True,
-#         selection_box_height=6  # How many options show if opened
-#     )
-#
-#     deck_Selector.add.button('back', pygame_menu.events.BACK)
-#     # -------------------------------------------------------------------------
-#     # Create menus: Main menu
-#     # -------------------------------------------------------------------------
-#
-#     main_menu_theme = pygame_menu.themes.THEME_SOLARIZED.copy()
-#     main_menu_theme.title_bar_style = pygame_menu.widgets.MENUBAR_STYLE_SIMPLE
-#     main_menu_theme.widget_font_color = (75,75,75)
-#     main_menu_theme.title_font = pygame_menu.font.FONT_8BIT
-#     main_menu_theme.widget_font = pygame_menu.font.FONT_8BIT
-#     main_menu_theme.widget_font_size = 30
-#
-#     main_menu = pygame_menu.Menu(
-#         height=WINDOW_SIZE[1] * 1,
-#         onclose=pygame_menu.events.EXIT,  # User press ESC button
-#         theme=main_menu_theme,
-#         title='Main menu',
-#         width=WINDOW_SIZE[0] * 1
-#     )
-#
-#     main_menu.add.button('Play')
-#     main_menu.add.button('Deck Creator', deck_C)
-#     main_menu.add.button('Deck Selector', deck_Selector)
-#     main_menu.add.button('Settings', settings_menu)
-#     main_menu.add.button('Quit', pygame_menu.events.EXIT)
-#
-#
-#     # -------------------------------------------------------------------------
-#     # Main loop
-#     # -------------------------------------------------------------------------
-#     while True:
-#
-#         # Tick
-#         clock.tick(FPS)
-#
-#         # Paint background
-#         main_background()
-#
-#         # Main menu
-#         main_menu.mainloop(surface, main_background, disable_loop=test, fps_limit=FPS)
-#
-#         # Flip surface
-#         pygame.display.flip()
-#
-#         # At first loop returns
-#         if test:
-#             break
-#
-#
-# if __name__ == '__main__':
-#     main()
+
+
+class MenuSystem(object):
+    """
+    The Following Object will create the entire menu system
+    """
+    image_widget: 'pygame_menu.widgets.Image'
+    item_description_widget: 'pygame_menu.widgets.Label'
+    main_menu: 'pygame_menu.Menu'
+    settings_menu: 'pygame_menu.Menu'
+    pickcolor_menu: 'pygame_menu.Menu'
+    deckcreatoryellow_menu: 'pygame_menu.Menu'
+    deckcreatorblue_menu: 'pygame_menu.Menu'
+    play_button: 'pygame_menu.widgets.Button'
+    settings_button: 'pygame_menu.widgets.Button'
+    deckselector_button: 'pygame_menu.widgets.Button'
+    deckcreator_button: 'pygame_menu.widgets.Button'
+    quit_button: 'pygame_menu.widgets.Button'
+    surface: 'pygame.Surface'
+    sound: 'pygame_menu.sound.Sound'
+
+
+    def __init__(self) -> None:
+        """
+        Constructor.
+        """
+
+        # -------------------------------------------------------------------------
+        # Create window
+        # -------------------------------------------------------------------------
+
+        self.FPS = 60
+        self.WINDOW_SIZE = (900, 900)
+        self.surface = create_example_window('KINGDOMS', (self.WINDOW_SIZE))
+        self.clock = pygame.time.Clock()
+
+
+        '''
+        Setting the Theme
+        '''
+        main_menu_theme = pygame_menu.themes.THEME_GREEN
+        main_menu_theme.title_bar_style = pygame_menu.widgets.MENUBAR_STYLE_SIMPLE
+        main_menu_theme.widget_font_color = (75, 75, 75)
+        main_menu_theme.title_offset = (5, 0)
+        main_menu_theme.widget_alignment = pygame_menu.locals.ALIGN_CENTER
+        main_menu_theme.title_font = pygame_menu.font.FONT_8BIT
+        main_menu_theme.widget_font = pygame_menu.font.FONT_BEBAS
+        main_menu_theme.widget_font_size = (30)
+        # -------------------------------------------------------------------------
+        # Create menus: Settings
+        # -------------------------------------------------------------------------
+        self.settings_menu = pygame_menu.Menu(
+            height=self.WINDOW_SIZE[1] * 1,
+            theme=main_menu_theme,
+            title='Settings',
+            width=self.WINDOW_SIZE[1] * 1
+            )
+
+        # The update_menu_soundn is breaking everything :( will need to ask the team if they know what is goingn on with that
+        # the sounds are nice but not vital to bug hunt day
+        self.settings_menu.add.selector('Menu sounds ',
+                                   [('Off', False), ('On', True)],
+                                   onchange=self.update_menu_sound)
+        self.settings_menu.add.button('back', pygame_menu.events.BACK)
+        # -------------------------------------------------------------------------
+        # Create menus: Deck Creator blue
+        # -------------------------------------------------------------------------
+
+        self.deckcreatorblue_menu = pygame_menu.Menu(
+            height=self.WINDOW_SIZE[1] * 1,
+            theme=main_menu_theme,
+            title='Settings',
+            width=self.WINDOW_SIZE[1] * 1
+            )
+
+        # THESE ARE HARD CODED FOR BUG TEST DAY I NEED HELP FIGURING OUT HOW TO IMPORT THE ALL BLUE CARDS TO THIS LIST
+        cardinfo = "This is where the information for each picked card will be added"
+        bluecardlist = ["Avren the Spellsword", "Argon The Telekinetic", "Magi Tower", "Ward Magi", "Ethereal Shield",
+                        "Pyro Magi Warrior", "Elder Magi", "Magi Freshman", "Island", "Hired Pirate", "Hired Assassin",
+                        "Lucid Mind", "Pluck",
+                        "Crack", "The Bigger They Are", "Counter", "Lotus Shrine", "The Rock", "Shrine of Greed"]
+
+
+
+        for i in bluecardlist:
+            submenu = pygame_menu.Menu(i, 850, 850, theme=main_menu_theme,
+                                       mouse_motion_selection=True, center_content=False)
+            submenu.add.vertical_margin(75)
+            submenu.add.label('Description', align=pygame_menu.locals.ALIGN_LEFT,
+                              font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
+                              margin=(5, 10))
+            submenu.add.label(cardinfo, max_char=70,
+                                      align=pygame_menu.locals.ALIGN_LEFT,
+                                      margin=(29, 1), font_size=20,
+                                      font_name=pygame_menu.font.FONT_PT_SERIF,
+                                      font_color=(0, 0, 0), padding=0)
+            self.deckcreatorblue_menu.add.button(i, submenu)
+            submenu.add.vertical_margin(40)  # Bottom margin
+            # THIS ADDS THE BUTTON
+            submenu.add.button("Add " + i + " to Deck"#I NEED TO ADD A FUNCTION HERE THAT ADDS THE SPECIFIC ITERATION TO THE DECK LIST.
+            )
+
+        self.deckcreatorblue_menu.add.button('back', pygame_menu.events.BACK)
+        # -------------------------------------------------------------------------
+        # Create menus: Deck Creator Yellow
+        # -------------------------------------------------------------------------
+
+        self.deckcreatoryellow_menu = pygame_menu.Menu(
+            height=self.WINDOW_SIZE[1] * 1,
+            theme=main_menu_theme,
+            title='Create Yellow Deck',
+            width=self.WINDOW_SIZE[1] * 1
+            )
+
+        # THESE ARE HARD CODED FOR BUG TEST DAY I NEED HELP FIGURING OUT HOW TO IMPORT THE ALL YELLOW CARDS TO THIS LIST
+        carddescription='Card Description'
+        cardinfo = "This is where the information for each picked card will be added"
+        cardimage = "the card image could go here once we figure that all out, and then we just need to draw it in the submenu which is easy enough"
+        yellowcardlist = ("Aries Lord of Battle", "Heath The Prideful", "Dwarven Kingdom", "Big Shield Dwarf",
+                          "Dwarven Scholar", "Relaxed Dwarf", "Catapult Squad", "Dwarven Champion", "Hired Pirate",
+                          "Hired Assassin", "Speed Scroll", "Dirty Contracts", "Lost Armory",
+                          "Crystal Projector", "After the Storm", "Lotus Shrine", "The Rock", "Shrine Of Greed")
+
+        def yellowdeckappend():
+            yellowdeck.append(i)
+            print(i+"Added to deck")
+            return
+
+
+        yellowdeck = []
+        yellowtest = []
+
+
+        def a(self, i) -> None:
+            print(i)
+
+
+        for i in yellowcardlist:
+
+            #Creating a Submenu for every card in the Yellow Card List
+            submenu = pygame_menu.Menu(i, 750, 750, theme=main_menu_theme,
+                                       mouse_motion_selection=True)
+            submenu.add.vertical_margin(75)
+            #adding description Title to submenu
+            submenu.add.label(carddescription, align=pygame_menu.locals.ALIGN_LEFT,
+                              font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
+                              margin=(5, 10))
+            #adddescription
+            submenu.add.label(cardinfo, max_char=70,
+                                      align=pygame_menu.locals.ALIGN_LEFT,
+                                      margin=(29, 1), font_size=20,
+                                      font_name=pygame_menu.font.FONT_PT_SERIF,
+                                      font_color=(0, 0, 0), padding=0)
+            self.deckcreatoryellow_menu.add.button(i, submenu)
+            submenu.add.vertical_margin(40)  # Bottom margin
+
+            submenu.add.button(i, yellowdeckappend)
+            submenu.add.button("Back", pygame_menu.events.BACK)
+
+        def showyellowdeck():
+            print('yellow deck: ', yellowdeck)
+
+        self.deckcreatoryellow_menu.add.button("Current Deck", showyellowdeck)
+        self.deckcreatoryellow_menu.add.button('back', pygame_menu.events.BACK)
+
+        # -------------------------------------------------------------------------
+        # Create menus: pick color
+        # -------------------------------------------------------------------------
+
+        self.pickcolor_menu = pygame_menu.Menu(
+            height=self.WINDOW_SIZE[1] * 1,
+            theme=main_menu_theme,
+            title='Select the Deck Color',
+            width=self.WINDOW_SIZE[1] * 1
+            )
+        self.pickcolor_menu.add.button('Blue', self.deckcreatorblue_menu)
+        self.pickcolor_menu.add.button('Yellow', self.deckcreatoryellow_menu)
+        self.pickcolor_menu.add.button('back', pygame_menu.events.BACK)
+
+        # -------------------------------------------------------------------------
+        # Create menus: Deck Selector
+        # -------------------------------------------------------------------------
+
+        self.deckselector_menu = pygame_menu.Menu(
+            height=self.WINDOW_SIZE[1] * 1,
+            onclose=pygame_menu.events.EXIT,  # User press ESC button
+            theme=main_menu_theme,
+            title='Deck Selector',
+            width=self.WINDOW_SIZE[1] * 1
+        )
+        # Selectable items
+        items = [('blue', 'FAKE BLUE DECK'),
+                 ('red', 'FAKE RED DECK'),
+                 ('yellow', 'FAKE YELLOW DECK')]
+
+        self.deckselector_menu.add.dropselect(
+            'Select a Deck',
+            items,
+
+            dropselect_id='deck_drop',
+            max_selected=1,
+            selection_box_height=6
+
+        )
+
+        self.deckselector_menu.add.button('save selection', self.data_fun)
+        self.deckselector_menu.add.button('back', pygame_menu.events.BACK)
+        # -------------------------------------------------------------------------
+        # MAIN MENU
+        # -------------------------------------------------------------------------
+
+        self.main_menu = pygame_menu.Menu(
+            height= self.WINDOW_SIZE[1] * 1,
+            onclose=pygame_menu.events.EXIT,  # User press ESC button
+            theme=main_menu_theme,
+            title='Main menu',
+            width=self.WINDOW_SIZE[1] * 1
+        )
+
+        self.play_button = self.main_menu.add.button('Play')
+        self.deckcreator_button = self.main_menu.add.button('Deck Creator', self.pickcolor_menu)
+        self.deckselector_button = self.main_menu.add.button('Deck Selector', self.deckselector_menu)
+        self.settings_button = self.main_menu.add.button('Settings', self.settings_menu)
+        self.quit_button = self.main_menu.add.button('Quit', pygame_menu.events.EXIT)
+
+    def data_fun(self) -> None:
+        """
+        Print data of the menu.
+        :return: None
+             """
+        print('Deck Data:')
+        data = self.deckselector_menu.get_input_data()
+        for k in data.keys():
+            print(u'\t{0}\t=>\t{1}'.format(k, data[k]))
+
+    def update_menu_sound(self,value: Tuple, enabled: bool) -> None:
+        """
+        Update menu sound.
+        :param value: Value of the selector (Label and index)
+        :param enabled: Parameter of the selector, (True/False)
+        :return: None
+        """
+        sound = pygame_menu.sound.Sound()
+        sound.load_example_sounds()
+        sound.set_sound(pygame_menu.sound.SOUND_TYPE_ERROR, None)
+        assert isinstance(value, tuple)
+        if enabled:
+            self.main_menu.set_sound(sound, recursive=True)
+            print('Menu sounds were enabled')
+        else:
+            self.main_menu.set_sound(None, recursive=True)
+            print('Menu sounds were disabled')
+
+    def mainloop(self, test: bool) -> None:
+        """
+        APP MAIN LOOP
+
+        :param test:
+        :return:
+        """
+        self.clock.tick(self.FPS)
+        self.main_menu.mainloop(self.surface, disable_loop=test)
+
+
+def main_menu(test: bool = False) -> 'MenuSystem':
+    """
+    MAIN FUNCTION
+    :param test: Indicate function is being tested
+    :return: App Object
+    """
+    mainmenu = MenuSystem()
+    mainmenu.mainloop(test)
+    return MenuSystem
+
+
+if __name__ == '__main__':
+    main_menu()
 #
 # from pyfiles.menus.deckcreator import MenuSystem, main_menu
 #
 # if __name__=='__main__':
 #     main_menu()
 
-from tkinter import *
 
-root = Tk()
 
-files = [] #creates list to replace your actual inputs for troubleshooting purposes
-btn = [] #creates list to store the buttons ins
-
-for i in range(50): #this just popultes a list as a replacement for your actual inputs for troubleshooting purposes
-    files.append("Button"+str(i))
-
-for i in range(len(files)): #this says for *counter* in *however many elements there are in the list files*
-    #the below line creates a button and stores it in an array we can call later, it will print the value of it's own text by referencing itself from the list that the buttons are stored in
-    btn.append(Button(root, text=files[i], command=lambda c=i: print(btn[c].cget("text"))))
-    btn[i].pack() #this packs the buttons
-
-root.mainloop()
