@@ -136,7 +136,6 @@ class Player:
         else:
             return True
 
-
     def update_battlefield(self, battlefield):
         self.__battlefield = battlefield
 

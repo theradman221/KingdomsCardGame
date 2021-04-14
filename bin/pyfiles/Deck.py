@@ -70,4 +70,12 @@ class Deck:
         print("These are the cards contained in " + self.get_name() + " With all details")
         for card in self.__deck:
             card.print_all_details()
+
     # Need to make a filter method to filter decks and return a list of cards that meet criteria
+    def filter_by_color(self, colors):
+        filtered = []
+        for card in self.__deck:
+            if card.get_color() in colors or card.get_color() == "Colorless":
+                filtered.append(card)
+        return filtered
+

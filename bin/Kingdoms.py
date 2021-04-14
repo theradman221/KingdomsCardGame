@@ -94,30 +94,32 @@ def main():
     master_copy_deck.print_deck()
     master_copy_deck.print_deck_all_details()
     ap = AttackProcessor(master_deck.draw_card(), master_deck.draw_card())
+
+    red_cards = master_copy_deck.filter_by_color(["Yellow"])
+    for card in red_cards:
+        print(card)
     #ap.processAttack()
 
-    run_game([])
-
-    #pygame.quit()
+    #run_game([])
 
 
 # Does not work right now, I think it's the background class breaking it
-def game_loop():
-    run = True
-    print(os.getcwd() + "\menubackgrounds\\" + 'background.jpg')
-    backround = Background(os.getcwd() + "\menubackgrounds\\" + "background.png", [0, 0])
-    while run:
-        screen.fill([255, 255, 255])
-        screen.blit(backround.image, backround.rect)
-        for event in pygame.event.get():
-            # this one's pretty important, this checks if the user hits the red button on the corner
-            if event.type == pygame.QUIT:
-                # this will close the window
-                run = False
-                pygame.quit()
-        print("Finished the game loop once")
-        pygame.time.delay(1000)
-    pygame.quit()
+# def game_loop():
+#     run = True
+#     print(os.getcwd() + "\menubackgrounds\\" + 'background.jpg')
+#     backround = Background(os.getcwd() + "\menubackgrounds\\" + "background.png", [0, 0])
+#     while run:
+#         screen.fill([255, 255, 255])
+#         screen.blit(backround.image, backround.rect)
+#         for event in pygame.event.get():
+#             # this one's pretty important, this checks if the user hits the red button on the corner
+#             if event.type == pygame.QUIT:
+#                 # this will close the window
+#                 run = False
+#                 pygame.quit()
+#         print("Finished the game loop once")
+#         pygame.time.delay(1000)
+#     pygame.quit()
 
 def test_loop():
     bif = "bluebastiontemplate.jpg"
