@@ -147,9 +147,9 @@ class MenuSystem(object):
 
         yellowcardlist = master_deck.filter_by_color(["Yellow"])
 
-        def yellowdeckappend():
-            yellowdeck.append(i)
-            print(i+"Added to deck")
+        def yellowdeckappend(card) -> None:
+            yellowdeck.append(card)
+            print(card.get_name() + " Added to deck")
             return
 
 
@@ -219,10 +219,7 @@ class MenuSystem(object):
                         "Pyro Magi Warrior", "Elder Magi", "Magi Freshman", "Island", "Hired Pirate", "Hired Assassin",
                         "Lucid Mind", "Pluck",
                         "Crack", "The Bigger They Are", "Counter", "Lotus Shrine", "The Rock", "Shrine of Greed"),
-                 ('yellow', "Aries Lord of Battle", "Heath The Prideful", "Dwarven Kingdom", "Big Shield Dwarf",
-                          "Dwarven Scholar", "Relaxed Dwarf", "Catapult Squad", "Dwarven Champion", "Hired Pirate",
-                          "Hired Assassin", "Speed Scroll", "Dirty Contracts", "Lost Armory",
-                          "Crystal Projector", "After the Storm", "Lotus Shrine", "The Rock", "Shrine Of Greed")]
+                 ('yellow', yellowdeck)]
 
         self.deckselector_menu.add.dropselect(
             'Select a Deck',
