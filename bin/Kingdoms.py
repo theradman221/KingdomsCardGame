@@ -1,5 +1,11 @@
 # Required imports, pygame, PyOpenGl (OpenGL is the name of the class in the package), eventually steamworkspy (not yet)
-# Pygame
+# Using os.system to install required modules
+import os
+# Install the required packages
+os.system("py -m pip install pygame")
+os.system("py -m pip install pyopengl")
+
+
 import logging
 import datetime
 import time
@@ -51,7 +57,6 @@ logging.info('Is subscribed to current app? ' + str(steamworks.Apps.IsSubscribed
 
 
 # other imports
-import os
 from pyfiles.Deck import Deck
 from pyfiles.guielements.Background import Background
 from pyfiles.gameclasses.gameloop import *
