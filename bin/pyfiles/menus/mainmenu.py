@@ -102,7 +102,7 @@ class MenuSystem(object):
             width=self.WINDOW_SIZE[1] * 1
             )
 
-        # THESE ARE HARD CODED FOR BUG TEST DAY I NEED HELP FIGURING OUT HOW TO IMPORT THE ALL BLUE CARDS TO THIS LIST
+        # THESE ARE HARD CODED FOR BUG TEST DAY THE FUNCTION THAT CALLS THE CARDS + INFO NEEDS TO BE ADDED
         cardinfo = "This is where the information for each picked card will be added"
         bluecardlist = ["Avren the Spellsword", "Argon The Telekinetic", "Magi Tower", "Ward Magi", "Ethereal Shield",
                         "Pyro Magi Warrior", "Elder Magi", "Magi Freshman", "Island", "Hired Pirate", "Hired Assassin",
@@ -141,7 +141,7 @@ class MenuSystem(object):
             width=self.WINDOW_SIZE[1] * 1
             )
 
-        # THESE ARE HARD CODED FOR BUG TEST DAY I NEED HELP FIGURING OUT HOW TO IMPORT THE ALL YELLOW CARDS TO THIS LIST
+        # THESE ARE HARD CODED FOR BUG TEST DAY We just need to add the
         carddescription='Card Description'
         cardinfo = "This is where the information for each picked card will be added"
         cardimage = "the card image could go here once we figure that all out, and then we just need to draw it in the submenu which is easy enough"
@@ -163,7 +163,7 @@ class MenuSystem(object):
         def a(self, i) -> None:
             print(i)
 
-
+#BUGHUNT DAY PLEASE HELP US SOLVE THE BUG IN THIS FOR LOOP!
         for i in yellowcardlist:
 
             #Creating a Submenu for every card in the Yellow Card List
@@ -183,7 +183,7 @@ class MenuSystem(object):
             self.deckcreatoryellow_menu.add.button(i, submenu)
             submenu.add.vertical_margin(40)  # Bottom margin
 
-            submenu.add.button(i, yellowdeckappend)
+            submenu.add.button(i, yellowdeckappend) #THIS BUTTON IS SUPPOSED TO APPEND THE SELECTED CARD TO THE DECK, HOWEVER IT IS ONLY APPENDING THE LAST ITERATION OF I TO THE DECK
             submenu.add.button("Back", pygame_menu.events.BACK)
 
         def showyellowdeck():
@@ -218,9 +218,14 @@ class MenuSystem(object):
             width=self.WINDOW_SIZE[1] * 1
         )
         # Selectable items
-        items = [('blue', 'FAKE BLUE DECK'),
-                 ('red', 'FAKE RED DECK'),
-                 ('yellow', 'FAKE YELLOW DECK')]
+        items = [("Blue", "Avren the Spellsword", "Argon The Telekinetic", "Magi Tower", "Ward Magi", "Ethereal Shield",
+                        "Pyro Magi Warrior", "Elder Magi", "Magi Freshman", "Island", "Hired Pirate", "Hired Assassin",
+                        "Lucid Mind", "Pluck",
+                        "Crack", "The Bigger They Are", "Counter", "Lotus Shrine", "The Rock", "Shrine of Greed"),
+                 ('yellow', "Aries Lord of Battle", "Heath The Prideful", "Dwarven Kingdom", "Big Shield Dwarf",
+                          "Dwarven Scholar", "Relaxed Dwarf", "Catapult Squad", "Dwarven Champion", "Hired Pirate",
+                          "Hired Assassin", "Speed Scroll", "Dirty Contracts", "Lost Armory",
+                          "Crystal Projector", "After the Storm", "Lotus Shrine", "The Rock", "Shrine Of Greed")]
 
         self.deckselector_menu.add.dropselect(
             'Select a Deck',
@@ -304,11 +309,7 @@ def main_menu(test: bool = False) -> 'MenuSystem':
 
 if __name__ == '__main__':
     main_menu()
-#
-# from pyfiles.menus.deckcreator import MenuSystem, main_menu
-#
-# if __name__=='__main__':
-#     main_menu()
+
 
 
 
