@@ -84,9 +84,13 @@ from pyfiles.AttackProcessor import AttackProcessor
 def main():
     logging.info(os.getcwd() +  " is the current working directory for the root")
     logging.info("Creating the master deck")
-    master_deck = cc.load_all_cards(os.getcwd() + "\cards")
+    master_deck = Deck("Master")
+    cc.load_all_cards(os.getcwd() + "\cards", master_deck)
     master_deck.save_deck()
-    master_copy_deck = load_deck("Master", cc)
+    master_copy_deck = Deck("Master-Copy")
+    master_copy_deck.load_deck("Master")
+    master_copy_deck.save_deck()
+    print("Successfully copied it!")
     print_deck_details(master_copy_deck)
     ap = AttackProcessor(master_deck.draw_card(), master_deck.draw_card())
     #ap.processAttack()
@@ -94,15 +98,6 @@ def main():
     run_game([])
 
     #pygame.quit()
-
-def load_deck(name2, cc):
-    deck = Deck(name2)
-    dict = deck.load_deck(name2)
-    master_dict = dict[name2]
-    for key in master_dict:
-        new = cc.convert_file_to_card(master_dict[key])
-        deck.add_card(new)
-    return deck
 
 def print_deck(deck):
     print("These are the cards contained in " + deck.get_name())

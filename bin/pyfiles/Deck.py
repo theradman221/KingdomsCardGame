@@ -39,7 +39,13 @@ class Deck:
     # Retrieves the json for a specified deck from the save location.
     def load_deck(self, name):
         dict = js.load(open(save_path + name + ".json"))
-        return dict
+        deck_dict = dict[name]
+        self.__deck = []
+        for file in deck_dict:
+            self.__deck.append(self.__load_cards(deck_dict[file]))
+
+    def __load_cards(self, path):
+        return ftc(path)
 
     # converts the entire deck into a json representation with the name as a key and the file path as the data.
     def __convert_deck_to_json(self):

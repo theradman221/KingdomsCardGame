@@ -1,6 +1,5 @@
 import os
 import json as js
-from pyfiles.Deck import Deck
 from pyfiles.cardclasses.Lord import Lord
 from pyfiles.cardclasses.Bastion import Bastion
 from pyfiles.cardclasses.Hero import Hero
@@ -24,7 +23,7 @@ import time
 excluded_files = ["template.txt", "effects.txt", "nondemonotworking", "nondemoworking"]
 
 
-def load_all_cards(path):
+def load_all_cards(path, deck):
     logging.info("Beginning the load all card process")
     # This is here so that if you run CardConstructor.py it will actually work
     if path != "":
@@ -32,7 +31,7 @@ def load_all_cards(path):
     else:
         path_to_cards = "\..\..\cards"
     # Go through every card's txt file and construct it into a real card object.
-    deck = Deck("Master")
+
     for folder in os.listdir(path_to_cards):
         if not excluded_files.__contains__(folder):
             for file in os.listdir(path_to_cards + "\\" + folder):
