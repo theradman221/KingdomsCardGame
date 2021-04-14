@@ -61,4 +61,13 @@ class Deck:
     def get_copy(self):
         return self.__deck.copy()
 
+    def print_deck(self):
+        print("These are the cards contained in " + self.get_name() )
+        for card in self.__deck:
+            print(card.get_name())
+
+    def print_deck_all_details(self):
+        print("These are the cards contained in " + self.get_name() + " With all details")
+        for card in self.__deck:
+            card.print_all_details()
     # Need to make a filter method to filter decks and return a list of cards that meet criteria

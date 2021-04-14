@@ -91,7 +91,8 @@ def main():
     master_copy_deck.load_deck("Master")
     master_copy_deck.save_deck()
     print("Successfully copied it!")
-    print_deck_details(master_copy_deck)
+    master_copy_deck.print_deck()
+    master_copy_deck.print_deck_all_details()
     ap = AttackProcessor(master_deck.draw_card(), master_deck.draw_card())
     #ap.processAttack()
 
@@ -99,18 +100,6 @@ def main():
 
     #pygame.quit()
 
-def print_deck(deck):
-    print("These are the cards contained in " + deck.get_name())
-    deck = deck.get_copy()
-    for card in deck:
-        print(card)
-
-def print_deck_details(deck):
-    print("These are the cards contained in " + deck.get_name() + " With details")
-    deck = deck.get_copy()
-    for card in deck:
-        print(card)
-        card.print_all_details()
 
 # Does not work right now, I think it's the background class breaking it
 def game_loop():
