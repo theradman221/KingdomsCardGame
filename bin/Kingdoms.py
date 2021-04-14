@@ -1,17 +1,23 @@
 # Required imports, pygame, PyOpenGl (OpenGL is the name of the class in the package), eventually steamworkspy (not yet)
 # Pygame
 import logging
-
+import datetime
+import time
 import pygame
 from pygame.locals import *
 import sys
 # This must be run for pygame to function
 pygame.init()
 
+# Erase the previous log
+file = open("log\kingdoms_log.log", "r+")
+file.truncate(0)
+file.close()
+
 # Setup the logging file
 logging.basicConfig(filename="log\kingdoms_log.log", level=logging.INFO)
 # Different logging types
-logging.info('your text goes here')
+logging.info('starting at ' + str(datetime.datetime.now()))
 logging.error('your text goes here')
 logging.debug('your text goes here')
 
@@ -29,15 +35,15 @@ from steamworks import STEAMWORKS
 
 steamworks = STEAMWORKS()
 steamworks.initialize()
+logging.info('Steam was initialized')
 
 my_steam64 = steamworks.Users.GetSteamID()
 my_steam_level = steamworks.Users.GetPlayerSteamLevel()
-print(str(steamworks.Users.LoggedOn()) + " The user is Logged in : ")
+logging.info("The user is Logged in : " + str(steamworks.Users.LoggedOn()))
 steamworks.Friends.ActivateGameOverlay("friends")
 
 logging.info(f'Logged on as {my_steam64}, level: {my_steam_level}')
-print(f'Logged on as {my_steam64}, level: {my_steam_level}')
-print('Is subscribed to current app?', steamworks.Apps.IsSubscribed())
+logging.info('Is subscribed to current app? ' + str(steamworks.Apps.IsSubscribed()))
 
 
 
@@ -45,12 +51,13 @@ print('Is subscribed to current app?', steamworks.Apps.IsSubscribed())
 import os
 from pyfiles.Deck import Deck
 from pyfiles.guielements.Background import Background
+from pyfiles.gameclasses.gameloop import *
 
 # Testing creating a pygame window and putting a few boxes on it, (500,500) is the size
-screen = pygame.display.set_mode((500,500), DOUBLEBUF|OPENGL) # Use openGL to do the rendering so that we can have the steam overlay (not implimented yet)
-
-# The caption Display is  what it says at the top so to say Kingdoms would just use this command with Kingdoms
-pygame.display.set_caption("First Game")
+# screen = pygame.display.set_mode((500,500), DOUBLEBUF|OPENGL) # Use openGL to do the rendering so that we can have the steam overlay (not implimented yet)
+#
+# # The caption Display is  what it says at the top so to say Kingdoms would just use this command with Kingdoms
+# pygame.display.set_caption("First Game")
 # Anything below here is probably going to be in a loop
 # time delay so that main loop doesn't run literally as fast as possible, in ms
 # pygame.time.delay(100)
@@ -67,13 +74,16 @@ import pyfiles.cardclasses.CardConstructor as cc
 from pyfiles.AttackProcessor import AttackProcessor
 
 def main():
-    print(os.getcwd())
+    logging.info(os.getcwd() +  " is the current working directory for the root")
+    logging.info("Creating the master deck")
     master_deck = cc.load_all_cards(os.getcwd() + "\cards")
     master_deck.save_deck()
     master_copy_deck = load_deck("Master", cc)
     print_deck_details(master_copy_deck)
     ap = AttackProcessor(master_deck.draw_card(), master_deck.draw_card())
     #ap.processAttack()
+
+    run_game([])
 
     #pygame.quit()
 

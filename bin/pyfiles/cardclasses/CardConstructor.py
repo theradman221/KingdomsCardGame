@@ -12,6 +12,10 @@ from pyfiles.cardclasses.Terra import Terra
 from pyfiles.cardclasses.TerraLandMark import TerraLandMark
 from pyfiles.cardclasses.Token import Token
 from pyfiles.cardclasses.Trice import Trice
+
+# Logging and debugging
+import logging
+logging.basicConfig(filename="log\kingdoms_log.log", level=logging.INFO)
 # Used for testing to pause output blocks and such
 import time
 
@@ -21,6 +25,8 @@ excluded_files = ["template.txt", "effects.txt", "nondemonotworking", "nondemowo
 
 
 def load_all_cards(path):
+    logging.info("Beginning the load all card process")
+    # This is here so that if you run CardConstructor.py it will actually work
     if path != "":
         path_to_cards = path
     else:
@@ -30,11 +36,13 @@ def load_all_cards(path):
     for folder in os.listdir(path_to_cards):
         if not excluded_files.__contains__(folder):
             for file in os.listdir(path_to_cards + "\\" + folder):
-                #print(folder + "\\" + file) # This print is good for debugging if a file is causing a crash.
+                logging.info("Processing " + folder + "\\" + file) # This print is good for debugging if a file is causing a crash.
                 file_path = path_to_cards + "\\" + folder + "\\" + file
                 if not excluded_files.__contains__(file):
                     deck.add_card(convert_file_to_card(file_path))
-    time.sleep(6)
+                    logging.info(folder + "\\" + file + " was added to the deck successfully")
+    #time.sleep(6)
+    logging.info("Finished creating the deck and returning")
     return deck
 
 
@@ -254,20 +262,19 @@ def add_universal_attributes(dictionary, dict_keys, card):
 
             # If nothing matched just set it to the file name and it'll be handled later
             else:
-                print(card.get_name(), "was not categorized! It's unit type is", dictionary["Unit"])
+                logging.info(card.get_name(), "was not categorized! It's unit type is", dictionary["Unit"])
                 card.set_template(dictionary["Template"])
-
-            #print(card.get_name(), "is a", card.get_unit() + "! It's file path for the template is", card.get_template())
 
     if "Img" in dict_keys:
         if dictionary["Img"] == "": # Detect a placeholder
+            logging.info(card.get_name() + " is missing placeholder img")
             card.set_image(dictionary["Img"])
         else: # Append the appropriate file path
-            #print(card.get_name(), "This one is one with a non blank image")
             card.set_image(path_to_img + dictionary["Img"])
 
     if "Rarity" in dict_keys:
         if dictionary["Rarity"] == "":
+            logging.info(card.get_name() + " is missing a rarity")
             card.set_rarity(dictionary["Rarity"])
         else:
             card.set_rarity(path_to_rarity + dictionary["Rarity"])
