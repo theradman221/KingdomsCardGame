@@ -18,6 +18,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -------------------------------------------------------------------------------
 """
+from pyfiles.cardclasses.CardConstructor import load_all_cards
 import sys
 from pygame.locals import *
 import pygame_menu
@@ -26,7 +27,8 @@ from pygame_menu.examples import create_example_window
 import math
 from typing import Dict, Any, Tuple, Optional
 import os
-
+from pyfiles.Deck import Deck
+from pyfiles.cardclasses.Card import Card
 
 
 class MenuSystem(object):
@@ -49,7 +51,7 @@ class MenuSystem(object):
     sound: 'pygame_menu.sound.Sound'
 
 
-    def __init__(self) -> None:
+    def __init__(self, master_deck) -> None:
         """
         Constructor.
         """
@@ -104,21 +106,18 @@ class MenuSystem(object):
 
         # THESE ARE HARD CODED FOR BUG TEST DAY THE FUNCTION THAT CALLS THE CARDS + INFO NEEDS TO BE ADDED
         cardinfo = "This is where the information for each picked card will be added"
-        bluecardlist = ["Avren the Spellsword", "Argon The Telekinetic", "Magi Tower", "Ward Magi", "Ethereal Shield",
-                        "Pyro Magi Warrior", "Elder Magi", "Magi Freshman", "Island", "Hired Pirate", "Hired Assassin",
-                        "Lucid Mind", "Pluck",
-                        "Crack", "The Bigger They Are", "Counter", "Lotus Shrine", "The Rock", "Shrine of Greed"]
 
+        bluecardlist = master_deck.filter_by_color(["Blue"])
 
 
         for i in bluecardlist:
-            submenu = pygame_menu.Menu(i, 850, 850, theme=main_menu_theme,
+            submenu = pygame_menu.Menu(i.get_name(), 850, 850, theme=main_menu_theme,
                                        mouse_motion_selection=True, center_content=False)
             submenu.add.vertical_margin(75)
-            submenu.add.label('Description', align=pygame_menu.locals.ALIGN_LEFT,
+            submenu.add.label(i.get_name(), align=pygame_menu.locals.ALIGN_LEFT,
                               font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
                               margin=(5, 10))
-            submenu.add.label(cardinfo, max_char=70,
+            submenu.add.label(i.get_description(), max_char=70,
                                       align=pygame_menu.locals.ALIGN_LEFT,
                                       margin=(29, 1), font_size=20,
                                       font_name=pygame_menu.font.FONT_PT_SERIF,
@@ -126,7 +125,7 @@ class MenuSystem(object):
             self.deckcreatorblue_menu.add.button(i, submenu)
             submenu.add.vertical_margin(40)  # Bottom margin
             # THIS ADDS THE BUTTON
-            submenu.add.button("Add " + i + " to Deck"#I NEED TO ADD A FUNCTION HERE THAT ADDS THE SPECIFIC ITERATION TO THE DECK LIST.
+            submenu.add.button("Add " + i.get_name() + " to Deck"#I NEED TO ADD A FUNCTION HERE THAT ADDS THE SPECIFIC ITERATION TO THE DECK LIST.
             )
 
         self.deckcreatorblue_menu.add.button('back', pygame_menu.events.BACK)
@@ -145,10 +144,8 @@ class MenuSystem(object):
         carddescription='Card Description'
         cardinfo = "This is where the information for each picked card will be added"
         cardimage = "the card image could go here once we figure that all out, and then we just need to draw it in the submenu which is easy enough"
-        yellowcardlist = ("Aries Lord of Battle", "Heath The Prideful", "Dwarven Kingdom", "Big Shield Dwarf",
-                          "Dwarven Scholar", "Relaxed Dwarf", "Catapult Squad", "Dwarven Champion", "Hired Pirate",
-                          "Hired Assassin", "Speed Scroll", "Dirty Contracts", "Lost Armory",
-                          "Crystal Projector", "After the Storm", "Lotus Shrine", "The Rock", "Shrine Of Greed")
+
+        yellowcardlist = master_deck.filter_by_color(["Yellow"])
 
         def yellowdeckappend():
             yellowdeck.append(i)
@@ -167,15 +164,15 @@ class MenuSystem(object):
         for i in yellowcardlist:
 
             #Creating a Submenu for every card in the Yellow Card List
-            submenu = pygame_menu.Menu(i, 750, 750, theme=main_menu_theme,
+            submenu = pygame_menu.Menu(i.get_name(), 750, 750, theme=main_menu_theme,
                                        mouse_motion_selection=True)
             submenu.add.vertical_margin(75)
             #adding description Title to submenu
-            submenu.add.label(carddescription, align=pygame_menu.locals.ALIGN_LEFT,
+            submenu.add.label(i.get_name(), align=pygame_menu.locals.ALIGN_LEFT,
                               font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
                               margin=(5, 10))
             #adddescription
-            submenu.add.label(cardinfo, max_char=70,
+            submenu.add.label(i.get_description(), max_char=70,
                                       align=pygame_menu.locals.ALIGN_LEFT,
                                       margin=(29, 1), font_size=20,
                                       font_name=pygame_menu.font.FONT_PT_SERIF,
@@ -183,7 +180,7 @@ class MenuSystem(object):
             self.deckcreatoryellow_menu.add.button(i, submenu)
             submenu.add.vertical_margin(40)  # Bottom margin
 
-            submenu.add.button(i, yellowdeckappend) #THIS BUTTON IS SUPPOSED TO APPEND THE SELECTED CARD TO THE DECK, HOWEVER IT IS ONLY APPENDING THE LAST ITERATION OF I TO THE DECK
+            submenu.add.button(i.get_name(), yellowdeckappend) #THIS BUTTON IS SUPPOSED TO APPEND THE SELECTED CARD TO THE DECK, HOWEVER IT IS ONLY APPENDING THE LAST ITERATION OF I TO THE DECK
             submenu.add.button("Back", pygame_menu.events.BACK)
 
         def showyellowdeck():

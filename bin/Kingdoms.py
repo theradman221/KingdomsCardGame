@@ -60,6 +60,7 @@ logging.info('Is subscribed to current app? ' + str(steamworks.Apps.IsSubscribed
 from pyfiles.Deck import Deck
 from pyfiles.guielements.Background import Background
 from pyfiles.gameclasses.gameloop import *
+from pyfiles.menus.mainmenu import MenuSystem, main_menu
 
 # Testing creating a pygame window and putting a few boxes on it, (500,500) is the size
 # screen = pygame.display.set_mode((500,500), DOUBLEBUF|OPENGL) # Use openGL to do the rendering so that we can have the steam overlay (not implimented yet)
@@ -98,6 +99,9 @@ def main():
     red_cards = master_copy_deck.filter_by_color(["Yellow"])
     for card in red_cards:
         print(card)
+
+    main2 = MenuSystem(master_deck)
+    main2.mainloop(False)
     #ap.processAttack()
 
     #run_game([])

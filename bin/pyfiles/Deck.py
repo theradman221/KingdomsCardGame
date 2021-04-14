@@ -71,7 +71,7 @@ class Deck:
         for card in self.__deck:
             card.print_all_details()
 
-    # Need to make a filter method to filter decks and return a list of cards that meet criteria
+    # filters the deck and return a list of cards that meet criteria
     def filter_by_color(self, colors):
         filtered = []
         for card in self.__deck:
@@ -79,3 +79,9 @@ class Deck:
                 filtered.append(card)
         return filtered
 
+    def filter_by_unit(self, units):
+        filtered = []
+        for card in self.__deck:
+            if card.get_color() in units:
+                filtered.append(card)
+        return filtered
