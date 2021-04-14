@@ -1,7 +1,8 @@
 import json as js
 import random as rand
 import os
-
+# This is so that the load deck logic can be entirely merged to this class instead of being half here and half in kingdoms
+from pyfiles.cardclasses.CardConstructor import convert_file_to_card as ftc
 
 save_path = os.getcwd() + "\saves\\"
 # This class's purpose is to contain a deck of cards.
@@ -53,3 +54,5 @@ class Deck:
 
     def get_copy(self):
         return self.__deck.copy()
+
+    # Need to make a filter method to filter decks and return a list of cards that meet criteria

@@ -110,23 +110,9 @@ class AttackCard(Card):
     def set_current_health(self, health):
         self.__current_health = health
 
-    def get_default_health(self):
-        return self.__default_health
-
-    def set_default_health(self, health):
-        self.__default_health = health
-        self.__current_health = health
-
     def get_current_attack(self):
         return self.__current_attack
 
     def set_current_attack(self, attack):
-        self.__current_attack = attack
-
-    def get_default_attack(self):
-        return self.__default_attack
-
-    def set_default_attack(self, attack):
-        self.__default_attack = attack
         self.__current_attack = attack
 

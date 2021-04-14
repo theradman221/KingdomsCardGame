@@ -31,6 +31,7 @@ def create_players(decks):
     player_names = ["Bobby", "Jill", "Fred", "Brian", "George"]
     for name in player_names:
         player = Player(name)
+        print(player.throne_room_empty())
         players.append(player)
     random.shuffle(players)
     return players
