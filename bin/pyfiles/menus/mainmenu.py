@@ -110,23 +110,28 @@ class MenuSystem(object):
         bluecardlist = master_deck.filter_by_color(["Blue"])
 
 
-        for i in bluecardlist:
-            submenu = pygame_menu.Menu(i.get_name(), 850, 850, theme=main_menu_theme,
+        for card in bluecardlist:
+            submenu = pygame_menu.Menu(card.get_name(), 850, 850, theme=main_menu_theme,
                                        mouse_motion_selection=True, center_content=False)
             submenu.add.vertical_margin(75)
-            submenu.add.label(i.get_name(), align=pygame_menu.locals.ALIGN_LEFT,
+            #image?
+            image_path = pygame_menu.baseimage.IMAGE_EXAMPLE_PYGAME_MENU
+            submenu.add.image(card.get_image(), angle=10,scale=(0.15, 0.15))
+
+            submenu.add.label(card.get_name() + "\n" + card.get_unit(), align=pygame_menu.locals.ALIGN_LEFT,
                               font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
                               margin=(5, 10))
-            submenu.add.label(i.get_description(), max_char=70,
+            submenu.add.label(card.get_description(), max_char=70,
                                       align=pygame_menu.locals.ALIGN_LEFT,
                                       margin=(29, 1), font_size=20,
                                       font_name=pygame_menu.font.FONT_PT_SERIF,
                                       font_color=(0, 0, 0), padding=0)
-            self.deckcreatorblue_menu.add.button(i, submenu)
+            self.deckcreatorblue_menu.add.button(card, submenu)
             submenu.add.vertical_margin(40)  # Bottom margin
             # THIS ADDS THE BUTTON
-            submenu.add.button("Add " + i.get_name() + " to Deck"#I NEED TO ADD A FUNCTION HERE THAT ADDS THE SPECIFIC ITERATION TO THE DECK LIST.
+            submenu.add.button("Add " + card.get_name() + " to Deck"#I NEED TO ADD A FUNCTION HERE THAT ADDS THE SPECIFIC ITERATION TO THE DECK LIST.
             )
+            submenu.add.button("Back", pygame_menu.events.BACK)
 
         self.deckcreatorblue_menu.add.button('back', pygame_menu.events.BACK)
         # -------------------------------------------------------------------------
@@ -139,11 +144,6 @@ class MenuSystem(object):
             title='Create Yellow Deck',
             width=self.WINDOW_SIZE[1] * 1
             )
-
-        # THESE ARE HARD CODED FOR BUG TEST DAY We just need to add the
-        carddescription='Card Description'
-        cardinfo = "This is where the information for each picked card will be added"
-        cardimage = "the card image could go here once we figure that all out, and then we just need to draw it in the submenu which is easy enough"
 
         yellowcardlist = master_deck.filter_by_color(["Yellow"])
 
