@@ -161,30 +161,30 @@ class MenuSystem(object):
             print(i)
 
 #BUGHUNT DAY PLEASE HELP US SOLVE THE BUG IN THIS FOR LOOP!
-        for i in yellowcardlist:
+        for card in yellowcardlist:
 
             #Creating a Submenu for every card in the Yellow Card List
-            submenu = pygame_menu.Menu(i.get_name(), 750, 750, theme=main_menu_theme,
+            submenu = pygame_menu.Menu(card.get_name(), 750, 750, theme=main_menu_theme,
                                        mouse_motion_selection=True)
             submenu.add.vertical_margin(75)
             #image?
             image_path = pygame_menu.baseimage.IMAGE_EXAMPLE_PYGAME_MENU
-            submenu.add.image(image_path, angle=10,scale=(0.15, 0.15))
+            submenu.add.image(card.get_image(), angle=10,scale=(0.15, 0.15))
 
             #adding description Title to submenu
-            submenu.add.label(i.get_name(), align=pygame_menu.locals.ALIGN_LEFT,
+            submenu.add.label(card.get_name() + "\n" + card.get_unit(), align=pygame_menu.locals.ALIGN_LEFT,
                               font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
                               margin=(5, 10))
             #adddescription
-            submenu.add.label(i.get_description(), max_char=70,
+            submenu.add.label(card.get_description(), max_char=70,
                                       align=pygame_menu.locals.ALIGN_LEFT,
                                       margin=(29, 1), font_size=20,
                                       font_name=pygame_menu.font.FONT_PT_SERIF,
                                       font_color=(0, 0, 0), padding=0)
-            self.deckcreatoryellow_menu.add.button(i, submenu)
+            self.deckcreatoryellow_menu.add.button(card, submenu)
             submenu.add.vertical_margin(40)  # Bottom margin
 
-            submenu.add.button(i.get_name(), yellowdeckappend) #THIS BUTTON IS SUPPOSED TO APPEND THE SELECTED CARD TO THE DECK, HOWEVER IT IS ONLY APPENDING THE LAST ITERATION OF I TO THE DECK
+            submenu.add.button(card.get_name(), yellowdeckappend) #THIS BUTTON IS SUPPOSED TO APPEND THE SELECTED CARD TO THE DECK, HOWEVER IT IS ONLY APPENDING THE LAST ITERATION OF I TO THE DECK
             submenu.add.button("Back", pygame_menu.events.BACK)
 
         def showyellowdeck():
