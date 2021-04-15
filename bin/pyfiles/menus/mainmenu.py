@@ -159,15 +159,19 @@ class MenuSystem(object):
 
         def a(self, i) -> None:
             print(i)
-
+#-----------------------------------------------------------------------------------------------------------
 #BUGHUNT DAY PLEASE HELP US SOLVE THE BUG IN THIS FOR LOOP!
+#BUGHUNT DAY PLEASE HELP US SOLVE THE BUG IN THIS FOR LOOP!
+#BUGHUNT DAY PLEASE HELP US SOLVE THE BUG IN THIS FOR LOOP!
+#BUGHUNT DAY PLEASE HELP US SOLVE THE BUG IN THIS FOR LOOP!
+#-----------------------------------------------------------------------------------------------------------
         for card in yellowcardlist:
 
             #Creating a Submenu for every card in the Yellow Card List
             submenu = pygame_menu.Menu(card.get_name(), 750, 750, theme=main_menu_theme,
                                        mouse_motion_selection=True)
             submenu.add.vertical_margin(75)
-            #image?
+            #image for each card
             image_path = pygame_menu.baseimage.IMAGE_EXAMPLE_PYGAME_MENU
             submenu.add.image(card.get_image(), angle=10,scale=(0.15, 0.15))
 
@@ -181,7 +185,7 @@ class MenuSystem(object):
                                       margin=(29, 1), font_size=20,
                                       font_name=pygame_menu.font.FONT_PT_SERIF,
                                       font_color=(0, 0, 0), padding=0)
-            self.deckcreatoryellow_menu.add.button(card, submenu)
+            self.deckcreatoryellow_menu.add.button(card, submenu) #adding button for every card that calls the submenu for that card
             submenu.add.vertical_margin(40)  # Bottom margin
 
             submenu.add.button("add   " + card.get_name(), yellowdeckappend(card)) #THIS BUTTON IS SUPPOSED TO APPEND THE SELECTED CARD TO THE DECK, HOWEVER IT IS ONLY APPENDING THE LAST ITERATION OF I TO THE DECK
