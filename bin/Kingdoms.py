@@ -4,6 +4,7 @@ import os
 # Install the required packages
 os.system("py -m pip install pygame")
 os.system("py -m pip install pyopengl")
+os.system("py -m pip install pygame-menu")
 
 
 import logging
@@ -36,23 +37,23 @@ from OpenGL.GL import *
 # More advanced ones
 from OpenGL.GLU import *
 
-# # SteamworksPy
-import os
-os.add_dll_directory(os.getcwd())
-
-from steamworks import STEAMWORKS
-
-steamworks = STEAMWORKS()
-steamworks.initialize()
-logging.info('Steam was initialized')
-
-my_steam64 = steamworks.Users.GetSteamID()
-my_steam_level = steamworks.Users.GetPlayerSteamLevel()
-logging.info("The user is Logged in : " + str(steamworks.Users.LoggedOn()))
-steamworks.Friends.ActivateGameOverlay("friends")
-
-logging.info(f'Logged on as {my_steam64}, level: {my_steam_level}')
-logging.info('Is subscribed to current app? ' + str(steamworks.Apps.IsSubscribed()))
+# # SteamworksPy, Disabled for bughunt day as it's integration is not even started
+# import os
+# os.add_dll_directory(os.getcwd())
+#
+# from steamworks import STEAMWORKS
+#
+# steamworks = STEAMWORKS()
+# steamworks.initialize()
+# logging.info('Steam was initialized')
+#
+# my_steam64 = steamworks.Users.GetSteamID()
+# my_steam_level = steamworks.Users.GetPlayerSteamLevel()
+# logging.info("The user is Logged in : " + str(steamworks.Users.LoggedOn()))
+# steamworks.Friends.ActivateGameOverlay("friends")
+#
+# logging.info(f'Logged on as {my_steam64}, level: {my_steam_level}')
+# logging.info('Is subscribed to current app? ' + str(steamworks.Apps.IsSubscribed()))
 
 
 
