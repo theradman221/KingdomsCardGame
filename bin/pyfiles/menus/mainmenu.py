@@ -118,10 +118,10 @@ class MenuSystem(object):
             image_path = pygame_menu.baseimage.IMAGE_EXAMPLE_PYGAME_MENU
             submenu.add.image(card.get_image(), angle=10,scale=(0.15, 0.15))
 
-            submenu.add.label(card.get_name(), align=pygame_menu.locals.ALIGN_LEFT,
+            submenu.add.label(card.get_name() + "\n" + card.get_unit(), align=pygame_menu.locals.ALIGN_LEFT,
                               font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
                               margin=(5, 10))
-            submenu.add.label(card.get_description() + "\n" + card.get_unit(), max_char=70,
+            submenu.add.label(card.get_description(), max_char=70,
                                       align=pygame_menu.locals.ALIGN_LEFT,
                                       margin=(29, 1), font_size=20,
                                       font_name=pygame_menu.font.FONT_PT_SERIF,
