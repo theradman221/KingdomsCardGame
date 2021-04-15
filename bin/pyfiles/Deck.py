@@ -44,6 +44,19 @@ class Deck:
     def shuffle_deck(self):
         rand.shuffle(self.__deck)
 
+    def is_empty(self):
+        if len(self.__deck > 0):
+            return False
+        else:
+            return True
+
+    def remove_card(self, card):
+        for card2 in self.__deck:
+            if card2.get_name() == card.get_name():
+                self.__deck.remove(card)
+                return True
+        return False
+
     def draw_card(self):
         # By default draws off of the top, or 0 position of the deck
         if len(self.__deck) > 0:

@@ -11,8 +11,8 @@ class Player:
         self.__name = name
 
         # These are the main decks, all other decks (or zones) will be populated with cards from these 2 decks (except tokens, they are weird)
-        self.__main_deck = None
-        self.__terra_deck = None
+        self.__main_deck = Deck("Main")
+        self.__terra_deck = Deck("Terra")
 
         # Each player must have a bastion, and 2 royals in the throne room before the game can start
         self.__bastion = None
@@ -106,6 +106,53 @@ class Player:
         return self.__bastion.get_health()
 
     # Deck logic for main and terra decks
+    def get_main_deck(self):
+        return self.__main_deck
+
+    def update_main_deck(self, deck):
+        self.__main_deck = deck
+
+    def add_to_main_deck(self, card):
+        self.__main_deck.add_card(card)
+
+    def shuffle_main_deck(self):
+        self.__main_deck.shuffle_deck()
+
+    def draw_from_main_deck(self):
+        return self.__main_deck.draw_card()
+
+    def search_main_deck_unit(self, units):
+        return self.__main_deck.filter_by_unit(units)
+
+    def search_main_deck_color(self, colors):
+        return self.__main_deck.filter_by_color(colors)
+
+    def remove_card_main_deck(self, card):
+        return self.__main_deck.remove_card(card)
+
+    def get_terra_deck(self):
+        return self.__terra_deck
+
+    def update_terra_deck(self, deck):
+        self.__terra_deck = deck
+
+    def add_to_terra_deck(self, card):
+        self.__terra_deck.add_card(card)
+
+    def shuffle_terra_deck(self):
+        self.__terra_deck.shuffle_deck()
+
+    def draw_from_terra_deck(self):
+        return self.__terra_deck.draw_card()
+
+    def search_terra_deck_unit(self, units):
+        return self.__terra_deck.filter_by_unit(units)
+
+    def search_terra_deck_color(self, colors):
+        return self.__terra_deck.filter_by_color(colors)
+
+    def remove_card_terra_deck(self, card):
+        return self.__terra_deck.remove_card(card)
 
     # Zone logic
     # Battlefield
@@ -121,8 +168,6 @@ class Player:
             return False
 
     def same_card(self, card1, card2):
-        card1 = AttackCard()
-        card2 = AttackCard()
         if card1.get_unit() != card2.get_unit():
             return False
         elif card1.get_label() != card2.get_label():
@@ -140,20 +185,112 @@ class Player:
         self.__battlefield = battlefield
 
     def add_to_battlefield(self,card):
+        #card.set_zone("Battlefield")
         self.__battlefield.append(card)
 
+    def add_to_kingdom(self, card):
+        self.__kingdom.append(card)
 
+    def remove_from_kingdom(self, card):
+        for i in self.__kingdom:
+            if self.same_card(i, card):
+                self.__kingdom.remove(i)
+                return True
+        else:
+            return False
 
-        # # These are the main decks, all other decks (or zones) will be populated with cards from these 2 decks (except tokens, they are weird)
-        # self.__main_deck = None
-        # self.__terra_deck = None
-        #
-        #
-        # # Zones, each player can have certain cards in certain zones
-        # self.__battlefield = []
-        # self.__kingdom = []
-        # self.__player_hand = [] # If the size of this is greater than 7 cards must be discarded at the end of a turn
-        # self.__relic_zone = []
-        # self.__terra_zone = []
-        # self.__graveyard = []
-        # self.__exiled = []
+    def get_kingdom(self):
+        return self.__kingdom
+
+    def update_kingdom(self, deck):
+        self.__kingdom = deck
+
+    def get_player_hand(self):
+        return  self.__player_hand
+
+    def update_player_hand(self, deck):
+        self.__player_hand = deck
+
+    def remove_from_hand(self, card):
+        for i in self.__player_hand:
+            if self.same_card(i, card):
+                self.__player_hand.remove(i)
+                return True
+        else:
+            return False
+
+    def add_to_player_hand(self, card):
+        self.__player_hand.append(card)
+
+    def enforce_player_hand_limit(self):
+        while len(self.__player_hand) > 7:
+            # Prompt the user to delete a card that they pick
+            pass
+
+    def get_relic_zone(self):
+        return self.__relic_zone
+
+    def update_relic_zone(self, zone):
+        self.__relic_zone = zone
+
+    def remove_from_relic_zone(self, card):
+        for i in self.__relic_zone:
+            if self.same_card(i, card):
+                self.__relic_zone.remove(i)
+                return True
+        else:
+            return False
+
+    def add_to_relic_zone(self, card):
+        self.__relic_zone.append(card)
+
+    def get_terra_zone(self):
+        return self.__terra_zone
+
+    def update_terra_zone(self, zone):
+        self.__terra_zone = zone
+
+    def remove_from_terra_zone(self, card):
+        for i in self.__terra_zone:
+            if self.same_card(i, card):
+                self.__terra_zone.remove(i)
+                return True
+        else:
+            return False
+
+    def add_to_terra_zone(self, card):
+        self.__terra_zone.append(card)
+
+    def get_graveyard(self):
+        return self.__graveyard
+
+    def update_graveyard(self, zone):
+        self.__graveyard = zone
+
+    def remove_from_graveyard(self, card):
+        for i in self.__graveyard:
+            if self.same_card(i, card):
+                self.__graveyard.remove(i)
+                return True
+        else:
+            return False
+
+    def add_to_graveyard(self, card):
+        self.__graveyard.append(card)
+
+    def get_exiled(self):
+        return self.__exiled
+
+    def update_exiled(self, zone):
+        self.__exiled = zone
+
+    def remove_from_exiled(self, card):
+        for i in self.__exiled:
+            if self.same_card(i, card):
+                self.__exiled.remove(i)
+                return True
+        else:
+            return False
+
+    def add_to_exiled(self, card):
+        self.__exiled.append(card)
