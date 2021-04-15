@@ -13,7 +13,7 @@ screen = pygame.display.set_mode((screenWidth, screenHeight))
 
 numberFont = pygame.font.SysFont("gabriola", 70)
 nameFont = pygame.font.SysFont("gabriola", 38)
-descriptionFont = pygame.font.SysFont("gabriola", 30)
+descriptionFont = pygame.font.SysFont("gabriola", 20)
 labelFont = pygame.font.SysFont("gabriola", 25)
 
 cardImg = pygame.image.load(os.getcwd() + "/../cardtemplates/units/blueUnitTemplate.jpg")
@@ -21,30 +21,52 @@ cardImg = pygame.transform.scale(cardImg.convert(), (430, 600))
 cardRect = cardImg.get_rect()
 cardRect.center = screenWidth // 2, screenHeight // 2
 
-# descriptionText = descriptionFont.render("This is my description", True, BLACK)
-# descriptionBox = descriptionText.get_rect()
+namePlaceholder = pygame.Rect(0, 0, 410, 40)
+nameText = "Elder Cleric"
 
-text = "Guard (While this card is rested you may redirect attacks to this\ncard. While this card is in the Kingdom it cannot \"Guard\" units on\nthe battlefield)\n\"To be healthy and look this good for 120? Not bad\""
+descriptionPlaceholder = pygame.Rect(0, 0, 410, 75)
+descriptionText = "Guard (While this card is rested you may redirect attacks to this card. While this card is in the Kingdom it cannot \"Guard\" units on the battlefield) \"To be healthy and look this good for 120? Not bad\""
 
 
+def drawText(surface, text, color, placeholderRect, font, aa=True, bkg=None):
+    y = placeholderRect.top
+    lineSpacing = -2
 
+    # get the height of the font
+    fontHeight = font.size("Tg")[1]
 
-def blit_text(surface, text, pos, font, color):
-    words = [word.split(' ') for word in text.splitlines()]  # 2D array where each row is a list of words.
-    space = font.size(' ')[0]  # The width of a space.
-    max_width, max_height = surface.get_size()
-    x, y = pos
-    for line in words:
-        for word in line:
-            word_surface = font.render(word, True, color)
-            word_width, word_height = word_surface.get_size()
-            if x + word_width >= max_width:
-                x = pos[0]  # Reset the x.
-                y += word_height  # Start on new row.
-            surface.blit(word_surface, (x, y))
-            x += word_width + space
-        x = pos[0]  # Reset the x.
-        y += word_height  # Start on new row.
+    while text:
+        i = 1
+
+        # determine if the row of text will be outside our area
+        if y + fontHeight > placeholderRect.bottom:
+            break
+
+        # determine maximum width of line
+        while font.size(text[:i])[0] < placeholderRect.width and i < len(text):
+            i += 1
+
+        # if we've wrapped the text, then adjust the wrap to the last word
+        if i < len(text):
+            i = text.rfind(" ", 0, i) + 1
+
+        # render the line and blit it to the surface
+        if bkg:
+            image = font.render(text[:i], 1, color, bkg)
+            image.set_colorkey(bkg)
+        else:
+            image = font.render(text[:i], aa, color)
+
+        textRect = image.get_rect()
+        textRect.centerx = placeholderRect.centerx
+        textRect.centery = placeholderRect.centery
+        surface.blit(image, (textRect.left, y))
+        y += fontHeight + lineSpacing
+
+        # remove the text we just blitted
+        text = text[i:]
+
+    return text
 
 
 def visualizer():
@@ -63,13 +85,17 @@ def visualizer():
             elif event.type == pygame.MOUSEMOTION and moving:
                 cardRect.move_ip(event.rel)
 
-        # descriptionBox.center = cardRect.centerx, cardRect.centery + 190
+        namePlaceholder.center = cardRect.centerx, cardRect.centery + 140
+        descriptionPlaceholder.center = cardRect.centerx, cardRect.centery + 199
 
         screen.fill(GRAY)
         screen.blit(cardImg, cardRect)
-        # screen.blit(descriptionText, descriptionBox)
 
-        blit_text(screen, text, (cardRect.centerx - 50, cardRect.centery + 172), descriptionFont, BLACK)
+        drawText(screen, nameText, BLACK, namePlaceholder, nameFont)
+        pygame.draw.rect(screen, BLACK, namePlaceholder, 1)
+
+        drawText(screen, descriptionText, BLACK, descriptionPlaceholder, descriptionFont)
+        pygame.draw.rect(screen, BLACK, descriptionPlaceholder, 1)
 
         pygame.display.update()
 
