@@ -10,12 +10,33 @@ class Deck:
     def __init__(self, name):
         self.__name = name
         self.__deck = []
+        self.__bastion = None
+        self.__royal_1 = None
+        self.__royal_2 = None
 
     def __str__(self):
         msg = ""
         for card in self.__deck:
             msg += str(card)
         return msg
+
+    def add_bastion(self, card):
+        self.__bastion = card
+
+    def get_bastion(self):
+        return self.__bastion
+
+    def set_royal_1(self, card):
+        self.__royal_1 = card
+
+    def get_royal_1(self):
+        return self.__royal_1
+
+    def set_royal_2(self, card):
+        self.__royal_2 = card
+
+    def get_royal_2(self):
+        return self.__royal_2
 
     def add_card(self, card):
         self.__deck.append(card)

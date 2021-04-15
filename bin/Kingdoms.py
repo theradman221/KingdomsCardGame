@@ -105,7 +105,7 @@ def main():
     main2.mainloop(False)
     #ap.processAttack()
 
-    run_game([])
+    #run_game([])
 
 
 # Does not work right now, I think it's the background class breaking it
