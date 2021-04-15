@@ -3,7 +3,7 @@ pygame.init()
 
 # This class was created by Tech With Tim, it was obtained from watching a youtube video where Tech With Tim showed it off.
 # It was obtained from the pinned comment of the video located at https://www.youtube.com/watch?v=4_9twnEduFA&ab_channel=TechWithTim
-class button():
+class Button:
     def __init__(self, color, x,y,width,height, text=''):
         self.color = color
         self.x = x
