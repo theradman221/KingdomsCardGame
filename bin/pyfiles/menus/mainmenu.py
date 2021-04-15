@@ -167,6 +167,10 @@ class MenuSystem(object):
             submenu = pygame_menu.Menu(i.get_name(), 750, 750, theme=main_menu_theme,
                                        mouse_motion_selection=True)
             submenu.add.vertical_margin(75)
+            #image?
+            image_path = pygame_menu.baseimage.IMAGE_EXAMPLE_PYGAME_MENU
+            submenu.add.image(image_path, angle=10,scale=(0.15, 0.15))
+
             #adding description Title to submenu
             submenu.add.label(i.get_name(), align=pygame_menu.locals.ALIGN_LEFT,
                               font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
