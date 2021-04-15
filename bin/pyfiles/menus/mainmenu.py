@@ -184,7 +184,7 @@ class MenuSystem(object):
             self.deckcreatoryellow_menu.add.button(card, submenu)
             submenu.add.vertical_margin(40)  # Bottom margin
 
-            submenu.add.button(card.get_name(), yellowdeckappend(card)) #THIS BUTTON IS SUPPOSED TO APPEND THE SELECTED CARD TO THE DECK, HOWEVER IT IS ONLY APPENDING THE LAST ITERATION OF I TO THE DECK
+            submenu.add.button("add   " + card.get_name(), yellowdeckappend(card)) #THIS BUTTON IS SUPPOSED TO APPEND THE SELECTED CARD TO THE DECK, HOWEVER IT IS ONLY APPENDING THE LAST ITERATION OF I TO THE DECK
             # IF YOU HAVE IT LIKE IT IS NOW WITH (card) IT ADDS ALL AT ONCE, IF IT DOESN't HAVE THE () IT DOES THE ERROR ABOVE!
             submenu.add.button("Back", pygame_menu.events.BACK)
 
