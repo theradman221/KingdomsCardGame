@@ -97,9 +97,9 @@ def main():
     master_copy_deck.print_deck_all_details()
     ap = AttackProcessor(master_deck.draw_card(), master_deck.draw_card())
 
-    red_cards = master_copy_deck.filter_by_color(["Yellow"])
-    for card in red_cards:
-        print(card)
+    yellow_cards = master_copy_deck.filter_by_color(["Yellow"])
+    for card in yellow_cards:
+        print(card, card.get_color())
 
     main2 = MenuSystem(master_deck)
     main2.mainloop(False)

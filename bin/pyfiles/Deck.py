@@ -103,6 +103,6 @@ class Deck:
     def filter_by_unit(self, units):
         filtered = []
         for card in self.__deck:
-            if card.get_color() in units:
+            if card.get_unit() in units:
                 filtered.append(card)
         return filtered
