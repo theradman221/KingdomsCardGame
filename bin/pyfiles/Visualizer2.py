@@ -1,5 +1,6 @@
 import pygame
 import os
+from pyfiles.cardclasses.Card import Card
 
 RED = (255,0,0)
 GRAY = (150,150,150)
@@ -11,70 +12,68 @@ screenWidth = 1200
 screenHeight = 800
 screen = pygame.display.set_mode((screenWidth, screenHeight))
 
+# Loads and puts the card template into a rectangle
 cardImg = pygame.image.load(os.getcwd() + "/../cardtemplates/units/blueUnitTemplate.jpg")
 cardImg = pygame.transform.scale(cardImg.convert(), (430, 600))
 cardRect = cardImg.get_rect()
 cardRect.center = screenWidth // 2, screenHeight // 2
 
+# Loads and puts the rarity image into a rectangle
 rarityImg = pygame.image.load(os.getcwd() + "/../cardtemplates/Raritys/Uncommon.png")
 rarityImg = pygame.transform.scale(rarityImg.convert(), (31, 31))
 rarityRect = rarityImg.get_rect()
 
+# Loads and puts the artwork into a rectangle
 artworkImg = pygame.image.load(os.getcwd() + "/../cardart/bluepawn.jpg")
 artworkImg = pygame.transform.scale(artworkImg.convert(), (312, 366))
 artworkRect = artworkImg.get_rect()
 
+# Setting font and text size for each text type
 numberFont = pygame.font.SysFont("gabriola", 75)
 nameFont = pygame.font.SysFont("gabriola", 38)
 descriptionFont = pygame.font.SysFont("gabriola", 20)
 labelFont = pygame.font.SysFont("gabriola", 25)
 
+# Placeholders for text
 namePlaceholder = pygame.Rect(0, 0, 410, 40)
-nameText = "Elder Cleric"
-
 descriptionPlaceholder = pygame.Rect(0, 0, 410, 75)
-descriptionText = "Guard (While this card is rested you may redirect attacks to this card. While this card is in the Kingdom it cannot \"Guard\" units on the battlefield) \"To be healthy and look this good for 120? Not bad\""
-
 labelPlaceholder = pygame.Rect(0, 0, 175, 25)
-labelText = "Pawn - Human Magi"
-
 costPlaceholder = pygame.Rect(0, 0, 75, 75)
-costText = "5"
-
 attackPlaceholder = pygame.Rect(0, 0, 75, 75)
-attackText = "4"
-
 healthPlaceholder = pygame.Rect(0, 0, 75, 75)
+
+# Text values to be put on card
+nameText = "Elder Cleric"
+descriptionText = "Guard (While this card is rested you may redirect attacks to this card. While this card is in the Kingdom it cannot \"Guard\" units on the battlefield) \"To be healthy and look this good for 120? Not bad\""
+labelText = "Pawn - Human Magi"
+costText = "5"
+attackText = "4"
 healthText = "6"
-# going to need if statements to determine where to put the rectangles
-# 1, 2 are center of box
-# 3, 4, 5, 7, 9 are lower
-# 6, 8 are upper
 
 
 def drawText(surface, text, color, placeholderRect, font, aa=True):
     y = placeholderRect.top
     lineSpacing = -2
 
-    # get the height of the font
+    # Gets the height of the font
     fontHeight = font.size("Tg")[1]
 
     while text:
         i = 1
 
-        # determine if the row of text will be outside our area
+        # Determines if the row of text will be outside the rectangle
         if y + fontHeight > placeholderRect.bottom:
             break
 
-        # determine maximum width of line
+        # Determines maximum width of line
         while font.size(text[:i])[0] < placeholderRect.width and i < (len(text)):
             i += 1
 
-        # if we've wrapped the text, then adjust the wrap to the last word
+        # Adjusts the wrap to the last word
         if i < len(text):
             i = text.rfind(" ", 0, i) + 1
 
-        # render the line and blit it to the surface
+        # Render the line and blit it to the surface
         image = font.render(text[:i], aa, color)
 
         textRect = image.get_rect()
@@ -83,7 +82,7 @@ def drawText(surface, text, color, placeholderRect, font, aa=True):
         surface.blit(image, (textRect.left, y))
         y += fontHeight + lineSpacing
 
-        # remove the text we just blitted
+        # Removes the row of text from the text variable that was just blitted
         text = text[i:]
 
     return text
@@ -105,7 +104,7 @@ def visualizer():
             elif event.type == pygame.MOUSEMOTION and moving:
                 cardRect.move_ip(event.rel)
 
-        # Sets the position of images
+        # Sets the position for the different images
         rarityRect.center = cardRect.x + 403, cardRect.y + 25
         artworkRect.center = cardRect.centerx + 16, cardRect.y + 226
 
@@ -114,7 +113,11 @@ def visualizer():
         descriptionPlaceholder.center = cardRect.centerx, cardRect.centery + 199
         labelPlaceholder.center = cardRect.centerx + 2, cardRect.centery + 275
 
-        # If Statements determine where to put the rectangle based on which number is printed
+        # If-Statements determine where to put the rectangle based on which number is printed due to the numbers
+        # being different sizes because of the font
+        # 1, 2 are center of box
+        # 3, 4, 5, 7, 9 are lower
+        # 6, 8 are upper
         # Cost numbers
         if costText == "1" or costText == "2":
             costPlaceholder.center = cardRect.centerx - 178, cardRect.centery - 267
