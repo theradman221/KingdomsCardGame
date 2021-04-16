@@ -167,7 +167,6 @@ class MenuSystem(object):
                                        mouse_motion_selection=True)
             submenu.add.vertical_margin(75)
             #image for each card
-            image_path = pygame_menu.baseimage.IMAGE_EXAMPLE_PYGAME_MENU
             submenu.add.image(card.get_image(), angle=10,scale=(0.15, 0.15))
 
             #adding description Title to submenu
@@ -200,7 +199,9 @@ class MenuSystem(object):
             submenu.add.button("Back", pygame_menu.events.BACK)
 
         def showyellowdeck():
-            print('yellow deck: ', yellowdeck)
+            print('yellow deck: ')
+            for card in yellowdeck:
+                print(card.get_name(), end=" ")
 
         self.deckcreatoryellow_menu.add.button("Current Deck", showyellowdeck)
         self.deckcreatoryellow_menu.add.button('back', pygame_menu.events.BACK)
