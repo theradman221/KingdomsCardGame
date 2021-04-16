@@ -10,7 +10,7 @@ from pyfiles.cardclasses.Terra import Terra
 from pyfiles.cardclasses.TerraLandMark import TerraLandMark
 from pyfiles.cardclasses.Token import Token
 from pyfiles.cardclasses.Trice import Trice
-
+# THIS MIGHT BE BEING DELETED I'M NOT SURE THE ORIGINAL IDEA FOR THIS IS NECESSARY
 class AttackProcessor:
     def __init__(self, card1, card2):
         self.__card1 = card1

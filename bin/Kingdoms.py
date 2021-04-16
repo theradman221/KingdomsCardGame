@@ -99,6 +99,8 @@ def main():
     master_copy_deck.print_deck_all_details()
     ap = AttackProcessor(master_deck.draw_card(), master_deck.draw_card())
 
+    # Create the 2 decks with 20 cards of the Mountain and Island terra
+
     yellow_cards = master_copy_deck.filter_by_color(["Yellow"])
     for card in yellow_cards:
         print(card, card.get_color(), " matches the color filter")
@@ -117,7 +119,6 @@ def load_saved_decks():
         deck_name = deck_name[0] # We only care about the name, not anything after .json
         deck = Deck(deck_name)
         deck.load_deck()
-        print(deck)
         decks.append(deck)
     return decks
 
