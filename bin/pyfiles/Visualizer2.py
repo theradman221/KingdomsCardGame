@@ -52,7 +52,7 @@ healthText = "6"
 # 6, 8 are upper
 
 
-def drawText(surface, text, color, placeholderRect, font, aa=True, bkg=None):
+def drawText(surface, text, color, placeholderRect, font, aa=True):
     y = placeholderRect.top
     lineSpacing = -2
 
@@ -75,11 +75,7 @@ def drawText(surface, text, color, placeholderRect, font, aa=True, bkg=None):
             i = text.rfind(" ", 0, i) + 1
 
         # render the line and blit it to the surface
-        if bkg:
-            image = font.render(text[:i], 1, color, bkg)
-            image.set_colorkey(bkg)
-        else:
-            image = font.render(text[:i], aa, color)
+        image = font.render(text[:i], aa, color)
 
         textRect = image.get_rect()
         textRect.centerx = placeholderRect.centerx
