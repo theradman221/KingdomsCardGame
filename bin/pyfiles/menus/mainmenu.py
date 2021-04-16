@@ -145,6 +145,8 @@ class MenuSystem(object):
             width=self.WINDOW_SIZE[1] * 1
             )
 
+        # [master_deck.get_royal_1.get_color(), master_deck.get_royal_2.get_color(),]
+        # card.get_color()
         yellowcardlist = master_deck.filter_by_color(["Yellow"])
 
         def yellowdeckappend(card) -> None:

@@ -14,6 +14,8 @@ class Deck:
         self.__royal_1 = None
         self.__royal_2 = None
 
+
+
     def __str__(self):
         msg = ""
         for card in self.__deck:
