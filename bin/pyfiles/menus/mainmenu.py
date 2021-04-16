@@ -176,7 +176,20 @@ class MenuSystem(object):
             submenu.add.image(card.get_image(), angle=10,scale=(0.15, 0.15))
 
             #adding description Title to submenu
-            submenu.add.label(card.get_name() + "\n" + card.get_unit() + "Cost: " + str(card.get_cost()) + "Health: "+ str(card.get_health()) + "Attack: " + str(card.get_attack()), align=pygame_menu.locals.ALIGN_LEFT,
+            attack_cards = ["Lord", "Hero", "Pawn", "Token", "Bastion"]
+            if card.get_unit() in attack_cards:
+                card_health = str(card.get_health())
+                card_attack = str(card.get_attack())
+            else :
+                card_attack = None
+                card_health = None
+            if card_health is None or card_attack is None:
+                submenu.add.label(card.get_name() + "\n" + card.get_unit() + " Cost: " + str(card.get_cost()),
+                                  align=pygame_menu.locals.ALIGN_LEFT,
+                                  font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
+                                  margin=(5, 10))
+            else:
+                submenu.add.label(card.get_name() + "\n" + card.get_unit() + " Cost: " + str(card.get_cost()) + " Health: "+ card_health + " Attack: " + card_attack, align=pygame_menu.locals.ALIGN_LEFT,
                               font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
                               margin=(5, 10))
             #adddescription
