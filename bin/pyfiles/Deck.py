@@ -87,18 +87,25 @@ class Deck:
         dict = js.load(open(save_path + name + ".json"))
         deck_dict = dict[name]
         self.__deck = []
-        for file in deck_dict:
-            self.__deck.append(self.__load_cards(deck_dict[file]))
+        for num in deck_dict:
+            for card in deck_dict[num]:
+                self.__deck.append(self.__load_cards(deck_dict[num][card]))
 
     def __load_cards(self, path):
         return ftc(path)
 
     # converts the entire deck into a json representation with the name as a key and the file path as the data.
     def __convert_deck_to_json(self):
-        inside_dict = {}
-        save_dict = {str(self.__name) : inside_dict}
+        outer_dict = {}
+
+        save_dict = {str(self.__name) : outer_dict}
+        counter = 0
         for card in self.__deck:
-            inside_dict[card.get_name()] = card.get_file_path()
+            # This was added to fix an issue where cards were only saved once
+            inner_dict = {}
+            inner_dict[card.get_name()] = card.get_file_path()
+            outer_dict[counter] = inner_dict
+            counter += 1
         return save_dict
 
     def get_name(self):

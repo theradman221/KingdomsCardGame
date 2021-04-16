@@ -107,8 +107,8 @@ def main():
     for card in yellow_cards:
         print(card, card.get_color(), " matches the color filter")
 
-    main2 = MenuSystem(master_deck)
-    main2.mainloop(False)
+    # main2 = MenuSystem(master_deck)
+    # main2.mainloop(False)
     #ap.processAttack()
     saved_decks = load_saved_decks()
     run_game(saved_decks)
@@ -121,6 +121,7 @@ def load_saved_decks():
         deck_name = deck_name[0] # We only care about the name, not anything after .json
         deck = Deck(deck_name)
         deck.load_deck()
+        print(deck.get_name(), "is", len(deck.get_copy()), "cards long")
         decks.append(deck)
     return decks
 
