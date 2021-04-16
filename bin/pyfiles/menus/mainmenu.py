@@ -166,7 +166,7 @@ class MenuSystem(object):
 #BUGHUNT DAY PLEASE HELP US SOLVE THE BUG IN THIS FOR LOOP!
 #----------------------------------------------------------------------------------------------------------
         for card in yellowcardlist:
-            
+
             #Creating a Submenu for every card in the Yellow Card List
             submenu = pygame_menu.Menu(card.get_name(), 750, 750, theme=main_menu_theme,
                                        mouse_motion_selection=True)
@@ -176,7 +176,7 @@ class MenuSystem(object):
             submenu.add.image(card.get_image(), angle=10,scale=(0.15, 0.15))
 
             #adding description Title to submenu
-            submenu.add.label(card.get_name() + "\n" + card.get_unit() + "Cost: " + str(card.get_cost()) + "Health: " + "Attack: ", align=pygame_menu.locals.ALIGN_LEFT,
+            submenu.add.label(card.get_name() + "\n" + card.get_unit() + "Cost: " + str(card.get_cost()) + "Health: "+ str(card.get_health()) + "Attack: " + str(card.get_attack()), align=pygame_menu.locals.ALIGN_LEFT,
                               font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
                               margin=(5, 10))
             #adddescription
