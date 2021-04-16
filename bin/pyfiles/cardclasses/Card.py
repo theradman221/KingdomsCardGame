@@ -38,6 +38,8 @@ class Card:
             for key in self.get_activated_effects():
                 msg += str(key) + "\n"
 
+        print(msg)
+
 
     def __str__(self):
         return self.__name

@@ -83,6 +83,8 @@ from pyfiles.cardclasses.NonAttackCard import NonAttackCard
 import pyfiles.cardclasses.CardConstructor as cc
 from pyfiles.AttackProcessor import AttackProcessor
 
+
+
 def main():
 
     logging.info(os.getcwd() +  " is the current working directory for the root")
@@ -99,7 +101,7 @@ def main():
     master_copy_deck.print_deck_all_details()
     ap = AttackProcessor(master_deck.draw_card(), master_deck.draw_card())
 
-    # Create the 2 decks with 20 cards of the Mountain and Island terra
+    create_basic_terra_decks(master_deck)
 
     yellow_cards = master_copy_deck.filter_by_color(["Yellow"])
     for card in yellow_cards:
@@ -171,6 +173,30 @@ def test_loop():
 
         pygame.display.update()
 
-main()
 #game_loop() # Doesn't work at all for some reason
 #test_loop()
+
+# This is merely to keep the code around in case someone needs to make a terra deck of all 1 kind, this is faster than editing json
+def create_basic_terra_decks(master_deck):
+    # Create the 2 decks with 20 cards of the Mountain and Island terra
+    terra_island = Deck("Terra-Island")
+    terra_mountain = Deck("Terra-Mountain")
+    island_card = None
+    mountain_card = None
+    search_deck = master_deck.get_copy()
+    for card in search_deck:
+        if card.get_name() == "Island":
+            island_card = card
+        if card.get_name() == "Mountain":
+            mountain_card = card
+    island_card.print_all_details()
+    mountain_card.print_all_details()
+    for i in range(0, 20):
+        terra_island.add_card(island_card)
+        terra_mountain.add_card(mountain_card)
+    terra_island.save_deck()
+    terra_mountain.save_deck()
+
+# Adding one good suggestion from bug hunt day
+if __name__ == '__main__':
+    main()
