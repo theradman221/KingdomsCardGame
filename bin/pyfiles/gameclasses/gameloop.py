@@ -35,6 +35,9 @@ def create_players(decks):
     deck_names = {}
 
     for deck in decks:
+        deck.verify_deck()
+        print(deck.get_name(), deck.get_type())
+        print(deck.get_verification_notes())
         deck_names[deck.get_name()] = deck
 
     player_name = ""

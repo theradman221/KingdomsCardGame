@@ -116,10 +116,21 @@ def main():
     print("testing loading, the first royal is", test_load.get_royal_1())
     print("testing loading, the second royal is", test_load.get_royal_2())
 
+    all_units = master_deck.filter_by_unit_inverted(["Terra", "Terra-Landmark"])
+    all_units_deck = Deck("Units")
+    all_units_deck.set_deck(all_units)
+
+    for card in all_units_deck.get_copy():
+        all_units_deck.add_card(card)
+        if all_units_deck.deck_size() == 40:
+            break
+    all_units_deck.save_deck()
+    print(all_units_deck)
+
 
     #create_basic_terra_decks(master_deck)
-    main2 = MenuSystem(master_deck)
-    main2.mainloop(False)
+    # main2 = MenuSystem(master_deck)
+    # main2.mainloop(False)
     #ap.processAttack()
     saved_decks = load_saved_decks()
     run_game(saved_decks)

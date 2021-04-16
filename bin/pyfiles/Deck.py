@@ -5,6 +5,10 @@ import os
 from pyfiles.cardclasses.CardConstructor import convert_file_to_card as ftc
 
 save_path = os.getcwd() + "\saves\\"
+# Limits to use when verifying a deck
+max_repeats_non_terra = 3
+deck_size_non_terra = 40
+deck_size_terra = 20
 # This class's purpose is to contain a deck of cards.
 class Deck:
     def __init__(self, name):
@@ -13,6 +17,8 @@ class Deck:
         self.__bastion = None
         self.__royal_1 = None
         self.__royal_2 = None
+        self.__verification_notes = ""
+        self.__type = None
 
 
 
@@ -102,6 +108,9 @@ class Deck:
     def __load_cards(self, path):
         return ftc(path)
 
+    def deck_size(self):
+        return len(self.__deck)
+
     # converts the entire deck into a json representation with the name as a key and the file path as the data.
     def __convert_deck_to_json(self):
         outer_dict = {}
@@ -155,6 +164,22 @@ class Deck:
                 filtered.append(card)
         return filtered
 
+    # Returns only things not in the input colors
+    def strict_filter_by_color_inverted(self, colors):
+        filtered = []
+        for card in self.__deck:
+            if card.get_color() not in colors:
+                filtered.append(card)
+        return filtered
+
+    # Filters the deck and returns a list of cards don't meet the criteria
+    def filter_by_unit_inverted(self, units):
+        filtered = []
+        for card in self.__deck:
+            if card.get_unit() not in units:
+                filtered.append(card)
+        return filtered
+
     # Filters the deck and returns a list of cards that meets the criteria
     def filter_by_unit(self, units):
         filtered = []
@@ -170,3 +195,82 @@ class Deck:
     # This is so that if you have a copy of a deck you can easily add it without saving/loading and renaming shenanigans.
     def set_deck(self, deck):
         self.__deck = deck
+
+    # This function return true if the deck is a valid deck
+    def verify_deck(self):
+        errormsg = ""
+        self.__verification_notes = errormsg
+        type = None
+        # Verify that the card is all one type of card, IE no terra cards in the main deck
+        for card in self.__deck:
+            if type == "Error":
+                break
+
+            if card.get_unit() == "Terra" or card.get_unit == "Terra-Landmark" and type != "Main":
+                type = "Terra"
+            elif card.get_unit() != "Terra" and card.get_unit != "Terra-Landmark" and type != "Terra":
+                type = "Main"
+            else:
+                type = "Error"
+
+        self.__type = type
+        if type == "Error":
+            errormsg += "Type Error, a deck must either be all Terra / Terra land marks, or all other cards, the deck is currently mixed. Please remove either all terra or all non terra cards."
+            self.__verification_notes = errormsg
+            return False
+
+        if self.__type == "Terra":
+            if len(self.__deck) != deck_size_terra:
+                print(len(self.__deck))
+                errormsg += ("A Terra deck must contain exactly " + str(deck_size_terra) + " cards, yours contains " +  str(len(self.__deck)) + " cards. Please add or remove cards to bring the total to " + str(deck_size_terra) + ".")
+                self.__verification_notes = errormsg
+                return False
+
+        if self.__type == "Main":
+            if len(self.__deck) != deck_size_non_terra:
+                print(len(self.__deck))
+                errormsg += ("A Main deck must contain exactly " + str(deck_size_non_terra) + " cards, yours contains " +  str(len(self.__deck)) + " cards. Please add or remove cards to bring the total to " + str(deck_size_non_terra) + ". Note that the bastion and royals do not count toward this total")
+                self.__verification_notes = errormsg
+                return False
+
+        # Checking for too many cards, does not apply to terra cards
+        duplicates = {}
+        for card in self.__deck:
+            if card.get_unit() != "Terra":
+                if card.get_name() in duplicates:
+                    duplicates[card.get_name()] = duplicates[card.get_name()] + 1
+                else:
+                    duplicates[card.get_name()] = 1
+
+        # Actually finding too many cards
+        over_repeats = False
+        for card in duplicates:
+            repeats = duplicates[card]
+            if repeats > max_repeats_non_terra:
+                if not over_repeats:
+                    errormsg += ("For non terra cards in any deck there is a limit of " + str(max_repeats_non_terra) + " copies per deck. Please reduce this to at or below the limit for each card mentioned.\n")
+                    errormsg += ("You currently have "+  str(repeats) + " copies of " + card + ".\n")
+                    over_repeats = True
+                else:
+                    errormsg += ("You currently have "+  str(repeats) + " copies of " + card + ".\n")
+
+        if over_repeats:
+            self.__verification_notes = errormsg
+            return False
+
+        # Verification was passed
+        self.__verification_notes = "Passed"
+        return True
+
+
+
+
+
+
+    # Returns the verification notes after verify_deck is run
+    def get_verification_notes(self):
+        return self.__verification_notes
+
+    # This returns the type that it found while verifying the deck
+    def get_type(self):
+        return self.__type
