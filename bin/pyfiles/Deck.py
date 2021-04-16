@@ -19,7 +19,7 @@ class Deck:
     def __str__(self):
         msg = ""
         for card in self.__deck:
-            msg += str(card)
+            msg += str(card) + " "
         return msg
 
     def add_bastion(self, card):
@@ -72,8 +72,18 @@ class Deck:
         js.dump(self.__convert_deck_to_json(), open(save_path + self.__name + ".json", "w"))
         return
 
+    # Deletes the deck save that shares the name of this deck
+    def delete_deck(self):
+        delete_path = save_path + self.__name + ".json"
+        if os.path.exists(delete_path):
+            os.remove(delete_path)
+            return True
+        else:
+            return False
+
     # Retrieves the json for a specified deck from the save location.
-    def load_deck(self, name):
+    def load_deck(self):
+        name = self.__name
         dict = js.load(open(save_path + name + ".json"))
         deck_dict = dict[name]
         self.__deck = []
@@ -121,3 +131,7 @@ class Deck:
             if card.get_unit() in units:
                 filtered.append(card)
         return filtered
+
+    # This is useful if you want to make a copy of a deck from a save since it tries to load by deck name
+    def set_name(self, name):
+        self.__name = name

@@ -84,13 +84,15 @@ import pyfiles.cardclasses.CardConstructor as cc
 from pyfiles.AttackProcessor import AttackProcessor
 
 def main():
+
     logging.info(os.getcwd() +  " is the current working directory for the root")
     logging.info("Creating the master deck")
     master_deck = Deck("Master")
     cc.load_all_cards(os.getcwd() + "\cards", master_deck)
     master_deck.save_deck()
-    master_copy_deck = Deck("Master-Copy")
-    master_copy_deck.load_deck("Master")
+    master_copy_deck = Deck("Master")
+    master_copy_deck.load_deck()
+    master_copy_deck.set_name("Master-Copy")
     master_copy_deck.save_deck()
     print("Successfully copied it!")
     master_copy_deck.print_deck()
@@ -99,14 +101,28 @@ def main():
 
     yellow_cards = master_copy_deck.filter_by_color(["Yellow"])
     for card in yellow_cards:
-        print(card, card.get_color())
+        print(card, card.get_color(), " matches the color filter")
 
     main2 = MenuSystem(master_deck)
     main2.mainloop(False)
     #ap.processAttack()
+    saved_decks = load_saved_decks()
+    run_game(saved_decks)
 
-    #run_game([])
+def load_saved_decks():
+    save_file_path = os.getcwd() + "\saves"
+    decks = []
+    for deck_name in os.listdir(save_file_path):
+        deck_name = deck_name.split(".json")
+        deck_name = deck_name[0] # We only care about the name, not anything after .json
+        deck = Deck(deck_name)
+        deck.load_deck()
+        print(deck)
+        decks.append(deck)
+    return decks
 
+def delete_saved_deck(deck):
+    deck.delete_deck()
 
 # Does not work right now, I think it's the background class breaking it
 # def game_loop():
