@@ -87,9 +87,17 @@ class Deck:
         dict = js.load(open(save_path + name + ".json"))
         deck_dict = dict[name]
         self.__deck = []
+        # Num is named that way because originally it was only numbers, but now we save bastion and royals too to make checking correctness easier
         for num in deck_dict:
             for card in deck_dict[num]:
-                self.__deck.append(self.__load_cards(deck_dict[num][card]))
+                if num == "Bastion":
+                    self.add_bastion(self.__load_cards(deck_dict[num][card]))
+                elif num == "Royal1":
+                    self.set_royal_1(self.__load_cards(deck_dict[num][card]))
+                elif num == "Royal2":
+                    self.set_royal_2(self.__load_cards(deck_dict[num][card]))
+                else:
+                    self.__deck.append(self.__load_cards(deck_dict[num][card]))
 
     def __load_cards(self, path):
         return ftc(path)
@@ -97,8 +105,15 @@ class Deck:
     # converts the entire deck into a json representation with the name as a key and the file path as the data.
     def __convert_deck_to_json(self):
         outer_dict = {}
-
-        save_dict = {str(self.__name) : outer_dict}
+        save_dict = {str(self.__name): outer_dict}
+        # Check for bastion and throne rooms entries
+        if self.__bastion is not None:
+            outer_dict["Bastion"] = {self.__bastion.get_name() : self.__bastion.get_file_path()}
+        if self.__royal_1 is not None:
+            outer_dict["Royal1"] = {self.__bastion.get_name() : self.__royal_1.get_file_path()}
+        if self.__royal_2 is not None:
+            outer_dict["Royal2"] = {self.__bastion.get_name() : self.__royal_2.get_file_path()}
+        # To keep the dictionary from combining on the same cards we need to use a counter as an outer dictionary
         counter = 0
         for card in self.__deck:
             # This was added to fix an issue where cards were only saved once
@@ -124,7 +139,7 @@ class Deck:
         for card in self.__deck:
             card.print_all_details()
 
-    # filters the deck and return a list of cards that meet criteria
+    # filters the deck and return a list of cards that meet criteria, or are colorless
     def filter_by_color(self, colors):
         filtered = []
         for card in self.__deck:
@@ -132,6 +147,15 @@ class Deck:
                 filtered.append(card)
         return filtered
 
+    # Exactly like filter by color, except that it doesn't give allow colorless if they aren't specified
+    def strict_filter_by_color(self, colors):
+        filtered = []
+        for card in self.__deck:
+            if card.get_color() in colors:
+                filtered.append(card)
+        return filtered
+
+    # Filters the deck and returns a list of cards that meets the criteria
     def filter_by_unit(self, units):
         filtered = []
         for card in self.__deck:
@@ -142,3 +166,7 @@ class Deck:
     # This is useful if you want to make a copy of a deck from a save since it tries to load by deck name
     def set_name(self, name):
         self.__name = name
+
+    # This is so that if you have a copy of a deck you can easily add it without saving/loading and renaming shenanigans.
+    def set_deck(self, deck):
+        self.__deck = deck

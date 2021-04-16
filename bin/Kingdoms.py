@@ -98,17 +98,28 @@ def main():
     master_copy_deck.save_deck()
     print("Successfully copied it!")
     master_copy_deck.print_deck()
-    master_copy_deck.print_deck_all_details()
     ap = AttackProcessor(master_deck.draw_card(), master_deck.draw_card())
 
-    create_basic_terra_decks(master_deck)
+    # New test deck for testing the bastions and royals
+    test_deck = Deck("Testing")
+    test_deck.set_deck(master_deck.get_copy())
+    test_deck.add_bastion(master_deck.draw_card())
+    test_deck.set_royal_1(master_deck.draw_card())
+    test_deck.set_royal_2(master_deck.draw_card())
+    test_deck.save_deck()
+    print("This is the test deck's bastion", test_deck.get_bastion())
+    print("This is the test deck's Royal1", test_deck.get_royal_1())
+    print("This is the test deck's Royal2", test_deck.get_royal_2())
+    test_load = Deck("Testing")
+    test_load.load_deck()
+    print("testing loading, the bastion is", test_load.get_bastion())
+    print("testing loading, the first royal is", test_load.get_royal_1())
+    print("testing loading, the second royal is", test_load.get_royal_2())
 
-    yellow_cards = master_copy_deck.filter_by_color(["Yellow"])
-    for card in yellow_cards:
-        print(card, card.get_color(), " matches the color filter")
 
-    # main2 = MenuSystem(master_deck)
-    # main2.mainloop(False)
+    #create_basic_terra_decks(master_deck)
+    main2 = MenuSystem(master_deck)
+    main2.mainloop(False)
     #ap.processAttack()
     saved_decks = load_saved_decks()
     run_game(saved_decks)
@@ -121,7 +132,7 @@ def load_saved_decks():
         deck_name = deck_name[0] # We only care about the name, not anything after .json
         deck = Deck(deck_name)
         deck.load_deck()
-        print(deck.get_name(), "is", len(deck.get_copy()), "cards long")
+        #print(deck.get_name(), "is", len(deck.get_copy()), "cards long")
         decks.append(deck)
     return decks
 
@@ -190,8 +201,7 @@ def create_basic_terra_decks(master_deck):
             island_card = card
         if card.get_name() == "Mountain":
             mountain_card = card
-    island_card.print_all_details()
-    mountain_card.print_all_details()
+
     for i in range(0, 20):
         terra_island.add_card(island_card)
         terra_mountain.add_card(mountain_card)
