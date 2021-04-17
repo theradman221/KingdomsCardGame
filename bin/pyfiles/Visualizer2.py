@@ -52,12 +52,8 @@ class Visualizer:
 
     def update_number_text_values(self):
         self.__costText = str(self.__card.get_cost())
-        units = ["Bastion", "Hero", "Lord", "Pawn", "Token"]
+        units = ["Hero", "Lord", "Pawn", "Token"]
         if self.__card.get_unit() in units:
-            if self.__card.get_unit() == "Bastion":
-                self.__attackText = None
-                self.__healthText = str(self.__card.get_health())
-            else:
                 self.__attackText = str(self.__card.get_attack())
                 self.__healthText = str(self.__card.get_health())
 
