@@ -28,8 +28,8 @@ except FileNotFoundError: # If it fails just move on since it would mean that's 
 logging.basicConfig(filename="log\kingdoms_log.log", level=logging.INFO)
 # Different logging types
 logging.info('starting at ' + str(datetime.datetime.now()))
-logging.error('your text goes here')
-logging.debug('your text goes here')
+# logging.error('your text goes here')
+# logging.debug('your text goes here')
 
 
 # typical OpenGL functions

@@ -13,7 +13,9 @@ class Player:
         # These are the main decks, all other decks (or zones) will be populated with cards from these 2 decks (except tokens, they are weird)
         self.__main_deck = Deck("Main")
         self.__terra_deck = Deck("Terra")
-
+        # These are all of the valid zones
+        self.__zones = ["Kingdom", "Battlefield", "Relic-Zone", "Terra-Zone", "Graveyard", "Exiled", "Player-Hand", "Main-Deck", "Terra-Deck", "Throne-Room-1", "Throne-Room-2"]
+        # Numbering of zones. 0         1               2           3               4           5           6           7           8               9               10
         # Each player must have a bastion, and 2 royals in the throne room before the game can start
         self.__bastion = None
         self.__throne_1 = None
@@ -51,18 +53,22 @@ class Player:
 
     def set_throne_1_beginning(self, card):
         card.set_royal(True)
+        card.set_zone(self.__zones[9])
         self.__throne_1 = card
 
     def set_throne_2_beginning(self, card):
         card.set_royal(True)
+        card.set_zone(self.__zones[10])
         self.__throne_2 = card
 
     def set_throne_1(self, card):
         self.__throne_1 = card
+        card.set_zone(self.__zones[9])
         self.__throne_1_counter += self.__throne_cost_increase_increment
 
     def set_throne_2(self, card):
         self.__throne_2 = card
+        card.set_zone(self.__zones[10])
         self.__throne_2_counter += self.__throne_cost_increase_increment
 
     def get_throne_1_cost(self):
@@ -91,6 +97,7 @@ class Player:
 
     # Bastion management logic
     def set_bastion(self, bastion):
+        bastion.set_zone("Bastion")
         self.__bastion = bastion
 
     def get_bastion(self):
@@ -113,6 +120,7 @@ class Player:
         self.__main_deck = deck
 
     def add_to_main_deck(self, card):
+        card.set_zone(self.__zones[7])
         self.__main_deck.add_card(card)
 
     def shuffle_main_deck(self):
@@ -128,6 +136,7 @@ class Player:
         return self.__main_deck.filter_by_color(colors)
 
     def remove_card_main_deck(self, card):
+        card.set_zone(None)
         return self.__main_deck.remove_card(card)
 
     def get_terra_deck(self):
@@ -137,6 +146,7 @@ class Player:
         self.__terra_deck = deck
 
     def add_to_terra_deck(self, card):
+        card.set_zone(self.__zones[8])
         self.__terra_deck.add_card(card)
 
     def shuffle_terra_deck(self):
@@ -178,6 +188,8 @@ class Player:
             return False
         elif card1.get_current_attack() != card2.get_current_attack():
             return False
+        elif card1.get_zone() != card2.get_zone():
+            return False
         else:
             return True
 
@@ -185,10 +197,11 @@ class Player:
         self.__battlefield = battlefield
 
     def add_to_battlefield(self,card):
-        #card.set_zone("Battlefield")
+        card.set_zone(self.__zones[1])
         self.__battlefield.append(card)
 
     def add_to_kingdom(self, card):
+        card.set_zone(self.__zones[0])
         self.__kingdom.append(card)
 
     def remove_from_kingdom(self, card):
@@ -220,6 +233,7 @@ class Player:
             return False
 
     def add_to_player_hand(self, card):
+        card.set_zone(self.__zones[6])
         self.__player_hand.append(card)
 
     def enforce_player_hand_limit(self):
@@ -242,6 +256,7 @@ class Player:
             return False
 
     def add_to_relic_zone(self, card):
+        card.set_zone(self.__zones[2])
         self.__relic_zone.append(card)
 
     def get_terra_zone(self):
@@ -259,6 +274,7 @@ class Player:
             return False
 
     def add_to_terra_zone(self, card):
+        card.set_zone(self.__zones[3])
         self.__terra_zone.append(card)
 
     def get_graveyard(self):
@@ -276,6 +292,7 @@ class Player:
             return False
 
     def add_to_graveyard(self, card):
+        card.set_zone(self.__zones[4])
         self.__graveyard.append(card)
 
     def get_exiled(self):
@@ -293,4 +310,5 @@ class Player:
             return False
 
     def add_to_exiled(self, card):
+        card.set_zone(self.__zones[5])
         self.__exiled.append(card)
