@@ -104,35 +104,67 @@ class MenuSystem(object):
             width=self.WINDOW_SIZE[1] * 1
             )
 
-        # THESE ARE HARD CODED FOR BUG TEST DAY THE FUNCTION THAT CALLS THE CARDS + INFO NEEDS TO BE ADDED
-        cardinfo = "This is where the information for each picked card will be added"
-
         bluecardlist = master_deck.filter_by_color(["Blue"])
 
+        # [master_deck.get_royal_1.get_color(), master_deck.get_royal_2.get_color(),]
+        # card.get_color()
+
+        def bluedeckappend(card) -> None:
+            bluedeck.append(card)
+            print(card.get_name() + " Added to deck")
+            return
+
+        bluedeck = []
 
         for card in bluecardlist:
-            submenu = pygame_menu.Menu(card.get_name(), 850, 850, theme=main_menu_theme,
-                                       mouse_motion_selection=True, center_content=False)
+            # Creating a Submenu for every card in the Yellow Card List
+            submenu = pygame_menu.Menu(card.get_name(), 750, 750, theme=main_menu_theme,
+                                       mouse_motion_selection=True)
             submenu.add.vertical_margin(75)
-            #image?
-            image_path = pygame_menu.baseimage.IMAGE_EXAMPLE_PYGAME_MENU
-            submenu.add.image(card.get_image(), angle=10,scale=(0.15, 0.15))
+            # image for each card
+            submenu.add.image(card.get_image(), angle=10, scale=(0.15, 0.15))
 
-            submenu.add.label(card.get_name() + "\n" + card.get_unit(), align=pygame_menu.locals.ALIGN_LEFT,
-                              font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
-                              margin=(5, 10))
+            # adding description Title to submenu
+            attack_cards = ["Lord", "Hero", "Pawn", "Token", "Bastion"]
+            if card.get_unit() in attack_cards:
+                card_health = str(card.get_health())
+                card_attack = str(card.get_attack())
+            else:
+                card_attack = None
+                card_health = None
+            if card_health is None or card_attack is None:
+                submenu.add.label(card.get_name() + "\n" + card.get_unit() + " Cost: " + str(card.get_cost()),
+                                  align=pygame_menu.locals.ALIGN_LEFT,
+                                  font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
+                                  margin=(5, 10))
+            else:
+                submenu.add.label(card.get_name() + "\n" + card.get_unit() + " Cost: " + str(
+                    card.get_cost()) + " Health: " + card_health + " Attack: " + card_attack,
+                                  align=pygame_menu.locals.ALIGN_LEFT,
+                                  font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
+                                  margin=(5, 10))
+            # adddescription
             submenu.add.label(card.get_description(), max_char=70,
-                                      align=pygame_menu.locals.ALIGN_LEFT,
-                                      margin=(29, 1), font_size=20,
-                                      font_name=pygame_menu.font.FONT_PT_SERIF,
-                                      font_color=(0, 0, 0), padding=0)
-            self.deckcreatorblue_menu.add.button(card, submenu)
+                              align=pygame_menu.locals.ALIGN_LEFT,
+                              margin=(29, 1), font_size=20,
+                              font_name=pygame_menu.font.FONT_PT_SERIF,
+                              font_color=(0, 0, 0), padding=0)
+            self.deckcreatorblue_menu.add.button(card,
+                                                   submenu)  # adding button for every card that calls the submenu for that card
             submenu.add.vertical_margin(40)  # Bottom margin
-            # THIS ADDS THE BUTTON
-            submenu.add.button("Add " + card.get_name() + " to Deck"#I NEED TO ADD A FUNCTION HERE THAT ADDS THE SPECIFIC ITERATION TO THE DECK LIST.
-            )
+
+            submenu.add.button("add   " + card.get_name(), bluedeckappend, card)
             submenu.add.button("Back", pygame_menu.events.BACK)
 
+        def showbluedeck():
+            print('yellow deck: ')
+
+
+            for card in bluedeck:
+                print(card.get_name(), end=" ")
+
+
+        self.deckcreatorblue_menu.add.button("Current Deck", showbluedeck)
         self.deckcreatorblue_menu.add.button('back', pygame_menu.events.BACK)
         # -------------------------------------------------------------------------
         # Create menus: Deck Creator Yellow
@@ -157,10 +189,6 @@ class MenuSystem(object):
 
         yellowdeck = []
         yellowtest = []
-
-
-        def a(self, i) -> None:
-            print(i)
 
         for card in yellowcardlist:
 
@@ -203,7 +231,14 @@ class MenuSystem(object):
         def showyellowdeck():
             print('yellow deck: ')
             for card in yellowdeck:
-                print(card.get_name(), end=" ")
+                #print(card.get_name(), end=" ")
+
+
+
+
+
+
+
 
         self.deckcreatoryellow_menu.add.button("Current Deck", showyellowdeck)
         self.deckcreatoryellow_menu.add.button('back', pygame_menu.events.BACK)
