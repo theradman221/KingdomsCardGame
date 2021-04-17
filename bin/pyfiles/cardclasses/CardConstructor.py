@@ -231,7 +231,7 @@ def add_universal_attributes(dictionary, dict_keys, card):
     path_to_non_unit = path_to_template + "non-unit\\"
     path_to_terra = path_to_template + "terra\\"
     path_to_unit = path_to_template + "units\\"
-    path_to_rarity = os.getcwd() + "\\cardtemplates\\raritys\\"
+    path_to_rarity = os.getcwd() + "\\cardtemplates\\Raritys\\"
 
     # Common things that all cards should have
     if "Name" in dict_keys:

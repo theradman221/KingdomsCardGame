@@ -62,9 +62,10 @@ from pyfiles.Deck import Deck
 from pyfiles.guielements.Background import Background
 from pyfiles.gameclasses.gameloop import *
 from pyfiles.menus.mainmenu import MenuSystem, main_menu
+from pyfiles.Visualizer2 import Visualizer
 
 # Testing creating a pygame window and putting a few boxes on it, (500,500) is the size
-# screen = pygame.display.set_mode((500,500), DOUBLEBUF|OPENGL) # Use openGL to do the rendering so that we can have the steam overlay (not implimented yet)
+screen = pygame.display.set_mode((500,500), DOUBLEBUF|OPENGL) # Use openGL to do the rendering so that we can have the steam overlay (not implimented yet)
 #
 # # The caption Display is  what it says at the top so to say Kingdoms would just use this command with Kingdoms
 # pygame.display.set_caption("First Game")
@@ -99,7 +100,7 @@ def main():
     master_copy_deck.load_deck()
     master_copy_deck.set_name("Master-Copy")
     master_copy_deck.save_deck()
-    print("Successfully copied it!")
+    # print("Successfully copied it!")
     master_copy_deck.print_deck()
     ap = AttackProcessor(master_deck.draw_card(), master_deck.draw_card())
 
@@ -110,14 +111,14 @@ def main():
     test_deck.set_royal_1(master_deck.draw_card())
     test_deck.set_royal_2(master_deck.draw_card())
     test_deck.save_deck()
-    print("This is the test deck's bastion", test_deck.get_bastion())
-    print("This is the test deck's Royal1", test_deck.get_royal_1())
-    print("This is the test deck's Royal2", test_deck.get_royal_2())
+    # print("This is the test deck's bastion", test_deck.get_bastion())
+    # print("This is the test deck's Royal1", test_deck.get_royal_1())
+    # print("This is the test deck's Royal2", test_deck.get_royal_2())
     test_load = Deck("Testing")
     test_load.load_deck()
-    print("testing loading, the bastion is", test_load.get_bastion())
-    print("testing loading, the first royal is", test_load.get_royal_1())
-    print("testing loading, the second royal is", test_load.get_royal_2())
+    # print("testing loading, the bastion is", test_load.get_bastion())
+    # print("testing loading, the first royal is", test_load.get_royal_1())
+    # print("testing loading, the second royal is", test_load.get_royal_2())
 
     all_units = master_deck.filter_by_unit_inverted(["Terra", "Terra-Landmark"])
     all_units_deck = Deck("Units")
@@ -127,6 +128,9 @@ def main():
     all_units_deck.add_bastion(bastions[0])
     all_units_deck.set_royal_1(hero[0])
     all_units_deck.set_royal_2(hero[1])
+
+    visualizer = Visualizer(hero[0], screen)
+    visualizer.visualizer()
 
 
     for card in all_units_deck.get_copy():
@@ -148,8 +152,8 @@ def main():
 
 
     #create_basic_terra_decks(master_deck)
-    main2 = MenuSystem(master_deck_full)
-    main2.mainloop(False)
+    # main2 = MenuSystem(master_deck_full)
+    # main2.mainloop(False)
     #ap.processAttack()
     saved_decks = load_saved_decks()
     run_game(saved_decks)
