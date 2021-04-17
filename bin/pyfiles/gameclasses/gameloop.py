@@ -20,7 +20,7 @@ def run_game(decks):
 
     # Player creation
     players = create_players(decks)
-
+    first_player = True
     while game_run:
         keep_going = input("Do you want to keep going? ")
         print(keep_going)
@@ -29,7 +29,6 @@ def run_game(decks):
             break
 
 
-        first_player = True
         for player in players:
             for phase in game_phases:
                 # Rest Phase
