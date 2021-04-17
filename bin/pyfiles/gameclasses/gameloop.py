@@ -68,7 +68,7 @@ def create_players(decks):
 
             players.append(player)
         elif player_name.lower() != "stop":
-            print("There are only", PLAYER_LIMIT, "players allowed, auto stopping")
+            print("There are only", PLAYER_LIMIT, "players allowed, auto stopping player creation")
             player_name = "stop"
     random.shuffle(players)
     return players

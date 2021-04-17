@@ -258,6 +258,48 @@ class Deck:
             self.__verification_notes = errormsg
             return False
 
+        # Verification that there is a bastion, it's valid, and there are 2 royals and they are valid
+        # This only needs to happen on a main deck
+        if self.__type == "Main":
+            for card in self.__deck:
+                # Verification for bastion
+                if self.__bastion is None:
+                    errormsg += "A valid bastion must be setup for a Main deck, please delete and remake this deck."
+                    self.__verification_notes = errormsg
+                    return False
+                if self.__bastion.get_unit() != "Bastion":
+                    errormsg += "No other unit can be a bastion, only an actual bastion can be the bastion, delete and remake this deck."
+                    self.__verification_notes = errormsg
+                    return False
+                if self.__royal_1 is None:
+                    errormsg += "There must be 2 royals picked for a Main deck to be valid. Please delete and remake this deck."
+                    self.__verification_notes = errormsg
+                    return False
+                if self.__royal_1.get_unit() != "Hero" and self.__royal_1.get_unit() != "Lord":
+                    print(self.__royal_2.get_unit() + " Potato")
+                    errormsg += "A valid royal must be a type Hero or Lord. Please delete and remake this deck"
+                    self.__verification_notes = errormsg
+                    return False
+                if self.__royal_2 is None:
+                    errormsg += "There must be 2 royals picked for a Main deck to be valid. Please delete and remake this deck."
+                    self.__verification_notes = errormsg
+                    return False
+                if self.__royal_2.get_unit() != "Hero" and self.__royal_2.get_unit() != "Lord":
+                    print(self.__royal_2.get_unit() + "Potato")
+                    errormsg += "A valid royal must be a type Hero or Lord. Please delete and remake this deck"
+                    self.__verification_notes = errormsg
+                    return False
+                # Check if there is a bastion or copies of the heros in the deck
+                print(card.get_name(), "is the card. The royals are", self.__royal_1, "and", self.__royal_2)
+                if card.get_unit() == "Bastion":
+                    errormsg += ("The only bastion allowed must be in the bastion slot please remove" + card.get_name())
+                    self.__verification_notes = errormsg
+                    return False
+                if card.get_name() == self.__royal_1.get_name() or card.get_name() == self.__royal_1.get_name():
+                    errormsg += ("If a card is a royal you cannot put any copies of it in the deck, please remove" + card.get_name())
+                    self.__verification_notes = errormsg
+                    return False
+
         # Verification was passed
         self.__verification_notes = "Passed"
         return True

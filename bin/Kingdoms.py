@@ -119,11 +119,18 @@ def main():
     all_units = master_deck.filter_by_unit_inverted(["Terra", "Terra-Landmark"])
     all_units_deck = Deck("Units")
     all_units_deck.set_deck(all_units)
+    bastions = master_copy_deck.filter_by_unit(["Bastion"])
+    hero = master_copy_deck.filter_by_unit(["Hero"])
+    all_units_deck.add_bastion(bastions[0])
+    all_units_deck.set_royal_1(hero[0])
+    all_units_deck.set_royal_2(hero[1])
+
 
     for card in all_units_deck.get_copy():
         all_units_deck.add_card(card)
-        if all_units_deck.deck_size() == 40:
+        if all_units_deck.deck_size() >= 40:
             break
+
     all_units_deck.save_deck()
     print(all_units_deck)
 
