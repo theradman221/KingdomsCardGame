@@ -65,7 +65,8 @@ from pyfiles.menus.mainmenu import MenuSystem, main_menu
 from pyfiles.Visualizer2 import Visualizer
 
 # Testing creating a pygame window and putting a few boxes on it, (500,500) is the size
-screen = pygame.display.set_mode((500,500), DOUBLEBUF|OPENGL) # Use openGL to do the rendering so that we can have the steam overlay (not implimented yet)
+# screen = pygame.display.set_mode((500,500), DOUBLEBUF|OPENGL) # Use openGL to do the rendering so that we can have the steam overlay (not implimented yet)
+screen = pygame.display.set_mode((1200,800))
 #
 # # The caption Display is  what it says at the top so to say Kingdoms would just use this command with Kingdoms
 # pygame.display.set_caption("First Game")
@@ -129,8 +130,10 @@ def main():
     all_units_deck.set_royal_1(hero[0])
     all_units_deck.set_royal_2(hero[1])
 
-    visualizer = Visualizer(hero[0], screen)
+    visualizer = Visualizer(hero[1], screen)
     visualizer.visualizer()
+    visualizer2 = Visualizer(hero[0], screen)
+    visualizer2.visualizer()
 
 
     for card in all_units_deck.get_copy():

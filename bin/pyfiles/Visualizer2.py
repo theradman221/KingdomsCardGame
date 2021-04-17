@@ -30,7 +30,6 @@ class Visualizer:
         self.__attackText = None
         self.__healthText = None
         self.update_number_text_values()
-        print(self.__card.get_rarity())
 
     def update_number_text_values(self):
         self.__costText = str(self.__card.get_cost())
