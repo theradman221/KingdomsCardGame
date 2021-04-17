@@ -138,7 +138,7 @@ def main():
     print(all_units_deck)
 
 
-    create_basic_terra_decks(master_deck)
+    #create_basic_terra_decks(master_deck)
     main2 = MenuSystem(master_deck_full)
     main2.mainloop(False)
     #ap.processAttack()

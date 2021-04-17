@@ -99,7 +99,6 @@ class Deck:
                 file_path = deck_dict[num][card]
                 # Check for if the file path is still valid, git moving files on different systems can cause it to be invalid
                 if not os.path.exists(file_path):
-                    file_path = ""
                     split_paths = file_path.split("bin")
                     split = split_paths[len(split_paths) - 1] # Always grab the last just incase someone has kingdoms in a bin
                     file_path = os.getcwd() + split
