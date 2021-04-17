@@ -142,7 +142,6 @@ def main():
         screen.fill((155, 155, 155))
         visualizer.visualizer()
         visualizer2.visualizer()
-
         pygame.display.update()
     pygame.quit()
 
