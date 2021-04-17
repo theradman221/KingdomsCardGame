@@ -3,7 +3,7 @@
 "Template" : "colorlessUnitTemplate.jpg",
 "Description" : "Reckless (After this card attacks a unit, it can attack\n again immediately).",
 "Img" : "mercpawn.jpg", 
-"Rarity" : "Uncommon.jpg",
+"Rarity" : "Uncommon.png",
 "Cost" : 4,
 "Unit" : "Pawn",
 "Color" : "Colorless",

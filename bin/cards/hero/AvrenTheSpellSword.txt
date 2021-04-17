@@ -3,7 +3,7 @@
 "Template" : "blueUnitTemplate.jpg",
 "Description" : "Level up: (When this card enters play and a copy of this card has\nentered play under your control before it) Gains +2/+2.\nTrigger: When you draw from a card effect, this card\ngains +1/+1.",
 "Img" : "bluehero.jpg",
-"Rarity" : "Super.jpg",
+"Rarity" : "Super.png",
 "Cost" : 2,
 "Unit" : "Hero",
 "Color" : "Blue",

@@ -3,7 +3,7 @@
 "Template" : "colorlessUnitTemplate.jpg",
 "Description" : "Urgency (This card doesn't require briefing).",
 "Img" : "mercpawn.jpg", 
-"Rarity" : "Common.jpg",
+"Rarity" : "Common.png",
 "Cost" : 3,
 "Unit" : "Pawn",
 "Color" : "Colorless",

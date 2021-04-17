@@ -3,7 +3,7 @@
 "Template" : "blueUnitTemplate.jpg",
 "Description" : "Reflex (This card deals damage first in combat against units\n without reflex).\n \"Fireballs and swords are the only friends I need\"",
 "Img" : "bluepawn.jpg",
-"Rarity" : "Common.jpg",
+"Rarity" : "Common.png",
 "Cost" : 2,
 "Unit" : "Pawn",
 "Color" : "Blue",

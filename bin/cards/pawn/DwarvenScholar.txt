@@ -3,7 +3,7 @@
 "Template" : "yellowUnitTemplate.jpg",
 "Description" : "Exhaust: +1 Power",
 "Img" : "yellowpawn.jpg",
-"Rarity" : "Common.jpg",
+"Rarity" : "Common.png",
 "Cost" : 2,
 "Unit" : "Pawn",
 "Color" : "Yellow",

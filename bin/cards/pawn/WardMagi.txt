@@ -3,7 +3,7 @@
 "Template" : "blueUnitTemplate.jpg",
 "Description" : "Guard (While this card is rested you may redirect attacks to this\n card. While this card is in the Kingdom it cannot \"Guard\" units on\n the battlefield).\n \"Defense at a moments notice\"",
 "Img" : "bluepawn.jpg", 
-"Rarity" : "Common.jpg",
+"Rarity" : "Common.png",
 "Cost" : 3,
 "Unit" : "Pawn",
 "Color" : "Blue",

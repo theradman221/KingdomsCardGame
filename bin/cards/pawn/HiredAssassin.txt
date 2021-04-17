@@ -3,7 +3,7 @@
 "Template" : "colorlessUnitTemplate.jpg",
 "Description" : "Exhaust and sacrifice: Destroy target unit.",
 "Img" : "mercpawn.jpg",
-"Rarity" : "Uncommon.jpg",
+"Rarity" : "Uncommon.png",
 "Cost" : 5,
 "Unit" : "Pawn",
 "Color" : "Colorless",

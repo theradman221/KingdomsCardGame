@@ -93,11 +93,11 @@ Units - IE attack Cards
 
 
 **Rarity Templates**
-	"Common.jpg" - dark blue
-	"Rare.jpg" - light blue
-	"Super.jpg" - greenish
-	"Ultra.jpg" - Yellow
-	"Uncommon.jpg" - Red
+	"Common.png" - dark blue
+	"Rare.png" - light blue
+	"Super.png" - greenish
+	"Ultra.png" - Yellow
+	"Uncommon.png" - Red
 
 
 **Color Templates** - use these so we have less chance of typos.

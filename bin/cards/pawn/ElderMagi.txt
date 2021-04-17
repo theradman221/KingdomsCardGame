@@ -3,7 +3,7 @@
 "Template" : "blueUnitTemplate.jpg",
 "Description" : "Experienced (When this card attacks a unit, it deals double\n damage)\n \"I am literally to old for this\"",
 "Img" : "bluepawn.jpg", 
-"Rarity" :"Rare.jpg",
+"Rarity" :"Rare.png",
 "Cost" : 4, 
 "Unit" : "Pawn",
 "Color" : "Blue",
