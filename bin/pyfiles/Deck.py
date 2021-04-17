@@ -96,14 +96,23 @@ class Deck:
         # Num is named that way because originally it was only numbers, but now we save bastion and royals too to make checking correctness easier
         for num in deck_dict:
             for card in deck_dict[num]:
+                file_path = deck_dict[num][card]
+                # Check for if the file path is still valid, git moving files on different systems can cause it to be invalid
+                if not os.path.exists(file_path):
+                    file_path = ""
+                    split_paths = file_path.split("bin")
+                    split = split_paths[len(split_paths) - 1] # Always grab the last just incase someone has kingdoms in a bin
+                    file_path = os.getcwd() + split
                 if num == "Bastion":
-                    self.add_bastion(self.__load_cards(deck_dict[num][card]))
+                    self.add_bastion(self.__load_cards(file_path))
                 elif num == "Royal1":
-                    self.set_royal_1(self.__load_cards(deck_dict[num][card]))
+                    self.set_royal_1(self.__load_cards(file_path))
                 elif num == "Royal2":
-                    self.set_royal_2(self.__load_cards(deck_dict[num][card]))
+                    self.set_royal_2(self.__load_cards(file_path))
                 else:
-                    self.__deck.append(self.__load_cards(deck_dict[num][card]))
+                    self.__deck.append(self.__load_cards(file_path))
+
+
 
     def __load_cards(self, path):
         return ftc(path)
