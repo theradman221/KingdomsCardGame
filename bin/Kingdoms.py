@@ -91,6 +91,9 @@ def main():
     logging.info("Creating the master deck")
     master_deck = Deck("Master")
     cc.load_all_cards(os.getcwd() + "\cards", master_deck)
+    master_deck_full = Deck("Master-Full")
+    master_deck_full_list = master_deck.get_copy()
+    master_deck_full.set_deck(master_deck_full_list)
     master_deck.save_deck()
     master_copy_deck = Deck("Master")
     master_copy_deck.load_deck()
@@ -135,9 +138,9 @@ def main():
     print(all_units_deck)
 
 
-    #create_basic_terra_decks(master_deck)
-    # main2 = MenuSystem(master_deck)
-    # main2.mainloop(False)
+    create_basic_terra_decks(master_deck)
+    main2 = MenuSystem(master_deck_full)
+    main2.mainloop(False)
     #ap.processAttack()
     saved_decks = load_saved_decks()
     run_game(saved_decks)
