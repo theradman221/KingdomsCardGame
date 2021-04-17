@@ -66,7 +66,7 @@ from pyfiles.Visualizer2 import Visualizer
 
 # Testing creating a pygame window and putting a few boxes on it, (500,500) is the size
 # screen = pygame.display.set_mode((500,500), DOUBLEBUF|OPENGL) # Use openGL to do the rendering so that we can have the steam overlay (not implimented yet)
-screen = pygame.display.set_mode((1200,800))
+screen = pygame.display.set_mode((1800,900))
 #
 # # The caption Display is  what it says at the top so to say Kingdoms would just use this command with Kingdoms
 # pygame.display.set_caption("First Game")
@@ -134,12 +134,15 @@ def main():
 
     visualizer2 = Visualizer(hero[0], screen)
     visualizer2.set_master_x(visualizer2.get_master_x() + 500)
+    visualizer3 = Visualizer(bastions[0], screen)
+    visualizer3.set_master_x(visualizer3.get_master_x() + 1000)
     running = True
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
         screen.fill((155, 155, 155))
+        visualizer3.visualizer()
         visualizer.visualizer()
         visualizer2.visualizer()
         pygame.display.update()
