@@ -17,6 +17,10 @@ class Visualizer:
         self.__descriptionFont = pygame.font.SysFont("gabriola", 20)
         self.__labelFont = pygame.font.SysFont("gabriola", 25)
         self.__screen = screen
+        self.__masterX = 20
+        self.__masterY = 20
+        self.__masterWidth = 430
+        self.__masterHeight = 600
         self.__namePlaceholder = pygame.Rect(0, 0, 410, 40)
         self.__descriptionPlaceholder = pygame.Rect(0, 0, 410, 75)
         self.__labelPlaceholder = pygame.Rect(0, 0, 175, 25)
@@ -29,7 +33,22 @@ class Visualizer:
         self.__costText = None
         self.__attackText = None
         self.__healthText = None
+        self.__card_template_img, self.__card_template_rect = self.load_template()
+        self.__rarity_loaded_img, self.__rarity_img_rect = self.load_rarity()
+        self.__artwork_loaded_img, self.__artwork_img_rect = self.load_artwork()
         self.update_number_text_values()
+
+    def set_master_x(self, x):
+        self.__masterX = x
+
+    def set_master_y(self, y):
+        self.__masterY = y
+
+    def get_master_x(self):
+        return self.__masterX
+
+    def get_master_y(self):
+        return self.__masterY
 
     def update_number_text_values(self):
         self.__costText = str(self.__card.get_cost())
@@ -45,9 +64,9 @@ class Visualizer:
     # Loads and puts the card template into a rectangle
     def load_template(self):
         template_img = pygame.image.load(self.__card.get_template())
-        template_img = pygame.transform.scale(template_img.convert(), (430, 600))
+        template_img = pygame.transform.scale(template_img.convert(), (self.__masterWidth, self.__masterHeight))
         template_rect = template_img.get_rect()
-        # template_rect.center = screenWidth // 2, screenHeight // 2
+        template_rect.topleft = self.__masterX, self.__masterY
         return template_img, template_rect
     # cardImg = pygame.image.load(os.getcwd() + "/../cardtemplates/units/blueUnitTemplate.jpg")
     # cardImg = pygame.transform.scale(cardImg.convert(), (430, 600))
@@ -110,108 +129,72 @@ class Visualizer:
 
         return text
 
+    def text_rectangle_positions(self):
+        # Sets the position for the different images
+        self.__rarity_img_rect.center = self.__card_template_rect.x + 403, self.__card_template_rect.y + 25
+        self.__artwork_img_rect.center = self.__card_template_rect.centerx + 16, self.__card_template_rect.y + 226
+
+        # Sets the rectangle position for text labels
+        self.__namePlaceholder.center = self.__card_template_rect.centerx, self.__card_template_rect.centery + 140
+        self.__descriptionPlaceholder.center = self.__card_template_rect.centerx, self.__card_template_rect.centery + 199
+        self.__labelPlaceholder.center = self.__card_template_rect.centerx + 2, self.__card_template_rect.centery + 275
+
+        # If-Statements determine where to put the rectangle based on which number is printed due to the numbers
+        # being different sizes because of the font
+        # 1, 2 are center of box
+        # 3, 4, 5, 7, 9 are lower
+        # 6, 8 are upper
+        # Cost numbers
+        if self.__costText == "1" or self.__costText == "2":
+            self.__costPlaceholder.center = self.__card_template_rect.centerx - 178, self.__card_template_rect.centery - 267
+        elif self.__costText == "6" or self.__costText == "8":
+            self.__costPlaceholder.center = self.__card_template_rect.centerx - 178, self.__card_template_rect.centery - 260
+        else:
+            self.__costPlaceholder.center = self.__card_template_rect.centerx - 178, self.__card_template_rect.centery - 272
+
+        # Attack numbers
+        if self.__attackText == "1" or self.__attackText == "2":
+            self.__attackPlaceholder.center = self.__card_template_rect.centerx - 176, self.__card_template_rect.centery + 259
+        elif self.__attackText == "6" or self.__attackText == "8":
+            self.__attackPlaceholder.center = self.__card_template_rect.centerx - 176, self.__card_template_rect.centery + 265
+        else:
+            self.__attackPlaceholder.center = self.__card_template_rect.centerx - 176, self.__card_template_rect.centery + 254
+
+        # Health numbers
+        if self.__healthText == "1" or self.__healthText == "2":
+            self.__healthPlaceholder.center = self.__card_template_rect.centerx + 179, self.__card_template_rect.centery + 261
+        elif self.__healthText == "6" or self.__healthText == "8":
+            self.__healthPlaceholder.center = self.__card_template_rect.centerx + 179, self.__card_template_rect.centery + 266
+        else:
+            self.__healthPlaceholder.center = self.__card_template_rect.centerx + 179, self.__card_template_rect.centery + 255
+
+    def blitting_card_values(self):
+        # Images
+        #self.__screen.fill(GRAY)
+        self.__screen.blit(self.__card_template_img, self.__card_template_rect)
+        self.__screen.blit(self.__rarity_loaded_img, self.__rarity_img_rect)
+        self.__screen.blit(self.__artwork_loaded_img, self.__artwork_img_rect)
+
+        # Text labels
+        self.draw_text(self.__screen, self.__nameText, BLACK, self.__namePlaceholder, self.__nameFont)
+        self.draw_text(self.__screen, self.__descriptionText, BLACK, self.__descriptionPlaceholder,
+                       self.__descriptionFont)
+        self.draw_text(self.__screen, self.__labelText, WHITE, self.__labelPlaceholder, self.__labelFont)
+
+        # Number labels
+        self.draw_text(self.__screen, self.__costText, WHITE, self.__costPlaceholder, self.__numberFont)
+        self.draw_text(self.__screen, self.__attackText, WHITE, self.__attackPlaceholder, self.__numberFont)
+        self.draw_text(self.__screen, self.__healthText, WHITE, self.__healthPlaceholder, self.__numberFont)
+
+        # pygame.display.update()
+
     def visualizer(self):
-        card_template_img, card_template_rect = self.load_template()
-        rarity_loaded_img, rarity_img_rect = self.load_rarity()
-        artwork_loaded_img, artwork_img_rect = self.load_artwork()
-
-        running = True
-        # moving = False
-        while running:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    running = False
-
-                # Lets you move the card around the screen
-                # if event.type == pygame.MOUSEBUTTONDOWN:
-                #     if card_template_rect.collidepoint(event.pos):
-                #         moving = True
-                # elif event.type == pygame.MOUSEBUTTONUP:
-                #     moving = False
-                # elif event.type == pygame.MOUSEMOTION and moving:
-                #     card_template_rect.move_ip(event.rel)
-
-            # Sets the position for the different images
-            rarity_img_rect.center = card_template_rect.x + 403, card_template_rect.y + 25
-            artwork_img_rect.center = card_template_rect.centerx + 16, card_template_rect.y + 226
-
-            # Sets the rectangle position for text labels
-            self.__namePlaceholder.center = card_template_rect.centerx, card_template_rect.centery + 140
-            self.__descriptionPlaceholder.center = card_template_rect.centerx, card_template_rect.centery + 199
-            self.__labelPlaceholder.center = card_template_rect.centerx + 2, card_template_rect.centery + 275
-
-            # If-Statements determine where to put the rectangle based on which number is printed due to the numbers
-            # being different sizes because of the font
-            # 1, 2 are center of box
-            # 3, 4, 5, 7, 9 are lower
-            # 6, 8 are upper
-            # Cost numbers
-            if self.__costText == "1" or self.__costText == "2":
-                self.__costPlaceholder.center = card_template_rect.centerx - 178, card_template_rect.centery - 267
-            elif self.__costText == "6" or self.__costText == "8":
-                self.__costPlaceholder.center = card_template_rect.centerx - 178, card_template_rect.centery - 260
-            else:
-                self.__costPlaceholder.center = card_template_rect.centerx - 178, card_template_rect.centery - 272
-
-            # Attack numbers
-            if self.__attackText == "1" or self.__attackText == "2":
-                self.__attackPlaceholder.center = card_template_rect.centerx - 176, card_template_rect.centery + 259
-            elif self.__attackText == "6" or self.__attackText == "8":
-                self.__attackPlaceholder.center = card_template_rect.centerx - 176, card_template_rect.centery + 265
-            else:
-                self.__attackPlaceholder.center = card_template_rect.centerx - 176, card_template_rect.centery + 254
-
-            # Health numbers
-            if self.__healthText == "1" or self.__healthText == "2":
-                self.__healthPlaceholder.center = card_template_rect.centerx + 179, card_template_rect.centery + 261
-            elif self.__healthText == "6" or self.__healthText == "8":
-                self.__healthPlaceholder.center = card_template_rect.centerx + 179, card_template_rect.centery + 266
-            else:
-                self.__healthPlaceholder.center = card_template_rect.centerx + 179, card_template_rect.centery + 255
-
-            # Images
-            self.__screen.fill(GRAY)
-            self.__screen.blit(card_template_img, card_template_rect)
-            self.__screen.blit(rarity_loaded_img, rarity_img_rect)
-            self.__screen.blit(artwork_loaded_img, artwork_img_rect)
-
-            # Text labels
-            self.draw_text(self.__screen, self.__nameText, BLACK, self.__namePlaceholder, self.__nameFont)
-            self.draw_text(self.__screen, self.__descriptionText, BLACK, self.__descriptionPlaceholder, self.__descriptionFont)
-            self.draw_text(self.__screen, self.__labelText, WHITE, self.__labelPlaceholder, self.__labelFont)
-
-            # Number labels
-            self.draw_text(self.__screen, self.__costText, WHITE, self.__costPlaceholder, self.__numberFont)
-            self.draw_text(self.__screen, self.__attackText, WHITE, self.__attackPlaceholder, self.__numberFont)
-            self.draw_text(self.__screen, self.__healthText, WHITE, self.__healthPlaceholder, self.__numberFont)
-
-            # Displays everything on the screen
-            pygame.display.update()
+        self.__card_template_img, self.__card_template_rect = self.load_template()
+        self.__rarity_loaded_img, self.__rarity_img_rect = self.load_rarity()
+        self.__artwork_loaded_img, self.__artwork_img_rect = self.load_artwork()
+        self.text_rectangle_positions()
+        self.blitting_card_values()
 
 
-# pygame.init()
-# screenWidth = 1200
-# screenHeight = 800
-# screen = pygame.display.set_mode((screenWidth, screenHeight))
 
-# Setting font and text size for each text type
-# numberFont = pygame.font.SysFont("gabriola", 75)
-# nameFont = pygame.font.SysFont("gabriola", 38)
-# descriptionFont = pygame.font.SysFont("gabriola", 20)
-# labelFont = pygame.font.SysFont("gabriola", 25)
 
-# Placeholders for text
-# namePlaceholder = pygame.Rect(0, 0, 410, 40)
-# descriptionPlaceholder = pygame.Rect(0, 0, 410, 75)
-# labelPlaceholder = pygame.Rect(0, 0, 175, 25)
-# costPlaceholder = pygame.Rect(0, 0, 75, 75)
-# attackPlaceholder = pygame.Rect(0, 0, 75, 75)
-# healthPlaceholder = pygame.Rect(0, 0, 75, 75)
-
-# Text values to be put on card
-# nameText = "Elder Cleric"
-# descriptionText = "Guard (While this card is rested you may redirect attacks to this card. While this card is in the Kingdom it cannot \"Guard\" units on the battlefield) \"To be healthy and look this good for 120? Not bad\""
-# labelText = "Pawn - Human Magi"
-# costText = "5"
-# attackText = "4"
-# healthText = "6"

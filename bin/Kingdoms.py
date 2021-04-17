@@ -131,10 +131,20 @@ def main():
     all_units_deck.set_royal_2(hero[1])
 
     visualizer = Visualizer(hero[1], screen)
-    visualizer.visualizer()
-    visualizer2 = Visualizer(hero[0], screen)
-    visualizer2.visualizer()
 
+    visualizer2 = Visualizer(hero[0], screen)
+    visualizer2.set_master_x(visualizer2.get_master_x() + 500)
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+        screen.fill((155, 155, 155))
+        visualizer.visualizer()
+        visualizer2.visualizer()
+
+        pygame.display.update()
+    pygame.quit()
 
     for card in all_units_deck.get_copy():
         all_units_deck.add_card(card)
