@@ -3,7 +3,7 @@
 "Template" : "colorlessnon-unittemplate.jpg",
 "Description" : "This card enters play exhausted.\n Hard Exhaust: +1 Power",
 "Img" : "relic.jpg",
-"Rarity" : "Ultra.jpg",
+"Rarity" : "Ultra.png",
 "Cost" : 1,
 "Unit" : "Relic",
 "Color" : "Colorless",

@@ -3,7 +3,7 @@
 "Template" : "colorlessnon-unittemplate.jpg",
 "Description" : "This card enters play exhausted.\n Hard Exhaust and Sacrifice: Draw 2 cards.",
 "Img" : "relic.jpg",
-"Rarity" : "Rare.jpg",
+"Rarity" : "Rare.png",
 "Cost" : 1,
 "Unit" : "Relic",
 "Color" : "Colorless",

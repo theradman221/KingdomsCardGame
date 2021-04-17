@@ -3,7 +3,7 @@
 "Template" : "yellownon-unittemplate.jpg",
 "Description" : "After a unit(s) you control is destroyed, you may activate this\n card. Target one enemy unit and destroy it.",
 "Img" : "yellowtrice.jpg",
-"Rarity" : "Rare.jpg",
+"Rarity" : "Rare.png",
 "Cost" : 1,
 "Unit" : "Trice",
 "Color" : "Yellow",

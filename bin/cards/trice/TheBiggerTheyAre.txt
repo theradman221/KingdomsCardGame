@@ -3,7 +3,7 @@
 "Template" : "bluenon-unittemplate.jpg",
 "Description" : "Target one unit with 4 Attack or more and destroy it.",
 "Img" : "bluetrice.jpg",
-"Rarity" : "Rare.jpg",
+"Rarity" : "Rare.png",
 "Cost" : 3,
 "Unit" : "Trice",
 "Color" : "Blue",

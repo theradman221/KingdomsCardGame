@@ -3,7 +3,7 @@
 "Template" : "yellownon-unittemplate.jpg",
 "Description" : "Cost 1 and Exhaust: Target unit gains +1/+1.",
 "Img" : "yellowrelic.jpg",
-"Rarity" : "Rare.jpg",
+"Rarity" : "Rare.png",
 "Cost" : 1,
 "Unit" : "Relic",
 "Color" : "Yellow",

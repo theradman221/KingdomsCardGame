@@ -3,7 +3,7 @@
 "Template" : "yellownon-unittemplate.jpg",
 "Description" : "The next cost you pay this turn is reduced by two.",
 "Img" : "yellowscroll.jpg",
-"Rarity" : "Ultra.jpg",
+"Rarity" : "Ultra.png",
 "Cost" : 1,
 "Unit" : "Scroll",
 "Color" : "Yellow",

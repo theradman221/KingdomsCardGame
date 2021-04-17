@@ -3,7 +3,7 @@
 "Template" : "colorlessnon-unittemplate.jpg",
 "Description" : "Hard Exhaust and Sacrifice: +1 Power.",
 "Img" : "relic.jpg",
-"Rarity" : "Super.jpg",
+"Rarity" : "Super.png",
 "Cost" : 0,
 "Unit" : "Relic",
 "Color" : "Colorless",

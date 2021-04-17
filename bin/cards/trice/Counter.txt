@@ -3,7 +3,7 @@
 "Template" : "bluenon-unittemplate.jpg",
 "Description" : "You may activate this card when a trice or scroll card\n is played. Negate the effect of the trice or scroll card.",
 "Img" : "bluetrice.jpg", 
-"Rarity" : "Rare.jpg",
+"Rarity" : "Rare.png",
 "Cost" : 2,
 "Unit" : "Trice",
 "Color" : "Blue",

@@ -3,7 +3,7 @@
 "Template" : "bluenon-unittemplate.jpg",
 "Description" : "Draw 1 card",
 "Img" : "bluescroll.jpg",
-"Rarity" : "Common.jpg",
+"Rarity" : "Common.png",
 "Cost" : 1,
 "Unit" : "Scroll",
 "Color" : "Blue",

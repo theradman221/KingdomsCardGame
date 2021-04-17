@@ -3,7 +3,7 @@
 "Template" : "bluenon-unittemplate.jpg",
 "Description" : "Each player sacrifices a unit.",
 "Img" : "bluescroll.jpg",
-"Rarity" : "Common.jpg",
+"Rarity" : "Common.png",
 "Cost" : 3,
 "Unit" : "Scroll",
 "Color" : "Blue",

@@ -3,7 +3,7 @@
 "Template" : "yellownon-unittemplate.jpg",
 "Description" : "You may only supply a terra card with this card.\n The Terra supplied with this card now exhausts\n for 1 additional Power",
 "Img" : "yellowsupply.jpg",
-"Rarity" : "Uncommon.jpg",
+"Rarity" : "Uncommon.png",
 "Cost" : 2,
 "Unit" : "Supply",
 "Color" : "Yellow",

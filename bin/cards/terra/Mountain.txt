@@ -2,7 +2,7 @@
 "Name" : "Mountain",
 "Template" : "colorlessbasicterratemplate.jpg",
 "Img" : "mercterra.jpg", 
-"Rarity" : "Common.jpg",
+"Rarity" : "Common.png",
 "Unit" : "Terra",
 "Color" : "Colorless",
 "Unit-Label" : "Terra - Basic"

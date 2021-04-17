@@ -3,7 +3,7 @@
 "Template" : "bluenon-unittemplate.jpg",
 "Description" : "Target one pawn. Send that target to its owners hand.",
 "Img" : "bluetrice.jpg",
-"Rarity" : "Uncommon.jpg",
+"Rarity" : "Uncommon.png",
 "Cost" : 2,
 "Unit" : "Trice",
 "Color" : "Blue",
