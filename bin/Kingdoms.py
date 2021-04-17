@@ -137,6 +137,15 @@ def main():
     all_units_deck.save_deck()
     print(all_units_deck)
 
+    # Test emptying the full deck with .remove(card)
+    # for card in master_deck_full.get_copy():
+    #     print(card, end=" ")
+    # print("\n\n")
+    # for card in master_deck_full.get_copy():
+    #     master_deck_full.remove_card(card)
+    #     print(card)
+    #     print(master_deck_full)
+
 
     #create_basic_terra_decks(master_deck)
     main2 = MenuSystem(master_deck_full)
