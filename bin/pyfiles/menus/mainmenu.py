@@ -203,7 +203,10 @@ class MenuSystem(object):
             attack_cards = ["Lord", "Hero", "Pawn", "Token", "Bastion"]
             if card.get_unit() in attack_cards:
                 card_health = str(card.get_health())
-                card_attack = str(card.get_attack())
+                if card.get_unit() != "Bastion":
+                    card_attack = str(card.get_attack())
+                else:
+                    card_attack = None
             else :
                 card_attack = None
                 card_health = None
@@ -228,19 +231,20 @@ class MenuSystem(object):
             submenu.add.button("add   " + card.get_name(), yellowdeckappend, card) 
             submenu.add.button("Back", pygame_menu.events.BACK)
 
-        def showyellowdeck():
-            print('yellow deck: ')
-            for card in yellowdeck:
-                #print(card.get_name(), end=" ")
 
 
 
 
 
+            # for card in yellowdeck:
+            #     print('yellow deck: ')
+
+
+        #print(card.get_name(), end=" ")
 
 
 
-        self.deckcreatoryellow_menu.add.button("Current Deck", showyellowdeck)
+        self.deckcreatoryellow_menu.add.button("Current Deck")
         self.deckcreatoryellow_menu.add.button('back', pygame_menu.events.BACK)
 
         # -------------------------------------------------------------------------
