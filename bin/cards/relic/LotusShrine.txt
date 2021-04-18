@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Lotus Shrine",
 "Template" : "colorlessnon-unittemplate.jpg",
-"Description" : "This card enters play exhausted.\n Hard Exhaust: +1 Power",
+"Description" : "This card enters play exhausted. Hard Exhaust: +1 Power",
 "Img" : "relic.jpg",
 "Rarity" : "Ultra.png",
 "Cost" : 1,

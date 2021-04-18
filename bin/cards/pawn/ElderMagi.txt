@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Elder Magi",
 "Template" : "blueUnitTemplate.jpg",
-"Description" : "Experienced (When this card attacks a unit, it deals double\n damage)\n \"I am literally to old for this\"",
+"Description" : "Experienced (When this card attacks a unit, it deals double damage) \"I am literally to old for this\"",
 "Img" : "bluepawn.jpg", 
 "Rarity" :"Rare.png",
 "Cost" : 4, 

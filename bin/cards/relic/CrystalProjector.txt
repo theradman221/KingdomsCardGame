@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Crystal Projector",
 "Template" : "yellownon-unittemplate.jpg",
-"Description" : "This card enters play exhausted.\n Entrance: Target unit gains Urgency.\n Cost 2 and Exhaust: Target unit gains\n Urgency (This card doesn't require briefing).",
+"Description" : "This card enters play exhausted. Entrance: Target unit gains Urgency. Cost 2 and Exhaust: Target unit gains Urgency (This card doesn't require briefing).",
 "Img" : "yellowrelic.jpg",
 "Rarity" : "Uncommon.png",
 "Cost" : 2,

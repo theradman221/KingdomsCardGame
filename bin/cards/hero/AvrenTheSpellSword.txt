@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Avren The SpellSword",
 "Template" : "blueUnitTemplate.jpg",
-"Description" : "Level up: (When this card enters play and a copy of this card has\nentered play under your control before it) Gains +2/+2.\nTrigger: When you draw from a card effect, this card\ngains +1/+1.",
+"Description" : "Level up: (When this card enters play and a copy of this card has entered play under your control before it) Gains +2/+2. Trigger: When you draw from a card effect, this card gains +1/+1.",
 "Img" : "bluehero.jpg",
 "Rarity" : "Super.png",
 "Cost" : 2,

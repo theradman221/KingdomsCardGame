@@ -146,6 +146,9 @@ def main():
         visualizer.visualizer()
         visualizer2.visualizer()
         pygame.display.update()
+
+    # DISABLE THIS TO NOT SEE EVERY CARD EVERY TIME YOU CLOSE THE 3 CARDS ON ONE SCREEN EXAMPLE!
+    visualize_all_cards(master_deck_full_list)
     pygame.quit()
 
     for card in all_units_deck.get_copy():
@@ -167,8 +170,8 @@ def main():
 
 
     #create_basic_terra_decks(master_deck)
-    # main2 = MenuSystem(master_deck_full)
-    # main2.mainloop(False)
+    main2 = MenuSystem(master_deck_full)
+    main2.mainloop(False)
     #ap.processAttack()
     saved_decks = load_saved_decks()
     run_game(saved_decks)
@@ -205,6 +208,18 @@ def delete_saved_deck(deck):
 #         print("Finished the game loop once")
 #         pygame.time.delay(1000)
 #     pygame.quit()
+
+def visualize_all_cards(deck):
+    for card in deck:
+        visualizer = Visualizer(card, screen)
+        running = True
+        while running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+            visualizer.visualizer()
+            pygame.display.update()
+
 
 def test_loop():
     bif = "bluebastiontemplate.jpg"

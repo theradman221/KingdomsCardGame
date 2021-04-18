@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Heath the Prideful",
 "Template" : "yellowUnitTemplate.jpg",
-"Description" : "Restless (This card does not become exhausted from attacking. Can\n still only declare one attack)\n Level Up: (When this card enters play and a copy of this card has\nentered play under your control before it) Gains +2/+2",
+"Description" : "Restless (This card does not become exhausted from attacking. Can still only declare one attack) Level Up: (When this card enters play and a copy of this card has entered play under your control before it) Gains +2/+2",
 "Img" : "yellowhero.jpg",
 "Rarity" : "Ultra.png",
 "Cost" : 4,

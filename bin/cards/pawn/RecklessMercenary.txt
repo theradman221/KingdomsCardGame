@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Reckless Mercenary",
 "Template" : "colorlessUnitTemplate.jpg",
-"Description" : "Reckless (After this card attacks a unit, it can attack\n again immediately).",
+"Description" : "Reckless (After this card attacks a unit, it can attack again immediately).",
 "Img" : "mercpawn.jpg", 
 "Rarity" : "Uncommon.png",
 "Cost" : 4,

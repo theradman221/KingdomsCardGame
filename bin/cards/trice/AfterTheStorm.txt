@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "After the Storm",
 "Template" : "yellownon-unittemplate.jpg",
-"Description" : "After a unit(s) you control is destroyed, you may activate this\n card. Target one enemy unit and destroy it.",
+"Description" : "After a unit(s) you control is destroyed, you may activate this card. Target one enemy unit and destroy it.",
 "Img" : "yellowtrice.jpg",
 "Rarity" : "Rare.png",
 "Cost" : 1,

@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Argon the Telekinetic",
 "Template" : "blueUnitTemplate.jpg",
-"Description" : "Entrance: Target unit becomes exhausted and does not become rested during it's\ncontrollers next rest phase.\nGuard (While this card is rested you may redirect attacks to this card. While this card\nis in your kingdom it cannot \"Guard\" units on the battlefield)\nReflex (Deals damage first in battle against units without reflex)",
+"Description" : "Entrance: Target unit becomes exhausted and does not become rested during it's controllers next rest phase. Guard (While this card is rested you may redirect attacks to this card. While this card is in your kingdom it cannot \"Guard\" units on the battlefield) Reflex (Deals damage first in battle against units without reflex)",
 "Img" : "bluehero.jpg",
 "Rarity" : "Ultra.png",
 "Cost" : 3,

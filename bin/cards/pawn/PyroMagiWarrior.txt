@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Pyro Magi Warrior",
 "Template" : "blueUnitTemplate.jpg",
-"Description" : "Reflex (This card deals damage first in combat against units\n without reflex).\n \"Fireballs and swords are the only friends I need\"",
+"Description" : "Reflex (This card deals damage first in combat against units without reflex). \"Fireballs and swords are the only friends I need\"",
 "Img" : "bluepawn.jpg",
 "Rarity" : "Common.png",
 "Cost" : 2,

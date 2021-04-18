@@ -1,7 +1,7 @@
 {"All" : {
 "Name" : "Etherial Shield",
 "Template" : "blueUnitTemplate.jpg",
-"Description" : "Guard (While this card is rested you may redirect attacks to this card. While this card\n is in your kingdom it cannot \"Guard\" units on the battlefield)\n Entrance: Study 1 (View the top card of either of your decks and place it on the\n top or on the bottom of that deck)",
+"Description" : "Guard (While this card is rested you may redirect attacks to this card. While this card is in your kingdom it cannot \"Guard\" units on the battlefield) Entrance: Study 1 (View the top card of either of your decks and place it on the top or on the bottom of that deck)",
 "Img" : "bluepawn.jpg",
 "Rarity" : "Uncommon.png",
 "Cost" : 1,
