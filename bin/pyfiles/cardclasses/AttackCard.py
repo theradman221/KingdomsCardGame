@@ -27,6 +27,12 @@ class AttackCard(Card):
         self.__current_health = None
         self.__current_attack = None
         self.__is_royal = False
+        # Temp variables for health/attack buffs and debuffs
+        self.__health_buff = 0
+        self.__attack_buff = 0
+        self.__health_debuff = 0
+        self.__attack_debuff = 0
+        self.__defense = 0
 
     def print_all_details(self):
         msg = ""
@@ -81,18 +87,56 @@ class AttackCard(Card):
         self.__current_attack = attack
 
     def get_health(self):
-        return self.__current_health
+        return self.__current_health + self.__health_buff - self.__health_debuff
 
     def set_health(self, health):
         self.__current_health = health
 
     def get_attack(self):
-        return self.__current_attack
+        return self.__current_attack + self.__attack_buff - self.__attack_debuff
 
     def set_attack(self, attack):
         self.__current_attack = attack
 
     def hit_for(self, damage):
+        # Eat the defense before actual health
+        if self.__defense > 0:
+            rem_defense = self.__defense - damage
+            # If we have defense remaining
+            if rem_defense > 0:
+                # we still have rem_defense defense remaining
+                self.__defense = rem_defense
+                return
+            # If we have exactly 0 defense remaining
+            elif rem_defense == 0:
+                # Update the value and return
+                self.__defense = 0
+                return
+            # Negative means we did not block it all
+            else:
+                # Adjust damage value and reset defense to 0
+                damage = damage - self.__defense
+                self.__defense = 0
+
+        # Eat the health buff before actual health
+        if self.__health_buff > 0:
+            rem_buff = self.__health_buff - damage
+            # If we have defense remaining
+            if rem_buff > 0:
+                # we still have rem_defense defense remaining
+                self.__health_buff = rem_buff
+                return
+            # If we have exactly 0 defense remaining
+            elif rem_buff == 0:
+                # Update the value and return
+                self.__health_buff = 0
+                return
+            # Negative means we did not block it all
+            else:
+                # Adjust damage value and reset defense to 0
+                damage = damage - self.__health_buff
+                self.__health_buff = 0
+
         self.__current_health -= damage
 
     def heal_for(self, hitpoints):
@@ -104,15 +148,4 @@ class AttackCard(Card):
     def set_royal(self, royal):
         self.__is_royal = royal
 
-    def get_current_health(self):
-        return self.__current_health
-
-    def set_current_health(self, health):
-        self.__current_health = health
-
-    def get_current_attack(self):
-        return self.__current_attack
-
-    def set_current_attack(self, attack):
-        self.__current_attack = attack
 
