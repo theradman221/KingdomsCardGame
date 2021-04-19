@@ -133,7 +133,7 @@ class MenuSystem(object):
 
         for card in bluecardlist:
             # Creating a Submenu for every card in the Yellow Card List
-            submenu = pygame_menu.Menu(card.get_name(), 750, 750, theme=main_menu_theme,
+            submenu = pygame_menu.Menu(card.get_name(), 850,850, theme=main_menu_theme,
                                        mouse_motion_selection=True)
             submenu.add.vertical_margin(75)
             # image for each card
@@ -174,15 +174,25 @@ class MenuSystem(object):
             submenu.add.button("add   " + card.get_name(), bluedeckappend, card)
             submenu.add.button("Back", pygame_menu.events.BACK)
 
-        def showbluedeck():
-            print('yellow deck: ')
+        submenu_blue = pygame_menu.Menu("Cards In Deck", 750, 750, theme=main_menu_theme,
+                                    mouse_motion_selection=True)
+        submenu_blue.add.vertical_margin(40)  # Bottom margin
 
+        self.deckcreatorblue_menu.add.button("Show Cards in Deck", submenu_blue)
 
+        def showcardsblue():
             for card in bluedeck:
-                print(card.get_name(), end=" ")
+                submenu_blue.add.label(card)
+
+        submenu_blue.add.button('Populate chosen cards',showcardsblue)
+        submenu_blue.add.button('Back', pygame_menu.events.BACK)
 
 
-        self.deckcreatorblue_menu.add.button("Current Deck", showbluedeck)
+            # for card in bluedeck:
+            #     print(card.get_name(), end=" ")
+
+
+        # self.deckcreatorblue_menu.add.button("Current Deck", showbluedeck)
         self.deckcreatorblue_menu.add.button('back', pygame_menu.events.BACK)
         # -------------------------------------------------------------------------
         # Create menus: Deck Creator Yellow
@@ -211,7 +221,7 @@ class MenuSystem(object):
         for card in yellowcardlist:
 
             #Creating a Submenu for every card in the Yellow Card List
-            submenu = pygame_menu.Menu(card.get_name(), 750, 750, theme=main_menu_theme,
+            submenu = pygame_menu.Menu(card.get_name(), 850,850, theme=main_menu_theme,
                                        mouse_motion_selection=True)
 
             submenu.add.vertical_margin(75)
@@ -250,16 +260,18 @@ class MenuSystem(object):
             submenu.add.button("Back", pygame_menu.events.BACK)
 
         #The code below is the very jank 'show cards in my deck' screen
-        submenu2 = pygame_menu.Menu("Cards In Deck", 750, 750, theme=main_menu_theme,
+        submenu_yellow = pygame_menu.Menu("Cards In Deck", 750, 750, theme=main_menu_theme,
                                     mouse_motion_selection=True)
-        submenu2.add.vertical_margin(40)  # Bottom margin
-        self.deckcreatoryellow_menu.add.button("Show Cards in Deck", submenu2)
+        submenu_yellow.add.vertical_margin(40)  # Bottom margin
+
+        self.deckcreatoryellow_menu.add.button("Show Cards in Deck", submenu_yellow)
 
         def showcardsyellow():
             for card in yellowdeck:
-                submenu2.add.label(card)
+                submenu_yellow.add.label(card)
 
-        submenu2.add.button('Populate chosen cards',showcardsyellow)
+        submenu_yellow.add.button('Populate chosen cards',showcardsyellow)
+        submenu_yellow.add.button('Back', pygame_menu.events.BACK)
 
 
 
