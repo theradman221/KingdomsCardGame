@@ -92,7 +92,22 @@ class MenuSystem(object):
         self.settings_menu.add.selector('Menu sounds ',
                                    [('Off', False), ('On', True)],
                                    onchange=self.update_menu_sound)
+
+        disclaimer = pygame_menu.Menu('Legal', 900, 900, theme=main_menu_theme,
+                                      mouse_motion_selection=True)
+        disclaimer.add.label("""Disclaimer:
+            This project has been developed as part of a classroom learning experience by students at 
+            Utah State University.  
+            While efforts are made to ensure copyrights and intellectual property rights have not been violated, 
+            t is the responsibility of the organization using any classroom projects
+             created by USU and its students to make sure the materials 
+             contained therein do not infringe the property rights 
+            (including without limitation rights of privacy and publicity, 
+            trademark rights, copyrights, patents, trade secrets, and licenses) of third parties.""")
+        self.settings_menu.add.button('legal',disclaimer)
         self.settings_menu.add.button('back', pygame_menu.events.BACK)
+
+
         # -------------------------------------------------------------------------
         # Create menus: Deck Creator blue
         # -------------------------------------------------------------------------
@@ -198,6 +213,7 @@ class MenuSystem(object):
             #Creating a Submenu for every card in the Yellow Card List
             submenu = pygame_menu.Menu(card.get_name(), 750, 750, theme=main_menu_theme,
                                        mouse_motion_selection=True)
+
             submenu.add.vertical_margin(75)
             #image for each card
             submenu.add.image(card.get_image(), angle=10,scale=(0.15, 0.15))
@@ -229,31 +245,33 @@ class MenuSystem(object):
                                       font_name=pygame_menu.font.FONT_PT_SERIF,
                                       font_color=(0, 0, 0), padding=0)
             self.deckcreatoryellow_menu.add.button(card, submenu) #adding button for every card that calls the submenu for that card
-            submenu.add.vertical_margin(40)  # Bottom margin
 
             submenu.add.button("add   " + card.get_name(), yellowdeckappend, card) 
             submenu.add.button("Back", pygame_menu.events.BACK)
 
-        #     # -------------------------------------------------------------------------
-        #     # Create menus: Deck Creator Yellow
-        #     # -------------------------------------------------------------------------
-        #     self.yellowdeckcontains_menu = pygame_menu.Menu(
-        #         height=self.WINDOW_SIZE[1] * 1,
-        #         theme=main_menu_theme,
-        #         title='Select the Deck Color',
-        #         width=self.WINDOW_SIZE[1] * 1
-        #     )
-        #
-        #     self.yellowdeckcontains_menu.add.button('back', pygame_menu.events.BACK)
-        #     # for card in yellowdeck:
-        #     #     print('yellow deck: ')
-        #
-        #
-        # #print(card.get_name(), end=" ")
+        #The code below is the very jank 'show cards in my deck' screen
+        submenu2 = pygame_menu.Menu("Cards In Deck", 750, 750, theme=main_menu_theme,
+                                    mouse_motion_selection=True)
+        submenu2.add.vertical_margin(40)  # Bottom margin
+        self.deckcreatoryellow_menu.add.button("Show Cards in Deck", submenu2)
+
+        def showcardsyellow():
+            for card in yellowdeck:
+                submenu2.add.label(card)
+
+        submenu2.add.button('Populate chosen cards',showcardsyellow)
 
 
 
-        self.deckcreatoryellow_menu.add.button("Current Deck")
+        # for card in yellowdeck:
+        #     print('yellow deck: ')
+
+
+        #print(card.get_name(), end=" ")
+
+
+
+        # self.deckcreatoryellow_menu.add.button("Current Deck", self.yellowdeckcontains_menu)
         self.deckcreatoryellow_menu.add.button('back', pygame_menu.events.BACK)
 
         # -------------------------------------------------------------------------
