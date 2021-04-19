@@ -93,7 +93,7 @@ class MenuSystem(object):
                                    [('Off', False), ('On', True)],
                                    onchange=self.update_menu_sound)
 
-        disclaimer = pygame_menu.Menu('Legal', 900, 900, theme=main_menu_theme,
+        disclaimer = pygame_menu.Menu('Disclaimer', 900, 900, theme=main_menu_theme,
                                       mouse_motion_selection=True)
         disclaimer.add.label("""Disclaimer:
             This project has been developed as part of a classroom learning experience by students at 
@@ -104,7 +104,7 @@ class MenuSystem(object):
              contained therein do not infringe the property rights 
             (including without limitation rights of privacy and publicity, 
             trademark rights, copyrights, patents, trade secrets, and licenses) of third parties.""")
-        self.settings_menu.add.button('legal',disclaimer)
+        self.settings_menu.add.button('Disclaimer',disclaimer)
         self.settings_menu.add.button('back', pygame_menu.events.BACK)
 
 
@@ -269,6 +269,7 @@ class MenuSystem(object):
         def showcardsyellow():
             for card in yellowdeck:
                 submenu_yellow.add.label(card)
+
 
         submenu_yellow.add.button('Populate chosen cards',showcardsyellow)
         submenu_yellow.add.button('Back', pygame_menu.events.BACK)
