@@ -62,7 +62,7 @@ from pyfiles.Deck import Deck
 from pyfiles.guielements.Background import Background
 from pyfiles.gameclasses.gameloop import *
 from pyfiles.menus.mainmenu import MenuSystem, main_menu
-from pyfiles.Visualizer2 import Visualizer
+from pyfiles.Visualizer import Visualizer
 
 # Testing creating a pygame window and putting a few boxes on it, (500,500) is the size
 # screen = pygame.display.set_mode((500,500), DOUBLEBUF|OPENGL) # Use openGL to do the rendering so that we can have the steam overlay (not implimented yet)
