@@ -15,7 +15,7 @@ class Visualizer:
         self.__numberFont = pygame.font.SysFont("gabriola", 75)
         self.__nameFont = pygame.font.SysFont("gabriola", 38)
         self.__descriptionFont = pygame.font.SysFont("gabriola", 20)
-        self.__labelFont = pygame.font.SysFont("gabriola", 25)
+        self.__labelFont = pygame.font.SysFont("gabriola", 23)
         self.__screen = screen
         self.__masterX = 20
         self.__masterY = 20
@@ -133,7 +133,9 @@ class Visualizer:
         # Sets the rectangle position for text labels
         self.__namePlaceholder.center = self.__card_template_rect.centerx, self.__card_template_rect.centery + 140
         self.__descriptionPlaceholder.center = self.__card_template_rect.centerx, self.__card_template_rect.centery + 199
-        self.__labelPlaceholder.center = self.__card_template_rect.centerx + 2, self.__card_template_rect.centery + 275
+        units = ["Bastion", "Terra", "TerraLandMark"]
+        if self.__card.get_unit() not in units:
+            self.__labelPlaceholder.center = self.__card_template_rect.centerx + 4, self.__card_template_rect.centery + 277
 
         # If-Statements determine where to put the rectangle based on which number is printed due to the numbers
         # being different sizes because of the font
@@ -166,7 +168,7 @@ class Visualizer:
 
     def blitting_card_values(self):
         # Images
-        #self.__screen.fill(GRAY)
+        self.__screen.fill(GRAY)
         self.__screen.blit(self.__card_template_img, self.__card_template_rect)
         self.__screen.blit(self.__rarity_loaded_img, self.__rarity_img_rect)
         self.__screen.blit(self.__artwork_loaded_img, self.__artwork_img_rect)
@@ -175,7 +177,9 @@ class Visualizer:
         self.draw_text(self.__screen, self.__nameText, BLACK, self.__namePlaceholder, self.__nameFont)
         self.draw_text(self.__screen, self.__descriptionText, BLACK, self.__descriptionPlaceholder,
                        self.__descriptionFont)
-        self.draw_text(self.__screen, self.__labelText, WHITE, self.__labelPlaceholder, self.__labelFont)
+        units = ["Bastion", "Terra", "TerraLandMark"]
+        if self.__card.get_unit() not in units:
+            self.draw_text(self.__screen, self.__labelText, WHITE, self.__labelPlaceholder, self.__labelFont)
 
         # Number labels
         self.draw_text(self.__screen, self.__costText, WHITE, self.__costPlaceholder, self.__numberFont)

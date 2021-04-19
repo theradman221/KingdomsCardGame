@@ -132,7 +132,7 @@ def main():
 
     visualizer = Visualizer(hero[1], screen)
 
-    visualizer2 = Visualizer(hero[0], screen)
+    visualizer2 = Visualizer(master_deck_full_list[12], screen)
     visualizer2.set_master_x(visualizer2.get_master_x() + 500)
     visualizer3 = Visualizer(bastions[0], screen)
     visualizer3.set_master_x(visualizer3.get_master_x() + 1000)
@@ -141,11 +141,11 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-        screen.fill((155, 155, 155))
-        visualizer3.visualizer()
-        visualizer.visualizer()
-        visualizer2.visualizer()
-        pygame.display.update()
+        # screen.fill((155, 155, 155))
+        # visualizer3.visualizer()
+        # visualizer.visualizer()
+        # visualizer2.visualizer()
+        # pygame.display.update()
 
     # DISABLE THIS TO NOT SEE EVERY CARD EVERY TIME YOU CLOSE THE 3 CARDS ON ONE SCREEN EXAMPLE!
     visualize_all_cards(master_deck_full_list)
