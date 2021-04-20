@@ -1,5 +1,9 @@
-from pyfiles.menus.mainmenu import MenuSystem, main_menu
 
-if __name__=="__main__":
-    main_menu()
+from pyfiles.menus.gameboard import Gameboard, game_board_loop
+
+
+if __name__ == "__main__":
+    game_board_loop()
+
+
 
