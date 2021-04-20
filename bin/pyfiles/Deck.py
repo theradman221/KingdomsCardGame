@@ -312,11 +312,6 @@ class Deck:
         self.__verification_notes = "Passed"
         return True
 
-
-
-
-
-
     # Returns the verification notes after verify_deck is run
     def get_verification_notes(self):
         return self.__verification_notes

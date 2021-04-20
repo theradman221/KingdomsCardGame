@@ -228,7 +228,7 @@ Trigger's These are actions that must happen to the game, or the player as a who
 TargetZones - zones that cards can be sent to
 	"Targeter" - checks conditions for if a unit could go to multiple zones
 	"BattleField"
-	"Kingdom" - this is the whole kindgom, under normal circumstances don't send things here
+	"Kingdom"
 	"UnitZone"
 	"RelicZone"
 	"TerraZone"

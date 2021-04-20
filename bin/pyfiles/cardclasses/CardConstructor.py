@@ -23,15 +23,10 @@ import time
 excluded_files = ["template.txt", "effects.txt", "nondemonotworking", "nondemoworking"]
 
 
-def load_all_cards(path, deck):
+def load_all_cards(path_to_cards, deck):
     logging.info("Beginning the load all card process")
-    # This is here so that if you run CardConstructor.py it will actually work
-    if path != "":
-        path_to_cards = path
-    else:
-        path_to_cards = "\..\..\cards"
-    # Go through every card's txt file and construct it into a real card object.
 
+    # Go through every card's txt file and construct it into a real card object.
     for folder in os.listdir(path_to_cards):
         if not excluded_files.__contains__(folder):
             for file in os.listdir(path_to_cards + "\\" + folder):
@@ -215,6 +210,8 @@ def create_terra_landmark(dictionary, file_path):
 def add_attack_card_attributes(dictionary, dict_keys, card):
     if "Health" in dict_keys:
         card.set_default_health(dictionary["Health"])
+    else:
+        card.set_default_health(0)
     if "Attack" in dict_keys:
         card.set_default_attack(dictionary["Attack"])
     else:

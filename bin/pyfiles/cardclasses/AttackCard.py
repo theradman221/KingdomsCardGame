@@ -35,6 +35,7 @@ class AttackCard(Card):
         self.__attack_debuff = 0
         self.__defense = 0
 
+    # Prints everything that you could want to know about a card
     def print_all_details(self):
         msg = ""
         msg += "Name " + self.get_name() + "\n"
