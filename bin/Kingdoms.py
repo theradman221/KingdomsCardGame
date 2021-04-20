@@ -68,7 +68,7 @@ from pyfiles.TestVisualizer import TestVisualizer
 
 # Testing creating a pygame window and putting a few boxes on it, (500,500) is the size
 # screen = pygame.display.set_mode((500,500), DOUBLEBUF|OPENGL) # Use openGL to do the rendering so that we can have the steam overlay (not implimented yet)
-screen = pygame.display.set_mode((1800,900))
+screen = pygame.display.set_mode((1800,900), RESIZABLE)
 #
 # # The caption Display is  what it says at the top so to say Kingdoms would just use this command with Kingdoms
 # pygame.display.set_caption("First Game")
