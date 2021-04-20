@@ -34,6 +34,7 @@ class TestVisualizer:
         self.__costText = None
         self.__attackText = None
         self.__healthText = None
+        self.__scale_up = False
         self.__card_template_img, self.__card_template_rect = self.load_template()
         self.__rarity_loaded_img, self.__rarity_img_rect = self.load_rarity()
         self.__artwork_loaded_img, self.__artwork_img_rect = self.load_artwork()
@@ -73,7 +74,7 @@ class TestVisualizer:
     # Loads and puts the rarity image into a rectangle
     def load_rarity(self):
         rarity_img = pygame.image.load(self.__card.get_rarity())
-        if self.scale_card_up():
+        if self.__scale_up:
             rarity_img = pygame.transform.scale(rarity_img.convert(), (31, 31))
         else:
             rarity_img = pygame.transform.scale(rarity_img.convert(), (10, 10))
@@ -86,7 +87,7 @@ class TestVisualizer:
     # Loads and puts the artwork into a rectangle
     def load_artwork(self):
         artwork_img = pygame.image.load(self.__card.get_image())
-        if self.scale_card_up():
+        if self.__scale_up:
             artwork_img = pygame.transform.scale(artwork_img.convert(), (312, 366))
         else:
             artwork_img = pygame.transform.scale(artwork_img.convert(), (104, 122))
@@ -135,27 +136,27 @@ class TestVisualizer:
 
     def text_rectangle_positions(self):
         # Sets the position for the different images
-        if self.scale_card_up():
+        if self.__scale_up:
             self.__rarity_img_rect.center = self.__card_template_rect.x + 403, self.__card_template_rect.y + 25
         else:
             self.__rarity_img_rect.center = self.__card_template_rect.x + 134, self.__card_template_rect.y + 9
-        if self.scale_card_up():
+        if self.__scale_up:
             self.__artwork_img_rect.center = self.__card_template_rect.centerx + 16, self.__card_template_rect.y + 226
         else:
             self.__artwork_img_rect.center = self.__card_template_rect.centerx + 6, self.__card_template_rect.y + 76
 
         # Sets the rectangle position for text labels
-        if self.scale_card_up():
+        if self.__scale_up:
             self.__namePlaceholder.center = self.__card_template_rect.centerx, self.__card_template_rect.centery + 140
         else:
             self.__namePlaceholder.center = self.__card_template_rect.centerx, self.__card_template_rect.centery + 46
-        if self.scale_card_up():
+        if self.__scale_up:
             self.__descriptionPlaceholder.center = self.__card_template_rect.centerx, self.__card_template_rect.centery + 199
         else:
             self.__descriptionPlaceholder.center = self.__card_template_rect.centerx, self.__card_template_rect.centery + 66
         units = ["Bastion", "Terra", "TerraLandMark"]
         if self.__card.get_unit() not in units:
-            if self.scale_card_up():
+            if self.__scale_up:
                 self.__labelPlaceholder.center = self.__card_template_rect.centerx + 4, self.__card_template_rect.centery + 277
             else:
                 self.__labelPlaceholder.center = self.__card_template_rect.centerx + 1, self.__card_template_rect.centery + 92
@@ -166,7 +167,7 @@ class TestVisualizer:
         # 3, 4, 5, 7, 9 are lower
         # 6, 8 are upper
         # Cost numbers
-        if self.scale_card_up():
+        if self.__scale_up:
             if self.__costText == "1" or self.__costText == "2":
                 self.__costPlaceholder.center = self.__card_template_rect.centerx - 178, self.__card_template_rect.centery - 267
             elif self.__costText == "6" or self.__costText == "8":
@@ -182,7 +183,7 @@ class TestVisualizer:
                 self.__costPlaceholder.center = self.__card_template_rect.centerx - 58, self.__card_template_rect.centery - 91
 
         # Attack numbers
-        if self.scale_card_up():
+        if self.__scale_up:
             if self.__attackText == "1" or self.__attackText == "2":
                 self.__attackPlaceholder.center = self.__card_template_rect.centerx - 176, self.__card_template_rect.centery + 259
             elif self.__attackText == "6" or self.__attackText == "8":
@@ -198,7 +199,7 @@ class TestVisualizer:
                 self.__attackPlaceholder.center = self.__card_template_rect.centerx - 57, self.__card_template_rect.centery + 84
 
         # Health numbers
-        if self.scale_card_up():
+        if self.__scale_up:
             if self.__healthText == "1" or self.__healthText == "2":
                 self.__healthPlaceholder.center = self.__card_template_rect.centerx + 179, self.__card_template_rect.centery + 261
             elif self.__healthText == "6" or self.__healthText == "8":
@@ -236,6 +237,7 @@ class TestVisualizer:
         # pygame.display.update()
 
     def visualizer(self):
+        self.__scale_up = False
         self.__card_template_img, self.__card_template_rect = self.load_template()
         self.__rarity_loaded_img, self.__rarity_img_rect = self.load_rarity()
         self.__artwork_loaded_img, self.__artwork_img_rect = self.load_artwork()
@@ -243,6 +245,7 @@ class TestVisualizer:
         self.blitting_card_values()
 
     def scale_card_up(self):
+        self.__scale_up = True
         self.__numberFont = pygame.font.SysFont("gabriola", 75)
         self.__nameFont = pygame.font.SysFont("gabriola", 38)
         self.__descriptionFont = pygame.font.SysFont("gabriola", 20)
