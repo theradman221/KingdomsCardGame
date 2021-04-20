@@ -35,6 +35,7 @@ class TestVisualizer:
         self.__attackText = None
         self.__healthText = None
         self.__scale_up = False
+        self.__rotateCard = False
         self.__card_template_img, self.__card_template_rect = self.load_template()
         self.__rarity_loaded_img, self.__rarity_img_rect = self.load_rarity()
         self.__artwork_loaded_img, self.__artwork_img_rect = self.load_artwork()
@@ -63,9 +64,13 @@ class TestVisualizer:
     def load_template(self):
         template_img = pygame.image.load(self.__card.get_template())
         template_img = pygame.transform.scale(template_img.convert(), (self.__masterWidth, self.__masterHeight))
+        #template_img = pygame.transform.rotate(template_img, 90)
         template_rect = template_img.get_rect()
         template_rect.topleft = self.__masterX, self.__masterY
-        return template_img, template_rect
+        if self.__rotateCard:
+            return pygame.transform.rotate(template_img, 90), template_rect
+        else:
+            return template_img, template_rect
     # cardImg = pygame.image.load(os.getcwd() + "/../cardtemplates/units/blueUnitTemplate.jpg")
     # cardImg = pygame.transform.scale(cardImg.convert(), (430, 600))
     # cardRect.templateRect = cardImg.get_rect()
@@ -79,7 +84,10 @@ class TestVisualizer:
         else:
             rarity_img = pygame.transform.scale(rarity_img.convert(), (10, 10))
         rarity_rect = rarity_img.get_rect()
-        return rarity_img, rarity_rect
+        if self.__rotateCard:
+            return pygame.transform.rotate(rarity_img, 90), rarity_rect
+        else:
+            return rarity_img, rarity_rect
     # rarityImg = pygame.image.load(os.getcwd() + "/../cardtemplates/Raritys/Uncommon.png")
     # rarityImg = pygame.transform.scale(rarityImg.convert(), (31, 31))
     # rarityRect = rarityImg.get_rect()
@@ -92,7 +100,10 @@ class TestVisualizer:
         else:
             artwork_img = pygame.transform.scale(artwork_img.convert(), (104, 122))
         artwork_rect = artwork_img.get_rect()
-        return artwork_img, artwork_rect
+        if self.__rotateCard:
+            return pygame.transform.rotate(artwork_img, 90), artwork_rect
+        else:
+            return artwork_img, artwork_rect
     # artworkImg = pygame.image.load(os.getcwd() + "/../cardart/bluepawn.jpg")
     # artworkImg = pygame.transform.scale(artworkImg.convert(), (312, 366))
     # artworkRect = artworkImg.get_rect()
@@ -127,7 +138,11 @@ class TestVisualizer:
             text_rect.centery = placeholder_rect.centery
 
             # Blitting the text to the screen
-            surface.blit(image, (text_rect.left, y))
+            # Rotate text here
+            if self.__rotateCard:
+                surface.blit(pygame.transform.rotate(image, 90), (text_rect.left, y))
+            else:
+                surface.blit(image, (text_rect.left, y))
             y += font_height + line_spacing
 
             # Removes the row of text from the text variable that was just blitted
@@ -137,21 +152,33 @@ class TestVisualizer:
     def text_rectangle_positions(self):
         # Sets the position for the different images
         if self.__scale_up:
-            self.__rarity_img_rect.center = self.__card_template_rect.x + 403, self.__card_template_rect.y + 25
+            if self.__rotateCard:
+                self.__rarity_img_rect.center = self.__card_template_rect.x + 24, self.__card_template_rect.y + 25
+            else:
+                self.__rarity_img_rect.center = self.__card_template_rect.x + 403, self.__card_template_rect.y + 25
         else:
             self.__rarity_img_rect.center = self.__card_template_rect.x + 134, self.__card_template_rect.y + 9
         if self.__scale_up:
-            self.__artwork_img_rect.center = self.__card_template_rect.centerx + 16, self.__card_template_rect.y + 226
+            if self.__rotateCard:
+                self.__artwork_img_rect.center = self.__card_template_rect.centerx - 16, self.__card_template_rect.y + 226
+            else:
+                self.__artwork_img_rect.center = self.__card_template_rect.centerx + 16, self.__card_template_rect.y + 226
         else:
             self.__artwork_img_rect.center = self.__card_template_rect.centerx + 6, self.__card_template_rect.y + 76
 
         # Sets the rectangle position for text labels
         if self.__scale_up:
-            self.__namePlaceholder.center = self.__card_template_rect.centerx, self.__card_template_rect.centery + 140
+            if self.__rotateCard:
+                self.__namePlaceholder.center = self.__card_template_rect.centerx + 314, self.__card_template_rect.centery - 180
+            else:
+                self.__namePlaceholder.center = self.__card_template_rect.centerx, self.__card_template_rect.centery + 140
         else:
             self.__namePlaceholder.center = self.__card_template_rect.centerx, self.__card_template_rect.centery + 46
         if self.__scale_up:
-            self.__descriptionPlaceholder.center = self.__card_template_rect.centerx, self.__card_template_rect.centery + 199
+            if self.__rotateCard:
+                self.__descriptionPlaceholder.center = self.__card_template_rect.centerx + 450, self.__card_template_rect.centery - 250
+            else:
+                self.__descriptionPlaceholder.center = self.__card_template_rect.centerx, self.__card_template_rect.centery + 199
         else:
             self.__descriptionPlaceholder.center = self.__card_template_rect.centerx, self.__card_template_rect.centery + 66
         units = ["Bastion", "Terra", "TerraLandMark"]
@@ -169,14 +196,17 @@ class TestVisualizer:
         # Cost numbers
         if self.__scale_up:
             if self.__costText == "1" or self.__costText == "2":
-                self.__costPlaceholder.center = self.__card_template_rect.centerx - 178, self.__card_template_rect.centery - 267
+                if self.__rotateCard:
+                    self.__costPlaceholder.center = self.__card_template_rect.centerx - 208, self.__card_template_rect.centery + 118
+                else:
+                    self.__costPlaceholder.center = self.__card_template_rect.centerx - 178, self.__card_template_rect.centery - 267
             elif self.__costText == "6" or self.__costText == "8":
                 self.__costPlaceholder.center = self.__card_template_rect.centerx - 178, self.__card_template_rect.centery - 260
             else:
                 self.__costPlaceholder.center = self.__card_template_rect.centerx - 178, self.__card_template_rect.centery - 272
         else:
             if self.__costText == "1" or self.__costText == "2":
-                self.__costPlaceholder.center = self.__card_template_rect.centerx - 59, self.__card_template_rect.centery - 90
+                self.__costPlaceholder.center = self.__card_template_rect.centerx - 58, self.__card_template_rect.centery - 90
             elif self.__costText == "6" or self.__costText == "8":
                 self.__costPlaceholder.center = self.__card_template_rect.centerx - 59, self.__card_template_rect.centery - 87
             else:
@@ -236,16 +266,18 @@ class TestVisualizer:
 
         # pygame.display.update()
 
-    def visualizer(self):
+    def visualizer(self, rotate):
         self.__scale_up = False
+        #self.__rotateCard = rotate
         self.__card_template_img, self.__card_template_rect = self.load_template()
         self.__rarity_loaded_img, self.__rarity_img_rect = self.load_rarity()
         self.__artwork_loaded_img, self.__artwork_img_rect = self.load_artwork()
         self.text_rectangle_positions()
         self.blitting_card_values()
 
-    def scale_card_up(self):
+    def scale_card_up(self, rotate):
         self.__scale_up = True
+        #self.__rotateCard = rotate
         self.__numberFont = pygame.font.SysFont("gabriola", 75)
         self.__nameFont = pygame.font.SysFont("gabriola", 38)
         self.__descriptionFont = pygame.font.SysFont("gabriola", 20)
