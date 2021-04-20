@@ -1,4 +1,5 @@
 from pyfiles.cardclasses.Card import Card
+import math
 
 # This class encompasses all cards that can attack/defend in the game
 class AttackCard(Card):
@@ -140,6 +141,24 @@ class AttackCard(Card):
         self.__current_health -= damage
 
     def heal_for(self, hitpoints):
+        if self.__health_debuff > 0:
+            rem_debuff = self.__health_debuff - hitpoints
+            # If we have defense remaining
+            if rem_debuff > 0:
+                # we still have rem_debuff remaining
+                self.__health_debuff = rem_debuff
+                return
+            # If we have exactly 0 defense remaining
+            elif rem_debuff == 0:
+                # Update the value and return
+                self.__health_debuff = 0
+                return
+            # Negative means we did not block it all
+            else:
+                # Adjust damage value and reset defense to 0
+                hitpoints = hitpoints - self.__health_debuff
+                self.__health_debuff = 0
+
         self.__current_health += hitpoints
 
     def is_royal(self):
@@ -147,5 +166,41 @@ class AttackCard(Card):
 
     def set_royal(self, royal):
         self.__is_royal = royal
+
+
+    # Buff getters and Setters, need to make sure negative numbers don't happen since health is ALWAYS calculated with these buffs whether they're active or not
+    def add_health_buff(self, hitpoints):
+        self.__health_buff += hitpoints
+
+    def remove_health_buff(self, hitpoints):
+        self.__health_buff -= hitpoints
+        if self.__health_buff < 0:
+            self.__health_buff = 0
+
+    def add_attack_buff(self, attack):
+        self.__attack_buff += attack
+
+    def remove_attack_buff(self, attack):
+        self.__attack_buff -= attack
+        if self.__attack_buff < 0:
+            self.__attack_buff = 0
+
+    def add_armor(self, armor):
+        self.__defense += armor
+
+    def remove_armor(self, armor):
+        self.__defense -= armor
+        if self.__defense < 0:
+            self.__defense = 0
+
+    def add_health_debuff(self, hitpoints):
+        hitpoints = hitpoints.abs()
+        self.__health_debuff += hitpoints
+
+    def remove_health_debuff(self, hitpoints):
+        hitpoints = hitpoints.abs()
+        self.__health_debuff -= hitpoints
+        if self.__health_debuff < 0:
+            self.__health_debuff = 0
 
 
