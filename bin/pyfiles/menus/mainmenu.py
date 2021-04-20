@@ -29,6 +29,7 @@ from typing import Dict, Any, Tuple, Optional
 import os
 from pyfiles.Deck import Deck
 from pyfiles.cardclasses.Card import Card
+from pyfiles.menus.gameboard import Gameboard, game_board_loop
 
 
 class MenuSystem(object):
@@ -96,14 +97,20 @@ class MenuSystem(object):
         disclaimer = pygame_menu.Menu('Disclaimer', 900, 900, theme=main_menu_theme,
                                       mouse_motion_selection=True)
         disclaimer.add.label("""Disclaimer:
-            This project has been developed as part of a classroom learning experience by students at 
-            Utah State University.  
-            While efforts are made to ensure copyrights and intellectual property rights have not been violated, 
-            t is the responsibility of the organization using any classroom projects
-             created by USU and its students to make sure the materials 
-             contained therein do not infringe the property rights 
-            (including without limitation rights of privacy and publicity, 
-            trademark rights, copyrights, patents, trade secrets, and licenses) of third parties.""")
+            This project has been developed as part of a classroom 
+            learning experience by students at Utah State University.  
+            While efforts are made to ensure copyrights and 
+            intellectual property rights have not been violated, 
+            it is the responsibility of the organization using any 
+            classroom project screated by USU and its students 
+            to make sure the materials contained therein do not 
+            infringe the property rights (including without 
+            limitation rights of privacy and publicity,
+            trademark rights, copyrights, patents,
+            trade secrets, and licenses) of third parties.""",
+                             align=pygame_menu.locals.ALIGN_LEFT,
+                             font_name=pygame_menu.font.FONT_PT_SERIF
+                             )
         self.settings_menu.add.button('Disclaimer',disclaimer)
         self.settings_menu.add.button('back', pygame_menu.events.BACK)
 
@@ -184,7 +191,7 @@ class MenuSystem(object):
             for card in bluedeck:
                 submenu_blue.add.label(card)
 
-        submenu_blue.add.button('Populate chosen cards',showcardsblue)
+        submenu_blue.add.button('Populate chosen cards', showcardsblue)
         submenu_blue.add.button('Back', pygame_menu.events.BACK)
 
 
@@ -343,7 +350,7 @@ class MenuSystem(object):
             width=self.WINDOW_SIZE[1] * 1
         )
 
-        self.play_button = self.main_menu.add.button('Play')
+        self.play_button = self.main_menu.add.button('Play', game_board_loop)
         self.deckcreator_button = self.main_menu.add.button('Deck Creator', self.pickcolor_menu)
         self.deckselector_button = self.main_menu.add.button('Deck Selector', self.deckselector_menu)
         self.settings_button = self.main_menu.add.button('Settings', self.settings_menu)

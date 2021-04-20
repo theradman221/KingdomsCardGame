@@ -1,7 +1,9 @@
 import pygame
 import sys
 import os
+
 class Gameboard:
+
     def __init__(self):
 
         self.WIDTH, self.HEIGHT = 1920,1080
@@ -9,20 +11,19 @@ class Gameboard:
         pygame.display.set_caption("Gameboard")
         self.FPS = 60
 
-        self.backGround_Image = pygame.image.load(os.getcwd() + '\gameboard\gameboard.jpg')
+        self.backGround_Image = pygame.image.load(os.getcwd() + '\pyfiles\menus\gameboard\gameboard.jpg')
         self.backGround_Image = pygame.transform.scale(self.backGround_Image, (1520, 1080))
-        self.kingdom_text = pygame.image.load(os.getcwd()+ '\gameboard\_Kingdom_.png')
+        self.kingdom_text = pygame.image.load(os.getcwd()+ '\pyfiles\menus\gameboard\_Kingdom_.png')
         self.kingdom_text = pygame.transform.scale(self.kingdom_text,(500, 80))
-        self.relics_text = pygame.image.load(os.getcwd()+ '\gameboard\_Relics_.png')
+        self.relics_text = pygame.image.load(os.getcwd()+ '\pyfiles\menus\gameboard\_Relics_.png')
         self.relics_text = pygame.transform.scale(self.relics_text,(450,60))
-        self.terra_text = pygame.image.load(os.getcwd()+ '\gameboard\_Terra_.png')
+        self.terra_text = pygame.image.load(os.getcwd()+ '\pyfiles\menus\gameboard\_Terra_.png')
         self.terra_text = pygame.transform.scale(self.terra_text, (450,60))
-        self.separator = pygame.image.load(os.getcwd()+ '\gameboard\icons.jpg')
+        self.separator = pygame.image.load(os.getcwd()+ '\pyfiles\menus\gameboard\icons.jpg')
         self.separator = pygame.transform.scale(self.separator,(900, 30))
+        # self.kingdom_zone = pygame.Rect()
 
-
-
-    def draw_board(self):
+    def draw_board(self): # anything that will be drawn on the board will need to be called within this function
         self.WIN.blit(self.backGround_Image, (200, 0))
         self.WIN.blit(self.kingdom_text, (780, 700))
         self.WIN.blit(self.separator, (570, 800))
@@ -31,7 +32,7 @@ class Gameboard:
         self.WIN.blit(self.terra_text,(780, 1000))
         pygame.display.update()
 
-    def bg(self, test:bool) -> None:
+    def bg(self, test: bool) -> None: # this is the pygame loop and where the logic of the game will run
         self.clock = pygame.time.Clock()
         run = True
         while run:
@@ -42,10 +43,12 @@ class Gameboard:
             self.draw_board()
     pygame.quit()
 
+
 def game_board_loop(test: bool = False) -> 'Gameboard':
-    gameboard=Gameboard()
-    gameboard.bg(test)
+    board = Gameboard()
+    board.bg(test)
     return Gameboard
+
 
 if __name__ == '__main__':
     game_board_loop()
