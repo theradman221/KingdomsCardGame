@@ -168,7 +168,7 @@ class Visualizer:
 
     def blitting_card_values(self):
         # Images
-        self.__screen.fill(GRAY)
+        #self.__screen.fill(GRAY)
         self.__screen.blit(self.__card_template_img, self.__card_template_rect)
         self.__screen.blit(self.__rarity_loaded_img, self.__rarity_img_rect)
         self.__screen.blit(self.__artwork_loaded_img, self.__artwork_img_rect)
@@ -194,7 +194,3 @@ class Visualizer:
         self.__artwork_loaded_img, self.__artwork_img_rect = self.load_artwork()
         self.text_rectangle_positions()
         self.blitting_card_values()
-
-
-
-
