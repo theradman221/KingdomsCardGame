@@ -286,8 +286,10 @@ def add_universal_attributes(dictionary, dict_keys, card):
     if "Effects" in dict_keys:
         effect_dict = dictionary["Effects"]
         card.add_effect(effect_dict)
+        card.process_effects()
 
     if "Activated-Effect" in dict_keys:
         activated_dict = dictionary["Activated-Effect"]
         card.add_activated_effect(activated_dict)
+        card.process_activated_effects()
     return card

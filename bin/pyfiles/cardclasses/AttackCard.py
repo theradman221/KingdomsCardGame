@@ -62,9 +62,9 @@ class AttackCard(Card):
         # attack card specific details
         msg += "Attack Card Stats: \n"
         msg += "Is Briefed " + str(self.get_briefed()) + "\n"
-        msg += "Current Health " +  str(self.get_current_health()) + "\n"
+        msg += "Current Health " +  str(self.get_health()) + "\n"
         msg += "Default Health " + str(self.get_default_health()) + "\n"
-        msg += "Current Attack " + str(self.get_current_attack()) + "\n"
+        msg += "Current Attack " + str(self.get_attack()) + "\n"
         msg += "Default Attack " + str(self.get_default_attack()) + "\n"
         print(msg)
 

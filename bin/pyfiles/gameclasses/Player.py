@@ -9,6 +9,8 @@ class Player:
     def __init__(self, name):
         self.__throne_cost_increase_increment = 2
         self.__name = name
+        self.__mana_pool = 0 # Stores available mana
+        self.__have_entered = {} # This will store every card that has entered play and the number
 
         # These are the main decks, all other decks (or zones) will be populated with cards from these 2 decks (except tokens, they are weird)
         self.__main_deck = Deck("Main")
@@ -31,6 +33,20 @@ class Player:
         self.__terra_zone = []
         self.__graveyard = []
         self.__exiled = []
+
+        self.__applied_end_round_buffs = [] # not sure if I'll use this, or make a method on the card
+
+        # Triggers, this section is for ones that can be automated (easily)
+        self.__unit_to_graveyard_this_round_trigger = False # Tracks if a unit has been sent to the graveyard this round
+        self.__unit_exiled_this_round_trigger = False
+
+
+    # Triggers, these are triggers that are methods
+    def pay_cost(self, cost):
+        pass
+
+    def remove_end_phase_buffs(self):
+        pass
 
     # Getters and Setters for name, and the throne room + all related logic for the thron rooms
     def get_name(self):
