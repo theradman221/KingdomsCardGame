@@ -119,6 +119,16 @@ def main():
     # print("This is the test deck's Royal2", test_deck.get_royal_2())
     test_load = Deck("Testing")
     test_load.load_deck()
+
+    # Testing the effect processor
+    for card in master_deck_full_list:
+        if card.get_effects():
+            print(card.get_name(), "contains the effects:", card.get_effects())
+            card.process_effects()
+        if card.get_activated_effects():
+            print(card.get_name(), "contains the activated effects:", card.get_activated_effects())
+
+
     # print("testing loading, the bastion is", test_load.get_bastion())
     # print("testing loading, the first royal is", test_load.get_royal_1())
     # print("testing loading, the second royal is", test_load.get_royal_2())

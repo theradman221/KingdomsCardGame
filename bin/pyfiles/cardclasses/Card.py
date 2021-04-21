@@ -71,7 +71,40 @@ class Card:
         return self.__name
 
     def process_effects(self):
-        pass
+        # The effects are put in in one big lump, get the dictionary and unravel it.
+        effect_dict = self.__effects[0]
+        for effect_key in effect_dict:
+            effect_result = effect_dict[effect_key]
+            print(effect_key, effect_result)
+
+            # If else block to sort out all of the "simpler" effects
+            if effect_key == "":
+                pass
+
+
+                # self.__entrance_effect = None
+                # self.__has_entrance_effect = False
+                # self.__fringe_effect = None
+                # self.__has_fringe_effect = False
+                # self.__has_urgency = False
+                # self.__has_level_up = False  # This needs to be paired with something in either the player or gameloop that tracks the total number of cards played and what type they were.
+                # self.__has_ranged = False
+                # self.__ranged_damage = 0
+                # self.__has_reckless = False
+                # self.__has_guard = False
+                # self.__has_reflex = False
+                # self.__is_experienced = False
+                # self.__has_siege = False
+                # self.__siege_damage = 0
+                # self.__has_sneak = False
+                # self.__is_poisoned = False
+                # self.__is_exhausted = False  # This effect makes it so a card cannot be rested
+                # self.__last_stand_effect = None
+                # self.__has_last_stand = False
+                # self.__is_restless = False
+                # self.__speed = 1
+                # self.__triggers = []
+                # self.__has_triggers = False
 
     def process_activated_effects(self):
         pass
