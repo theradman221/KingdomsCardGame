@@ -64,7 +64,6 @@ class TestVisualizer:
     def load_template(self):
         template_img = pygame.image.load(self.__card.get_template())
         template_img = pygame.transform.scale(template_img.convert(), (self.__masterWidth, self.__masterHeight))
-        #template_img = pygame.transform.rotate(template_img, 90)
         template_rect = template_img.get_rect()
         template_rect.topleft = self.__masterX, self.__masterY
         if self.__rotateCard:
@@ -157,14 +156,20 @@ class TestVisualizer:
             else:
                 self.__rarity_img_rect.center = self.__card_template_rect.x + 403, self.__card_template_rect.y + 25
         else:
-            self.__rarity_img_rect.center = self.__card_template_rect.x + 134, self.__card_template_rect.y + 9
+            if self.__rotateCard:
+                self.__rarity_img_rect.center = self.__card_template_rect.x + 9, self.__card_template_rect.y + 8
+            else:
+                self.__rarity_img_rect.center = self.__card_template_rect.x + 134, self.__card_template_rect.y + 9
         if self.__scale_up:
             if self.__rotateCard:
                 self.__artwork_img_rect.center = self.__card_template_rect.centerx - 16, self.__card_template_rect.y + 226
             else:
                 self.__artwork_img_rect.center = self.__card_template_rect.centerx + 16, self.__card_template_rect.y + 226
         else:
-            self.__artwork_img_rect.center = self.__card_template_rect.centerx + 6, self.__card_template_rect.y + 76
+            if self.__rotateCard:
+                self.__artwork_img_rect.center = self.__card_template_rect.centerx - 4, self.__card_template_rect.y + 74
+            else:
+                self.__artwork_img_rect.center = self.__card_template_rect.centerx + 6, self.__card_template_rect.y + 76
 
         # Sets the rectangle position for text labels
         if self.__scale_up:
@@ -173,20 +178,32 @@ class TestVisualizer:
             else:
                 self.__namePlaceholder.center = self.__card_template_rect.centerx, self.__card_template_rect.centery + 140
         else:
-            self.__namePlaceholder.center = self.__card_template_rect.centerx, self.__card_template_rect.centery + 46
+            if self.__rotateCard:
+                self.__namePlaceholder.center = self.__card_template_rect.centerx + 103, self.__card_template_rect.centery - 58
+            else:
+                self.__namePlaceholder.center = self.__card_template_rect.centerx, self.__card_template_rect.centery + 46
         if self.__scale_up:
             if self.__rotateCard:
                 self.__descriptionPlaceholder.center = self.__card_template_rect.centerx + 450, self.__card_template_rect.centery - 250
             else:
                 self.__descriptionPlaceholder.center = self.__card_template_rect.centerx, self.__card_template_rect.centery + 199
         else:
-            self.__descriptionPlaceholder.center = self.__card_template_rect.centerx, self.__card_template_rect.centery + 66
+            if self.__rotateCard:
+                self.__descriptionPlaceholder.center = self.__card_template_rect.centerx + 151, self.__card_template_rect.centery - 86
+            else:
+                self.__descriptionPlaceholder.center = self.__card_template_rect.centerx, self.__card_template_rect.centery + 66
         units = ["Bastion", "Terra", "TerraLandMark"]
         if self.__card.get_unit() not in units:
             if self.__scale_up:
-                self.__labelPlaceholder.center = self.__card_template_rect.centerx + 4, self.__card_template_rect.centery + 277
+                if self.__rotateCard:
+                    self.__labelPlaceholder.center = self.__card_template_rect.centerx + 425, self.__card_template_rect.centery - 155
+                else:
+                    self.__labelPlaceholder.center = self.__card_template_rect.centerx + 4, self.__card_template_rect.centery + 277
             else:
-                self.__labelPlaceholder.center = self.__card_template_rect.centerx + 1, self.__card_template_rect.centery + 92
+                if self.__rotateCard:
+                    self.__labelPlaceholder.center = self.__card_template_rect.centerx + 141, self.__card_template_rect.centery - 51
+                else:
+                    self.__labelPlaceholder.center = self.__card_template_rect.centerx + 1, self.__card_template_rect.centery + 92
 
         # If-Statements determine where to put the rectangle based on which number is printed due to the numbers
         # being different sizes because of the font
@@ -203,46 +220,85 @@ class TestVisualizer:
             elif self.__costText == "6" or self.__costText == "8":
                 self.__costPlaceholder.center = self.__card_template_rect.centerx - 178, self.__card_template_rect.centery - 260
             else:
-                self.__costPlaceholder.center = self.__card_template_rect.centerx - 178, self.__card_template_rect.centery - 272
+                if self.__rotateCard:
+                    self.__costPlaceholder.center = self.__card_template_rect.centerx - 210, self.__card_template_rect.centery + 118
+                else:
+                    self.__costPlaceholder.center = self.__card_template_rect.centerx - 178, self.__card_template_rect.centery - 272
         else:
             if self.__costText == "1" or self.__costText == "2":
-                self.__costPlaceholder.center = self.__card_template_rect.centerx - 58, self.__card_template_rect.centery - 90
+                if self.__rotateCard:
+                    self.__costPlaceholder.center = self.__card_template_rect.centerx - 69, self.__card_template_rect.centery + 39
+                else:
+                    self.__costPlaceholder.center = self.__card_template_rect.centerx - 58, self.__card_template_rect.centery - 90
             elif self.__costText == "6" or self.__costText == "8":
                 self.__costPlaceholder.center = self.__card_template_rect.centerx - 59, self.__card_template_rect.centery - 87
             else:
-                self.__costPlaceholder.center = self.__card_template_rect.centerx - 58, self.__card_template_rect.centery - 91
+                if self.__rotateCard:
+                    self.__costPlaceholder.center = self.__card_template_rect.centerx - 69, self.__card_template_rect.centery + 38
+                else:
+                    self.__costPlaceholder.center = self.__card_template_rect.centerx - 58, self.__card_template_rect.centery - 91
 
         # Attack numbers
         if self.__scale_up:
             if self.__attackText == "1" or self.__attackText == "2":
-                self.__attackPlaceholder.center = self.__card_template_rect.centerx - 176, self.__card_template_rect.centery + 259
+                if self.__rotateCard:
+                    self.__attackPlaceholder.center = self.__card_template_rect.centerx + 319, self.__card_template_rect.centery + 115
+                else:
+                    self.__attackPlaceholder.center = self.__card_template_rect.centerx - 176, self.__card_template_rect.centery + 259
             elif self.__attackText == "6" or self.__attackText == "8":
                 self.__attackPlaceholder.center = self.__card_template_rect.centerx - 176, self.__card_template_rect.centery + 265
             else:
-                self.__attackPlaceholder.center = self.__card_template_rect.centerx - 176, self.__card_template_rect.centery + 254
+                if self.__rotateCard:
+                    self.__attackPlaceholder.center = self.__card_template_rect.centerx + 317, self.__card_template_rect.centery + 114
+                else:
+                    self.__attackPlaceholder.center = self.__card_template_rect.centerx - 176, self.__card_template_rect.centery + 254
         else:
             if self.__attackText == "1" or self.__attackText == "2" or self.__attackText == "0":
-                self.__attackPlaceholder.center = self.__card_template_rect.centerx - 58, self.__card_template_rect.centery + 86
+                if self.__rotateCard:
+                    self.__attackPlaceholder.center = self.__card_template_rect.centerx + 107, self.__card_template_rect.centery + 38
+                else:
+                    self.__attackPlaceholder.center = self.__card_template_rect.centerx - 58, self.__card_template_rect.centery + 86
             elif self.__attackText == "6" or self.__attackText == "8":
                 self.__attackPlaceholder.center = self.__card_template_rect.centerx - 59, self.__card_template_rect.centery + 88
             else:
-                self.__attackPlaceholder.center = self.__card_template_rect.centerx - 57, self.__card_template_rect.centery + 84
+                if self.__rotateCard:
+                    self.__attackPlaceholder.center = self.__card_template_rect.centerx + 106, self.__card_template_rect.centery + 37
+                else:
+                    self.__attackPlaceholder.center = self.__card_template_rect.centerx - 57, self.__card_template_rect.centery + 84
 
         # Health numbers
         if self.__scale_up:
             if self.__healthText == "1" or self.__healthText == "2":
-                self.__healthPlaceholder.center = self.__card_template_rect.centerx + 179, self.__card_template_rect.centery + 261
+                if self.__rotateCard:
+                    self.__healthPlaceholder.center = self.__card_template_rect.centerx + 319, self.__card_template_rect.centery - 240
+                else:
+                    self.__healthPlaceholder.center = self.__card_template_rect.centerx + 179, self.__card_template_rect.centery + 261
             elif self.__healthText == "6" or self.__healthText == "8":
-                self.__healthPlaceholder.center = self.__card_template_rect.centerx + 179, self.__card_template_rect.centery + 266
+                if self.__rotateCard:
+                    self.__healthPlaceholder.center = self.__card_template_rect.centerx + 329, self.__card_template_rect.centery - 240
+                else:
+                    self.__healthPlaceholder.center = self.__card_template_rect.centerx + 179, self.__card_template_rect.centery + 266
             else:
-                self.__healthPlaceholder.center = self.__card_template_rect.centerx + 179, self.__card_template_rect.centery + 255
+                if self.__rotateCard:
+                    self.__healthPlaceholder.center = self.__card_template_rect.centerx + 317, self.__card_template_rect.centery - 240
+                else:
+                    self.__healthPlaceholder.center = self.__card_template_rect.centerx + 179, self.__card_template_rect.centery + 255
         else:
             if self.__healthText == "1" or self.__healthText == "2" or self.__attackText == "0":
-                self.__healthPlaceholder.center = self.__card_template_rect.centerx + 60, self.__card_template_rect.centery + 87
+                if self.__rotateCard:
+                    self.__healthPlaceholder.center = self.__card_template_rect.centerx + 107, self.__card_template_rect.centery - 81
+                else:
+                    self.__healthPlaceholder.center = self.__card_template_rect.centerx + 60, self.__card_template_rect.centery + 87
             elif self.__healthText == "6" or self.__healthText == "8":
-                self.__healthPlaceholder.center = self.__card_template_rect.centerx + 60, self.__card_template_rect.centery + 89
+                if self.__rotateCard:
+                    self.__healthPlaceholder.center = self.__card_template_rect.centerx + 110, self.__card_template_rect.centery - 81
+                else:
+                    self.__healthPlaceholder.center = self.__card_template_rect.centerx + 60, self.__card_template_rect.centery + 89
             else:
-                self.__healthPlaceholder.center = self.__card_template_rect.centerx + 60, self.__card_template_rect.centery + 85
+                if self.__rotateCard:
+                    self.__healthPlaceholder.center = self.__card_template_rect.centerx + 106, self.__card_template_rect.centery - 81
+                else:
+                    self.__healthPlaceholder.center = self.__card_template_rect.centerx + 60, self.__card_template_rect.centery + 85
 
     def blitting_card_values(self):
         # Images
@@ -268,7 +324,7 @@ class TestVisualizer:
 
     def visualizer(self, rotate):
         self.__scale_up = False
-        #self.__rotateCard = rotate
+        self.__rotateCard = rotate
         self.__card_template_img, self.__card_template_rect = self.load_template()
         self.__rarity_loaded_img, self.__rarity_img_rect = self.load_rarity()
         self.__artwork_loaded_img, self.__artwork_img_rect = self.load_artwork()
@@ -277,7 +333,7 @@ class TestVisualizer:
 
     def scale_card_up(self, rotate):
         self.__scale_up = True
-        #self.__rotateCard = rotate
+        self.__rotateCard = rotate
         self.__numberFont = pygame.font.SysFont("gabriola", 75)
         self.__nameFont = pygame.font.SysFont("gabriola", 38)
         self.__descriptionFont = pygame.font.SysFont("gabriola", 20)

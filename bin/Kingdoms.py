@@ -132,8 +132,8 @@ def main():
     all_units_deck.set_royal_1(hero[0])
     all_units_deck.set_royal_2(hero[1])
 
-    visualizerTesting = TestVisualizer(master_deck_full_list[15], screen)
-    visualizerTesting2 = TestVisualizer(master_deck_full_list[2], screen)
+    visualizerTesting = TestVisualizer(master_deck_full_list[12], screen)
+    visualizerTesting2 = TestVisualizer(master_deck_full_list[15], screen)
     visualizerTesting2.set_master_x(visualizerTesting2.get_master_x() + 500)
     # visualizer3 = Visualizer(bastions[0], screen)
     # visualizer3.set_master_x(visualizer3.get_master_x() + 1000)
@@ -144,7 +144,8 @@ def main():
                 running = False
 
         screen.fill((155, 155, 155))
-        visualizerTesting.visualizer(False)
+        # True/False determines whether or not the card should be rotated
+        visualizerTesting.visualizer(True)
         visualizerTesting2.scale_card_up(False)
         # visualizer3.visualizer()
         pygame.display.update()
