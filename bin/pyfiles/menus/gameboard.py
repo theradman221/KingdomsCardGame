@@ -2,8 +2,8 @@ import pygame
 import sys
 import os
 from pyfiles.Deck import Deck
-import pyfiles.cardclasses.CardConstructor as cc
-from pyfiles.TestVisualizer import TestVisualizer
+from pyfiles.Visualizer import Visualizer
+from pyfiles.cardclasses.Card import Card
 
 class Gameboard:
 
@@ -26,7 +26,7 @@ class Gameboard:
         self.separator = pygame.transform.scale(self.separator,(900, 30))
         # self.kingdom_zone = pygame.Rect()
 
-    def draw_board(self): # anything that will be drawn on the board will need to be called within this function
+    def blit_board(self): # anything that will be drawn on the board will need to be called within this function
         self.WIN.blit(self.backGround_Image, (200, 0))
         self.WIN.blit(self.kingdom_text, (780, 700))
         self.WIN.blit(self.separator, (570, 800))
@@ -34,33 +34,28 @@ class Gameboard:
         self.WIN.blit(self.separator, (570, 950))
         self.WIN.blit(self.terra_text,(780, 1000))
 
-        master_deck = Deck("Master")
-        cc.load_all_cards(os.getcwd() + "\cards", master_deck)
-        master_deck_full = Deck("Master-Full")
-        master_deck_full_list = master_deck.get_copy()
-        master_deck_full.set_deck(master_deck_full_list)
-        visualizerTesting = TestVisualizer(master_deck_full_list[12], self.WIN)
-        visualizerTesting.set_master_x(visualizerTesting.get_master_x() + 100)
-        visualizerTesting.visualizer(False)
+    def draw_board(self):
         pygame.display.update()
+
+    def blit_card(self, visualizer):
+        viscard = visualizer.get_card()
+        if viscard.get_is_rested():
+            visualizer.visualizer(False)
+        else:
+            visualizer.visualizer(True)
+
+    def blit_card_big(self, visualizer):
+        visualizer.scale_card_up(False)
 
     def bg(self, test: bool) -> None: # this is the pygame loop and where the logic of the game will run
         self.clock = pygame.time.Clock()
-        # master_deck = Deck("Master")
-        # cc.load_all_cards(os.getcwd() + "\cards", master_deck)
-        # master_deck_full = Deck("Master-Full")
-        # master_deck_full_list = master_deck.get_copy()
-        # master_deck_full.set_deck(master_deck_full_list)
-        # visualizerTesting = TestVisualizer(master_deck_full_list[12], self.WIN)
-        # visualizerTesting.set_master_x(visualizerTesting.get_master_x() + 100)
         run = True
-        moving = False
         while run:
             self.clock.tick(self.FPS)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     run = False
-            self.draw_board()
+            self.blit_board()
     pygame.quit()
 
 
