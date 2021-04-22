@@ -193,8 +193,9 @@ class MenuSystem(object):
                 submenu_blue.add.label(card)
 
         submenu_blue.add.button('Populate chosen cards', showcardsblue)
+        submenu_blue.add.button('Save Current Deck')  # THIS NEEDS A FUNCTION THAT WILL SAVE THE CARDS CONTAINED IN THE DECK CURRENTLY BEING BUILT
         submenu_blue.add.button('Back', pygame_menu.events.BACK)
-        submenu_blue.add.button('Save Current Deck' ) # THIS NEEDS A FUNCTION THAT WILL SAVE THE CARDS CONTAINED IN THE DECK CURRENTLY BEING BUILT
+
 
             # for card in bluedeck:
             #     print(card.get_name(), end=" ")
