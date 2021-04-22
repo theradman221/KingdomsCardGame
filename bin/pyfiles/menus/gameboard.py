@@ -20,20 +20,20 @@ class Gameboard:
         self.kingdom_text = pygame.image.load(os.getcwd()+ '\pyfiles\menus\gameboard\_Kingdom_.png')
         self.kingdom_text = pygame.transform.scale(self.kingdom_text,(300, 35))
         self.relics_text = pygame.image.load(os.getcwd()+ '\pyfiles\menus\gameboard\_Relics_.png')
-        self.relics_text = pygame.transform.scale(self.relics_text,(450,60))
+        self.relics_text = pygame.transform.scale(self.relics_text,(300,35))
         self.terra_text = pygame.image.load(os.getcwd()+ '\pyfiles\menus\gameboard\_Terra_.png')
-        self.terra_text = pygame.transform.scale(self.terra_text, (450,60))
-        self.separator = pygame.image.load(os.getcwd()+ '\pyfiles\menus\gameboard\icons.jpg')
-        self.separator = pygame.transform.scale(self.separator,(900, 30))
+        self.terra_text = pygame.transform.scale(self.terra_text, (300,35))
+        # self.separator = pygame.image.load(os.getcwd()+ '\pyfiles\menus\gameboard\icons.jpg')
+        # self.separator = pygame.transform.scale(self.separator,(900, 30))
         # self.kingdom_zone = pygame.Rect()
 
     def blit_board(self): # anything that will be drawn on the board will need to be called within this function
         self.WIN.blit(self.backGround_Image, (0, 0))
         self.WIN.blit(self.kingdom_text, (780, 700))
-        self.WIN.blit(self.separator, (570, 800))
-        self.WIN.blit(self.relics_text,(780,855))
-        self.WIN.blit(self.separator, (570, 950))
-        self.WIN.blit(self.terra_text,(780, 1000))
+        # self.WIN.blit(self.separator, (570, 800))
+        self.WIN.blit(self.relics_text,(780,800))
+        # self.WIN.blit(self.separator, (570, 950))
+        self.WIN.blit(self.terra_text,(780, 900))
 
     def draw_board(self):
         pygame.display.update()
