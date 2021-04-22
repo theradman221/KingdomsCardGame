@@ -95,7 +95,7 @@ def main():
 
 
     saved_decks = load_saved_decks()
-    run_game(saved_decks)
+    run_game(saved_decks, screen)
 
 def load_saved_decks():
     save_file_path = os.getcwd() + "\saves"

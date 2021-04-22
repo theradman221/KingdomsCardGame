@@ -8,13 +8,13 @@ from pygame.locals import *
 
 class Gameboard:
 
-    def __init__(self):
-
-        self.WIDTH, self.HEIGHT = 1920,1000
-        self.WIN = pygame.display.set_mode((self.WIDTH, self.HEIGHT), RESIZABLE)
+    def __init__(self, screen):
+        self.WIN = screen
+        self.WIDTH, self.HEIGHT = screen.get_width(), screen.get_height()
+        # self.WIN = pygame.display.set_mode((self.WIDTH, self.HEIGHT), RESIZABLE)
         pygame.display.set_caption("Gameboard")
         self.FPS = 60
-
+        print(os.getcwd() + '\pyfiles\menus\gameboard\gameboard.jpg')
         self.backGround_Image = pygame.image.load(os.getcwd() + '\pyfiles\menus\gameboard\gameboard.jpg')
         self.backGround_Image = pygame.transform.scale(self.backGround_Image, (self.WIDTH, self.HEIGHT))
         self.kingdom_text = pygame.image.load(os.getcwd()+ '\pyfiles\menus\gameboard\_Kingdom_.png')
@@ -41,14 +41,14 @@ class Gameboard:
     def blit_card(self, visualizer):
         viscard = visualizer.get_card()
         if viscard.get_is_rested():
-            visualizer.visualizer(False)
-        else:
             visualizer.visualizer(True)
+        else:
+            visualizer.visualizer(False)
 
     def blit_card_big(self, visualizer):
-        visualizer.scale_card_up(False)
+        visualizer.scale_card_up(True)
 
-    def bg(self, test: bool) -> None: # this is the pygame loop and where the logic of the game will run
+    def bg(self) -> None: # this is the pygame loop and where the logic of the game will run
         self.clock = pygame.time.Clock()
         run = True
         while run:
@@ -56,6 +56,8 @@ class Gameboard:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     run = False
+            x,y = pygame.mouse.get_pos()
+            print(x , y)
             self.blit_board()
             self.draw_board()
     pygame.quit()

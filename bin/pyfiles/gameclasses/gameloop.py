@@ -2,13 +2,19 @@
 # The point of this file is to contain all of the code to actually run the game once players are ready to play, have picked decks ect
 from pyfiles.gameclasses.Player import Player
 import random
+from pyfiles.menus.gameboard import Gameboard
+from pyfiles.Visualizer import Visualizer
+import pygame
+import time
 
 # Constants
 PLAYER_LIMIT = 2
 DRAW_PHASE_LIMIT = 2
 
 # This is the enter point, for the player setup a list of decks should be provided
-def run_game(decks):
+def run_game(decks, screen):
+    game_board = Gameboard(screen)
+    # game_board.bg()
     # This variable will be set to false once a player either wins, or quits the game
     game_run = True
 
@@ -32,9 +38,16 @@ def run_game(decks):
             # Using break instead of = False here so that all of the turn logic doesn't need != False logic
             break
 
+        visualizer = Visualizer(players[0].draw_from_main_deck(), screen)
 
         for player in players:
             for phase in game_phases:
+                visualizer.set_master_x(visualizer.get_master_x() + 5)
+                game_board.blit_board()
+                game_board.blit_card(visualizer)
+                game_board.draw_board()
+
+
                 # Rest Phase
                 if phase == "Rest":
                     # Get the players cards for each area, for this phase we only care about the first 4 zones
@@ -87,6 +100,9 @@ def run_game(decks):
 
 
                 print("it's", player.get_name() + "'s turn, the phase is", phase)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
 
 def process_rest_phase(cards_list):
     updated_cards = []

@@ -350,7 +350,8 @@ class MenuSystem(object):
             width=self.WINDOW_SIZE[1] * 1
         )
 
-        self.play_button = self.main_menu.add.button('Play', game_board_loop) #This is where the gameboard is being called
+
+        self.play_button = self.main_menu.add.button('Play', self.main_menu.disable) #This is where the gameboard is being called
         self.deckcreator_button = self.main_menu.add.button('Deck Creator', self.pickcolor_menu)
         self.deckselector_button = self.main_menu.add.button('Deck Selector', self.deckselector_menu)
         self.settings_button = self.main_menu.add.button('Settings', self.settings_menu)
@@ -393,6 +394,7 @@ class MenuSystem(object):
         """
         self.clock.tick(self.FPS)
         self.main_menu.mainloop(self.surface, disable_loop=test)
+
 
 
 def main_menu(test: bool = False) -> 'MenuSystem':
