@@ -72,6 +72,9 @@ class Deck:
         else:
             return None
 
+    def set_name(self, name):
+        self.__name = name
+
     # These methods are used by the save/load deck features
     def save_deck(self):
         # Convert the current deck to a json list of the card names and dump it in the save directory.

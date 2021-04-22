@@ -194,7 +194,7 @@ class MenuSystem(object):
                 submenu_blue.add.label(card)
 
         submenu_blue.add.button('Populate chosen cards', showcardsblue)
-        submenu_blue.add.button('Save Current Deck', self.bluedeck.save_deck)  # THIS NEEDS A FUNCTION THAT WILL SAVE THE CARDS CONTAINED IN THE DECK CURRENTLY BEING BUILT
+        submenu_blue.add.button('Save Current Deck', self.save_blue)  # THIS NEEDS A FUNCTION THAT WILL SAVE THE CARDS CONTAINED IN THE DECK CURRENTLY BEING BUILT
         submenu_blue.add.button('Back', pygame_menu.events.BACK)
 
 
@@ -280,7 +280,7 @@ class MenuSystem(object):
 
 
         submenu_yellow.add.button('Populate chosen cards',showcardsyellow)
-        submenu_yellow.add.button('Save Current Deck', self.yellowdeck.save_deck)
+        submenu_yellow.add.button('Save Current Deck', self.save_yellow)
         submenu_yellow.add.button('Back', pygame_menu.events.BACK)
 
 
@@ -350,7 +350,7 @@ class MenuSystem(object):
             width=self.WINDOW_SIZE[1] * 1
         )
         # Selectable items
-        items = [(self.bluedeck.get_name(), self.bluedeck.save_deck()), (self.yellowdeck.get_name(), self.yellowdeck.save_deck())]
+        items = [(self.get_blue_name(), self.save_blue), (self.get_yellow_name(), self.save_yellow)]
 
         self.deckselector_menu.add.dropselect(
             'Select a Deck',
@@ -417,10 +417,12 @@ class MenuSystem(object):
         self.main_menu.mainloop(self.surface, disable_loop=test)
 
     def name_blue(self, value):
-        self.bluedeck = Deck(value)
+        print("Renamed the blue deck to", value)
+        self.bluedeck.set_name(value)
 
     def name_yellow(self, value):
-        self.yellowdeck = Deck(value)
+        print("Renamed the yellow deck to", value)
+        self.yellowdeck.set_name(value)
 
     def check_blue(self):
         if self.bluedeck.get_name() == "Blue":
@@ -430,6 +432,18 @@ class MenuSystem(object):
         else:
             print("Trying to render")
             self.deckcreatorblue_menu
+
+    def save_blue(self):
+        self.bluedeck.save_deck()
+
+    def save_yellow(self):
+        self.yellowdeck.save_deck()
+
+    def get_yellow_name(self):
+        return self.yellowdeck.get_name()
+
+    def get_blue_name(self):
+        return self.bluedeck.get_name()
 
 def main_menu(test: bool = False) -> 'MenuSystem':
 
