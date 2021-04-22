@@ -77,6 +77,7 @@ def main():
     logging.info("Creating the master deck")
     master_deck = Deck("Master")
     cc.load_all_cards(os.getcwd() + "\cards", master_deck)
+    master_deck.save_deck()
 
     # Testing the effect processor
     for card in master_deck.get_copy():
@@ -98,14 +99,16 @@ def main():
 
 def load_saved_decks():
     save_file_path = os.getcwd() + "\saves"
+    dont_load = ["supreme-potato.txt"]
     decks = []
     for deck_name in os.listdir(save_file_path):
-        deck_name = deck_name.split(".json")
-        deck_name = deck_name[0] # We only care about the name, not anything after .json
-        deck = Deck(deck_name)
-        deck.load_deck()
-        #print(deck.get_name(), "is", len(deck.get_copy()), "cards long")
-        decks.append(deck)
+        if deck_name not in dont_load:
+            deck_name = deck_name.split(".json")
+            deck_name = deck_name[0] # We only care about the name, not anything after .json
+            deck = Deck(deck_name)
+            deck.load_deck()
+            #print(deck.get_name(), "is", len(deck.get_copy()), "cards long")
+            decks.append(deck)
     return decks
 
 def delete_saved_deck(deck):
