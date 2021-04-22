@@ -31,75 +31,97 @@ def run_game(decks, screen):
     # Player creation
     players = create_players(decks)
     first_player = True
-    while game_run:
-        keep_going = input("Do you want to keep going? ")
-        print(keep_going)
-        if keep_going.lower() != "y" or len(players) < 2:
-            # Using break instead of = False here so that all of the turn logic doesn't need != False logic
-            break
+    visualizers = []
+    startx = 150
+    for i in range(5):
+        visualizer = Visualizer(players[0].draw_from_main_deck(), screen)
+        visualizer.set_master_x(startx * i)
+
+        visualizers.append(visualizer)
 
         visualizer = Visualizer(players[0].draw_from_main_deck(), screen)
+        visualizer.set_master_x(startx * i)
+        visualizer.set_master_y(250)
+        visualizers.append(visualizer)
 
-        for player in players:
-            for phase in game_phases:
-                visualizer.set_master_x(visualizer.get_master_x() + 5)
-                game_board.blit_board()
-                game_board.blit_card(visualizer)
-                game_board.draw_board()
+    while game_run:
+        # keep_going = input("Do you want to keep going? ")
+        # print(keep_going)
+        # if keep_going.lower() != "y" or len(players) < 2:
+        #     # Using break instead of = False here so that all of the turn logic doesn't need != False logic
+        #     break
+        print(visualizers[0].get_master_x())
+        for visualizer in visualizers:
+            if visualizer.get_master_x() > 800:
+                visualizer.set_master_x(0)
+
+        game_board.blit_board()
+        for visualizer in visualizers:
+            visualizer.set_master_x(visualizer.get_master_x() + 15)
+            game_board.blit_card(visualizer)
+        game_board.draw_board()
+
+        # for player in players:
+            # for phase in game_phases:
+        #         game_board.blit_board()
+        #         for visualizer in visualizers:
+        #             visualizer.set_master_x(visualizer.get_master_x() + 15)
+        #             game_board.blit_card(visualizer)
+        #         game_board.draw_board()
 
 
                 # Rest Phase
-                if phase == "Rest":
-                    # Get the players cards for each area, for this phase we only care about the first 4 zones
-                    kingdom_cards = player.get_kingdom()
-                    battlefield_cards = player.get_battlefield()
-                    relic_cards = player.get_relic_zone()
-                    terra_cards = player.get_terra_zone()
-                    player.update_kingdom(process_rest_phase(kingdom_cards))
-                    player.update_battlefield(process_rest_phase(battlefield_cards))
-                    player.update_relic_zone(process_rest_phase(relic_cards))
-                    player.update_terra_zone(process_rest_phase(terra_cards))
+                # if phase == "Rest":
+                #     # Get the players cards for each area, for this phase we only care about the first 4 zones
+                #     kingdom_cards = player.get_kingdom()
+                #     battlefield_cards = player.get_battlefield()
+                #     relic_cards = player.get_relic_zone()
+                #     terra_cards = player.get_terra_zone()
+                #     player.update_kingdom(process_rest_phase(kingdom_cards))
+                #     player.update_battlefield(process_rest_phase(battlefield_cards))
+                #     player.update_relic_zone(process_rest_phase(relic_cards))
+                #     player.update_terra_zone(process_rest_phase(terra_cards))
 
-                # Draw Phase
-                if phase == "Draw":
-                    drawn = False
-                    if first_player:
-                        draw_limit = 1
-                        first_player = False
-                    else:
-                        draw_limit = DRAW_PHASE_LIMIT
-                    have_drawn = 0
-                    while not drawn:
-                        print(player.get_name(), "it's your turn to draw: Please enter M to draw from your main deck or T to draw from your terra deck.\nIf you wish to skip drawing enter skip.\nYou have", (draw_limit - have_drawn), "cards left to draw")
-                        to_draw = input()
-                        if to_draw.lower() == "m":
-                            card = player.draw_from_main_deck()
-                            print(player.get_name(), "you drew", card.get_name())
-                            player.add_to_player_hand(card)
-                            have_drawn += 1
-
-                        elif to_draw.lower() == "t":
-                            card = player.draw_from_terra_deck()
-                            print(player.get_name(), "you drew", card.get_name())
-                            player.add_to_player_hand(card)
-                            have_drawn += 1
-
-                        elif to_draw.lower() == "skip":
-                            break
-
-                        if have_drawn == draw_limit:
-                            drawn = True
-
-                    # TESTING
-                    hand_after_drawing = player.get_player_hand()
-                    for card in hand_after_drawing:
-                        print(card)
-                        # card.print_all_details()
-
-
+                # # Draw Phase
+                # if phase == "Draw":
+                #     drawn = False
+                #     if first_player:
+                #         draw_limit = 1
+                #         first_player = False
+                #     else:
+                #         draw_limit = DRAW_PHASE_LIMIT
+                #     have_drawn = 0
+                #     while not drawn:
+                #         print(player.get_name(), "it's your turn to draw: Please enter M to draw from your main deck or T to draw from your terra deck.\nIf you wish to skip drawing enter skip.\nYou have", (draw_limit - have_drawn), "cards left to draw")
+                #         to_draw = input()
+                #         if to_draw.lower() == "m":
+                #             card = player.draw_from_main_deck()
+                #             print(player.get_name(), "you drew", card.get_name())
+                #             player.add_to_player_hand(card)
+                #             have_drawn += 1
+                #
+                #         elif to_draw.lower() == "t":
+                #             card = player.draw_from_terra_deck()
+                #             print(player.get_name(), "you drew", card.get_name())
+                #             player.add_to_player_hand(card)
+                #             have_drawn += 1
+                #
+                #         elif to_draw.lower() == "skip":
+                #             break
+                #
+                #         if have_drawn == draw_limit:
+                #             drawn = True
+                #
+                #     # TESTING
+                #     hand_after_drawing = player.get_player_hand()
+                #     for card in hand_after_drawing:
+                #         print(card)
+                #         # card.print_all_details()
 
 
-                print("it's", player.get_name() + "'s turn, the phase is", phase)
+
+
+                # print("it's", player.get_name() + "'s turn, the phase is", phase)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False

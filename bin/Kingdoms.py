@@ -79,6 +79,30 @@ def main():
     cc.load_all_cards(os.getcwd() + "\cards", master_deck)
     master_deck.save_deck()
 
+    show_deck = Deck("Master")
+    show_deck.load_deck()
+    show_deck.set_name("Show")
+    visualizers = []
+    startx = 150
+    starty = 400
+    count = 0
+    GRAY = (125, 125, 125)
+    for card in show_deck.get_copy():
+        visualizer = Visualizer(card, screen)
+        visualizer.set_master_x(startx * -count)
+        visualizer.set_master_y(starty)
+        visualizers.append(visualizer)
+        count += 1
+    while len(visualizers) != 0:
+        screen.fill(GRAY)
+        for visualizer in visualizers:
+            visualizer.visualizer(False)
+            visualizer.set_master_x(visualizer.get_master_x() + 150)
+            if visualizer.get_master_x() > 2000:
+                visualizers.remove(visualizer)
+        pygame.display.update()
+
+
     # Testing the effect processor
     for card in master_deck.get_copy():
         if card.get_effects():
@@ -88,7 +112,7 @@ def main():
             print(card.get_name(), "contains the activated effects:", card.get_activated_effects())
 
     # Creates 20 mountains and 20 islands in separate decks
-    #create_basic_terra_decks(master_deck)
+    create_basic_terra_decks(master_deck)
 
     main2 = MenuSystem(master_deck)
     main2.mainloop(False)
