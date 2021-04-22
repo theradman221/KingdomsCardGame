@@ -62,7 +62,7 @@ class MenuSystem(object):
         # -------------------------------------------------------------------------
 
         self.FPS = 60
-        self.WINDOW_SIZE = (900, 900)
+        self.WINDOW_SIZE = (1920,1000)
         self.surface = create_example_window('KINGDOMS', (self.WINDOW_SIZE))
         self.clock = pygame.time.Clock()
         self.yellowdeck = Deck("Yellow")
@@ -85,17 +85,17 @@ class MenuSystem(object):
         # Create menus: Settings
         # -------------------------------------------------------------------------
         self.settings_menu = pygame_menu.Menu(
-            height=self.WINDOW_SIZE[1] * 1,
+            height=1000, width=1920,
             theme=main_menu_theme,
             title='Settings',
-            width=self.WINDOW_SIZE[1] * 1
+
             )
 
         self.settings_menu.add.selector('Menu sounds ',
                                    [('Off', False), ('On', True)],
                                    onchange=self.update_menu_sound)
 
-        disclaimer = pygame_menu.Menu('Disclaimer', 900, 900, theme=main_menu_theme,
+        disclaimer = pygame_menu.Menu('Disclaimer', height=1000, width=1920, theme=main_menu_theme,
                                       mouse_motion_selection=True)
         disclaimer.add.label("""Disclaimer:
             This project has been developed as part of a classroom 
@@ -121,10 +121,9 @@ class MenuSystem(object):
         # -------------------------------------------------------------------------
 
         self.deckcreatorblue_menu = pygame_menu.Menu(
-            height=self.WINDOW_SIZE[1] * 1,
+            height=1000, width=1920,
             theme=main_menu_theme,
             title='Settings',
-            width=self.WINDOW_SIZE[1] * 1
             )
 
         bluecardlist = master_deck.filter_by_color(["Blue"])
@@ -209,10 +208,10 @@ class MenuSystem(object):
         # -------------------------------------------------------------------------
 
         self.deckcreatoryellow_menu = pygame_menu.Menu(
-            height=self.WINDOW_SIZE[1] * 1,
+            height=1000, width=1920,
             theme=main_menu_theme,
             title='Create Yellow Deck',
-            width=self.WINDOW_SIZE[1] * 1
+
             )
 
         # [master_deck.get_royal_1.get_color(), master_deck.get_royal_2.get_color(),]
@@ -229,7 +228,7 @@ class MenuSystem(object):
         for card in yellowcardlist:
 
             #Creating a Submenu for every card in the Yellow Card List
-            submenu = pygame_menu.Menu(card.get_name(), 850,850, theme=main_menu_theme,
+            submenu = pygame_menu.Menu(card.get_name(), height=1000, width=1920, theme=main_menu_theme,
                                        mouse_motion_selection=True)
 
             submenu.add.vertical_margin(75)
@@ -257,7 +256,7 @@ class MenuSystem(object):
                               font_name=pygame_menu.font.FONT_OPEN_SANS_BOLD,
                               margin=(5, 10))
             #adddescription
-            submenu.add.label(card.get_description(), max_char=70,
+            submenu.add.label(card.get_description(),  max_char=70,
                                       align=pygame_menu.locals.ALIGN_LEFT,
                                       margin=(29, 1), font_size=20,
                                       font_name=pygame_menu.font.FONT_PT_SERIF,
@@ -268,7 +267,7 @@ class MenuSystem(object):
             submenu.add.button("Back", pygame_menu.events.BACK)
 
         #The code below is the very jank 'show cards in my deck' screen
-        submenu_yellow = pygame_menu.Menu("Cards In Deck", 750, 750, theme=main_menu_theme,
+        submenu_yellow = pygame_menu.Menu("Cards In Deck", height=1000, width=1920, theme=main_menu_theme,
                                     mouse_motion_selection=True)
         submenu_yellow.add.vertical_margin(40)  # Bottom margin
 
@@ -299,10 +298,10 @@ class MenuSystem(object):
         # -------------------------------------------------------------------------
 
         self.nameblue_menu = pygame_menu.Menu(
-            height=self.WINDOW_SIZE[1] * 1,
+            height=1000, width=1920,
             theme=main_menu_theme,
             title='Name Deck',
-            width=self.WINDOW_SIZE[1] * 1
+
             )
 
         self.nameblue_menu.add.text_input('Deck Name: ', maxchar=10, onreturn=self.name_blue)
@@ -314,10 +313,9 @@ class MenuSystem(object):
         # -------------------------------------------------------------------------
 
         self.nameyellow_menu = pygame_menu.Menu(
-            height=self.WINDOW_SIZE[1] * 1,
+            height=1000, width=1920,
             theme=main_menu_theme,
             title='Name Deck',
-            width=self.WINDOW_SIZE[1] * 1
             )
 
         self.nameyellow_menu.add.text_input('Deck Name: ', maxchar=10, onreturn=self.name_yellow)
@@ -329,10 +327,10 @@ class MenuSystem(object):
         # -------------------------------------------------------------------------
 
         self.pickcolor_menu = pygame_menu.Menu(
-            height=self.WINDOW_SIZE[1] * 1,
+            height=1000, width=1920,
             theme=main_menu_theme,
             title='Select the Deck Color',
-            width=self.WINDOW_SIZE[1] * 1
+
             )
         self.pickcolor_menu.add.button('Blue', self.nameblue_menu)
         self.pickcolor_menu.add.button('Yellow', self.nameyellow_menu)
@@ -343,11 +341,11 @@ class MenuSystem(object):
         # -------------------------------------------------------------------------
 
         self.deckselector_menu = pygame_menu.Menu(
-            height=self.WINDOW_SIZE[1] * 1,
+            height=1000, width=1920,
             onclose=pygame_menu.events.EXIT,  # User press ESC button
             theme=main_menu_theme,
             title='Deck Selector',
-            width=self.WINDOW_SIZE[1] * 1
+
         )
         # Selectable items
         items = [(self.get_blue_name(), self.save_blue), (self.get_yellow_name(), self.save_yellow)]
@@ -369,11 +367,11 @@ class MenuSystem(object):
         # -------------------------------------------------------------------------
 
         self.main_menu = pygame_menu.Menu(
-            height= self.WINDOW_SIZE[1] * 1,
+            height=1000, width=1920,
             onclose=pygame_menu.events.EXIT,  # User press ESC button
             theme=main_menu_theme,
             title='Main menu',
-            width=self.WINDOW_SIZE[1] * 1
+
         )
 
 
