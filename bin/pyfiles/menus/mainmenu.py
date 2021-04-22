@@ -65,8 +65,9 @@ class MenuSystem(object):
         self.WINDOW_SIZE = (900, 900)
         self.surface = create_example_window('KINGDOMS', (self.WINDOW_SIZE))
         self.clock = pygame.time.Clock()
-        self.yellowdeck = None
-        self.bluedeck = None
+        self.yellowdeck = Deck("Yellow")
+        self.bluedeck = Deck("Blue")
+        self.main_menu = None
 
 
         '''
@@ -132,7 +133,7 @@ class MenuSystem(object):
         # card.get_color()
 
         def bluedeckappend(card) -> None:
-            self.bluedeck.append(card)
+            self.bluedeck.add_card(card)
             print(card.get_name() + " Added to deck")
             return
 
@@ -189,11 +190,11 @@ class MenuSystem(object):
         self.deckcreatorblue_menu.add.button("Show Cards in Deck", submenu_blue)
 
         def showcardsblue():
-            for card in self.bluedeck:
+            for card in self.bluedeck.get_copy():
                 submenu_blue.add.label(card)
 
         submenu_blue.add.button('Populate chosen cards', showcardsblue)
-        submenu_blue.add.button('Save Current Deck')  # THIS NEEDS A FUNCTION THAT WILL SAVE THE CARDS CONTAINED IN THE DECK CURRENTLY BEING BUILT
+        submenu_blue.add.button('Save Current Deck', self.bluedeck.save_deck)  # THIS NEEDS A FUNCTION THAT WILL SAVE THE CARDS CONTAINED IN THE DECK CURRENTLY BEING BUILT
         submenu_blue.add.button('Back', pygame_menu.events.BACK)
 
 
@@ -219,7 +220,7 @@ class MenuSystem(object):
         yellowcardlist = master_deck.filter_by_color(["Yellow"])
 
         def yellowdeckappend(card) -> None:
-            self.yellowdeck.append(card)
+            self.yellowdeck.add_card(card)
             print(card.get_name() + " Added to deck")
             return
 
@@ -274,11 +275,12 @@ class MenuSystem(object):
         self.deckcreatoryellow_menu.add.button("Show Cards in Deck", submenu_yellow)
 
         def showcardsyellow():
-            for card in self.yellowdeck:
+            for card in self.yellowdeck.get_copy():
                 submenu_yellow.add.label(card)
 
 
         submenu_yellow.add.button('Populate chosen cards',showcardsyellow)
+        submenu_yellow.add.button('Save Current Deck', self.yellowdeck.save_deck)
         submenu_yellow.add.button('Back', pygame_menu.events.BACK)
 
 
@@ -302,8 +304,9 @@ class MenuSystem(object):
             title='Name Deck',
             width=self.WINDOW_SIZE[1] * 1
             )
-        self.nameblue_menu.add.text_input('Deck Name: ', maxchar=10)
-        self.nameblue_menu.add.button('Continue', self.deckcreatorblue_menu)
+
+        self.nameblue_menu.add.text_input('Deck Name: ', maxchar=10, onreturn=self.name_blue)
+        self.nameblue_menu.add.button('Press enter to save, then Continue', self.deckcreatorblue_menu)
         self.nameblue_menu.add.button('back', pygame_menu.events.BACK)
 
         # -------------------------------------------------------------------------
@@ -317,8 +320,8 @@ class MenuSystem(object):
             width=self.WINDOW_SIZE[1] * 1
             )
 
-        self.nameyellow_menu.add.text_input('Deck Name: ', maxchar=10)
-        self.nameyellow_menu.add.button('Continue', self.deckcreatoryellow_menu)
+        self.nameyellow_menu.add.text_input('Deck Name: ', maxchar=10, onreturn=self.name_yellow)
+        self.nameyellow_menu.add.button('Press enter to save, then Continue', self.deckcreatoryellow_menu)
         self.nameyellow_menu.add.button('back', pygame_menu.events.BACK)
 
         # -------------------------------------------------------------------------
@@ -347,11 +350,7 @@ class MenuSystem(object):
             width=self.WINDOW_SIZE[1] * 1
         )
         # Selectable items
-        items = [("Blue", "Avren the Spellsword", "Argon The Telekinetic", "Magi Tower", "Ward Magi", "Ethereal Shield",
-                        "Pyro Magi Warrior", "Elder Magi", "Magi Freshman", "Island", "Hired Pirate", "Hired Assassin",
-                        "Lucid Mind", "Pluck",
-                        "Crack", "The Bigger They Are", "Counter", "Lotus Shrine", "The Rock", "Shrine of Greed"),
-                 ('yellow', yellowdeck)]
+        items = [(self.bluedeck.get_name(), self.bluedeck.save_deck()), (self.yellowdeck.get_name(), self.yellowdeck.save_deck())]
 
         self.deckselector_menu.add.dropselect(
             'Select a Deck',
@@ -417,7 +416,20 @@ class MenuSystem(object):
         self.clock.tick(self.FPS)
         self.main_menu.mainloop(self.surface, disable_loop=test)
 
+    def name_blue(self, value):
+        self.bluedeck = Deck(value)
 
+    def name_yellow(self, value):
+        self.yellowdeck = Deck(value)
+
+    def check_blue(self):
+        if self.bluedeck.get_name() == "Blue":
+            # Prompt them to hit enter
+            print("Need to redirect")
+            pass
+        else:
+            print("Trying to render")
+            self.deckcreatorblue_menu
 
 def main_menu(test: bool = False) -> 'MenuSystem':
 
