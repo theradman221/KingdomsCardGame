@@ -10,7 +10,7 @@ class Gameboard:
 
     def __init__(self):
 
-        self.WIDTH, self.HEIGHT = 1900,1080
+        self.WIDTH, self.HEIGHT = 1920,1000
         self.WIN = pygame.display.set_mode((self.WIDTH, self.HEIGHT), RESIZABLE)
         pygame.display.set_caption("Gameboard")
         self.FPS = 60
