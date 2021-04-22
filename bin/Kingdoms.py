@@ -89,7 +89,7 @@ def main():
     # Creates 20 mountains and 20 islands in separate decks
     #create_basic_terra_decks(master_deck)
 
-    main2 = MenuSystem(master_deck.get_copy())
+    main2 = MenuSystem(master_deck)
     main2.mainloop(False)
 
 

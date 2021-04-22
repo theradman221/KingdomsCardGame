@@ -56,6 +56,7 @@ class Gameboard:
                 if event.type == pygame.QUIT:
                     run = False
             self.blit_board()
+            self.draw_board()
     pygame.quit()
 
 
