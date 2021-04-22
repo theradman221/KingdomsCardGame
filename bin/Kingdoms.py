@@ -62,6 +62,7 @@ from pyfiles.Deck import Deck
 from pyfiles.guielements.Background import Background
 from pyfiles.gameclasses.gameloop import *
 from pyfiles.menus.mainmenu import MenuSystem, main_menu
+from pyfiles.menus.gameboard import Gameboard
 from pyfiles.Visualizer import Visualizer
 # this is Logan testing visualizer stuff
 from pyfiles.TestVisualizer import TestVisualizer
@@ -142,30 +143,30 @@ def main():
     all_units_deck.set_royal_1(hero[0])
     all_units_deck.set_royal_2(hero[1])
 
-    visualizerTesting = TestVisualizer(master_deck_full_list[12], screen)
-    visualizerTesting2 = TestVisualizer(master_deck_full_list[15], screen)
-    visualizerTesting2.set_master_x(visualizerTesting2.get_master_x() + 500)
-    visualizerTesting3 = TestVisualizer(master_deck_full_list[7], screen)
-    visualizerTesting3.set_master_x(visualizerTesting3.get_master_x() + 1000)
-    # visualizer3 = Visualizer(bastions[0], screen)
-    # visualizer3.set_master_x(visualizer3.get_master_x() + 1000)
-    running = True
-    while running:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-
-        screen.fill((155, 155, 155))
-        # True/False determines whether or not the card should be rotated
-        visualizerTesting.visualizer(False)
-        visualizerTesting2.scale_card_up(False)
-        visualizerTesting3.scale_card_up(True)
-        # visualizer3.visualizer()
-        pygame.display.update()
+    # visualizerTesting = TestVisualizer(master_deck_full_list[12], screen)
+    # visualizerTesting2 = TestVisualizer(master_deck_full_list[15], screen)
+    # visualizerTesting2.set_master_x(visualizerTesting2.get_master_x() + 500)
+    # visualizerTesting3 = TestVisualizer(master_deck_full_list[7], screen)
+    # visualizerTesting3.set_master_x(visualizerTesting3.get_master_x() + 1000)
+    # # visualizer3 = Visualizer(bastions[0], screen)
+    # # visualizer3.set_master_x(visualizer3.get_master_x() + 1000)
+    # running = True
+    # while running:
+    #     for event in pygame.event.get():
+    #         if event.type == pygame.QUIT:
+    #             running = False
+    #
+    #     screen.fill((155, 155, 155))
+    #     # True/False determines whether or not the card should be rotated
+    #     visualizerTesting.visualizer(False)
+    #     visualizerTesting2.scale_card_up(False)
+    #     visualizerTesting3.scale_card_up(True)
+    #     # visualizer3.visualizer()
+    #     pygame.display.update()
 
     # DISABLE THIS TO NOT SEE EVERY CARD EVERY TIME YOU CLOSE THE 3 CARDS ON ONE SCREEN EXAMPLE!
     # visualize_all_cards(master_deck_full_list)
-    pygame.quit()
+    # pygame.quit()
 
     for card in all_units_deck.get_copy():
         all_units_deck.add_card(card)
