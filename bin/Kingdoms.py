@@ -79,6 +79,16 @@ def main():
     cc.load_all_cards(os.getcwd() + "\cards", master_deck)
     master_deck.save_deck()
 
+    master_deck_list = master_deck.get_copy()
+    visualizer = Visualizer(master_deck_list[10], screen)
+    running = True
+    while running:
+        visualizer.visualizer(False)
+        pygame.display.update()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+
     show_deck = Deck("Master")
     show_deck.load_deck()
     show_deck.set_name("Show")
