@@ -65,6 +65,8 @@ class MenuSystem(object):
         self.WINDOW_SIZE = (900, 900)
         self.surface = create_example_window('KINGDOMS', (self.WINDOW_SIZE))
         self.clock = pygame.time.Clock()
+        self.yellowdeck = None
+        self.bluedeck = None
 
 
         '''
@@ -88,8 +90,6 @@ class MenuSystem(object):
             width=self.WINDOW_SIZE[1] * 1
             )
 
-        # The update_menu_soundn is breaking everything :( will need to ask the team if they know what is goingn on with that
-        # the sounds are nice but not vital to bug hunt day
         self.settings_menu.add.selector('Menu sounds ',
                                    [('Off', False), ('On', True)],
                                    onchange=self.update_menu_sound)
@@ -132,11 +132,11 @@ class MenuSystem(object):
         # card.get_color()
 
         def bluedeckappend(card) -> None:
-            bluedeck.append(card)
+            self.bluedeck.append(card)
             print(card.get_name() + " Added to deck")
             return
 
-        bluedeck = []
+
 
         for card in bluecardlist:
             # Creating a Submenu for every card in the Yellow Card List
@@ -189,7 +189,7 @@ class MenuSystem(object):
         self.deckcreatorblue_menu.add.button("Show Cards in Deck", submenu_blue)
 
         def showcardsblue():
-            for card in bluedeck:
+            for card in self.bluedeck:
                 submenu_blue.add.label(card)
 
         submenu_blue.add.button('Populate chosen cards', showcardsblue)
@@ -219,13 +219,11 @@ class MenuSystem(object):
         yellowcardlist = master_deck.filter_by_color(["Yellow"])
 
         def yellowdeckappend(card) -> None:
-            yellowdeck.append(card)
+            self.yellowdeck.append(card)
             print(card.get_name() + " Added to deck")
             return
 
 
-        yellowdeck = []
-        yellowtest = []
 
         for card in yellowcardlist:
 
@@ -276,7 +274,7 @@ class MenuSystem(object):
         self.deckcreatoryellow_menu.add.button("Show Cards in Deck", submenu_yellow)
 
         def showcardsyellow():
-            for card in yellowdeck:
+            for card in self.yellowdeck:
                 submenu_yellow.add.label(card)
 
 
@@ -285,16 +283,43 @@ class MenuSystem(object):
 
 
 
+
         # for card in yellowdeck:
         #     print('yellow deck: ')
 
 
         #print(card.get_name(), end=" ")
-
-
-
         # self.deckcreatoryellow_menu.add.button("Current Deck", self.yellowdeckcontains_menu)
         self.deckcreatoryellow_menu.add.button('back', pygame_menu.events.BACK)
+
+        # -------------------------------------------------------------------------
+        # Create menus: Naming Blue Menu
+        # -------------------------------------------------------------------------
+
+        self.nameblue_menu = pygame_menu.Menu(
+            height=self.WINDOW_SIZE[1] * 1,
+            theme=main_menu_theme,
+            title='Name Deck',
+            width=self.WINDOW_SIZE[1] * 1
+            )
+        self.nameblue_menu.add.text_input('Deck Name: ', maxchar=10)
+        self.nameblue_menu.add.button('Continue', self.deckcreatorblue_menu)
+        self.nameblue_menu.add.button('back', pygame_menu.events.BACK)
+
+        # -------------------------------------------------------------------------
+        # Create menus: Naming Yellow Menu
+        # -------------------------------------------------------------------------
+
+        self.nameyellow_menu = pygame_menu.Menu(
+            height=self.WINDOW_SIZE[1] * 1,
+            theme=main_menu_theme,
+            title='Name Deck',
+            width=self.WINDOW_SIZE[1] * 1
+            )
+
+        self.nameyellow_menu.add.text_input('Deck Name: ', maxchar=10)
+        self.nameyellow_menu.add.button('Continue', self.deckcreatoryellow_menu)
+        self.nameyellow_menu.add.button('back', pygame_menu.events.BACK)
 
         # -------------------------------------------------------------------------
         # Create menus: pick color
@@ -306,8 +331,8 @@ class MenuSystem(object):
             title='Select the Deck Color',
             width=self.WINDOW_SIZE[1] * 1
             )
-        self.pickcolor_menu.add.button('Blue', self.deckcreatorblue_menu)
-        self.pickcolor_menu.add.button('Yellow', self.deckcreatoryellow_menu)
+        self.pickcolor_menu.add.button('Blue', self.nameblue_menu)
+        self.pickcolor_menu.add.button('Yellow', self.nameyellow_menu)
         self.pickcolor_menu.add.button('back', pygame_menu.events.BACK)
 
         # -------------------------------------------------------------------------
@@ -388,23 +413,14 @@ class MenuSystem(object):
             print('Menu sounds were disabled')
 
     def mainloop(self, test: bool) -> None:
-        """
-        APP MAIN LOOP
 
-        :param test:
-        :return:
-        """
         self.clock.tick(self.FPS)
         self.main_menu.mainloop(self.surface, disable_loop=test)
 
 
 
 def main_menu(test: bool = False) -> 'MenuSystem':
-    """
-    MAIN FUNCTION
-    :param test: Indicate function is being tested
-    :return: App Object
-    """
+
     mainmenu = MenuSystem()
     mainmenu.mainloop(test)
     return MenuSystem
