@@ -185,6 +185,7 @@ class MenuSystem(object):
                                     mouse_motion_selection=True)
         submenu_blue.add.vertical_margin(40)  # Bottom margin
 
+
         self.deckcreatorblue_menu.add.button("Show Cards in Deck", submenu_blue)
 
         def showcardsblue():
@@ -193,7 +194,7 @@ class MenuSystem(object):
 
         submenu_blue.add.button('Populate chosen cards', showcardsblue)
         submenu_blue.add.button('Back', pygame_menu.events.BACK)
-
+        submenu_blue.add.button('Save Current Deck' ) # THIS NEEDS A FUNCTION THAT WILL SAVE THE CARDS CONTAINED IN THE DECK CURRENTLY BEING BUILT
 
             # for card in bluedeck:
             #     print(card.get_name(), end=" ")
