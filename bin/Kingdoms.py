@@ -69,7 +69,7 @@ from pyfiles.Visualizer import Visualizer
 
 import pyfiles.cardclasses.CardConstructor as cc
 
-screen = pygame.display.set_mode((1800,900), RESIZABLE)
+screen = pygame.display.set_mode((1920,1000), RESIZABLE)
 pygame.display.set_caption("Kingdoms")
 
 def main():
@@ -93,14 +93,14 @@ def main():
         visualizer.set_master_y(starty)
         visualizers.append(visualizer)
         count += 1
-    while len(visualizers) != 0:
-        screen.fill(GRAY)
-        for visualizer in visualizers:
-            visualizer.visualizer(False)
-            visualizer.set_master_x(visualizer.get_master_x() + 150)
-            if visualizer.get_master_x() > 2000:
-                visualizers.remove(visualizer)
-        pygame.display.update()
+    # while len(visualizers) != 0:
+    #     screen.fill(GRAY)
+    #     for visualizer in visualizers:
+    #         visualizer.visualizer(False)
+    #         visualizer.set_master_x(visualizer.get_master_x() + 150)
+    #         if visualizer.get_master_x() > 2000:
+    #             visualizers.remove(visualizer)
+    #     pygame.display.update()
 
 
     # Testing the effect processor
