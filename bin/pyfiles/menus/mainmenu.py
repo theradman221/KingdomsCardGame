@@ -63,10 +63,7 @@ class MenuSystem(object):
 
         self.FPS = 60
         self.WINDOW_SIZE = (1920,1000)
-<<<<<<< HEAD
         # self.surface = create_example_window('KINGDOMS', (self.WINDOW_SIZE))
-=======
->>>>>>> 02bf5ed2ef7f033bc02cbb3f79e0c44e149b0317
         self.surface = pygame.display.set_mode(self.WINDOW_SIZE, RESIZABLE)
         self.clock = pygame.time.Clock()
         self.yellowdeck = Deck("Yellow")
