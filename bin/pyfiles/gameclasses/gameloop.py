@@ -12,6 +12,10 @@ def run_game(decks):
     # This variable will be set to false once a player either wins, or quits the game
     game_run = True
 
+    # Variables for different quadrants of the screen WITH ONLY 2 PLAYERS
+    player1_bastion_coordinates = []
+
+
     # These are the phases of the game, in order
     game_phases = ["Rest", "Draw", "UpKeep", "Main", "Attack", "Main2", "End"]
     # These are all the different zones that units update in, most don't update in hand or deck so they're not included
