@@ -63,6 +63,7 @@ class MenuSystem(object):
 
         self.FPS = 60
         self.WINDOW_SIZE = (1920,1000)
+        # self.surface = create_example_window('KINGDOMS', (self.WINDOW_SIZE))
         self.surface = pygame.display.set_mode(self.WINDOW_SIZE, RESIZABLE)
         self.clock = pygame.time.Clock()
         self.yellowdeck = Deck("Yellow")
@@ -140,11 +141,11 @@ class MenuSystem(object):
 
         for card in bluecardlist:
             # Creating a Submenu for every card in the Yellow Card List
-            submenu = pygame_menu.Menu(card.get_name(), 850,850, theme=main_menu_theme,
+            submenu = pygame_menu.Menu(card.get_name(), height=1000, width=1920, theme=main_menu_theme,
                                        mouse_motion_selection=True)
             submenu.add.vertical_margin(75)
             # image for each card
-            submenu.add.image(card.get_image(), angle=10, scale=(0.15, 0.15))
+            submenu.add.image(card.get_image(), angle=10, scale=(0.4, 0.4))
 
             # adding description Title to submenu
             attack_cards = ["Lord", "Hero", "Pawn", "Token", "Bastion"]
@@ -181,7 +182,7 @@ class MenuSystem(object):
             submenu.add.button("add   " + card.get_name(), bluedeckappend, card)
             submenu.add.button("Back", pygame_menu.events.BACK)
 
-        submenu_blue = pygame_menu.Menu("Cards In Deck", 750, 750, theme=main_menu_theme,
+        submenu_blue = pygame_menu.Menu("Cards In Deck", height=1000, width=1920, theme=main_menu_theme,
                                     mouse_motion_selection=True)
         submenu_blue.add.vertical_margin(40)  # Bottom margin
 
@@ -233,7 +234,7 @@ class MenuSystem(object):
 
             submenu.add.vertical_margin(75)
             #image for each card
-            submenu.add.image(card.get_image(), angle=10,scale=(0.15, 0.15))
+            submenu.add.image(card.get_image(), angle=10,scale=(0.4, 0.4))
 
             #adding description Title to submenu
             attack_cards = ["Lord", "Hero", "Pawn", "Token", "Bastion"]
