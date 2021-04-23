@@ -79,12 +79,22 @@ def main():
     cc.load_all_cards(os.getcwd() + "\cards", master_deck)
     master_deck.save_deck()
 
+    master_deck_list = master_deck.get_copy()
+    visualizer = Visualizer(master_deck_list[0], screen)
+    running = True
+    while running:
+        visualizer.visualizer(False)
+        pygame.display.update()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+
     show_deck = Deck("Master")
     show_deck.load_deck()
     show_deck.set_name("Show")
     visualizers = []
-    startx = 150
-    starty = 400
+    startx = 500
+    starty = 200
     count = 0
     GRAY = (125, 125, 125)
     for card in show_deck.get_copy():
@@ -93,14 +103,26 @@ def main():
         visualizer.set_master_y(starty)
         visualizers.append(visualizer)
         count += 1
-    # while len(visualizers) != 0:
-    #     screen.fill(GRAY)
-    #     for visualizer in visualizers:
-    #         visualizer.visualizer(False)
-    #         visualizer.set_master_x(visualizer.get_master_x() + 150)
-    #         if visualizer.get_master_x() > 2000:
-    #             visualizers.remove(visualizer)
-    #     pygame.display.update()
+    while len(visualizers) != 0:
+        start = time.time()
+        screen.fill(GRAY)
+        for visualizer in visualizers:
+            visualizer.scale_card_up(False)
+            visualizer.set_master_x(visualizer.get_master_x() + 500)
+            if visualizer.get_master_x() > 2700:
+                visualizers.remove(visualizer)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+        end = time.time()
+        pygame.display.update()
+        taken = end - start
+        print(end - start)
+        if taken < 3:
+            time.sleep(3 - taken)
+
+
+    input()
 
 
     # Testing the effect processor
