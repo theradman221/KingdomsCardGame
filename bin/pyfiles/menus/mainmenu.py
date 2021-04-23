@@ -23,6 +23,7 @@ import sys
 from pygame.locals import *
 import pygame_menu
 import pygame
+pygame.init()
 from pygame_menu.examples import create_example_window
 import math
 from typing import Dict, Any, Tuple, Optional
